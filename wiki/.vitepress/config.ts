@@ -18,7 +18,7 @@ if (process.env.PREVIEW === 'true') {
 }
 
 export default defineConfig({
-  title: 'Trading Sandbox Wiki',
+  title: 'tradecli wiki',
   description: 'Documentation for the tradecli AI trading assistant.',
   base: DOCS_BASE,
   cleanUrls: true,
@@ -26,6 +26,9 @@ export default defineConfig({
   head,
 
   themeConfig: {
+    // Hide default siteTitle text — custom brand markup is injected via theme's nav-bar-title-before slot
+    siteTitle: false,
+
     nav: [
       { text: 'Personas', link: `${ORIGIN}${SITE_BASE}#personas` },
       { text: 'Features', link: `${ORIGIN}${SITE_BASE}#features` },
