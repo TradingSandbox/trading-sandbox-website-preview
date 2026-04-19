@@ -1,0 +1,49 @@
+name: Deploy
+
+on:
+  push:
+    branches: [preview]
+  workflow_dispatch:
+
+permissions:
+  contents: write  # required for peaceiris/actions-gh-pages to push to gh-pages
+
+env:
+  SITE_BASE: "/trading-sandbox-website-preview/"  # fork; main repo uses "/"
+  PREVIEW: "true"                                 # fork-only; main repo omits this entirely
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Guard against CNAME on master
+        run: |
+          if [ -f CNAME ]; then
+            echo "ERROR: CNAME must not be on master branch (see spec §4.7)"
+            exit 1
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build site (SITE_BASE=${{ env.SITE_BASE }})
+        run: npm run build
+
+      - name: Override robots.txt for preview (fully replace, no Sitemap lines)
+        run: |
+          printf 'User-agent: *\nDisallow: /\n' > dist/robots.txt
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e  # v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          force_orphan: true
+          # NO cname on fork — preview does not claim tradecli.in
