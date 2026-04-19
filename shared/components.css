@@ -8,7 +8,10 @@
 }
 
 /* ── Nav ── */
-nav {
+/* Scoped to body > nav only — this is the landing-page top nav.
+   VitePress wiki pages have their own <nav class="prev-next"> pager that
+   should NOT inherit this fixed/top/z-index positioning. */
+body > nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   background: rgba(10, 11, 15, 0.8);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
