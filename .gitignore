@@ -7,3 +7,22 @@ Thumbs.db
 .vscode/
 node_modules/
 .superpowers/
+
+# Build output
+dist/
+
+# VitePress
+wiki/.vitepress/cache/
+wiki/.vitepress/dist/
+
+# Shared CSS copied into wiki/public (regenerated each build)
+wiki/public/tokens.css
+wiki/public/components.css
+
+# Never commit CNAME to master — lives only on gh-pages
+# CI has a guard against this; gitignore is belt-and-suspenders
+/CNAME
+
+# Docs live in the main TradingSandbox repo (docs/superpowers/specs/, docs/superpowers/plans/).
+# This website repo never has a docs/ directory — gitignore prevents accidental doc commits.
+/docs/
