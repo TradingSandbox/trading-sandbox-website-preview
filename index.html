@@ -1,47 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- @@HEAD_BASE@@ -->
   <title>Trading Sandbox — AI-Powered Trading Assistant for Indian Markets</title>
   <meta name="description" content="Learn trading, analyze stocks, manage portfolios, and build strategies on NSE/BSE with an AI assistant that integrates with Groww and Zerodha." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{{SITE_BASE}}assets/tokens.css">
-  <link rel="stylesheet" href="{{SITE_BASE}}assets/components.css">
+  <meta property="og:title" content="Trading Sandbox — AI Trading Assistant for Indian Markets" />
+  <meta property="og:description" content="Learn trading, analyze stocks, manage portfolios on NSE/BSE with AI." />
+  <meta property="og:image" content="https://tradecli.in/assets/og-default.png" />
+  <meta property="og:url" content="https://tradecli.in/" />
+  <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body>
 
-  <!-- ── NAV ── -->
-  <nav>
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" style="font-family:'JetBrains Mono',monospace;font-size:1rem;letter-spacing:-0.02em;">
-        <span style="color:var(--green);">trade</span><span style="color:var(--text-primary);">cli</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#personas">Personas</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#integrations">Integrations</a></li>
-      </ul>
-      <div class="nav-right-desktop">
-        <a href="https://github.com/TradingSandbox/homebrew-tradecli" target="_blank" rel="noopener" style="color:var(--text-secondary);transition:color 0.2s;" title="GitHub">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        </a>
-        <a href="#get-started" class="nav-cta">Get Started</a>
-      </div>
-      <button class="nav-hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-      </button>
-    </div>
-  </nav>
-  <div class="nav-mobile" id="mobile-menu">
-    <a href="#personas" onclick="document.getElementById('mobile-menu').classList.remove('open')">Personas</a>
-    <a href="#features" onclick="document.getElementById('mobile-menu').classList.remove('open')">Features</a>
-    <a href="#integrations" onclick="document.getElementById('mobile-menu').classList.remove('open')">Integrations</a>
-    <a href="https://github.com/TradingSandbox/homebrew-tradecli" target="_blank" rel="noopener">GitHub</a>
-    <a href="#get-started" class="nav-cta" onclick="document.getElementById('mobile-menu').classList.remove('open')">Get Started</a>
-  </div>
+  <!-- @@NAV@@ -->
 
   <!-- ── HERO ── -->
   <section class="hero">
@@ -349,21 +320,7 @@
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-left">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;"><span style="color:var(--green);">trade</span>cli</span>
-        <span>&copy; 2026</span>
-      </div>
-      <div class="footer-links">
-        <a href="https://github.com/TradingSandbox/homebrew-tradecli" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-    <div style="max-width: 860px; margin: 24px auto 0; padding: 0 24px; color: var(--text-muted); font-size: 0.7rem; line-height: 1.6; text-align: center;">
-      tradecli is not affiliated with, endorsed by, or sponsored by Groww, Zerodha, Kite, Streak, TradingView, Screener.in, or any other third-party platform mentioned on this site. All trademarks and brand names are the property of their respective owners. This is a personal trading tool for educational and informational purposes only. It does not provide investment, financial, legal, or tax advice. Nothing on this site constitutes a recommendation to buy, sell, or hold any security.
-    </div>
-  </footer>
+  <!-- @@FOOTER@@ -->
 
   <script>
     /* ══════════════════════════════════════
