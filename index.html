@@ -536,12 +536,20 @@
       }
     }
 
-    // Smooth nav highlight
+    // Smooth nav highlight — only hijack anchor clicks when target exists on THIS page.
+    // Cross-page links (like /about/ or /wiki/) pass through to browser navigation.
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        const href = link.getAttribute('href');
+        const hashIdx = href.indexOf('#');
+        if (hashIdx === -1) return; // Not an anchor link — let browser navigate
+        const hash = href.substring(hashIdx);
+        const target = document.querySelector(hash);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+        // If target doesn't exist here (clicking /path/#foo from a different page) — let browser navigate
       });
     });
 
