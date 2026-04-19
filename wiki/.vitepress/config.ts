@@ -35,7 +35,7 @@ export default defineConfig({
       { text: 'Docs', link: `${ORIGIN}${SITE_BASE}wiki/` },
       { text: 'Updates', link: `${ORIGIN}${SITE_BASE}updates/` },
       { text: 'About', link: `${ORIGIN}${SITE_BASE}about/` },
-      { text: 'Get Started →', link: `${ORIGIN}${SITE_BASE}wiki/getting-started/quick-start/` },
+      { text: 'Get Started →', link: `${ORIGIN}${SITE_BASE}wiki/getting-started/quick-start` },
     ],
 
     sidebar: [
