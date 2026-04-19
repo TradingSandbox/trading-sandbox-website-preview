@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tradecli.in/sitemap.xml
+Sitemap: https://tradecli.in/wiki/sitemap.xml
