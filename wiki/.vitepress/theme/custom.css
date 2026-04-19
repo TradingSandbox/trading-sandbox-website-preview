@@ -1,0 +1,28 @@
+/* Pull in shared design tokens (copied into wiki/public/ by build-wiki.ts) */
+@import '/tokens.css';
+@import '/components.css';
+
+/* Override VitePress default theme variables to match tradecli.in */
+:root {
+  --vp-c-bg: var(--bg-primary);
+  --vp-c-bg-alt: var(--bg-secondary);
+  --vp-c-bg-soft: var(--bg-card);
+  --vp-c-text-1: var(--text-primary);
+  --vp-c-text-2: var(--text-secondary);
+  --vp-c-text-3: var(--text-muted);
+  --vp-c-divider: var(--border);
+  --vp-c-border: var(--border);
+
+  --vp-c-brand-1: var(--accent);
+  --vp-c-brand-2: var(--accent-light);
+  --vp-c-brand-3: var(--accent);
+  --vp-c-brand-soft: var(--accent-glow);
+
+  --vp-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono', monospace;
+}
+
+/* Force dark mode always (tradecli.in is dark-only) */
+html:not(.dark) {
+  color-scheme: dark;
+}
