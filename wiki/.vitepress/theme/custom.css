@@ -26,3 +26,162 @@
 html:not(.dark) {
   color-scheme: dark;
 }
+
+/* ────────────────────────────────────────────────
+   Content-page prose styling — pull closer to the landing's bold typography
+   ──────────────────────────────────────────────── */
+
+/* Heavier, larger headings in wiki content */
+.vp-doc h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.vp-doc h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.vp-doc h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-top: 2rem;
+}
+
+.vp-doc h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Prose body text */
+.vp-doc p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.vp-doc > div > p:first-of-type,
+.vp-doc > div > div > p:first-of-type {
+  /* Lead paragraph immediately after h1 */
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+/* Prose links — readable, underline on hover, subtle colored */
+.vp-doc a {
+  color: var(--accent-light);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(96, 165, 250, 0.3);
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.vp-doc a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Callout blocks (::: info, ::: tip, ::: warning, ::: danger) — styled as cards */
+.vp-doc .custom-block {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-card);
+}
+
+.vp-doc .custom-block.info { border-left-color: var(--accent); background: var(--bg-card); }
+.vp-doc .custom-block.tip { border-left-color: var(--green); }
+.vp-doc .custom-block.warning { border-left-color: var(--amber); }
+.vp-doc .custom-block.danger { border-left-color: var(--red); }
+
+.vp-doc .custom-block-title {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.vp-doc .custom-block p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Inline code */
+.vp-doc :not(pre) > code {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.15em 0.4em;
+  font-size: 0.88em;
+  color: var(--cyan);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Code blocks — tradecli terminal aesthetic */
+.vp-doc div[class*='language-'] {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-secondary);
+}
+
+.vp-doc div[class*='language-'] code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* Lists */
+.vp-doc ul,
+.vp-doc ol {
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.vp-doc li + li {
+  margin-top: 0.35em;
+}
+
+/* Sidebar — tighten up typography, use JetBrains Mono for section titles */
+.VPSidebarItem .text {
+  font-size: 0.9rem;
+}
+
+.VPSidebarItem.level-0 > .item > .text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* TOC / aside — subtle */
+.VPDocAside .outline-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+/* Top nav — tighten */
+.VPNavBar .title {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
