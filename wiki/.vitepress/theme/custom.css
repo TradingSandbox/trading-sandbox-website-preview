@@ -186,22 +186,3 @@ html:not(.dark) {
   font-weight: 700;
 }
 
-/* Split-brand: VitePress's VPNavBarTitle wraps our slot content in an <a>, but
-   we need two separate anchors inside the brand (`tradecli` → main site,
-   `wiki` → wiki root). Disable the outer anchor's click handling so the inner
-   anchors take clicks directly. href remains on the outer anchor for no-op
-   fallback but is effectively inert. */
-.VPNavBarTitle > .title {
-  pointer-events: none;
-}
-.VPNavBarTitle > .title > * {
-  pointer-events: auto;
-}
-
-/* Subtle hover on each brand half so users see it's clickable. */
-.brand-mark a {
-  transition: opacity 0.15s ease;
-}
-.brand-mark a:hover {
-  opacity: 0.75;
-}
