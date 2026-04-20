@@ -1,18 +1,31 @@
 ---
 title: Skills & Extensions
-description: Build custom skills and extend tradecli's capabilities.
+description: How tradecli skills are structured, loaded, and extended.
 outline: 2
 ---
 
 # Skills & Extensions
 
 ::: info Coming soon
-This page is a stub. Content is being written separately.
+This page is a stub — section structure is in place, full content is being written separately.
 :::
 
-## What this page will cover
+## What is a skill
 
-- Skill authoring conventions
-- Extension manifest format
-- Registering tools via MCP
-- Packaging and distributing a skill
+_Coming soon._
+
+## Built-in skills
+
+_Coming soon._
+
+## Extensions (`.pi/extensions/`)
+
+_Coming soon._
+
+## Skill file format
+
+_Coming soon._
+
+## Writing your own
+
+_Coming soon._

@@ -1,12 +1,22 @@
 import { defineConfig, type HeadConfig } from 'vitepress';
 
+// Augment DefaultTheme.Config so we can pass `homeUrl` through themeConfig and read
+// it in the custom theme (theme/index.ts) via useData().
+declare module 'vitepress' {
+  namespace DefaultTheme {
+    interface Config {
+      homeUrl?: string;
+    }
+  }
+}
+
 const SITE_BASE = process.env.SITE_BASE || '/';
 const DOCS_BASE = process.env.DOCS_BASE || '/wiki/';
 
-// VitePress prepends `base:` to any nav link not starting with http(s)://, which
-// double-prefixes cross-system links. Using full URLs keeps them intact.
-const ORIGIN = process.env.PREVIEW === 'true'
-  ? 'https://tradingsandbox.github.io'
+// URL for the brand-mark link (wiki → main site). Env-aware so preview stays
+// inside the preview deploy and prod points at tradecli.in.
+const HOME_URL = process.env.PREVIEW === 'true'
+  ? 'https://tradingsandbox.github.io/trading-sandbox-website-preview/'
   : 'https://tradecli.in';
 
 const head: HeadConfig[] = [
@@ -29,14 +39,13 @@ export default defineConfig({
     // Hide default siteTitle text — custom brand markup is injected via theme's nav-bar-title-before slot
     siteTitle: false,
 
-    nav: [
-      { text: 'Personas', link: `${ORIGIN}${SITE_BASE}#personas` },
-      { text: 'Features', link: `${ORIGIN}${SITE_BASE}#features` },
-      { text: 'Docs', link: `${ORIGIN}${SITE_BASE}wiki/` },
-      { text: 'Updates', link: `${ORIGIN}${SITE_BASE}updates/` },
-      { text: 'About', link: `${ORIGIN}${SITE_BASE}about/` },
-      { text: 'Get Started →', link: `${ORIGIN}${SITE_BASE}wiki/getting-started/quick-start` },
-    ],
+    // Exposed to the custom theme (read via useData().theme.value.homeUrl) so the
+    // brand-mark anchor points at the right main-site origin per environment.
+    homeUrl: HOME_URL,
+
+    // Nav intentionally empty — brand mark (in theme slot) links to the main site;
+    // sidebar handles intra-wiki navigation.
+    nav: [],
 
     sidebar: [
       {
@@ -49,7 +58,13 @@ export default defineConfig({
       },
       {
         text: 'Guides',
-        items: [{ text: 'Personas', link: '/guides/personas' }],
+        items: [
+          { text: 'Personas & Modes', link: '/guides/personas' },
+          { text: 'Learner Mode', link: '/guides/learner' },
+          { text: 'Investor', link: '/guides/investor' },
+          { text: 'Trader', link: '/guides/trader' },
+          { text: 'Portfolio Manager', link: '/guides/portfolio-manager' },
+        ],
       },
       {
         text: 'Extending',

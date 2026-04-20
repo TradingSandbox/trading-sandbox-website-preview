@@ -1,18 +1,31 @@
 ---
 title: Channels & API
-description: Set up Telegram, WhatsApp, and the gateway HTTP API.
+description: How tradecli exposes interaction channels beyond the TUI, and the gateway HTTP API.
 outline: 2
 ---
 
 # Channels & API
 
 ::: info Coming soon
-This page is a stub. Content is being written separately.
+This page is a stub — section structure is in place, full content is being written separately.
 :::
 
-## What this page will cover
+## What is a channel
 
-- Telegram bot integration
-- WhatsApp via Baileys
-- Gateway HTTP server for webhooks
-- Channel auth and routing
+_Coming soon._
+
+## The TUI channel
+
+_Coming soon._
+
+## Telegram
+
+_Coming soon._
+
+## WhatsApp
+
+_Coming soon._
+
+## Gateway HTTP API
+
+_Coming soon._
