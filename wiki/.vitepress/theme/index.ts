@@ -19,7 +19,10 @@ export default {
         return h(
           'span',
           {
-            class: 'brand-mark',
+            // `vp-raw` tells VitePress's router to skip anchors inside, so inner
+            // links resolve via normal browser navigation instead of being
+            // SPA-intercepted as same-origin and misrouted to wiki root.
+            class: 'brand-mark vp-raw',
             style: 'font-family: \'JetBrains Mono\', monospace; font-weight: 700; letter-spacing: -0.02em;',
           },
           [
