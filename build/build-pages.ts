@@ -2,6 +2,22 @@ import { readFileSync, writeFileSync, mkdirSync, cpSync, existsSync } from 'node
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+// Cloudflare Web Analytics beacon token. Client-side-visible (ships in every
+// browser's <script> tag), so safe to commit as a constant. Not a secret.
+// Rotation path: replace the string, commit, deploy.
+export const CF_BEACON_TOKEN = 'REPLACE_WITH_REAL_TOKEN_FROM_CLOUDFLARE_DASHBOARD';
+
+/**
+ * Compute the Cloudflare Web Analytics <script> tag for build-time injection.
+ * Returns empty string when preview mode is active OR the token is empty —
+ * both gates are honored so the documented rollback (clear the token) works
+ * uniformly across main-site and wiki surfaces.
+ */
+export function resolveAnalyticsSnippet(preview: boolean, token: string): string {
+  if (preview || !token) return '';
+  return `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='${JSON.stringify({ token })}'></script>`;
+}
+
 export function substituteTokens(
   input: string,
   tokens: Record<string, string>,
@@ -37,6 +53,7 @@ export function buildPageIntoDist(
   sourceRel: string,
   outputRel: string,
   tokens: Record<string, string>,
+  extraFragments: Record<string, string> = {},
 ): void {
   const sourcePath = join(repoRoot, sourceRel);
   if (!existsSync(sourcePath)) {
@@ -47,6 +64,7 @@ export function buildPageIntoDist(
     HEAD_BASE: readFileSync(join(repoRoot, 'shared/head-base.html'), 'utf-8'),
     NAV: readFileSync(join(repoRoot, 'shared/nav.html'), 'utf-8'),
     FOOTER: readFileSync(join(repoRoot, 'shared/footer.html'), 'utf-8'),
+    ...extraFragments,
   };
   const rawBody = readFileSync(sourcePath, 'utf-8');
   const withFragments = injectFragments(rawBody, shared);
@@ -79,13 +97,22 @@ function main(): void {
   const siteBase = process.env.SITE_BASE ?? '/';
   const isPreview = process.env.PREVIEW === 'true';
   const previewRobots = isPreview ? '<meta name="robots" content="noindex, nofollow">' : '';
+  const analyticsSnippet = resolveAnalyticsSnippet(isPreview, CF_BEACON_TOKEN);
 
   guardNoCnameOnMaster(repoRoot);
   for (const { source, output } of PAGES) {
-    buildPageIntoDist(repoRoot, source, output, {
-      SITE_BASE: siteBase,
-      PREVIEW_ROBOTS: previewRobots,
-    });
+    buildPageIntoDist(
+      repoRoot,
+      source,
+      output,
+      {
+        SITE_BASE: siteBase,
+        PREVIEW_ROBOTS: previewRobots,
+      },
+      {
+        BODY_END: analyticsSnippet,
+      },
+    );
   }
   copySharedCSSToDistAssets(repoRoot);
 }
