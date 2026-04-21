@@ -32,6 +32,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Run tests (includes smoke test — gates deploy)
+        run: npm test
+
       - name: Build site (SITE_BASE=${{ env.SITE_BASE }})
         run: npm run build
 
