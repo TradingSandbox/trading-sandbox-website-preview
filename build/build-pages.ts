@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 // Cloudflare Web Analytics beacon token. Client-side-visible (ships in every
 // browser's <script> tag), so safe to commit as a constant. Not a secret.
 // Rotation path: replace the string, commit, deploy.
-export const CF_BEACON_TOKEN = 'REPLACE_WITH_REAL_TOKEN_FROM_CLOUDFLARE_DASHBOARD';
+export const CF_BEACON_TOKEN = 'e68cb75864084de9afa70a34535a4251';
 
 /**
  * Compute the Cloudflare Web Analytics <script> tag for build-time injection.

@@ -3,7 +3,7 @@ import { defineConfig, type HeadConfig } from 'vitepress';
 // Cloudflare Web Analytics beacon token. Mirror of CF_BEACON_TOKEN in
 // build/build-pages.ts — duplicated here because wiki and main-site builds
 // are separate toolchains. If you rotate the token, update BOTH places.
-const CF_BEACON_TOKEN = 'REPLACE_WITH_REAL_TOKEN_FROM_CLOUDFLARE_DASHBOARD';
+const CF_BEACON_TOKEN = 'e68cb75864084de9afa70a34535a4251';
 
 const SITE_BASE = process.env.SITE_BASE || '/';
 const DOCS_BASE = process.env.DOCS_BASE || '/wiki/';
