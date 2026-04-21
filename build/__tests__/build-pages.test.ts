@@ -8,6 +8,7 @@ import {
   buildPageIntoDist,
   copySharedCSSToDistAssets,
   guardNoCnameOnMaster,
+  resolveAnalyticsSnippet,
 } from '../build-pages.js';
 
 describe('substituteTokens', () => {
@@ -126,5 +127,23 @@ describe('buildPageIntoDist (integration)', () => {
     const out = readFileSync(join(tmpRoot, 'dist/index.html'), 'utf-8');
     expect(out).not.toContain('noindex');
     expect(out).not.toContain('{{PREVIEW_ROBOTS}}');
+  });
+});
+
+describe('resolveAnalyticsSnippet', () => {
+  it('returns empty string when preview is true (preview gate)', () => {
+    expect(resolveAnalyticsSnippet(true, 'fake-token-123')).toBe('');
+  });
+
+  it('returns empty string when token is empty (rollback path)', () => {
+    expect(resolveAnalyticsSnippet(false, '')).toBe('');
+  });
+
+  it('returns the Cloudflare beacon script tag with token embedded in prod mode', () => {
+    const result = resolveAnalyticsSnippet(false, 'fake-token-123');
+    expect(result).toContain('cloudflareinsights');
+    expect(result).toContain('fake-token-123');
+    expect(result).toContain('defer');
+    expect(result).toContain('static.cloudflareinsights.com/beacon.min.js');
   });
 });
