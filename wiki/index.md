@@ -5,59 +5,71 @@ description: Documentation for the tradecli AI trading assistant for Indian mark
 
 # tradecli wiki
 
-Documentation for `tradecli` — the terminal-based AI trading assistant for Indian markets.
+Documentation for `tradecli` — a terminal-based AI trading assistant for Indian markets.
 
-## Getting Started
+## What is tradecli?
 
-### [Quick Start](/getting-started/quick-start)
+`tradecli` is a command-line AI agent that drives your browser to research stocks, learn trading, and manage portfolios across NSE and BSE. It connects to Groww and Zerodha through MCP, uses Screener.in and TradingView via browser automation, and adapts to where you are in your trading journey through four personas: Learner, Investor, Trader, and Portfolio Manager.
+
+Everything the agent does you can see and audit in your terminal — no hidden actions, no cloud service, your broker credentials stay on your machine.
+
+## New here?
+
+Start with → [Quick Start](/getting-started/quick-start)
+
+## Explore the docs
+
+### Getting Started
+
+#### [Quick Start](/getting-started/quick-start)
 - Install via Homebrew
 - Configure an LLM provider
 - Run `tradecli doctor`
 - Pick your first persona
 - Launch the TUI
 
-### [Broker Setup](/getting-started/broker-setup)
+#### [Broker Setup](/getting-started/broker-setup)
 - Supported brokers
 - Groww connection
 - Zerodha Kite connection
 - Token refresh and reauth
 - Troubleshooting
 
-### [Browser Setup](/getting-started/browser-setup)
+#### [Browser Setup](/getting-started/browser-setup)
 - Why a dedicated browser
 - Chrome/Chromium requirements
 - The tradecli browser profile
 - First-run flow
 - Troubleshooting
 
-## Guides
+### Guides
 
-### [Personas & Modes](/guides/personas)
+#### [Personas & Modes](/guides/personas)
 - Picking one
 - Switching
 
-### [Learner Mode](/guides/learner)
+#### [Learner Mode](/guides/learner)
 - How it works
 - Typical prompts
 - Switching away and back
 
-### [Investor](/guides/investor)
+#### [Investor](/guides/investor)
 - What it's for
 - Primary tools
 - Typical prompts
 
-### [Trader](/guides/trader)
+#### [Trader](/guides/trader)
 - What it's for
 - Primary tools
 - Typical prompts
 
-### [Portfolio Manager](/guides/portfolio-manager)
+#### [Portfolio Manager](/guides/portfolio-manager)
 - What it's for
 - Primary tools
 - Setup
 - Typical prompts
 
-### [Channels & API](/guides/channels-api)
+#### [Channels & API](/guides/channels-api)
 - What is a channel
 - The TUI channel
 - Telegram

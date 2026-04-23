@@ -28,4 +28,4 @@ _Coming soon._
 
 ## Troubleshooting
 
-_Coming soon._
+_Full troubleshooting content is being written. In the meantime, if you're stuck, email [contact@tradecli.in](mailto:contact@tradecli.in)._
