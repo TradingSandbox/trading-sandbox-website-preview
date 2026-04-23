@@ -80,10 +80,6 @@ export default defineConfig({
     ],
 
     outline: [2, 3],
-
-    footer: {
-      message: 'Questions or trouble? <a href="mailto:contact@tradecli.in">contact@tradecli.in</a>',
-    },
   },
 
   sitemap: {

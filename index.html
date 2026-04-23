@@ -246,10 +246,10 @@
   <!-- ── INTEGRATIONS ── -->
   <section id="integrations">
     <div class="container">
-      <div class="section-header fade-in" style="text-align: center;">
+      <div class="section-header fade-in">
         <div class="section-label">Integrations</div>
         <h2 class="section-title">Plugged into the ecosystem</h2>
-        <p class="section-desc" style="margin-left: auto; margin-right: auto;">Direct API and MCP connections to the platforms Indian traders actually use.</p>
+        <p class="section-desc">Direct API and MCP connections to the platforms Indian traders actually use.</p>
       </div>
 
       <div class="integrations-row fade-in">
@@ -502,16 +502,8 @@
       heroObserver.observe(termEl);
     })();
 
-    // Scroll-based fade-in
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // Scroll-based fade-in is now handled by shared/assets/fade-in.js
+    // (loaded via shared/head-base.html on every page).
 
     // Copy install command
     function copyInstall(el, text) {

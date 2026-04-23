@@ -186,3 +186,21 @@ html:not(.dark) {
   font-weight: 700;
 }
 
+/* Global contact line at bottom of every wiki page (layout-bottom slot) */
+.tradecli-wiki-contact {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 32px 32px 48px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.tradecli-wiki-contact a {
+  color: var(--accent-light);
+  text-decoration: none;
+}
+.tradecli-wiki-contact a:hover {
+  color: var(--accent);
+}
+

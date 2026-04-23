@@ -191,8 +191,14 @@ section { padding: 100px 0; }
 .section-desc {
   font-size: 1.05rem; color: var(--text-secondary);
   max-width: 560px; line-height: 1.7;
+  margin-left: auto; margin-right: auto;
 }
-.section-header { margin-bottom: 56px; }
+.section-header { margin-bottom: 56px; text-align: center; }
+
+/* Center constrained-width H1/descs inside .hero when text-align:center centers inner text
+   but block-level elements need auto margins to center their max-width box too. */
+.hero .section-title,
+.hero .section-desc { margin-left: auto; margin-right: auto; }
 
 /* ── About-page prose ── */
 .about-prose {
