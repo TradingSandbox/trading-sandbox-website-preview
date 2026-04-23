@@ -57,16 +57,7 @@ Documentation for `tradecli` — the terminal-based AI trading assistant for Ind
 - Setup
 - Typical prompts
 
-## Extending
-
-### [Skills & Extensions](/extending/skills)
-- What is a skill
-- Built-in skills
-- Extensions (`.pi/extensions/`)
-- Skill file format
-- Writing your own
-
-### [Channels & API](/extending/channels-api)
+### [Channels & API](/guides/channels-api)
 - What is a channel
 - The TUI channel
 - Telegram

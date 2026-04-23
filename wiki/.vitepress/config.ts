@@ -35,6 +35,7 @@ export default defineConfig({
   description: 'Documentation for the tradecli AI trading assistant.',
   base: DOCS_BASE,
   cleanUrls: true,
+  appearance: false,
 
   head,
 
@@ -65,13 +66,7 @@ export default defineConfig({
           { text: 'Investor', link: '/guides/investor' },
           { text: 'Trader', link: '/guides/trader' },
           { text: 'Portfolio Manager', link: '/guides/portfolio-manager' },
-        ],
-      },
-      {
-        text: 'Extending',
-        items: [
-          { text: 'Skills & Extensions', link: '/extending/skills' },
-          { text: 'Channels & API', link: '/extending/channels-api' },
+          { text: 'Channels & API', link: '/guides/channels-api' },
         ],
       },
     ],

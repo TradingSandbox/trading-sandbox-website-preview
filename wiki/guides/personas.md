@@ -40,7 +40,6 @@ Key properties:
 - **Deep dive on each** → [Learner Mode](/guides/learner) · [Investor](/guides/investor) · [Trader](/guides/trader) · [Portfolio Manager](/guides/portfolio-manager)
 - **Connect your broker** → [Broker Setup](../getting-started/broker-setup) — so persona tools can reach your account
 - **Configure the browser** → [Browser Setup](../getting-started/browser-setup) — for Streak workflows and some PM actions
-- **Extend a persona** → [Skills & Extensions](../extending/skills) — how skills are loaded, and how to add new ones
 
 ::: danger Not financial advice
 Persona outputs are educational and analytical. Nothing `tradecli` says constitutes a recommendation to buy, sell, or hold any security. Verify against primary sources before trading real capital.

@@ -19,7 +19,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <text x="80" y="280" font-family="Inter, sans-serif" font-weight="800" font-size="72" fill="#e8eaf0">
-    Trading Sandbox
+    tradecli
   </text>
   <text x="80" y="370" font-family="Inter, sans-serif" font-weight="600" font-size="44" fill="url(#accent)">
     AI Trading Assistant

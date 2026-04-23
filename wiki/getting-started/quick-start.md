@@ -119,7 +119,7 @@ Once you have a working install:
 - **Connect your broker** → [Broker Setup](./broker-setup) — Groww and Zerodha Kite OAuth flows
 - **Configure the browser** → [Browser Setup](./browser-setup) — Chrome CDP for platform automation
 - **Deep-dive per persona** → [Personas guide](../guides/personas)
-- **Extend tradecli** → [Skills & Extensions](../extending/skills)
+- **Channels & API** → [Beyond the TUI](../guides/channels-api)
 
 ::: danger Not financial advice
 `tradecli` is an educational and analytical tool. Nothing it outputs constitutes a recommendation to buy, sell, or hold any security. Always verify AI outputs against primary sources before trading real capital.
