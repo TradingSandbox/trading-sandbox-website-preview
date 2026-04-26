@@ -81,6 +81,7 @@ export default defineConfig({
         text: 'Getting Started',
         items: [
           { text: 'Quick Start', link: '/getting-started/quick-start' },
+          { text: 'LLM Setup', link: '/getting-started/llm-setup' },
           { text: 'Broker Setup', link: '/getting-started/broker-setup' },
           { text: 'Browser Setup', link: '/getting-started/browser-setup' },
         ],

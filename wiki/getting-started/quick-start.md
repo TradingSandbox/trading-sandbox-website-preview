@@ -40,25 +40,18 @@ tradecli --version
 
 ## 2. Configure an LLM provider
 
-`tradecli` needs access to a large language model to drive the personas. First-run setup auto-detects the following (in priority order):
-
-| Source | How it's detected |
-|---|---|
-| `ANTHROPIC_API_KEY` environment variable | Checked at startup |
-| OAuth login (Anthropic / OpenAI) | Runs via browser if no env var |
-| Hand-edited `~/.tradecli/auth.json` | Fallback for advanced users |
-
-The simplest path:
+`tradecli` needs access to a large language model to drive the personas. Run:
 
 ```bash
-export ANTHROPIC_API_KEY="sk-ant-..."
 tradecli setup
 ```
 
-The setup wizard walks through the remaining checks (config dir, Chrome, broker OAuth, port availability) and writes `~/.tradecli/config.json`.
+The wizard auto-detects any LLM credentials you've already set (env vars, prior `auth.json`). If none are configured, it opens an interactive picker so you can pick a provider and paste an API key inline. After authentication, the wizard walks through the remaining checks (config dir, Chrome, broker OAuth, port availability) and writes `~/.tradecli/config.json`.
+
+If you have a subscription (Claude Pro/Max, ChatGPT Plus, GitHub Copilot, etc.) instead of an API key, see [LLM Setup](./llm-setup) for the `/login` browser flow.
 
 ::: warning Do not commit API keys
-Keep `ANTHROPIC_API_KEY` in your shell's rc file (`~/.zshrc`, `~/.bashrc`) — never commit it to a repository. If a key leaks, rotate it immediately in the [Anthropic console](https://console.anthropic.com/).
+Keep keys in `~/.tradecli/agent/auth.json` (where the wizard writes them) or in your shell rc (`~/.zshrc`, `~/.bashrc`) — never commit them to a repository. If a key leaks, rotate it immediately in the relevant provider's console.
 :::
 
 ## 3. Run `tradecli doctor`
