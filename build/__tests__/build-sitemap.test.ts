@@ -79,9 +79,11 @@ describe('gitMtimeResolver — max across page source + shared inputs', () => {
     expect(result).toMatch(/^\d{4}-\d{2}-\d{2}T/);
 
     // Behavioral assertion: result must be >= every shared input's own mtime.
+    // Use the same git format the resolver uses (TZ-normalized via TZ=UTC +
+    // --date=iso-strict-local %cd) so the comparison is apples-to-apples.
     for (const sharedFile of SHARED_PAGE_INPUTS) {
       const sharedMtime = execSync(
-        `git log -1 --format=%cI -- ${JSON.stringify(sharedFile)}`,
+        `git log -1 --date=iso-strict-local --format=%cd -- ${JSON.stringify(sharedFile)}`,
         { cwd: repoRoot, encoding: 'utf-8', env: { ...process.env, TZ: 'UTC' } },
       ).trim();
       if (sharedMtime) {

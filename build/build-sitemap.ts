@@ -57,11 +57,18 @@ export const SHARED_PAGE_INPUTS: readonly string[] = [
  *  the filesystem can resolve it (caller decides what to do with empty). */
 function singleFileMtime(repoRoot: string, fileRel: string): string {
   try {
-    const out = execSync(`git log -1 --format=%cI -- ${JSON.stringify(fileRel)}`, {
-      cwd: repoRoot,
-      encoding: 'utf-8',
-      env: { ...process.env, TZ: 'UTC' },
-    }).trim();
+    // %cI hard-codes the committer's tz at commit time and ignores TZ env.
+    // --date=iso-strict-local + %cd respects TZ, so TZ=UTC normalizes every
+    // timestamp to +00:00, which is what makes the lex-compare in
+    // gitMtimeResolver actually correct across mixed-tz committers.
+    const out = execSync(
+      `git log -1 --date=iso-strict-local --format=%cd -- ${JSON.stringify(fileRel)}`,
+      {
+        cwd: repoRoot,
+        encoding: 'utf-8',
+        env: { ...process.env, TZ: 'UTC' },
+      },
+    ).trim();
     if (out) return out;
   } catch { /* fall through */ }
   try {
