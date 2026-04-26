@@ -120,6 +120,90 @@ describe('smoke: sitemap.xml — prod build', () => {
       expect(block).toMatch(/<lastmod>/);
     }
   });
+
+  test('every built page has exactly one well-formed canonical link', () => {
+    const pages = ['dist/index.html', 'dist/about/index.html', 'dist/updates/index.html', 'dist/404.html'];
+    for (const page of pages) {
+      const html = readFileSync(join(REPO_ROOT, page), 'utf-8');
+      const canonicals = html.match(/<link rel="canonical"[^>]*>/g) ?? [];
+      expect(canonicals.length).toBe(1);
+      // Well-formed: starts with https://, has a real host, no localhost
+      const hrefMatch = canonicals[0]!.match(/href="([^"]+)"/);
+      expect(hrefMatch).not.toBeNull();
+      const href = hrefMatch![1]!;
+      expect(href.startsWith('https://')).toBe(true);
+      expect(href).not.toContain('localhost');
+      expect(href).not.toMatch(/https:\/\/\//); // empty host
+    }
+  });
+
+  test('canonical hostname is tradecli.in on prod build', () => {
+    const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
+    expect(html).toContain('<link rel="canonical" href="https://tradecli.in/">');
+  });
+
+  test('homepage has 3 JSON-LD blocks; other pages have 2', () => {
+    const counts = {
+      'dist/index.html': 3,
+      'dist/about/index.html': 2,
+      'dist/updates/index.html': 2,
+      'dist/404.html': 2,
+    };
+    for (const [page, expected] of Object.entries(counts)) {
+      const html = readFileSync(join(REPO_ROOT, page), 'utf-8');
+      const blocks = html.match(/<script\s+type="application\/ld\+json">/g) ?? [];
+      expect(blocks.length, `${page} JSON-LD block count`).toBe(expected);
+    }
+  });
+
+  test('every JSON-LD block parses as valid JSON', () => {
+    const pages = ['dist/index.html', 'dist/about/index.html', 'dist/updates/index.html', 'dist/404.html'];
+    for (const page of pages) {
+      const html = readFileSync(join(REPO_ROOT, page), 'utf-8');
+      const blocks = [...html.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+      for (const [, body] of blocks) {
+        expect(() => JSON.parse(body!), `${page} JSON-LD parse`).not.toThrow();
+      }
+    }
+  });
+
+  test('SoftwareApplication is on homepage only', () => {
+    expect(readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8')).toContain('"SoftwareApplication"');
+    expect(readFileSync(join(REPO_ROOT, 'dist/about/index.html'), 'utf-8')).not.toContain('SoftwareApplication');
+    expect(readFileSync(join(REPO_ROOT, 'dist/404.html'), 'utf-8')).not.toContain('SoftwareApplication');
+  });
+
+  test('no duplicate <meta name="robots"> on prod 404 or updates', () => {
+    for (const page of ['dist/404.html', 'dist/updates/index.html']) {
+      const html = readFileSync(join(REPO_ROOT, page), 'utf-8');
+      const robots = html.match(/<meta\s+name="robots"[^>]*>/g) ?? [];
+      expect(robots.length, `${page} robots meta count`).toBe(1);
+    }
+  });
+
+  test('every built wiki page has exactly one canonical pointing to tradecli.in/wiki/...', () => {
+    const wikiDir = join(DIST, 'wiki');
+    const wikiHtml: string[] = [];
+    function walk(dir: string): void {
+      for (const entry of readdirSync(dir)) {
+        const p = join(dir, entry);
+        if (statSync(p).isDirectory()) walk(p);
+        // VitePress auto-generates 404.html with no markdown source, so
+        // transformPageData (which injects the canonical) never runs for it.
+        // A 404 page semantically should not advertise a canonical anyway.
+        else if (entry.endsWith('.html') && entry !== '404.html') wikiHtml.push(p);
+      }
+    }
+    walk(wikiDir);
+    expect(wikiHtml.length).toBeGreaterThan(0);
+
+    for (const file of wikiHtml) {
+      const html = readFileSync(file, 'utf-8');
+      const canonicals = html.match(/<link rel="canonical"[^>]*>/g) ?? [];
+      expect(canonicals.length, `${file} canonical count`).toBe(1);
+      expect(canonicals[0]).toMatch(/href="https:\/\/tradecli\.in\/wiki\//);
+    }
+  });
 });
 
 describe('smoke: sitemap.xml — preview build', () => {
@@ -143,5 +227,19 @@ describe('smoke: sitemap.xml — preview build', () => {
     const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf-8');
     expect(xml).toContain('<loc>https://tradingsandbox.github.io/trading-sandbox-website-preview/</loc>');
     expect(xml).not.toContain('https://tradecli.in/');
+  });
+
+  test('preview build has exactly one <meta robots> per page (PREVIEW_ROBOTS only)', () => {
+    for (const page of ['dist/index.html', 'dist/about/index.html', 'dist/updates/index.html', 'dist/404.html']) {
+      const html = readFileSync(join(REPO_ROOT, page), 'utf-8');
+      const robots = html.match(/<meta\s+name="robots"[^>]*>/g) ?? [];
+      expect(robots.length, `${page} preview robots count`).toBe(1);
+      expect(robots[0]).toContain('noindex, nofollow'); // PREVIEW_ROBOTS variant
+    }
+  });
+
+  test('preview build canonical uses preview hostname', () => {
+    const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
+    expect(html).toContain('<link rel="canonical" href="https://tradingsandbox.github.io/trading-sandbox-website-preview/">');
   });
 });
