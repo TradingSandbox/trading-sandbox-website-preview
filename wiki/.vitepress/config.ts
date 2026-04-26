@@ -109,6 +109,20 @@ export default defineConfig({
     outline: [2, 3],
   },
 
+  transformPageData(pageData) {
+    // pageData.relativePath examples:
+    //   'index.md'                        → /wiki/
+    //   'getting-started/quick-start.md'  → /wiki/getting-started/quick-start
+    //   'guides/index.md'                 → /wiki/guides/
+    let path = pageData.relativePath.replace(/\.md$/, '');
+    if (path === 'index') path = '';
+    else if (path.endsWith('/index')) path = path.slice(0, -'index'.length);
+
+    const canonical = `https://tradecli.in/wiki${path ? '/' + path : '/'}`;
+    pageData.frontmatter.head ??= [];
+    pageData.frontmatter.head.push(['link', { rel: 'canonical', href: canonical }]);
+  },
+
   sitemap: {
     hostname: 'https://tradecli.in',
     // VitePress sitemap emits paths relative to the wiki project root (no base prefix).
