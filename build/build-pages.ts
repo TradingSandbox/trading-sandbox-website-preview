@@ -84,11 +84,22 @@ export function copySharedCSSToDistAssets(repoRoot: string): void {
   console.log('copied: shared/tokens.css + components.css → dist/assets/');
 }
 
-const PAGES = [
-  { source: 'index.html', output: 'index.html' },
-  { source: 'about/index.html', output: 'about/index.html' },
-  { source: 'updates/index.html', output: 'updates/index.html' },
-  { source: '404.html', output: '404.html' },
+export interface PageManifestEntry {
+  source: string;
+  output: string;
+  changefreq: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+  priority: number;
+  indexable: boolean;
+  /** Per-page <meta name="robots"> directive. Emitted only when PREVIEW !== 'true'
+   *  (PREVIEW_ROBOTS already covers the whole site on preview builds). See spec §4.5. */
+  robots?: string;
+}
+
+export const PAGES_MANIFEST: readonly PageManifestEntry[] = [
+  { source: 'index.html',         output: 'index.html',         changefreq: 'weekly',  priority: 1.0, indexable: true  },
+  { source: 'about/index.html',   output: 'about/index.html',   changefreq: 'monthly', priority: 0.7, indexable: true  },
+  { source: 'updates/index.html', output: 'updates/index.html', changefreq: 'weekly',  priority: 0.8, indexable: false, robots: 'noindex, follow' }, // placeholder content; lift when first real entry ships, see spec §4.5
+  { source: '404.html',           output: '404.html',           changefreq: 'never',   priority: 0.0, indexable: false, robots: 'noindex' },
 ];
 
 function main(): void {
@@ -100,7 +111,7 @@ function main(): void {
   const analyticsSnippet = resolveAnalyticsSnippet(isPreview, CF_BEACON_TOKEN);
 
   guardNoCnameOnMaster(repoRoot);
-  for (const { source, output } of PAGES) {
+  for (const { source, output } of PAGES_MANIFEST) {
     buildPageIntoDist(
       repoRoot,
       source,

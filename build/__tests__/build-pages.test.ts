@@ -9,6 +9,7 @@ import {
   copySharedCSSToDistAssets,
   guardNoCnameOnMaster,
   resolveAnalyticsSnippet,
+  PAGES_MANIFEST,
 } from '../build-pages.js';
 
 describe('substituteTokens', () => {
@@ -145,5 +146,47 @@ describe('resolveAnalyticsSnippet', () => {
     expect(result).toContain('fake-token-123');
     expect(result).toContain('defer');
     expect(result).toContain('static.cloudflareinsights.com/beacon.min.js');
+  });
+});
+
+describe('PAGES_MANIFEST', () => {
+  it('is exported and contains the four current site pages', () => {
+    const sources = PAGES_MANIFEST.map((p) => p.source);
+    expect(sources).toEqual([
+      'index.html',
+      'about/index.html',
+      'updates/index.html',
+      '404.html',
+    ]);
+  });
+
+  it('every entry has changefreq, priority, indexable fields', () => {
+    for (const entry of PAGES_MANIFEST) {
+      expect(entry).toHaveProperty('source');
+      expect(entry).toHaveProperty('output');
+      expect(entry).toHaveProperty('changefreq');
+      expect(entry).toHaveProperty('priority');
+      expect(entry).toHaveProperty('indexable');
+      expect(typeof entry.priority).toBe('number');
+      expect(typeof entry.indexable).toBe('boolean');
+    }
+  });
+
+  it('updates and 404 are non-indexable and have a robots directive', () => {
+    const updates = PAGES_MANIFEST.find((p) => p.source === 'updates/index.html');
+    const notFound = PAGES_MANIFEST.find((p) => p.source === '404.html');
+    expect(updates?.indexable).toBe(false);
+    expect(updates?.robots).toBe('noindex, follow');
+    expect(notFound?.indexable).toBe(false);
+    expect(notFound?.robots).toBe('noindex');
+  });
+
+  it('index and about are indexable and have no robots override', () => {
+    const home = PAGES_MANIFEST.find((p) => p.source === 'index.html');
+    const about = PAGES_MANIFEST.find((p) => p.source === 'about/index.html');
+    expect(home?.indexable).toBe(true);
+    expect(home?.robots).toBeUndefined();
+    expect(about?.indexable).toBe(true);
+    expect(about?.robots).toBeUndefined();
   });
 });
