@@ -81,10 +81,11 @@ If any check fails, run `tradecli doctor --fix` — it'll prompt to auto-repair 
 
 ## 4. Pick your first persona
 
-`tradecli` ships with four personas. Each has its own system prompt, tool set, and session state:
+`tradecli` ships with five personas. Each has its own system prompt, tool set, and session state:
 
 - **Learner** — 8-chapter interactive curriculum with quizzes and live practice on broker platforms
 - **Trader** — short-term signal-driven decisions, news scanning, quick chart reads
+- **Pro Trader** — MCP-first chart analysis, trade path routing, Pine workflows, and TradingView context for experienced traders
 - **Investor** — long-term fundamentals, DCF modeling, peer comparison via Screener.in
 - **Portfolio Manager** — allocation, rebalancing, XLSX import, correlation analysis
 
