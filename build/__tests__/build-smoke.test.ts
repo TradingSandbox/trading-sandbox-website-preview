@@ -204,6 +204,26 @@ describe('smoke: sitemap.xml — prod build', () => {
       expect(canonicals[0]).toMatch(/href="https:\/\/tradecli\.in\/wiki\//);
     }
   });
+
+  test('every marketing page has exactly one <main> wrapping content between nav and footer', () => {
+    const pages = ['dist/index.html', 'dist/about/index.html', 'dist/updates/index.html', 'dist/404.html'];
+    for (const page of pages) {
+      const html = readFileSync(join(REPO_ROOT, page), 'utf-8');
+      const opens = html.match(/<main\b[^>]*>/g) ?? [];
+      const closes = html.match(/<\/main>/g) ?? [];
+      expect(opens.length, `${page} <main> opens`).toBe(1);
+      expect(closes.length, `${page} </main> closes`).toBe(1);
+      // <main> must open before the first <section> and close after the last:
+      const mainOpenIdx = html.indexOf('<main');
+      const mainCloseIdx = html.lastIndexOf('</main>');
+      const firstSection = html.indexOf('<section');
+      const lastSection = html.lastIndexOf('</section>');
+      if (firstSection !== -1) {
+        expect(mainOpenIdx, `${page} <main> before first <section>`).toBeLessThan(firstSection);
+        expect(mainCloseIdx, `${page} </main> after last </section>`).toBeGreaterThan(lastSection);
+      }
+    }
+  });
 });
 
 describe('smoke: sitemap.xml — preview build', () => {
