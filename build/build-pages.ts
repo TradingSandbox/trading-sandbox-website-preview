@@ -47,6 +47,11 @@ export function injectFragments(
   return result;
 }
 
+export function resolveHostname(siteBase: string | undefined): string {
+  if (!siteBase || siteBase === '/') return 'https://tradecli.in';
+  return `https://tradingsandbox.github.io${siteBase.replace(/\/$/, '')}`;
+}
+
 export function resolveCanonicalUrl(output: string, hostname: string): string {
   if (output === 'index.html') return `${hostname}/`;
   if (output.endsWith('/index.html')) return `${hostname}/${output.slice(0, -'index.html'.length)}`;
@@ -97,6 +102,7 @@ export function buildPageIntoDist(
   const rawBody = readFileSync(sourcePath, 'utf-8');
   const withFragments = injectFragments(rawBody, shared);
   const withTokens = substituteTokens(withFragments, tokens);
+  validateJsonLdBlocks(withTokens, outputRel);
   const outPath = join(repoRoot, 'dist', outputRel);
   mkdirSync(dirname(outPath), { recursive: true });
   writeFileSync(outPath, withTokens);
@@ -137,16 +143,19 @@ function main(): void {
   const isPreview = process.env.PREVIEW === 'true';
   const previewRobots = isPreview ? '<meta name="robots" content="noindex, nofollow">' : '';
   const analyticsSnippet = resolveAnalyticsSnippet(isPreview, CF_BEACON_TOKEN);
+  const hostname = resolveHostname(process.env.SITE_BASE);
 
   guardNoCnameOnMaster(repoRoot);
-  for (const { source, output } of PAGES_MANIFEST) {
+  for (const entry of PAGES_MANIFEST) {
     buildPageIntoDist(
       repoRoot,
-      source,
-      output,
+      entry.source,
+      entry.output,
       {
         SITE_BASE: siteBase,
         PREVIEW_ROBOTS: previewRobots,
+        CANONICAL_URL: resolveCanonicalUrl(entry.output, hostname),
+        PAGE_ROBOTS: resolvePageRobots(isPreview, entry.robots),
       },
       {
         BODY_END: analyticsSnippet,

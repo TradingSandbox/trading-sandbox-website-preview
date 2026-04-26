@@ -2,7 +2,7 @@ import { execSync } from 'node:child_process';
 import { writeFileSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PAGES_MANIFEST, type PageManifestEntry } from './build-pages.js';
+import { PAGES_MANIFEST, type PageManifestEntry, resolveHostname } from './build-pages.js';
 
 export type MtimeResolver = (sourceRel: string) => string;
 
@@ -90,12 +90,6 @@ export function gitMtimeResolver(repoRoot: string): MtimeResolver {
     if (all.length === 0) return new Date().toISOString(); // last-resort fallback
     return all.reduce((max, cur) => (cur > max ? cur : max));
   };
-}
-
-function resolveHostname(siteBase: string | undefined): string {
-  if (!siteBase || siteBase === '/') return 'https://tradecli.in';
-  // Preview: SITE_BASE = '/trading-sandbox-website-preview/'
-  return `https://tradingsandbox.github.io${siteBase.replace(/\/$/, '')}`;
 }
 
 function main(): void {
