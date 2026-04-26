@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm run build:pages && npm run build:wiki && npm run build:static",
+    "build": "npm run build:pages && npm run build:wiki && npm run build:static && npm run build:sitemap",
     "build:pages": "tsx build/build-pages.ts",
     "build:wiki": "tsx build/build-wiki.ts",
     "build:static": "tsx build/copy-static.ts",
+    "build:sitemap": "tsx build/build-sitemap.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "preview": "npx serve dist/ -p 3000 --no-clipboard",
