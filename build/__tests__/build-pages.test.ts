@@ -9,6 +9,7 @@ import {
   copySharedCSSToDistAssets,
   guardNoCnameOnMaster,
   resolveAnalyticsSnippet,
+  resolveCanonicalUrl,
   PAGES_MANIFEST,
 } from '../build-pages.js';
 
@@ -146,6 +147,27 @@ describe('resolveAnalyticsSnippet', () => {
     expect(result).toContain('fake-token-123');
     expect(result).toContain('defer');
     expect(result).toContain('static.cloudflareinsights.com/beacon.min.js');
+  });
+});
+
+describe('resolveCanonicalUrl', () => {
+  it('strips trailing index.html for home', () => {
+    expect(resolveCanonicalUrl('index.html', 'https://tradecli.in')).toBe('https://tradecli.in/');
+  });
+
+  it('strips trailing index.html for nested pages', () => {
+    expect(resolveCanonicalUrl('about/index.html', 'https://tradecli.in')).toBe('https://tradecli.in/about/');
+  });
+
+  it('keeps non-index.html outputs verbatim (e.g. 404.html)', () => {
+    expect(resolveCanonicalUrl('404.html', 'https://tradecli.in')).toBe('https://tradecli.in/404.html');
+  });
+
+  it('uses the given hostname (preview env)', () => {
+    expect(resolveCanonicalUrl(
+      'about/index.html',
+      'https://tradingsandbox.github.io/trading-sandbox-website-preview',
+    )).toBe('https://tradingsandbox.github.io/trading-sandbox-website-preview/about/');
   });
 });
 

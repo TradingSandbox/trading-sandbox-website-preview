@@ -41,6 +41,12 @@ export function injectFragments(
   return result;
 }
 
+export function resolveCanonicalUrl(output: string, hostname: string): string {
+  if (output === 'index.html') return `${hostname}/`;
+  if (output.endsWith('/index.html')) return `${hostname}/${output.slice(0, -'index.html'.length)}`;
+  return `${hostname}/${output}`;
+}
+
 export function guardNoCnameOnMaster(repoRoot: string): void {
   if (existsSync(join(repoRoot, 'CNAME'))) {
     console.error('ERROR: CNAME file must not be committed to master. It lives only on gh-pages, written by CI on every deploy.');
