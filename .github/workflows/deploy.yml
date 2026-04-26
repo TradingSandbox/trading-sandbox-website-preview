@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history — required for git log lastmod in build-sitemap.ts
 
       - name: Guard against CNAME on master
         run: |
