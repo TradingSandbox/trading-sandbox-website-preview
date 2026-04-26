@@ -13,17 +13,15 @@ describe('copyStaticAssets', () => {
     writeFileSync(join(tmpRoot, 'assets/favicon.ico'), 'FAVICON');
     writeFileSync(join(tmpRoot, 'assets/images/logo.png'), 'LOGO');
     writeFileSync(join(tmpRoot, 'robots.txt'), 'User-agent: *\n');
-    writeFileSync(join(tmpRoot, 'sitemap.xml'), '<urlset/>');
   });
 
   afterEach(() => {
     rmSync(tmpRoot, { recursive: true, force: true });
   });
 
-  it('copies robots.txt, sitemap.xml, and assets/ to dist/', () => {
+  it('copies robots.txt and assets/ to dist/', () => {
     copyStaticAssets(tmpRoot);
     expect(readFileSync(join(tmpRoot, 'dist/robots.txt'), 'utf-8')).toBe('User-agent: *\n');
-    expect(readFileSync(join(tmpRoot, 'dist/sitemap.xml'), 'utf-8')).toBe('<urlset/>');
     expect(readFileSync(join(tmpRoot, 'dist/assets/favicon.ico'), 'utf-8')).toBe('FAVICON');
     expect(readFileSync(join(tmpRoot, 'dist/assets/images/logo.png'), 'utf-8')).toBe('LOGO');
   });

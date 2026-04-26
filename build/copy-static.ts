@@ -8,7 +8,6 @@ export function copyStaticAssets(repoRoot: string): void {
 
   const targets = [
     { src: 'robots.txt', dest: 'dist/robots.txt' },
-    { src: 'sitemap.xml', dest: 'dist/sitemap.xml' },
     { src: 'assets', dest: 'dist/assets' },
   ];
 
