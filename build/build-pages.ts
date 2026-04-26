@@ -18,6 +18,12 @@ export function resolveAnalyticsSnippet(preview: boolean, token: string): string
   return `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='${JSON.stringify({ token })}'></script>`;
 }
 
+export function resolvePageRobots(isPreview: boolean, robots: string | undefined): string {
+  if (isPreview) return '';
+  if (!robots) return '';
+  return `<meta name="robots" content="${robots}">`;
+}
+
 export function substituteTokens(
   input: string,
   tokens: Record<string, string>,

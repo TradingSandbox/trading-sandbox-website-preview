@@ -10,6 +10,7 @@ import {
   guardNoCnameOnMaster,
   resolveAnalyticsSnippet,
   resolveCanonicalUrl,
+  resolvePageRobots,
   PAGES_MANIFEST,
 } from '../build-pages.js';
 
@@ -168,6 +169,26 @@ describe('resolveCanonicalUrl', () => {
       'about/index.html',
       'https://tradingsandbox.github.io/trading-sandbox-website-preview',
     )).toBe('https://tradingsandbox.github.io/trading-sandbox-website-preview/about/');
+  });
+});
+
+describe('resolvePageRobots', () => {
+  it('returns empty when in preview mode (PREVIEW_ROBOTS handles it)', () => {
+    expect(resolvePageRobots(true, 'noindex, follow')).toBe('');
+    expect(resolvePageRobots(true, undefined)).toBe('');
+  });
+
+  it('returns empty when manifest has no robots field', () => {
+    expect(resolvePageRobots(false, undefined)).toBe('');
+  });
+
+  it('emits the meta tag with the manifest robots value', () => {
+    expect(resolvePageRobots(false, 'noindex, follow')).toBe(
+      '<meta name="robots" content="noindex, follow">',
+    );
+    expect(resolvePageRobots(false, 'noindex')).toBe(
+      '<meta name="robots" content="noindex">',
+    );
   });
 });
 
