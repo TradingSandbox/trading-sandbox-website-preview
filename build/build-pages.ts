@@ -53,6 +53,22 @@ export function resolveCanonicalUrl(output: string, hostname: string): string {
   return `${hostname}/${output}`;
 }
 
+export function validateJsonLdBlocks(html: string, sourceLabel: string): void {
+  const blockRegex = /<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/g;
+  let match: RegExpExecArray | null;
+  let index = 0;
+  while ((match = blockRegex.exec(html)) !== null) {
+    index++;
+    try {
+      // The regex has exactly one capture group; when match is non-null it's always defined.
+      JSON.parse(match[1]!);
+    } catch (e) {
+      const reason = e instanceof Error ? e.message : String(e);
+      throw new Error(`Invalid JSON-LD in ${sourceLabel} (block #${index}): ${reason}`);
+    }
+  }
+}
+
 export function guardNoCnameOnMaster(repoRoot: string): void {
   if (existsSync(join(repoRoot, 'CNAME'))) {
     console.error('ERROR: CNAME file must not be committed to master. It lives only on gh-pages, written by CI on every deploy.');

@@ -11,6 +11,7 @@ import {
   resolveAnalyticsSnippet,
   resolveCanonicalUrl,
   resolvePageRobots,
+  validateJsonLdBlocks,
   PAGES_MANIFEST,
 } from '../build-pages.js';
 
@@ -189,6 +190,31 @@ describe('resolvePageRobots', () => {
     expect(resolvePageRobots(false, 'noindex')).toBe(
       '<meta name="robots" content="noindex">',
     );
+  });
+});
+
+describe('validateJsonLdBlocks', () => {
+  it('passes when there are no JSON-LD blocks', () => {
+    expect(() => validateJsonLdBlocks('<html><body>hi</body></html>', 'index.html')).not.toThrow();
+  });
+
+  it('passes when all JSON-LD blocks are valid', () => {
+    const html = `
+      <script type="application/ld+json">{"@type":"Organization"}</script>
+      <script type="application/ld+json">{"@type":"WebSite"}</script>
+    `;
+    expect(() => validateJsonLdBlocks(html, 'index.html')).not.toThrow();
+  });
+
+  it('throws with page context when a block is invalid JSON', () => {
+    const html = '<script type="application/ld+json">{ not json }</script>';
+    expect(() => validateJsonLdBlocks(html, 'index.html'))
+      .toThrow(/JSON-LD.*index\.html/);
+  });
+
+  it('ignores other <script> blocks', () => {
+    const html = '<script>console.log("hi")</script><script type="application/ld+json">{}</script>';
+    expect(() => validateJsonLdBlocks(html, 'index.html')).not.toThrow();
   });
 });
 
