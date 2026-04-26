@@ -105,6 +105,42 @@ The five excludes are all load-bearing:
 
 The PR is internal to `trading-sandbox-website` (same-repo, *not* cross-repo). Merging to `master` triggers `.github/workflows/deploy.yml` (production variant), which publishes to `tradecli.in`.
 
+## Adding content
+
+### Wiki page (`/wiki/...`)
+
+Just create a new `.md` file under `wiki/`. The build picks it up automatically — sitemap entry with `<lastmod>` from git, canonical link pointing to `https://tradecli.in/wiki/...`. No config edits needed.
+
+### Marketing page (e.g., `/pricing/`)
+
+Two-step:
+
+1. **Add an entry to `PAGES_MANIFEST` in `build/build-pages.ts`:**
+
+```ts
+{
+  source: 'pricing/index.html',
+  output: 'pricing/index.html',
+  changefreq: 'monthly',
+  priority: 0.6,
+  indexable: true,
+},
+```
+
+2. **Create the HTML file.** `<head>` must include `<!-- @@HEAD_BASE@@ -->` to inherit the shared head (canonical, JSON-LD, fonts, etc.). Wrap content in `<main>` between `<!-- @@NAV@@ -->` and `<!-- @@FOOTER@@ -->`. The smoke test fails if `<main>` is missing, so you'll catch it before deploy.
+
+### Lifting a `noindex` page (e.g., `/updates/` going live)
+
+In the same manifest entry: flip `indexable: true` and remove the `robots` field. That's all — sitemap and per-page `<meta robots>` follow automatically.
+
+### Adding new structured data to a page
+
+Inline a `<script type="application/ld+json">` block. The build validates JSON syntax automatically; bad JSON fails the build instead of silently shipping broken markup.
+
+### Adding a new shared HTML fragment that affects every marketing page
+
+Add the path to `SHARED_PAGE_INPUTS` in `build/build-sitemap.ts` so its git mtime contributes to every page's `<lastmod>`. Otherwise edits to it won't refresh the sitemap.
+
 ## The workflow file lives in two variants
 
 `.github/workflows/deploy.yml` exists in both repos and **must differ** in exactly six places. The rsync skips `.github/` so this stays intact. If you genuinely need to change CI behavior, edit both files in lockstep.
