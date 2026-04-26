@@ -2,7 +2,7 @@
 
 Preview/staging fork of the TradeCLI marketing & wiki site. Production lives at https://tradecli.in.
 
-> **Default branch is `preview`.** That's the deployment target for staging. Preview repo's `master` is intentionally unused — don't branch from it.
+> **Default branch is `preview`.** It's both the deployment target for staging and the only base for feature branches — the preview repo deliberately has no `master`.
 
 ## Two repos, one bridge
 
@@ -130,4 +130,4 @@ Both deploys: Node 20 → `npm ci` → `npm test` (smoke test gates deploy) → 
 
 - **Force-reset (not merge) on `preview`** — without it, `preview` accumulates stale commits and the deployed staging artifact stops matching what's in the PR. Reviewers end up validating the wrong thing.
 - **Rsync bridge (not git remotes)** — preview and production deliberately diverge on `.github/workflows/deploy.yml`. A normal git push from one to the other would either contaminate the workflow file or require manual fixups every PR.
-- **`preview` as default branch** — GitHub renders this README on the repo home, and PR-source operations default to it. `master` is left at the empty initial-fork state on purpose; not branching from it prevents accidental empty-base feature work.
+- **`preview` as default branch, no `master`** — GitHub renders this README on the repo home, and feature work defaults to `preview` because that's the only base. Removing `master` outright eliminates a long-running confusion source: it used to sit at the empty initial-fork state and tempt people to branch from it.
