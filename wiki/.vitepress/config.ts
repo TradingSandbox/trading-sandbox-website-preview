@@ -1,4 +1,8 @@
 import { defineConfig, type HeadConfig } from 'vitepress';
+import { execSync } from 'node:child_process';
+import { existsSync, statSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // Cloudflare Web Analytics beacon token. Mirror of CF_BEACON_TOKEN in
 // build/build-pages.ts — duplicated here because wiki and main-site builds
@@ -28,6 +32,29 @@ if (process.env.PREVIEW !== 'true' && CF_BEACON_TOKEN) {
     src: 'https://static.cloudflareinsights.com/beacon.min.js',
     'data-cf-beacon': JSON.stringify({ token: CF_BEACON_TOKEN }),
   }]);
+}
+
+const wikiRoot = dirname(fileURLToPath(import.meta.url)) + '/..'; // wiki/.vitepress → wiki
+
+const wikiMtimeCache = new Map<string, string>();
+function wikiGitMtime(sourceRel: string): string {
+  const cached = wikiMtimeCache.get(sourceRel);
+  if (cached !== undefined) return cached;
+  let mtime = '';
+  try {
+    // %cI hard-codes the committer's tz; --date=iso-strict-local + %cd respects TZ.
+    // TZ=UTC normalizes every timestamp to +00:00 so they sort correctly.
+    mtime = execSync(
+      `git log -1 --date=iso-strict-local --format=%cd -- ${JSON.stringify(sourceRel)}`,
+      { cwd: wikiRoot, encoding: 'utf-8', env: { ...process.env, TZ: 'UTC' } },
+    ).trim();
+  } catch { /* ignored */ }
+  if (!mtime) {
+    const abs = join(wikiRoot, sourceRel);
+    if (existsSync(abs)) mtime = statSync(abs).mtime.toISOString();
+  }
+  wikiMtimeCache.set(sourceRel, mtime);
+  return mtime;
 }
 
 export default defineConfig({
@@ -86,9 +113,17 @@ export default defineConfig({
     hostname: 'https://tradecli.in',
     // VitePress sitemap emits paths relative to the wiki project root (no base prefix).
     // Prepend /wiki/ so sitemap URLs match deployed prod paths (tradecli.in/wiki/<page>).
-    transformItems: (items) => items.map((item) => ({
-      ...item,
-      url: `wiki/${item.url.replace(/^\//, '')}`,
-    })),
+    transformItems: (items) => items.map((item) => {
+      // VitePress passes item.url like '/getting-started/quick-start' (post-base).
+      // The corresponding source file is wiki/<url>.md, with index.md for the section root.
+      const cleaned = item.url.replace(/^\//, '');
+      const candidate = cleaned === '' ? 'index.md' : `${cleaned}.md`;
+      const lastmod = wikiGitMtime(candidate);
+      return {
+        ...item,
+        url: `wiki/${cleaned}`,
+        lastmod: lastmod || undefined,
+      };
+    }),
   },
 });
