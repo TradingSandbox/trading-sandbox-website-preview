@@ -10,11 +10,11 @@ Learner is a **guided curriculum**, not a free-form chat. It walks through chapt
 
 ## How it works
 
-- **Structured flow** — you follow chapters in order, with each chapter split into concepts
-- **Interactive steps** — the coach has you click through real TradingView or broker UI, not just read
-- **Surface-aware practice** — pick TradingView, Groww, or Zerodha and the `Do` / `Check` steps adapt to that surface
-- **Quizzes** — concepts are checked before moving on
-- **Pause/resume** — stop a lesson, ask side questions, then continue from the same concept
+1. Reads you a short concept in plain English, without jargon dumps.
+2. Opens the relevant page on TradingView or your broker, such as a chart, order form, or holdings view.
+3. Asks you a question grounded in what's actually on that page.
+4. Checks your answer, clears up confusion, then moves to the next concept.
+5. Lets you pause anytime, ask side questions, and resume right where you left off.
 
 ## Typical prompts
 

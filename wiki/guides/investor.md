@@ -53,16 +53,6 @@ Does my ITC thesis still hold?
 Review my held stocks and flag where the thesis looks weaker
 ```
 
-## Output style
-
-Investor should be concise, structured, and evidence-based:
-
-1. Start with the investment question and conclusion
-2. Show the data that matters, not every available metric
-3. Separate facts from interpretation
-4. Call out missing or stale data clearly
-5. Avoid direct buy/sell calls
-
 ::: warning DCF exclusions
 Investor does not run DCF on banks, NBFCs, insurers, or early-stage businesses. For those, it uses peer multiples and earnings trend instead.
 :::

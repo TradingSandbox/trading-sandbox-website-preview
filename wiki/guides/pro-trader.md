@@ -82,19 +82,6 @@ Review my RELIANCE swing setup across 15m, 1h, and daily
 Run Strategy Tester on the Pine strategy on my chart and flag red risks
 ```
 
-## Output style
-
-Pro Trader leads with:
-
-1. Bias
-2. Setup quality
-3. Key levels
-4. Entry condition
-5. Invalidation
-6. Target logic
-
-When something is inferred from chart structure rather than directly read from a tool, it should say so clearly.
-
 ::: danger Guardrails
 Pro Trader must not fabricate option-chain data, margin, positions, fills, Greeks, OI, or order status. It must not claim an order was placed or managed unless a broker tool confirms it.
 :::
