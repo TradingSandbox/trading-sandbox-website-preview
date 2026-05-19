@@ -74,7 +74,7 @@
     <div class="container">
       <div class="section-header fade-in">
         <div class="section-label">Personas</div>
-        <h2 class="section-title">Four AI agents. One trading journey.</h2>
+        <h2 class="section-title">Three AI agents. One trading journey.</h2>
         <p class="section-desc">Each persona is a specialized AI with its own tools, prompts, and workflows &mdash; tailored to where you are in your trading journey.</p>
       </div>
 
@@ -186,42 +186,6 @@
             </div>
           </div>
           <div class="persona-nav" id="nav-trader"></div>
-        </div>
-
-        <!-- ── PORTFOLIO MANAGER ── -->
-        <div class="persona-card portfolio fade-in" data-persona="portfolio">
-          <div class="persona-icon">&#x1F4BC;</div>
-          <h3>Portfolio Manager</h3>
-          <div class="persona-subtitle">Allocate &rarr; Rebalance</div>
-          <p>Multi-asset portfolio construction with position sizing, sector allocation, drift monitoring, correlation analysis, and automated rebalancing workflows.</p>
-          <div class="persona-tags">
-            <span class="persona-tag">allocation</span>
-            <span class="persona-tag">rebalancing</span>
-            <span class="persona-tag">risk metrics</span>
-            <span class="persona-tag">XLSX import</span>
-          </div>
-          <div class="persona-demo" id="demo-portfolio">
-            <div class="persona-demo-inner">
-              <div class="dual-pane">
-                <div class="dp-term">
-                  <div class="dp-bar">
-                    <div class="dp-dot r"></div><div class="dp-dot y"></div><div class="dp-dot g"></div>
-                    <span class="dp-bar-title">tradecli &mdash; portfolio</span>
-                  </div>
-                  <div class="dp-body" id="term-portfolio"></div>
-                </div>
-                <div class="dp-browser">
-                  <div class="dp-bar">
-                    <div class="dp-dot r"></div><div class="dp-dot y"></div><div class="dp-dot g"></div>
-                    <div class="dp-url-bar">&#x1F512; broker-platform.com/portfolio</div>
-                  </div>
-                  <div class="dp-body" id="browser-portfolio"></div>
-                </div>
-              </div>
-              <button class="demo-replay" id="replay-portfolio" onclick="event.stopPropagation(); replayDemo('portfolio')">&#x21BB; replay</button>
-            </div>
-          </div>
-          <div class="persona-nav" id="nav-portfolio"></div>
         </div>
 
       </div>
@@ -357,8 +321,7 @@
 
       const PERSONAS = [
         { id: 'learner', label: 'Learner', desc: 'Guided curriculum for trading & investing fundamentals' },
-        { id: 'investor', label: 'Investor', desc: 'Long-term fundamental research with discovery, valuation, and thesis-check workflows' },
-        { id: 'portfolio', label: 'Portfolio Manager', desc: 'Allocation, sizing, rebalancing, cross-broker portfolio view' },
+        { id: 'investor', label: 'Investor', desc: 'Long-term fundamental research, valuation, allocation, and rebalancing' },
         { id: 'trader', label: 'Trader', desc: 'Technical analysis, chart patterns, execution strategies' },
       ];
 
@@ -419,7 +382,7 @@
 
       function selectPersona() {
         const persona = PERSONAS[selectedIndex];
-        const target = document.querySelector('.persona-card.' + (persona.id === 'portfolio' ? 'portfolio' : persona.id));
+        const target = document.querySelector('.persona-card.' + persona.id);
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'center' });
           // Trigger the demo
@@ -610,7 +573,7 @@
     }
 
     // ── Persona nav arrows ──
-    const PERSONA_ORDER = ['learner', 'investor', 'trader', 'portfolio'];
+    const PERSONA_ORDER = ['learner', 'investor', 'trader'];
 
     function initPersonaNav() {
       PERSONA_ORDER.forEach((id, idx) => {
@@ -777,7 +740,6 @@
       if (persona === 'learner') await demoLearner(term, browser, state);
       else if (persona === 'investor') await demoInvestor(term, browser, state);
       else if (persona === 'trader') await demoTrader(term, browser, state);
-      else if (persona === 'portfolio') await demoPortfolio(term, browser, state);
 
       state.done = true;
     }
@@ -1009,97 +971,6 @@
       ];
       await streamLines(term, results, 200, state);
       appendTerm(term, '</div>');
-    }
-
-    // ── PORTFOLIO MANAGER ──
-    async function demoPortfolio(term, browser, state) {
-      await typewrite(term,
-        '<span class="t-prompt">\u20B9</span> <span class="t-cmd">rebalancing plan</span>',
-        40, state);
-      await wait(800, state);
-
-      await showSpinner(term, 'Fetching holdings from 2 brokers...', 2000, state);
-
-      // Browser: portfolio pie chart (light page)
-      fadeInBrowser(browser,
-        '<div style="padding:4px;">' +
-          '<div style="font-weight:700;font-size:1rem;color:#111;margin-bottom:4px;">Portfolio Overview</div>' +
-          '<div style="font-size:0.75rem;color:#666;margin-bottom:12px;">12 holdings \u00B7 \u20B98.4L total value</div>' +
-          '<div style="display:flex;align-items:center;gap:16px;">' +
-            '<svg viewBox="0 0 100 100" style="width:100px;height:100px;">' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#3b82f6" stroke-width="10" stroke-dasharray="75.4 176.0" stroke-dashoffset="0" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#22c55e" stroke-width="10" stroke-dasharray="50.3 201.1" stroke-dashoffset="-75.4" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#f59e0b" stroke-width="10" stroke-dasharray="37.7 213.6" stroke-dashoffset="-125.7" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#a855f7" stroke-width="10" stroke-dasharray="25.1 226.2" stroke-dashoffset="-163.4" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#d1d5db" stroke-width="10" stroke-dasharray="62.8 188.5" stroke-dashoffset="-188.5" transform="rotate(-90 50 50)"/>' +
-            '</svg>' +
-            '<div style="font-size:0.7rem;line-height:2.2;color:#333;">' +
-              '<div><span style="color:#3b82f6;">\u25CF</span> IT \u2014 30% <span style="color:#dc2626;font-weight:600;font-size:0.6rem;">OVERWEIGHT</span></div>' +
-              '<div><span style="color:#22c55e;">\u25CF</span> Banking \u2014 20%</div>' +
-              '<div><span style="color:#f59e0b;">\u25CF</span> Pharma \u2014 15%</div>' +
-              '<div><span style="color:#a855f7;">\u25CF</span> Auto \u2014 10%</div>' +
-              '<div><span style="color:#d1d5db;">\u25CF</span> Cash \u2014 25%</div>' +
-            '</div>' +
-          '</div>' +
-        '</div>');
-
-      appendTerm(term, '<div style="margin-top:10px;">');
-      const snapshot = [
-        '<span class="t-accent">## Portfolio Snapshot</span>',
-        '',
-        '<span class="t-dim">Holdings:</span>    <span class="t-bold">12</span> across 2 brokers',
-        '<span class="t-dim">Total value:</span> <span class="t-bold">\u20B98.4L</span>',
-        '<span class="t-dim">Cash:</span>        25%',
-        '',
-        '<span class="t-red">\u26A0 IT sector overweight at 30% (target: 20%)</span>',
-      ];
-      await streamLines(term, snapshot, 200, state);
-      appendTerm(term, '</div>');
-      await wait(1500, state);
-
-      await showSpinner(term, 'Generating rebalancing plan...', 1800, state);
-
-      appendTerm(term, '<div style="margin-top:10px;">');
-      const plan = [
-        '<span class="t-accent">## Rebalancing Plan</span>',
-        '',
-        '<span class="t-red">TRIM</span>',
-        '  Pinnacle Tech     <span class="t-dim">30% \u2192</span> 20%',
-        '  CloudServe Ltd    <span class="t-dim">exit fully</span>',
-        '',
-        '<span class="t-green">ADD</span>',
-        '  Metro Finance     <span class="t-dim">new</span> 8% position',
-        '  Sunrise Pharma    <span class="t-dim">5% \u2192</span> 10%',
-        '',
-        '<span class="t-amber">KEEP</span>',
-        '  <span class="t-dim">8 positions unchanged</span>',
-      ];
-      await streamLines(term, plan, 200, state);
-      appendTerm(term, '</div>');
-
-      // Browser updates to target allocation
-      await wait(800, state);
-      fadeInBrowser(browser,
-        '<div style="padding:4px;">' +
-          '<div style="font-weight:700;font-size:1rem;color:#111;margin-bottom:4px;">Target Allocation</div>' +
-          '<div style="font-size:0.75rem;color:#16a34a;margin-bottom:12px;">After rebalancing</div>' +
-          '<div style="display:flex;align-items:center;gap:16px;">' +
-            '<svg viewBox="0 0 100 100" style="width:100px;height:100px;">' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#3b82f6" stroke-width="10" stroke-dasharray="50.3 201.1" stroke-dashoffset="0" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#22c55e" stroke-width="10" stroke-dasharray="60.3 191.0" stroke-dashoffset="-50.3" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#f59e0b" stroke-width="10" stroke-dasharray="50.3 201.1" stroke-dashoffset="-110.6" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#a855f7" stroke-width="10" stroke-dasharray="37.7 213.6" stroke-dashoffset="-160.9" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#d1d5db" stroke-width="10" stroke-dasharray="52.8 198.5" stroke-dashoffset="-198.6" transform="rotate(-90 50 50)"/>' +
-            '</svg>' +
-            '<div style="font-size:0.7rem;line-height:2.2;color:#333;">' +
-              '<div><span style="color:#3b82f6;">\u25CF</span> IT \u2014 20% <span style="color:#16a34a;font-size:0.6rem;">\u2713</span></div>' +
-              '<div><span style="color:#22c55e;">\u25CF</span> Banking \u2014 24%</div>' +
-              '<div><span style="color:#f59e0b;">\u25CF</span> Pharma \u2014 20%</div>' +
-              '<div><span style="color:#a855f7;">\u25CF</span> Auto \u2014 15%</div>' +
-              '<div><span style="color:#d1d5db;">\u25CF</span> Cash \u2014 21%</div>' +
-            '</div>' +
-          '</div>' +
-        '</div>');
     }
   </script>
 

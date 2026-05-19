@@ -9,7 +9,7 @@ Documentation for `tradecli` — a terminal-based AI trading assistant for India
 
 ## What is tradecli?
 
-`tradecli` is a command-line AI agent that drives your browser and MCP-native market tools to research stocks, learn trading, manage portfolios, and analyze live trade setups across NSE and BSE. It connects to Groww and Zerodha through MCP, uses Screener.in and TradingView, and adapts to where you are in your trading journey through five personas: Learner, Investor, Trader, Pro Trader, and Portfolio Manager.
+`tradecli` is a command-line AI agent that drives your browser and MCP-native market tools to research stocks, learn trading, manage portfolios, and analyze live trade setups across NSE and BSE. It connects to Groww and Zerodha through MCP, uses Screener.in and TradingView, and adapts to where you are in your trading journey through three personas: Learner, Investor, and Trader.
 
 Everything the agent does you can see and audit in your terminal — no hidden actions, no cloud service, your broker credentials stay on your machine.
 
@@ -61,19 +61,6 @@ Start with → [Quick Start](/getting-started/quick-start)
 #### [Trader](/guides/trader)
 - What it's for
 - Primary tools
-- Typical prompts
-
-#### [Pro Trader](/guides/pro-trader)
-- Chart-first trade decisions
-- MCP-native TradingView workflows
-- Trade path routing
-- Pine scripts and backtests
-- Typical prompts
-
-#### [Portfolio Manager](/guides/portfolio-manager)
-- What it's for
-- Primary tools
-- Setup
 - Typical prompts
 
 #### [Channels & API](/guides/channels-api)

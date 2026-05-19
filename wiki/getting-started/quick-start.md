@@ -81,13 +81,11 @@ If any check fails, run `tradecli doctor --fix` — it'll prompt to auto-repair 
 
 ## 4. Pick your first persona
 
-`tradecli` ships with five personas. Each has its own system prompt, tool set, and session state:
+`tradecli` ships with three personas. Each has its own system prompt, tool set, and session state:
 
 - **Learner** — 8-chapter interactive curriculum with quizzes and live practice on broker platforms
-- **Trader** — short-term signal-driven decisions, news scanning, quick chart reads
-- **Pro Trader** — MCP-first chart analysis, trade path routing, Pine workflows, and TradingView context for experienced traders
-- **Investor** — long-term fundamentals, DCF modeling, peer comparison via Screener.in
-- **Portfolio Manager** — allocation, rebalancing, XLSX import, correlation analysis
+- **Investor** — long-term fundamentals, DCF modeling, peer comparison via Screener.in, allocation and rebalancing across brokers
+- **Trader** — short-term signal-driven decisions, chart-native TradingView analysis, Streak strategy workflows, options context
 
 Start with Learner if you're new to trading. Switch personas later with `Ctrl+\` inside the TUI.
 
@@ -103,7 +101,7 @@ You'll land in the interactive terminal interface. On first launch, the persona 
 - **Learner:** "Start chapter 1"
 - **Trader:** "What's happening with Nifty today?"
 - **Investor:** "Run a quick screen for low-debt large caps with >15% ROCE"
-- **Portfolio Manager:** "Load my portfolio from `~/Downloads/holdings.xlsx`"
+- **Investor:** "Load my portfolio from `~/Downloads/holdings.xlsx`"
 :::
 
 ## What's next

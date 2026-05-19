@@ -16,7 +16,7 @@ Active, short-horizon work on Indian equities and options. Today, Trader is buil
 - Technical setup evaluation and strategy refinement for Indian markets
 - Risk-aware trade planning with explicit assumptions and tradeoffs
 
-Trader is for Streak-first strategy workflows. If you want live chart-native MCP analysis through TradingView, use [Pro Trader](/guides/pro-trader).
+Trader covers both Streak strategy workflows and live chart-native MCP analysis through TradingView.
 
 ## Primary tools
 
@@ -68,4 +68,3 @@ Trader must not fabricate live prices, positions, orders, balances, or broker co
 
 - **Compare with other personas** → [Personas & Modes](/guides/personas)
 - **Browser setup for Streak automation** → [Browser Setup](../getting-started/browser-setup)
-- **Chart-native trading workflow** → [Pro Trader](/guides/pro-trader)

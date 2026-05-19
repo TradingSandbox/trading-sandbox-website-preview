@@ -6,12 +6,12 @@ outline: 2
 
 # Personas & Modes
 
-`tradecli` has four specialist **personas** — Investor, Trader, Pro Trader, and Portfolio Manager — each with its own tools, instincts, and response style. Plus **Learner mode**, a guided curriculum for people getting started.
+`tradecli` has two specialist **personas** — Investor and Trader — each with its own tools, instincts, and response style. Plus **Learner mode**, a guided curriculum for people getting started.
 
-All five are chosen from the same picker (`Ctrl+\` inside the TUI). Each keeps its own session state, so switching away and back doesn't lose your place.
+All three are chosen from the same picker (`Ctrl+\` inside the TUI). Each keeps its own session state, so switching away and back doesn't lose your place.
 
 ::: tip Why separate?
-A trader sizing a 5-minute setup, an investor writing a 10-year thesis, and a portfolio manager watching sector correlation need different tools and different defaults. Using one monolithic assistant for all three produces mediocre answers for each. Separating them keeps the prompt focused and the tool palette clean.
+A trader sizing a 5-minute setup and an investor writing a 10-year thesis need different tools and different defaults. Using one monolithic assistant for both produces mediocre answers for each. Separating them keeps the prompt focused and the tool palette clean.
 :::
 
 ## Picking one
@@ -19,10 +19,8 @@ A trader sizing a 5-minute setup, an investor writing a 10-year thesis, and a po
 | You want to… | Use |
 |---|---|
 | Learn trading or investing from scratch | [**Learner mode**](/guides/learner) |
-| Research a listed Indian company or find ideas | [**Investor**](/guides/investor) |
-| Build, backtest, and deploy a Streak strategy | [**Trader**](/guides/trader) |
-| Analyze live chart context, options/cash setups, and Pine workflows | [**Pro Trader**](/guides/pro-trader) |
-| Review your holdings across brokers, rebalance, harvest losses | [**Portfolio Manager**](/guides/portfolio-manager) |
+| Research a listed Indian company, value it, build a thesis, or review holdings and rebalance across brokers | [**Investor**](/guides/investor) |
+| Build/backtest/deploy a Streak strategy, analyze live chart context, run Pine workflows, or read options context | [**Trader**](/guides/trader) |
 
 If you're unsure, start with [Learner](/guides/learner) — it introduces the vocabulary and the platforms. You can switch later.
 
@@ -34,13 +32,13 @@ Key properties:
 
 - **State is isolated per persona.** A trader conversation stays in trader context. Switching to investor starts a fresh thread with investor's tools and prompt.
 - **Mid-lesson safety.** If you're in Learner mode mid-step and switch to another persona, the step session is preserved and resumes on return.
-- **Tool palette changes with the persona.** Investor gets Screener; Trader gets the Streak workflow; Pro Trader gets MCP-native TradingView, Groww/Kite context, and Pine workflows; Portfolio Manager gets the XLSX parser and broker MCPs. Tools aren't shared globally — the persona decides.
+- **Tool palette changes with the persona.** Investor gets Screener, the XLSX parser, and broker MCPs for portfolio context; Trader gets the Streak workflow, MCP-native TradingView, Groww/Kite context, and Pine workflows. Tools aren't shared globally — the persona decides.
 
 ## What's next
 
-- **Deep dive on each** → [Learner Mode](/guides/learner) · [Investor](/guides/investor) · [Trader](/guides/trader) · [Pro Trader](/guides/pro-trader) · [Portfolio Manager](/guides/portfolio-manager)
+- **Deep dive on each** → [Learner Mode](/guides/learner) · [Investor](/guides/investor) · [Trader](/guides/trader)
 - **Connect your broker** → [Broker Setup](../getting-started/broker-setup) — so persona tools can reach your account
-- **Configure the browser** → [Browser Setup](../getting-started/browser-setup) — for Streak workflows and some PM actions
+- **Configure the browser** → [Browser Setup](../getting-started/browser-setup) — for Streak workflows and broker automation
 
 ::: danger Not financial advice
 Persona outputs are educational and analytical. Nothing `tradecli` says constitutes a recommendation to buy, sell, or hold any security. Verify against primary sources before trading real capital.

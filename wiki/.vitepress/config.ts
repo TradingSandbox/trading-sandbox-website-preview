@@ -93,8 +93,6 @@ export default defineConfig({
           { text: 'Learner Mode', link: '/guides/learner' },
           { text: 'Investor', link: '/guides/investor' },
           { text: 'Trader', link: '/guides/trader' },
-          { text: 'Pro Trader', link: '/guides/pro-trader' },
-          { text: 'Portfolio Manager', link: '/guides/portfolio-manager' },
           { text: 'Channels & API', link: '/guides/channels-api' },
         ],
       },
