@@ -219,11 +219,12 @@ describe('validateJsonLdBlocks', () => {
 });
 
 describe('PAGES_MANIFEST', () => {
-  it('is exported and contains the four current site pages', () => {
+  it('is exported and contains the current site pages', () => {
     const sources = PAGES_MANIFEST.map((p) => p.source);
     expect(sources).toEqual([
       'index.html',
       'about/index.html',
+      'privacy/index.html',
       'updates/index.html',
       '404.html',
     ]);
@@ -250,12 +251,15 @@ describe('PAGES_MANIFEST', () => {
     expect(notFound?.robots).toBe('noindex');
   });
 
-  it('index and about are indexable and have no robots override', () => {
+  it('index, about, and privacy are indexable and have no robots override', () => {
     const home = PAGES_MANIFEST.find((p) => p.source === 'index.html');
     const about = PAGES_MANIFEST.find((p) => p.source === 'about/index.html');
+    const privacy = PAGES_MANIFEST.find((p) => p.source === 'privacy/index.html');
     expect(home?.indexable).toBe(true);
     expect(home?.robots).toBeUndefined();
     expect(about?.indexable).toBe(true);
     expect(about?.robots).toBeUndefined();
+    expect(privacy?.indexable).toBe(true);
+    expect(privacy?.robots).toBeUndefined();
   });
 });
