@@ -17,13 +17,14 @@ Install `tradecli`, authenticate with an LLM provider, pick a persona, and run y
 The recommended path on macOS and Linux is the Homebrew tap:
 
 ```bash
-brew install TradingSandbox/tradecli/tradecli
+brew trust --tap TradingSandbox/tradecli && brew install TradingSandbox/tradecli/tradecli
 ```
 
-Or, in two steps:
+Or, step by step:
 
 ```bash
 brew tap TradingSandbox/tradecli
+brew trust TradingSandbox/tradecli
 brew install tradecli
 ```
 
