@@ -1,10 +1,11 @@
 import { spawnSync } from 'node:child_process';
-import { cpSync, existsSync, mkdirSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, rmSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export function deriveDocsBase(siteBase: string | undefined): string {
-  const base = siteBase ?? '/';
+  const rawBase = siteBase?.trim() || '/';
+  const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
   return `${base}wiki/`;
 }
 
@@ -37,11 +38,16 @@ export function buildWiki(repoRoot: string): void {
     process.exit(result.status ?? 1);
   }
 
+  copyVitePressDistToDistWiki(repoRoot);
+  console.log(`wiki built: dist/wiki/ (DOCS_BASE=${docsBase})`);
+}
+
+export function copyVitePressDistToDistWiki(repoRoot: string): void {
   const vitePressOut = join(repoRoot, 'wiki/.vitepress/dist');
   const finalOut = join(repoRoot, 'dist/wiki');
+  rmSync(finalOut, { recursive: true, force: true });
   mkdirSync(dirname(finalOut), { recursive: true });
   cpSync(vitePressOut, finalOut, { recursive: true });
-  console.log(`wiki built: dist/wiki/ (DOCS_BASE=${docsBase})`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

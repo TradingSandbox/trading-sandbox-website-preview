@@ -17,39 +17,117 @@
     <section class="hero hero-compact" style="padding: 120px 0 60px;">
       <div class="container">
         <div class="section-label">Updates</div>
-        <h1 class="section-title" style="max-width: 720px;">What's happening with tradecli</h1>
-        <p class="section-desc" style="max-width: 720px;">Hand-curated highlights of what's shipped and what's coming.</p>
+        <h1 class="section-title" style="max-width: 860px;">What's happening with tradecli</h1>
+        <p class="section-desc" style="max-width: 860px;">A lightweight build log for what shipped, what changed, and what we're working on next.</p>
       </div>
     </section>
 
     <section style="border-top: 1px solid var(--border);">
       <div class="container">
         <div class="section-header fade-in">
-          <div class="section-label">What's New</div>
-          <h2 class="section-title">Recently shipped</h2>
+          <div class="section-label">Build Log</div>
+          <h2 class="section-title">Recently shipped and what's next</h2>
         </div>
-        <div class="features-grid" style="grid-template-columns: 1fr;">
-          <div class="feature-card fade-in">
-            <div class="feature-icon">&#x2728;</div>
-            <h3>[Entry 1 title — placeholder, e.g. "v0.4 — Investor persona"]</h3>
-            <p>[1-2 sentences about what shipped. Placeholder.]</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section style="border-top: 1px solid var(--border);">
-      <div class="container">
-        <div class="section-header fade-in">
-          <div class="section-label">Coming Soon</div>
-          <h2 class="section-title">What's next</h2>
-        </div>
-        <div class="features-grid" style="grid-template-columns: 1fr;">
-          <div class="feature-card fade-in" style="border-top: 3px solid var(--amber);">
-            <div class="feature-icon" style="background: var(--amber-glow);">&#x1F6A7;</div>
-            <h3>[Upcoming 1 title — placeholder]</h3>
-            <p>[Teaser description. Placeholder.]</p>
-          </div>
+        <div class="changelog">
+          <article class="changelog-entry fade-in">
+            <time datetime="2026-06-15">June 15, 2026</time>
+            <div>
+              <h3>AITradingOffice delivered v0.1.2</h3>
+              <p>Delivered AITradingOffice as the office system of record for theses, forward tests, ledgers, account state, employees, clients, decisions, and reviews.</p>
+            </div>
+          </article>
+          <article class="changelog-entry changelog-entry-upcoming fade-in">
+            <time datetime="2026-06-15">June 15, 2026</time>
+            <div>
+              <h3>Office Mode agent desk v0.6.11</h3>
+              <p>tradecli can launch CEO, Investor, and Trader workers as one office session from the interactive TUI. The mailbox coordinates delegation while AITradingOffice keeps the durable record behind the session.</p>
+            </div>
+          </article>
+          <article class="changelog-entry fade-in">
+            <time datetime="2026-06-15">June 15, 2026</time>
+            <div>
+              <h3>Shared broker gateway v0.6.11</h3>
+              <p>Broker tools now run through a profile-scoped local gateway sidecar, so Office Mode panes share broker context instead of racing separate Groww or Zerodha/Kite clients.</p>
+            </div>
+          </article>
+          <article class="changelog-entry fade-in">
+            <time datetime="2026-05">May 2026</time>
+            <div>
+              <h3>Trader workflow polish and broker integrations</h3>
+              <p>Making the product more cohesive with actual trader workflows, adding broker integrations with Sahi and INDmoney, and automating a PMS with hedge-fund style workflows.</p>
+            </div>
+          </article>
+          <article class="changelog-entry fade-in">
+            <time datetime="2026-05-21">May 21, 2026</time>
+            <div>
+              <h3>Technical Scanner v0.4.0</h3>
+              <p>Discover trade candidates without naming a symbol first — ask Trader to scan the Indian market for volume spikes, pullbacks in an uptrend, oversold bounces, trend continuation, or breakout candidates, get a ranked shortlist back, and hand any pick straight into the trade workflow — so you can find opportunities instead of only analyzing ones you already had in mind.</p>
+              <p>Get the market read as a consistent brief instead of a loose list — daily and pre-market news now arrives in fixed sections: a dated headline with a bias call, the previous session's index closes, global cues, Nifty technical structure, sectors in play, volume leaders, FII/DII flow, and a scenario-based action plan — so you can scan the morning setup the same way every day and always know where to look.</p>
+            </div>
+          </article>
+          <article class="changelog-entry fade-in">
+            <time datetime="2026-05-15">May 15, 2026</time>
+            <div>
+              <h3>Forward Test v0.3.17</h3>
+              <p>Save and watch approved trade ideas from any strategy builder in a forward-test journal, track them alongside live positions, and review how each one played out with a daily scorecard — so you can validate edge before risking capital.</p>
+            </div>
+          </article>
+          <article class="changelog-entry fade-in">
+            <time datetime="2026-05-14">May 14, 2026</time>
+            <div>
+              <h3>Browser-driven screener workflow v0.3.16</h3>
+              <p>Replaced the older screener tools with a browser-driven workflow and added stricter guardrails, making screening sessions more reliable while keeping the flow safer around tool handoffs and automated actions.</p>
+            </div>
+          </article>
+          <article class="changelog-entry fade-in">
+            <time datetime="2026-05-12">May 12, 2026</time>
+            <div>
+              <h3>Track-a-trade and learner workflow polish v0.3.15</h3>
+              <p>Added live track-a-trade support, generic watch and cron flows in the TUI, improved free-text stock discovery with delegated Indian market news, and polished the persona migration, learner review, and workflow follow-up experience.</p>
+            </div>
+          </article>
+          <article class="changelog-entry fade-in">
+            <time datetime="2026-05-10">May 10, 2026</time>
+            <div>
+              <h3>Investor and Portfolio Manager merged v0.3.14</h3>
+              <p>Merged the Investor and Portfolio Manager personas into a single unified persona. Portfolio management is a shared concern across both traders and investors, so collapsing the two removes redundant workflows, simplifies navigation, and lets one persona handle position sizing, allocation, and long-term holdings end to end.</p>
+            </div>
+          </article>
+          <article class="changelog-entry fade-in">
+            <time datetime="2026-05-07">May 7, 2026</time>
+            <div>
+              <h3>Learner UI and trading news workflows</h3>
+              <p>Updated UI for learner module and enhanced trading news and thesis module.</p>
+            </div>
+          </article>
+          <article class="changelog-entry fade-in">
+            <time datetime="2026-05-04">May 4, 2026</time>
+            <div>
+              <h3>Pine strategy and backtesting workflows</h3>
+              <p>Tightened Pine strategy creation and backtesting and scripts.</p>
+            </div>
+          </article>
+          <article class="changelog-entry fade-in">
+            <time datetime="2026-04-27">Apr 27, 2026</time>
+            <div>
+              <h3>News and thesis workflows v0.3.11</h3>
+              <p>Added news and thesis functionality in Investor and Pro Trader modes.</p>
+            </div>
+          </article>
+          <article class="changelog-entry fade-in">
+            <time datetime="2026-04-26">Apr 26, 2026</time>
+            <div>
+              <h3>Pro trader mode v0.3.10</h3>
+              <p>Added pro trader mode with TradingView desktop app support and an improved UI for faster trader workflows.</p>
+            </div>
+          </article>
+          <article class="changelog-entry fade-in">
+            <time datetime="2026-04-11">Apr 11, 2026</time>
+            <div>
+              <h3>Four personas mode v0.3.4</h3>
+              <p>First release with four personas: Learner, Trader, Investor, and Portfolio Manager.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>

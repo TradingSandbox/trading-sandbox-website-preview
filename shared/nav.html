@@ -1,14 +1,15 @@
 <!-- shared/nav.html -->
 <nav>
   <div class="nav-inner">
-    <a href="{{SITE_BASE}}" class="nav-logo" style="font-family:'JetBrains Mono',monospace;font-size:1rem;letter-spacing:-0.02em;">
-      <span style="color:var(--green);">trade</span><span style="color:var(--text-primary);">cli</span>
+    <a href="{{SITE_BASE}}" class="nav-logo" aria-label="tradecli home">
+      <span class="nav-logo-word"><span class="nav-logo-trade">trade</span><span class="nav-logo-cli">cli</span></span>
     </a>
     <ul class="nav-links">
-      <li><a href="{{SITE_BASE}}#personas">Personas</a></li>
-      <li><a href="{{SITE_BASE}}#features">Features</a></li>
+      <li><a href="{{SITE_BASE}}#platform">Platform</a></li>
+      <li><a href="{{SITE_BASE}}#workflows">Workflows</a></li>
       <li><a href="{{SITE_BASE}}wiki/">Docs</a></li>
-      <li><a href="{{SITE_BASE}}about/">About</a></li>
+      <li><a href="{{SITE_BASE}}updates/">Updates</a></li>
+      <li><a href="{{SITE_BASE}}about/">About Us</a></li>
     </ul>
     <div class="nav-right-desktop">
       <a href="https://github.com/TradingSandbox/homebrew-tradecli" target="_blank" rel="noopener" style="color:var(--text-secondary);transition:color 0.2s;" title="GitHub">
@@ -22,10 +23,12 @@
   </div>
 </nav>
 <div class="nav-mobile" id="mobile-menu">
-  <a href="{{SITE_BASE}}#personas" onclick="document.getElementById('mobile-menu').classList.remove('open')">Personas</a>
-  <a href="{{SITE_BASE}}#features" onclick="document.getElementById('mobile-menu').classList.remove('open')">Features</a>
+  <a href="{{SITE_BASE}}#platform" onclick="document.getElementById('mobile-menu').classList.remove('open')">Platform</a>
+  <a href="{{SITE_BASE}}#workflows" onclick="document.getElementById('mobile-menu').classList.remove('open')">Workflows</a>
   <a href="{{SITE_BASE}}wiki/" onclick="document.getElementById('mobile-menu').classList.remove('open')">Docs</a>
-  <a href="{{SITE_BASE}}about/" onclick="document.getElementById('mobile-menu').classList.remove('open')">About</a>
+  <a href="{{SITE_BASE}}updates/" onclick="document.getElementById('mobile-menu').classList.remove('open')">Updates</a>
+  <a href="{{SITE_BASE}}about/" onclick="document.getElementById('mobile-menu').classList.remove('open')">About Us</a>
+  <a href="{{SITE_BASE}}privacy/" onclick="document.getElementById('mobile-menu').classList.remove('open')">Privacy</a>
   <a href="https://github.com/TradingSandbox/homebrew-tradecli" target="_blank" rel="noopener">GitHub</a>
   <a href="{{SITE_BASE}}wiki/getting-started/quick-start" class="nav-cta" onclick="document.getElementById('mobile-menu').classList.remove('open')">Get Started</a>
 </div>

@@ -1,15 +1,15 @@
 ---
 title: Quick Start
-description: Install tradecli, configure your first persona, and run your first session in under 5 minutes.
+description: Install tradecli, run first-time setup, and launch the interactive TUI.
 outline: 2
 ---
 
 # Quick Start
 
-Install `tradecli`, authenticate with an LLM provider, pick a persona, and run your first session — all in under 5 minutes. This page assumes you have macOS (Apple Silicon) or Linux (x64). Windows users can grab the `.zip` from the [releases page](https://github.com/TradingSandbox/TradingSandbox/releases).
+Install the tradecli stack, run first-time setup, check the local environment, and launch the interactive TUI. This page assumes macOS (Apple Silicon) or Linux (x64). Windows users can grab the `.zip` from the [releases page](https://github.com/TradingSandbox/TradingSandbox/releases).
 
 ::: tip Time required
-**~5 minutes** for a working installation. Broker authentication takes a few extra minutes and is covered in [Broker Setup](./broker-setup).
+**~5 minutes** for a working local install. Broker login can take a few extra minutes the first time a workflow needs account data.
 :::
 
 ## 1. Install via Homebrew
@@ -20,100 +20,113 @@ The recommended path on macOS and Linux is the Homebrew tap:
 brew trust --tap TradingSandbox/tradecli && brew install TradingSandbox/tradecli/tradecli
 ```
 
-Or, step by step:
+That installs the local stack tradecli expects:
 
-```bash
-brew tap TradingSandbox/tradecli
-brew trust TradingSandbox/tradecli
-brew install tradecli
-```
+- `tradecli` - the interactive TUI and agent runtime
+- `ai-trading-office` - local office memory and research state
+- `herdr` - the agent desk host used when available
+- `node` - required for stdio MCP packages such as TradingView
 
 Verify the install:
 
 ```bash
 tradecli --version
-# tradecli 0.3.7 (or later)
+# tradecli 0.6.11 (or later)
 ```
 
 ::: info Upgrading
-`brew upgrade tradecli` pulls the latest stable release. Releases follow semver: patch bumps (0.3.7 → 0.3.8) are bug fixes, minor bumps (0.3.x → 0.4.0) add features, major bumps (0.x → 1.0) are breaking changes.
+Run `tradecli upgrade` to update the Homebrew stack. It upgrades `tradecli` and `ai-trading-office`, and restarts the AITradingOffice service if it was already running.
 :::
 
-## 2. Configure an LLM provider
+## 2. Run first-time setup
 
-`tradecli` needs access to a large language model to drive the personas. Run:
+Run the setup wizard once:
 
 ```bash
 tradecli setup
 ```
 
-The wizard auto-detects any LLM credentials you've already set (env vars, prior `auth.json`). If none are configured, it opens an interactive picker so you can pick a provider and paste an API key inline. After authentication, the wizard walks through the remaining checks (config dir, Chrome, broker OAuth, port availability) and writes `~/.tradecli/config.json`.
+`tradecli setup` creates `~/.tradecli/config.json`, writes safe defaults, configures model credentials, caches MCP packages, and runs the same environment checks used by `tradecli doctor`.
 
-If you have a subscription (Claude Pro/Max, ChatGPT Plus, GitHub Copilot, etc.) instead of an API key, see [LLM Setup](./llm-setup) for the `/login` browser flow.
+For API-key access, you can either enter a key in the wizard or set one before running setup:
+
+```bash
+export ANTHROPIC_API_KEY="sk-ant-..."
+tradecli setup
+```
+
+The wizard supports API keys for Anthropic, OpenAI, Google, Groq, xAI, OpenRouter, Mistral, Cerebras, and Hugging Face. For subscription-based OAuth access such as Claude Pro/Max, ChatGPT, GitHub Copilot, or Google AI, launch `tradecli`, type `/login`, then re-run `tradecli setup`.
+
+Setup also covers the supporting local stack:
+
+- Chrome and the tradecli browser profile
+- MCP package cache for TradingView
+- broker gateway configuration
+- Groww auth status, with an optional fix prompt when auth is missing or expired
+- local AITradingOffice API defaults
+
+Kite does not keep the same persistent token shape as Groww, so Kite login happens interactively the first time a Kite workflow needs it.
 
 ::: warning Do not commit API keys
-Keep keys in `~/.tradecli/agent/auth.json` (where the wizard writes them) or in your shell rc (`~/.zshrc`, `~/.bashrc`) — never commit them to a repository. If a key leaks, rotate it immediately in the relevant provider's console.
+Keep API keys in your shell rc file (`~/.zshrc`, `~/.bashrc`) or the private tradecli auth store. Never commit keys to a repository. If a key leaks, rotate it immediately with the provider.
 :::
 
 ## 3. Run `tradecli doctor`
 
-Confirms the environment is healthy before launching the full TUI:
+Confirm the environment before serious work:
 
 ```bash
 tradecli doctor
 ```
 
-Expected output:
+Doctor checks the config directory, product auth, LLM auth, Chrome, browser profile, MCP manifests, MCP source packages, broker gateway, broker auth, ports, network, and installed version.
 
-```
-✓ config-dir       Config directory OK
-✓ llm-auth         ANTHROPIC_API_KEY present
-✓ model-selection  Default: claude-opus-4-7
-✓ chrome           Chrome 141.0 OK
-✓ browser-profile  tradecli Chrome profile OK
-✓ mcp              MCP manifests cached
-✓ broker-auth      Groww token valid (expires in 23h)
-✓ ports            All required ports free
-✓ network          api.anthropic.com reachable
-✓ version          Running latest (0.3.7)
+If a check fails or warns, run:
+
+```bash
+tradecli doctor --fix
 ```
 
-If any check fails, run `tradecli doctor --fix` — it'll prompt to auto-repair what it can (missing directories, expired Groww tokens, etc.).
+It prompts before applying available fixes such as creating missing directories, repairing the browser profile, refreshing MCP packages, or re-acquiring Groww OAuth.
 
-## 4. Pick your first persona
-
-`tradecli` ships with four personas. Each has its own system prompt, tool set, and session state:
-
-- **Learner** — 8-chapter interactive curriculum with quizzes and live practice on broker platforms
-- **Trader** — short-term signal-driven decisions, news scanning, quick chart reads
-- **Investor** — long-term fundamentals, DCF modeling, peer comparison via Screener.in
-- **Portfolio Manager** — allocation, rebalancing, XLSX import, correlation analysis
-
-Start with Learner if you're new to trading. Switch personas later with `Ctrl+\` inside the TUI.
-
-## 5. Launch the TUI
+## 4. Launch the TUI
 
 ```bash
 tradecli
 ```
 
-You'll land in the interactive terminal interface. On first launch, the persona picker appears — hit the number key for your chosen persona, then start chatting.
+Plain `tradecli` is the launch surface. On first launch, setup runs automatically if it has not completed yet. After startup, you land in the interactive terminal interface, choose a persona, and start working.
+
+When Herdr is installed and reachable, tradecli can host the TUI in the agent desk automatically. You do not need a separate Herdr command for the normal path.
+
+## 5. Pick your first workflow
+
+Choose the workflow that matches what you want to do:
+
+- **Learner** - guided lessons, quizzes, and broker-aware practice
+- **Investor** - fundamentals, valuation, Screener.in, thesis review, and portfolio context
+- **Trader** - Streak or TradingView Desktop workflows for active trading
+- **Hedge Fund** - Office Mode with a CEO pane coordinating investor and trader employees
+- **PMS** - Office Mode for client mandates, model portfolios, overlays, and review workflows
+
+Start with Learner if you are new to trading. Switch personas later with `Ctrl+\` inside the TUI.
 
 ::: tip First prompt ideas
 - **Learner:** "Start chapter 1"
-- **Trader:** "What's happening with Nifty today?"
 - **Investor:** "Run a quick screen for low-debt large caps with >15% ROCE"
-- **Portfolio Manager:** "Load my portfolio from `~/Downloads/holdings.xlsx`"
+- **Trader:** "Open the TradingView Desktop path for RELIANCE"
+- **Hedge Fund:** "Research HDFC Bank and decide whether it fits the book"
+- **PMS:** "Draft a model portfolio review workflow"
 :::
 
 ## What's next
 
 Once you have a working install:
 
-- **Connect your broker** → [Broker Setup](./broker-setup) — Groww and Zerodha Kite OAuth flows
-- **Configure the browser** → [Browser Setup](./browser-setup) — Chrome CDP for platform automation
-- **Deep-dive per persona** → [Personas guide](../guides/personas)
-- **Channels & API** → [Beyond the TUI](../guides/channels-api)
+- **Broker workflows** -> [Broker Setup](./broker-setup) - current broker setup notes while the full guide is being written
+- **Browser workflows** -> [Browser Setup](./browser-setup) - Chrome profile and platform automation
+- **Personas** -> [Personas guide](../guides/personas)
+- **Channels and API** -> [Beyond the TUI](../guides/channels-api)
 
 ::: danger Not financial advice
 `tradecli` is an educational and analytical tool. Nothing it outputs constitutes a recommendation to buy, sell, or hold any security. Always verify AI outputs against primary sources before trading real capital.

@@ -2,197 +2,65 @@
 <html lang="en">
 <head>
   <!-- @@HEAD_BASE@@ -->
-  <title>Privacy Policy | tradecli</title>
-  <meta name="description" content="Privacy policy for tradecli, including Google Sign-In identity data, product analytics, error events, and contact information." />
-  <meta property="og:title" content="Privacy Policy | tradecli" />
-  <meta property="og:description" content="How tradecli collects, uses, protects, and retains account and product usage data." />
+  <title>Privacy — tradecli</title>
+  <meta name="description" content="Privacy notes for tradecli: what the website collects, what stays local, and how to contact us." />
+  <meta property="og:title" content="Privacy — tradecli" />
+  <meta property="og:description" content="What the tradecli website collects and what stays local to your machine." />
   <meta property="og:image" content="https://tradecli.in/assets/og-default.png" />
   <meta property="og:url" content="https://tradecli.in/privacy/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <style>
-    .privacy-shell {
-      max-width: 860px;
-      color: var(--text-secondary);
-      font-size: 1rem;
-      line-height: 1.8;
-    }
-
-    .privacy-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 28px;
-      color: var(--text-muted);
-      font-size: 0.86rem;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .privacy-meta span {
-      border: 1px solid var(--border);
-      background: var(--bg-card);
-      padding: 7px 10px;
-    }
-
-    .privacy-section {
-      padding: 44px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .privacy-section:first-child {
-      border-top: 0;
-      padding-top: 0;
-    }
-
-    .privacy-section h2 {
-      color: var(--text-primary);
-      font-size: 1.35rem;
-      line-height: 1.25;
-      margin: 0 0 14px;
-      letter-spacing: 0;
-    }
-
-    .privacy-section p {
-      margin: 0 0 16px;
-    }
-
-    .privacy-section ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .privacy-section li {
-      margin: 8px 0;
-    }
-
-    .privacy-section strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    .privacy-shell a {
-      color: var(--accent-light);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(96, 165, 250, 0.35);
-    }
-
-    .privacy-shell a:hover {
-      color: var(--cyan);
-      border-bottom-color: rgba(34, 211, 238, 0.45);
-    }
-
-    .privacy-callout {
-      margin-top: 18px;
-      border: 1px solid var(--border-light);
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(34, 211, 238, 0.06));
-      padding: 18px 20px;
-    }
-
-    .privacy-callout p:last-child {
-      margin-bottom: 0;
-    }
-  </style>
 </head>
 <body>
   <!-- @@NAV@@ -->
 
-  <main>
+  <main class="document-page">
     <section class="hero hero-compact" style="padding: 120px 0 60px;">
       <div class="container">
         <div class="section-label">Privacy</div>
-        <h1 class="section-title" style="max-width: 760px;">
-          Privacy Policy
-        </h1>
+        <h1 class="section-title" style="max-width: 760px;">Local-first means your trading context stays under your control.</h1>
         <p class="section-desc" style="font-size: 1.15rem; max-width: 760px;">
-          How tradecli handles Google Sign-In identity, product analytics, error events, and account data.
+          This page describes the website privacy surface for tradecli and the product principles behind the local agent runtime.
         </p>
-        <div class="privacy-meta">
-          <span>Effective: June 1, 2026</span>
-          <span>Contact: contact@tradecli.in</span>
+      </div>
+    </section>
+
+    <section style="border-top: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-label">Website</div>
+          <h2 class="section-title">What this site collects.</h2>
+        </div>
+        <div class="about-prose">
+          <p>The public website uses Cloudflare Web Analytics to understand basic traffic patterns such as page views, referrers, browser type, country-level geography, and performance signals. We use this to improve the site, not to profile individual traders.</p>
+          <p>If you email us, we receive the information you choose to send, such as your email address, message, and any context you include. We use that information to reply and manage the relationship you initiated.</p>
+          <p>The site links to third-party services such as GitHub, Homebrew, and documentation hosting surfaces. Their privacy practices are governed by their own policies.</p>
         </div>
       </div>
     </section>
 
     <section style="border-top: 1px solid var(--border);">
       <div class="container">
-        <div class="privacy-shell">
-          <div class="privacy-section">
-            <h2>Overview</h2>
-            <p>tradecli is a terminal-based AI trading assistant for Indian markets. This policy explains what information we collect and how we use it to operate, secure, and improve the product.</p>
-            <p>For questions or privacy requests, contact <a href="mailto:contact@tradecli.in">contact@tradecli.in</a>.</p>
-          </div>
+        <div class="section-header fade-in">
+          <div class="section-label">Product</div>
+          <h2 class="section-title">What stays local.</h2>
+        </div>
+        <div class="about-prose">
+          <p>tradecli is designed as a local-first command layer. Broker sessions, local sidecars, AITradingOffice state, persona configuration, and workflow artifacts are meant to run under the operator's control on their machine unless a user explicitly configures an external service.</p>
+          <p>Broker credentials, portfolio context, watchlists, thesis notes, ledgers, and audit records should not be sent to tradecli by default through the website. When agents use a model provider, broker, browser, or external API that you configure, that provider may receive the data needed for that workflow.</p>
+          <p>Execution-related surfaces are guarded by configuration and approval gates. The privacy model and the safety model share the same principle: make the path visible, explicit, and controlled by the trader.</p>
+        </div>
+      </div>
+    </section>
 
-          <div class="privacy-section">
-            <h2>Information We Collect</h2>
-            <p>When you sign in with Google or use tradecli, we may collect:</p>
-            <ul>
-              <li>Google account information, such as your email address, name, email verification status, and account identifier.</li>
-              <li>Approximate location and request metadata, such as country or region, when available.</li>
-              <li>Product usage events, such as CLI launch, login, logout, persona selection, setup status, skill category usage, app version, platform, install channel, and environment label.</li>
-              <li>Error events needed to diagnose failures, such as error type, command area, status code, and non-sensitive runtime context.</li>
-            </ul>
-          </div>
-
-          <div class="privacy-section">
-            <h2>Information We Do Not Collect in Analytics</h2>
-            <p>tradecli analytics are designed not to collect sensitive trading or local-machine details. Product analytics do not include:</p>
-            <ul>
-              <li>Prompts, responses, chat transcripts, model context, or generated trading analysis.</li>
-              <li>Broker credentials, API keys, OAuth tokens, session cookies, or other secrets.</li>
-              <li>Portfolio holdings, order details, positions, trade history, watchlists, account balances, or personally sensitive financial records.</li>
-              <li>Full tool arguments, tool results, browser page contents, local file paths, or terminal command output.</li>
-            </ul>
-          </div>
-
-          <div class="privacy-section">
-            <h2>How We Use Information</h2>
-            <p>We use collected information to:</p>
-            <ul>
-              <li>Authenticate users and associate product analytics with signed-in accounts.</li>
-              <li>Operate, secure, debug, and improve tradecli.</li>
-              <li>Measure adoption, reliability, persona usage, skill usage, and setup friction.</li>
-              <li>Prevent abuse, spam, and unauthorized access.</li>
-              <li>Respond to support, privacy, and compliance requests.</li>
-            </ul>
-          </div>
-
-          <div class="privacy-section">
-            <h2>Google User Data</h2>
-            <p>tradecli uses Google Sign-In to authenticate users and identify accounts. We request identity-related scopes such as OpenID, email, and profile. We do not request access to Gmail, Google Drive, Google Calendar, or other Google Workspace content.</p>
-            <p>We use Google user data only for authentication, account identity, product analytics, security, and support. We do not sell Google user data.</p>
-            <div class="privacy-callout">
-              <p>tradecli's use and transfer of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
-            </div>
-          </div>
-
-          <div class="privacy-section">
-            <h2>Sharing</h2>
-            <p>We do not sell personal information. We share information only in limited cases:</p>
-            <ul>
-              <li>With Google, to provide Google Sign-In.</li>
-              <li>With providers that process information for us to operate, secure, and support tradecli.</li>
-              <li>If required by law, to protect users, or to protect the integrity and security of tradecli.</li>
-            </ul>
-          </div>
-
-          <div class="privacy-section">
-            <h2>Retention</h2>
-            <p>We retain account, product analytics, and error information for as long as reasonably needed to operate, secure, debug, and improve tradecli. We may aggregate or de-identify analytics for longer-term product measurement.</p>
-          </div>
-
-          <div class="privacy-section">
-            <h2>Security</h2>
-            <p>We use reasonable technical and organizational safeguards to protect user information. No system is perfect, but we design collection and access controls to reduce unnecessary exposure.</p>
-          </div>
-
-          <div class="privacy-section">
-            <h2>Your Choices</h2>
-            <p>You can stop using tradecli or sign out of the CLI at any time. To request access, correction, or deletion of account-linked information, contact <a href="mailto:contact@tradecli.in">contact@tradecli.in</a>.</p>
-          </div>
-
-          <div class="privacy-section">
-            <h2>Changes</h2>
-            <p>We may update this policy as tradecli changes. Material changes will be reflected on this page with an updated effective date.</p>
-          </div>
+    <section style="border-top: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-label">Contact</div>
+          <h2 class="section-title">Questions or deletion requests.</h2>
+        </div>
+        <div class="about-prose">
+          <p>For privacy questions, corrections, or deletion requests related to direct correspondence, email <a href="mailto:contact@tradecli.in">contact@tradecli.in</a>.</p>
+          <p>Last updated: June 16, 2026.</p>
         </div>
       </div>
     </section>

@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <!-- @@HEAD_BASE@@ -->
-  <title>tradecli — AI Trading Assistant for Indian Markets</title>
-  <meta name="description" content="Learn trading, analyze stocks, manage portfolios, and build strategies on NSE/BSE with an AI assistant that integrates with Groww and Zerodha." />
-  <meta property="og:title" content="tradecli — AI Trading Assistant for Indian Markets" />
-  <meta property="og:description" content="Learn trading, analyze stocks, manage portfolios on NSE/BSE with AI." />
+  <title>tradecli - Agent-Native Trading OS for Indian Markets</title>
+  <meta name="description" content="tradecli is an agent-native trading operating system for Indian markets: local AI agents, broker/browser tools, AITradingOffice memory, and guardrailed action paths." />
+  <meta property="og:title" content="tradecli - Agent-Native Trading OS for Indian Markets" />
+  <meta property="og:description" content="Run local AI agents across brokers, charts, screeners, portfolios, and an AITradingOffice memory layer." />
   <meta property="og:image" content="https://tradecli.in/assets/og-default.png" />
   <meta property="og:url" content="https://tradecli.in/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -17,7 +17,7 @@
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "macOS, Linux, Windows",
     "url": "https://tradecli.in",
-    "description": "AI trading assistant for Indian markets — learn trading, analyze stocks, manage portfolios on NSE/BSE through Groww and Zerodha integrations.",
+    "description": "Agent-native trading operating system for Indian markets: local AI agents across broker, browser, chart, portfolio, and AITradingOffice workflows with guardrailed action paths.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
   }
   </script>
@@ -27,1079 +27,354 @@
   <!-- @@NAV@@ -->
 
   <main>
+    <section class="hero os-hero">
+      <div class="container">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          Built in India · Local-first · Guardrailed by design
+        </div>
+        <h1>The agent-native trading OS for Indian markets</h1>
+        <p>tradecli runs local AI agents across brokers, charts, screeners, portfolios, and an AITradingOffice memory layer, so your market process becomes visible, queryable, and scalable.</p>
 
-  <!-- ── HERO ── -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-badge">
-        <div class="hero-badge-dot"></div>
-        Built for Indian Markets &middot; NSE &amp; BSE
+        <figure class="hero-product-shot" aria-label="tradecli Office Mode product preview">
+          <img
+            src="{{SITE_BASE}}assets/product/tradecli-office-hero.webp"
+            width="3840"
+            height="2160"
+            alt="tradecli Office Mode with multiple local agent panes beside HDFC Bank chart context"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </figure>
+
+        <div class="hero-actions hero-actions-after-shot">
+          <a href="#get-started" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l6-6-6-6"/><path d="M12 19h8"/></svg>
+            Install tradecli
+          </a>
+          <a href="{{SITE_BASE}}wiki/" class="btn-secondary">Read the docs</a>
+        </div>
       </div>
-      <h1>AI trading,<br/><span class="gradient-text">made for India</span></h1>
-      <p>A terminal AI agent that drives your browser &mdash; research stocks, learn trading, manage portfolios across your broker platforms.</p>
+    </section>
 
-      <!-- Interactive Terminal -->
-      <div class="terminal-wrapper">
-        <div class="terminal" id="hero-terminal" tabindex="0">
-          <div class="terminal-bar">
-            <div class="terminal-dot r"></div>
-            <div class="terminal-dot y"></div>
-            <div class="terminal-dot g"></div>
-            <span>tradecli</span>
+    <section class="proof-strip-section" id="features">
+      <div class="container">
+        <div class="proof-grid fade-in">
+          <div class="proof-item">
+            <span class="proof-kicker">Local</span>
+            <h3>Visible and auditable</h3>
+            <p>Your terminal stays the command surface. Broker credentials and office state stay on your machine.</p>
           </div>
-          <div class="terminal-body" id="hero-term-body" style="height:380px;padding:20px 24px;overflow:hidden;text-align:left;">
-            <!-- Banner -->
-            <pre id="hero-banner" style="color:#22c55e;font-weight:700;font-size:clamp(0.35rem, 1.2vw, 0.6rem);line-height:1.25;margin:0;white-space:pre;overflow:hidden;font-family:'Menlo','Consolas','DejaVu Sans Mono',monospace;"></pre>
-            <div style="height:20px;"></div>
-            <!-- Prompt -->
-            <div id="hero-prompt" style="color:#ccc;font-size:0.78rem;margin-bottom:4px;opacity:0;transition:opacity 0.5s;font-family:'JetBrains Mono',monospace;"></div>
-            <div id="hero-prompt2" style="color:#888;font-size:0.78rem;margin-bottom:20px;opacity:0;transition:opacity 0.5s;font-family:'JetBrains Mono',monospace;"></div>
-            <!-- Persona selector -->
-            <div id="hero-picker" style="opacity:0;transition:opacity 0.5s;font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-align:left;"></div>
+          <div class="proof-item">
+            <span class="proof-kicker">Broker-aware</span>
+            <h3>Groww and Zerodha/Kite</h3>
+            <p>Broker tools run through local sidecars and a shared gateway for coordinated workflows.</p>
+          </div>
+          <div class="proof-item">
+            <span class="proof-kicker">Browser-native</span>
+            <h3>Works with existing tools</h3>
+            <p>TradingView, Screener, broker screens, and other web surfaces become agent-readable context.</p>
+          </div>
+          <div class="proof-item">
+            <span class="proof-kicker">Office Mode</span>
+            <h3>Multi-agent desks</h3>
+            <p>Launch CEO, Investor, Trader, and PMS-style workers in one visible agent desk.</p>
+          </div>
+          <div class="proof-item">
+            <span class="proof-kicker">Memory</span>
+            <h3>AITradingOffice</h3>
+            <p>Theses, forward tests, ledgers, employees, clients, and reviews become durable records.</p>
+          </div>
+          <div class="proof-item">
+            <span class="proof-kicker">Safety</span>
+            <h3>Guardrailed actions</h3>
+            <p>Read, suggest, review, prepare, approve, execute only when explicitly enabled.</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="hero-actions" style="margin-top:24px;">
-        <a href="#get-started" class="btn-primary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l6-6-6-6"/><path d="M12 19h8"/></svg>
-          Get Started
+    <section id="platform" class="platform-section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-label">Platform</div>
+          <h2 class="section-title">One operating layer. Many agents. One memory.</h2>
+          <p class="section-desc">The OS connects the tools traders already use, gives each agent a mandate, and writes durable context into AITradingOffice.</p>
+        </div>
+
+        <div class="platform-map fade-in">
+          <div class="platform-node">
+            <span class="platform-label">Tools and surfaces</span>
+            <h3>Broker APIs, browser, charts, screeners, channels</h3>
+            <p>tradecli plugs into the fragmented surfaces Indian-market operators already use instead of asking them to migrate first.</p>
+          </div>
+          <div class="platform-arrow">-></div>
+          <div class="platform-node platform-node-core">
+            <span class="platform-label">tradecli OS</span>
+            <h3>Local harness and control plane</h3>
+            <p>Personas, tools, mailbox, sidecars, model runtime, and action policy run through one operator-owned command layer.</p>
+          </div>
+          <div class="platform-arrow">-></div>
+          <div class="platform-node">
+            <span class="platform-label">AITradingOffice</span>
+            <h3>System of record</h3>
+            <p>Theses, trades, forward tests, reviews, employees, clients, PMS accounts, and hedge-fund state become queryable memory.</p>
+          </div>
+        </div>
+
+        <div class="guardrail-callout fade-in">
+          <span class="platform-label">Guardrails below every action</span>
+          <p>Every path from context to action climbs through review, approval, configuration gates, tool confirmation, and audit records.</p>
+        </div>
+      </div>
+    </section>
+
+    <span id="personas" class="anchor-alias" aria-hidden="true"></span>
+    <section id="workflows">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-label">Workflows</div>
+          <h2 class="section-title">From one operator to an AI trading office.</h2>
+          <p class="section-desc">Start with a single focused agent, then scale into office workflows where specialists research, monitor, review, and report back through a shared system of record.</p>
+        </div>
+
+        <div class="workflow-grid">
+          <div class="workflow-card fade-in">
+            <span class="workflow-label">Learner</span>
+            <h3>Build market fluency by doing</h3>
+            <p>Guided lessons, broker-aware exercises, quizzes, and saved progress for people learning Indian market workflows.</p>
+            <div class="persona-tags">
+              <span class="persona-tag">curriculum</span>
+              <span class="persona-tag">broker practice</span>
+              <span class="persona-tag">progress</span>
+            </div>
+          </div>
+          <div class="workflow-card fade-in">
+            <span class="workflow-label">Investor</span>
+            <h3>Turn discovery into thesis memory</h3>
+            <p>Research companies, compare peers, test assumptions, and persist thesis/review artifacts in AITradingOffice.</p>
+            <div class="persona-tags">
+              <span class="persona-tag">Screener</span>
+              <span class="persona-tag">thesis</span>
+              <span class="persona-tag">forward tests</span>
+            </div>
+          </div>
+          <div class="workflow-card fade-in">
+            <span class="workflow-label">Trader</span>
+            <h3>Prepare setups with risk in view</h3>
+            <p>Read charts, inspect context, build strategies, and prepare actions without silently bypassing approval gates.</p>
+            <div class="persona-tags">
+              <span class="persona-tag">TradingView</span>
+              <span class="persona-tag">Streak</span>
+              <span class="persona-tag">risk review</span>
+            </div>
+          </div>
+          <div class="workflow-card fade-in">
+            <span class="workflow-label">PMS / Portfolio</span>
+            <h3>Review books, clients, and exposure</h3>
+            <p>Unify account context, holdings, ledgers, allocation, and client ownership into one reviewable operating layer.</p>
+            <div class="persona-tags">
+              <span class="persona-tag">accounts</span>
+              <span class="persona-tag">ledgers</span>
+              <span class="persona-tag">allocation</span>
+            </div>
+          </div>
+          <div class="workflow-card workflow-card-wide fade-in">
+            <span class="workflow-label">Office Mode</span>
+            <h3>Spawn a visible desk of specialist agents</h3>
+            <p>Start Office Mode from the interactive TUI to open a desk of CEO, Investor, Trader, and PMS-style workers. The mailbox coordinates delegation while AITradingOffice keeps the durable record behind the session.</p>
+            <div class="persona-tags">
+              <span class="persona-tag">agent desk</span>
+              <span class="persona-tag">mailbox</span>
+              <span class="persona-tag">AITradingOffice</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="multi-agent-demo" class="agent-demo-section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-label">Office Mode</div>
+          <h2 class="section-title">The TUI opens the agent desk.</h2>
+          <p class="section-desc">Launch <code>tradecli</code>, start Office Mode from the interactive TUI, and watch specialist agents work beside live market context.</p>
+        </div>
+
+        <figure class="office-video-demo fade-in" aria-label="Office Mode multi-agent workflow video">
+          <video
+            class="office-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="{{SITE_BASE}}assets/product/tradecli-office-hero.webp"
+          >
+            <source src="{{SITE_BASE}}assets/product/tradecli-office-loop.webm" type="video/webm" />
+            <source src="{{SITE_BASE}}assets/product/tradecli-office-loop.mp4" type="video/mp4" />
+            <img src="{{SITE_BASE}}assets/product/tradecli-office-hero.webp" alt="tradecli Office Mode running multiple local agent panes beside chart context" />
+          </video>
+        </figure>
+      </div>
+    </section>
+
+    <section id="integrations">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-label">Integrations</div>
+          <h2 class="section-title">Built around the Indian-market stack.</h2>
+          <p class="section-desc">Direct APIs where possible, browser control where needed, and local sidecars when a workflow needs long-lived state.</p>
+        </div>
+
+        <div class="integrations-row fade-in">
+          <div class="integration-card">
+            <h4>Groww</h4>
+            <span class="integration-badge badge-green">broker tools</span>
+            <p>Holdings, watchlists, screeners, broker context</p>
+          </div>
+          <div class="integration-card">
+            <h4>Zerodha Kite</h4>
+            <span class="integration-badge badge-blue">broker API</span>
+            <p>Holdings, positions, margins, historical data, account context</p>
+          </div>
+          <div class="integration-card">
+            <h4>TradingView</h4>
+            <span class="integration-badge badge-blue">charts</span>
+            <p>Chart state, OHLCV, screenshots, technical context</p>
+          </div>
+          <div class="integration-card">
+            <h4>Screener.in</h4>
+            <span class="integration-badge badge-green">fundamentals</span>
+            <p>Filters, financials, peer comparison, research context</p>
+          </div>
+          <div class="integration-card">
+            <h4>AITradingOffice</h4>
+            <span class="integration-badge badge-amber">memory</span>
+            <p>Theses, ledgers, reviews, employees, clients, office state</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="guardrails" class="guardrails-section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-label">Guardrails</div>
+          <h2 class="section-title">Control stays visible at every step.</h2>
+          <p class="section-desc">Agents can gather context, form recommendations, and prepare actions. Execution stays behind explicit approval, configuration, and an audit trail.</p>
+        </div>
+        <div class="guardrail-system fade-in">
+          <div class="guardrail-rail" aria-label="tradecli guardrail workflow">
+            <div class="guardrail-stage">
+              <span>01</span>
+              <h3>Observe</h3>
+              <p>Read market, broker, chart, and office context.</p>
+            </div>
+            <div class="guardrail-stage">
+              <span>02</span>
+              <h3>Recommend</h3>
+              <p>Explain thesis, risk, sizing, and invalidation.</p>
+            </div>
+            <div class="guardrail-stage">
+              <span>03</span>
+              <h3>Prepare</h3>
+              <p>Draft the intended action without placing it.</p>
+            </div>
+            <div class="guardrail-stage guardrail-stage-lock">
+              <span>04</span>
+              <h3>Approve</h3>
+              <p>Require operator review before execution.</p>
+            </div>
+            <div class="guardrail-stage">
+              <span>05</span>
+              <h3>Execute</h3>
+              <p>Run only when the local config allows it.</p>
+            </div>
+            <div class="guardrail-stage">
+              <span>06</span>
+              <h3>Review</h3>
+              <p>Write decisions, fills, and follow-up notes back.</p>
+            </div>
+          </div>
+
+          <div class="guardrail-policy">
+            <h3>Execution boundary</h3>
+            <ul>
+              <li>Broker credentials stay local to the machine.</li>
+              <li>Order placement is disabled unless explicitly configured.</li>
+              <li>Every recommendation and action path stays reviewable.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="get-started">
+      <div class="container">
+        <h2>Install, set up,<br/><span class="gradient-text">verify</span></h2>
+        <p>Install via <a href="https://brew.sh" target="_blank" rel="noopener" style="color: var(--accent-light); text-decoration: none;">Homebrew</a>, run the setup wizard, then use doctor to verify the local stack before serious work.</p>
+
+        <div class="cta-install" onclick="copyInstall(this, 'brew trust --tap TradingSandbox/tradecli &amp;&amp; brew install TradingSandbox/tradecli/tradecli')" title="Click to copy" style="margin-bottom: 12px;">
+          <span><span class="t-prompt">$</span> brew trust --tap TradingSandbox/tradecli &amp;&amp; brew install TradingSandbox/tradecli/tradecli</span>
+          <span class="copy-icon">copy</span>
+        </div>
+
+        <div style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 28px;">
+          macOS (Apple Silicon) and Linux (x64). Windows via direct <a href="https://github.com/TradingSandbox/TradingSandbox/releases" style="color: var(--accent-light); text-decoration: none;">.zip download</a>.
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px;">
+          <div class="cta-install" onclick="copyInstall(this, 'tradecli setup')" title="Click to copy" style="margin-top:0;">
+            <span><span class="t-prompt">$</span> tradecli setup</span>
+            <span class="copy-icon">copy</span>
+          </div>
+          <div class="cta-install" onclick="copyInstall(this, 'tradecli doctor')" title="Click to copy" style="margin-top:0;">
+            <span><span class="t-prompt">$</span> tradecli doctor</span>
+            <span class="copy-icon">copy</span>
+          </div>
+        </div>
+
+        <a href="https://github.com/TradingSandbox/homebrew-tradecli" target="_blank" rel="noopener" class="btn-primary" style="margin-bottom: 20px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- ── PERSONAS ── -->
-  <section id="personas">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Personas</div>
-        <h2 class="section-title">Four AI agents. One trading journey.</h2>
-        <p class="section-desc">Each persona is a specialized AI with its own tools, prompts, and workflows &mdash; tailored to where you are in your trading journey.</p>
-      </div>
-
-      <div class="personas-grid">
-
-        <!-- ── LEARNER ── -->
-        <div class="persona-card learner fade-in" data-persona="learner">
-          <div class="persona-icon">&#x1F393;</div>
-          <h3>Learner</h3>
-          <div class="persona-subtitle">Foundation &rarr; Mastery</div>
-          <p>An 8-chapter interactive curriculum covering candlesticks, support &amp; resistance, indicators, setups, and risk management &mdash; with live practice on broker platforms.</p>
-          <div class="persona-tags">
-            <span class="persona-tag">8 chapters</span>
-            <span class="persona-tag">live exercises</span>
-            <span class="persona-tag">AI coaching</span>
-            <span class="persona-tag">progress tracking</span>
-          </div>
-          <div class="persona-demo" id="demo-learner">
-            <div class="persona-demo-inner">
-              <div class="dual-pane">
-                <div class="dp-term">
-                  <div class="dp-bar">
-                    <div class="dp-dot r"></div><div class="dp-dot y"></div><div class="dp-dot g"></div>
-                    <span class="dp-bar-title">tradecli &mdash; learner</span>
-                  </div>
-                  <div class="dp-body" id="term-learner"></div>
-                </div>
-                <div class="dp-browser">
-                  <div class="dp-bar">
-                    <div class="dp-dot r"></div><div class="dp-dot y"></div><div class="dp-dot g"></div>
-                    <div class="dp-url-bar">&#x1F512; broker-platform.com/charts</div>
-                  </div>
-                  <div class="dp-body" id="browser-learner"></div>
-                </div>
-              </div>
-              <button class="demo-replay" id="replay-learner" onclick="event.stopPropagation(); replayDemo('learner')">&#x21BB; replay</button>
-            </div>
-          </div>
-          <div class="persona-nav" id="nav-learner"></div>
-        </div>
-
-        <!-- ── INVESTOR ── -->
-        <div class="persona-card investor fade-in" data-persona="investor">
-          <div class="persona-icon">&#x1F4CA;</div>
-          <h3>Investor</h3>
-          <div class="persona-subtitle">Research &rarr; Conviction</div>
-          <p>Deep fundamental analysis with Screener integration &mdash; DCF valuation, peer comparison, business quality scoring, and investment thesis generation.</p>
-          <div class="persona-tags">
-            <span class="persona-tag">screener.in</span>
-            <span class="persona-tag">DCF models</span>
-            <span class="persona-tag">peer analysis</span>
-            <span class="persona-tag">thesis builder</span>
-          </div>
-          <div class="persona-demo" id="demo-investor">
-            <div class="persona-demo-inner">
-              <div class="dual-pane">
-                <div class="dp-term">
-                  <div class="dp-bar">
-                    <div class="dp-dot r"></div><div class="dp-dot y"></div><div class="dp-dot g"></div>
-                    <span class="dp-bar-title">tradecli &mdash; investor</span>
-                  </div>
-                  <div class="dp-body" id="term-investor"></div>
-                </div>
-                <div class="dp-browser">
-                  <div class="dp-bar">
-                    <div class="dp-dot r"></div><div class="dp-dot y"></div><div class="dp-dot g"></div>
-                    <div class="dp-url-bar">&#x1F512; stock-screener.com/search</div>
-                  </div>
-                  <div class="dp-body" id="browser-investor"></div>
-                </div>
-              </div>
-              <button class="demo-replay" id="replay-investor" onclick="event.stopPropagation(); replayDemo('investor')">&#x21BB; replay</button>
-            </div>
-          </div>
-          <div class="persona-nav" id="nav-investor"></div>
-        </div>
-
-        <!-- ── TRADER ── -->
-        <div class="persona-card trader fade-in" data-persona="trader">
-          <div class="persona-icon">&#x1F4C8;</div>
-          <h3>Trader</h3>
-          <div class="persona-subtitle">Signal &rarr; Execution</div>
-          <p>Technical strategy building with Streak integration &mdash; backtest equity and options strategies, capture chart states, and deploy with risk controls.</p>
-          <div class="persona-tags">
-            <span class="persona-tag">streak platform</span>
-            <span class="persona-tag">backtesting</span>
-            <span class="persona-tag">options</span>
-            <span class="persona-tag">risk management</span>
-          </div>
-          <div class="persona-demo" id="demo-trader">
-            <div class="persona-demo-inner">
-              <div class="dual-pane">
-                <div class="dp-term">
-                  <div class="dp-bar">
-                    <div class="dp-dot r"></div><div class="dp-dot y"></div><div class="dp-dot g"></div>
-                    <span class="dp-bar-title">tradecli &mdash; trader</span>
-                  </div>
-                  <div class="dp-body" id="term-trader"></div>
-                </div>
-                <div class="dp-browser">
-                  <div class="dp-bar">
-                    <div class="dp-dot r"></div><div class="dp-dot y"></div><div class="dp-dot g"></div>
-                    <div class="dp-url-bar">&#x1F512; strategy-platform.com/backtest</div>
-                  </div>
-                  <div class="dp-body" id="browser-trader"></div>
-                </div>
-              </div>
-              <button class="demo-replay" id="replay-trader" onclick="event.stopPropagation(); replayDemo('trader')">&#x21BB; replay</button>
-            </div>
-          </div>
-          <div class="persona-nav" id="nav-trader"></div>
-        </div>
-
-        <!-- ── PORTFOLIO MANAGER ── -->
-        <div class="persona-card portfolio fade-in" data-persona="portfolio">
-          <div class="persona-icon">&#x1F4BC;</div>
-          <h3>Portfolio Manager</h3>
-          <div class="persona-subtitle">Allocate &rarr; Rebalance</div>
-          <p>Multi-asset portfolio construction with position sizing, sector allocation, drift monitoring, correlation analysis, and automated rebalancing workflows.</p>
-          <div class="persona-tags">
-            <span class="persona-tag">allocation</span>
-            <span class="persona-tag">rebalancing</span>
-            <span class="persona-tag">risk metrics</span>
-            <span class="persona-tag">XLSX import</span>
-          </div>
-          <div class="persona-demo" id="demo-portfolio">
-            <div class="persona-demo-inner">
-              <div class="dual-pane">
-                <div class="dp-term">
-                  <div class="dp-bar">
-                    <div class="dp-dot r"></div><div class="dp-dot y"></div><div class="dp-dot g"></div>
-                    <span class="dp-bar-title">tradecli &mdash; portfolio</span>
-                  </div>
-                  <div class="dp-body" id="term-portfolio"></div>
-                </div>
-                <div class="dp-browser">
-                  <div class="dp-bar">
-                    <div class="dp-dot r"></div><div class="dp-dot y"></div><div class="dp-dot g"></div>
-                    <div class="dp-url-bar">&#x1F512; broker-platform.com/portfolio</div>
-                  </div>
-                  <div class="dp-body" id="browser-portfolio"></div>
-                </div>
-              </div>
-              <button class="demo-replay" id="replay-portfolio" onclick="event.stopPropagation(); replayDemo('portfolio')">&#x21BB; replay</button>
-            </div>
-          </div>
-          <div class="persona-nav" id="nav-portfolio"></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── FEATURES ── -->
-  <section id="features">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Features</div>
-        <h2 class="section-title">Everything you need, nothing you don't</h2>
-        <p class="section-desc">Built from the ground up for Indian market traders who want AI that actually understands their workflow.</p>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card fade-in">
-          <div class="feature-icon">&#x1F916;</div>
-          <h3>AI-Native Intelligence</h3>
-          <p>Context-aware AI that understands market terminology, NSE/BSE conventions, and adapts to your trading style.</p>
-        </div>
-        <div class="feature-card fade-in">
-          <div class="feature-icon" style="background: var(--green-glow);">&#x1F310;</div>
-          <h3>Browser Automation</h3>
-          <p>Automated interaction with broker platforms, TradingView charts, and Screener.in &mdash; powered by Playwright &amp; CDP.</p>
-        </div>
-        <div class="feature-card fade-in">
-          <div class="feature-icon" style="background: var(--purple-glow);">&#x1F517;</div>
-          <h3>MCP Protocol</h3>
-          <p>60+ tools via Model Context Protocol for seamless Groww and Zerodha integration. Real data, real actions.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── INTEGRATIONS ── -->
-  <section id="integrations">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Integrations</div>
-        <h2 class="section-title">Plugged into the ecosystem</h2>
-        <p class="section-desc">Direct API and MCP connections to the platforms Indian traders actually use.</p>
-      </div>
-
-      <div class="integrations-row fade-in">
-        <div class="integration-card">
-          <div class="integration-logo">&#x1F4B9;</div>
-          <h4>Groww</h4>
-          <span class="integration-badge badge-green">38 tools</span>
-          <p>Holdings, watchlist, screening, trades</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-logo">&#x1F3AF;</div>
-          <h4>Zerodha Kite</h4>
-          <span class="integration-badge badge-blue">22 tools</span>
-          <p>Market data, orders, portfolio analytics</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-logo">&#x26A1;</div>
-          <h4>Streak</h4>
-          <span class="integration-badge badge-amber">strategies</span>
-          <p>Backtest, deploy, monitor live algos</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-logo">&#x1F4C9;</div>
-          <h4>TradingView</h4>
-          <span class="integration-badge badge-blue">charts</span>
-          <p>Chart state capture &amp; technical analysis</p>
-        </div>
-        <div class="integration-card">
-          <div class="integration-logo">&#x1F50D;</div>
-          <h4>Screener.in</h4>
-          <span class="integration-badge badge-green">fundamentals</span>
-          <p>Financial data, queries, peer comparison</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CTA ── -->
-  <section class="cta-section" id="get-started">
-    <div class="container">
-      <h2>Get started in<br/><span class="gradient-text">one command</span></h2>
-      <p>Install via <a href="https://brew.sh" target="_blank" rel="noopener" style="color: var(--accent-light); text-decoration: none;">Homebrew</a>, run the setup wizard, and you're trading.</p>
-
-      <div class="cta-install" onclick="copyInstall(this, 'brew trust --tap TradingSandbox/tradecli && brew install TradingSandbox/tradecli/tradecli')" title="Click to copy" style="margin-bottom: 12px;">
-        <span><span class="t-prompt">$</span> brew trust --tap TradingSandbox/tradecli && brew install TradingSandbox/tradecli/tradecli</span>
-        <span class="copy-icon">&#x1F4CB;</span>
-      </div>
-
-      <div style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 28px;">
-        macOS (Apple Silicon) and Linux (x64). Windows via direct <a href="https://github.com/TradingSandbox/homebrew-tradecli" style="color: var(--accent-light); text-decoration: none;">.zip download</a>.
-      </div>
-
-      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px;">
-        <div class="cta-install" onclick="copyInstall(this, 'tradecli setup')" title="Click to copy" style="margin-top:0;">
-          <span><span class="t-prompt">$</span> tradecli setup</span>
-          <span class="copy-icon">&#x1F4CB;</span>
-        </div>
-        <div class="cta-install" onclick="copyInstall(this, 'tradecli doctor')" title="Click to copy" style="margin-top:0;">
-          <span><span class="t-prompt">$</span> tradecli doctor</span>
-          <span class="copy-icon">&#x1F4CB;</span>
-        </div>
-      </div>
-
-      <a href="https://github.com/TradingSandbox/homebrew-tradecli" target="_blank" rel="noopener" class="btn-primary" style="margin-bottom: 20px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        View on GitHub
-      </a>
-    </div>
-  </section>
-
+    </section>
   </main>
 
   <!-- @@FOOTER@@ -->
 
   <script>
-    /* ══════════════════════════════════════
-       HERO INTERACTIVE TERMINAL
-       ══════════════════════════════════════ */
-    (function() {
-      const BANNER = [
-        "   __                               __                      __  __ ",
-        "  /  |                             /  |                    /  |/  |",
-        " _₹₹ |_     ______   ______    ____₹₹ |  ______    _______ ₹₹ |₹₹/ ",
-        "/ ₹₹   |   /      \\ /      \\  /    ₹₹ | /      \\  /       |₹₹ |/  |",
-        "₹₹₹₹₹₹/   /₹₹₹₹₹₹  |₹₹₹₹₹₹  |/₹₹₹₹₹₹₹ |/₹₹₹₹₹₹  |/₹₹₹₹₹₹₹/ ₹₹ |₹₹ |",
-        "  ₹₹ | __ ₹₹ |  ₹₹/ /    ₹₹ |₹₹ |  ₹₹ |₹₹    ₹₹ |₹₹ |      ₹₹ |₹₹ |",
-        "  ₹₹ |/  |₹₹ |     /₹₹₹₹₹₹₹ |₹₹ \\__₹₹ |₹₹₹₹₹₹₹₹/ ₹₹ \\_____ ₹₹ |₹₹ |",
-        "  ₹₹  ₹₹/ ₹₹ |     ₹₹    ₹₹ |₹₹    ₹₹ |₹₹       |₹₹       |₹₹ |₹₹ |",
-        "   ₹₹₹₹/  ₹₹/       ₹₹₹₹₹₹₹/  ₹₹₹₹₹₹₹/  ₹₹₹₹₹₹₹/  ₹₹₹₹₹₹₹/ ₹₹/ ₹₹/ ",
-      ];
-
-      const PERSONAS = [
-        { id: 'learner', label: 'Learner', desc: 'Guided curriculum for trading & investing fundamentals' },
-        { id: 'investor', label: 'Investor', desc: 'Long-term fundamental research with discovery, valuation, and thesis-check workflows' },
-        { id: 'portfolio', label: 'Portfolio Manager', desc: 'Allocation, sizing, rebalancing, cross-broker portfolio view' },
-        { id: 'trader', label: 'Trader', desc: 'Technical analysis, chart patterns, execution strategies' },
-      ];
-
-      let selectedIndex = 0;
-      let ready = false;
-
-      const bannerEl = document.getElementById('hero-banner');
-      const promptEl = document.getElementById('hero-prompt');
-      const prompt2El = document.getElementById('hero-prompt2');
-      const pickerEl = document.getElementById('hero-picker');
-      const termEl = document.getElementById('hero-terminal');
-
-      function renderPicker() {
-        const sep = '<div style="border-top:1px solid #333;margin:4px 0;"></div>';
-        let html = sep;
-
-        PERSONAS.forEach((p, i) => {
-          const sel = i === selectedIndex;
-          const arrowHtml = sel
-            ? '<span class="picker-arrow" style="color:#22d3ee;">\u2192</span>'
-            : '<span style="color:transparent;">\u2192</span>';
-          const nameHtml = sel
-            ? '<span style="color:#22d3ee;font-weight:700;">' + p.label + '</span>'
-            : '<span style="color:#ccc;">' + p.label + '</span>';
-
-          // " → Name                Description" — matches real TUI layout
-          // 1ch space + 1ch arrow + 1ch space + 20ch name + description
-          html += '<div style="display:grid;grid-template-columns:1ch 1ch 1ch 20ch 1fr;cursor:pointer;padding:3px 0;line-height:1.5;white-space:nowrap;overflow:hidden;" data-idx="' + i + '">' +
-            '<span></span>' +
-            '<span>' + arrowHtml + '</span>' +
-            '<span></span>' +
-            '<span>' + nameHtml + '</span>' +
-            '<span style="color:#555;overflow:hidden;text-overflow:ellipsis;">' + p.desc + '</span>' +
-          '</div>';
-        });
-
-        html += sep;
-        pickerEl.innerHTML = html;
-      }
-
-      // Event delegation — survives re-renders
-      pickerEl.addEventListener('click', (e) => {
-        const row = e.target.closest('[data-idx]');
-        if (!row) return;
-        selectedIndex = parseInt(row.dataset.idx);
-        renderPicker();
-        selectPersona();
-      });
-      pickerEl.addEventListener('mouseover', (e) => {
-        const row = e.target.closest('[data-idx]');
-        if (!row) return;
-        const idx = parseInt(row.dataset.idx);
-        if (idx !== selectedIndex) {
-          selectedIndex = idx;
-          renderPicker();
-        }
-      });
-
-      function selectPersona() {
-        const persona = PERSONAS[selectedIndex];
-        const target = document.querySelector('.persona-card.' + (persona.id === 'portfolio' ? 'portfolio' : persona.id));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          // Trigger the demo
-          setTimeout(() => openDemo(persona.id), 600);
-        }
-      }
-
-      // Keyboard navigation
-      document.addEventListener('keydown', (e) => {
-        if (!ready) return;
-        // Only respond when hero is in viewport
-        const rect = termEl.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-
-        if (e.key === 'ArrowDown') {
-          e.preventDefault();
-          selectedIndex = (selectedIndex + 1) % PERSONAS.length;
-          renderPicker();
-        } else if (e.key === 'ArrowUp') {
-          e.preventDefault();
-          selectedIndex = (selectedIndex - 1 + PERSONAS.length) % PERSONAS.length;
-          renderPicker();
-        } else if (e.key === 'Enter') {
-          e.preventDefault();
-          selectPersona();
-        }
-      });
-
-      // Boot animation
-      async function boot() {
-        // Type banner line by line
-        const STAR_FRAMES = ['\u2722', '\u2733', '\u2736', '\u273B', '\u273D', '\u273B', '\u2736', '\u2733'];
-        let fi = 0;
-        // Render banner char by char — each char in a fixed 1ch cell
-        function bannerLineToHtml(line) {
-          let html = '';
-          for (let c = 0; c < line.length; c++) {
-            const ch = line[c];
-            if (ch === ' ') {
-              html += ' ';
-            } else {
-              html += '<span style="display:inline-block;width:1ch;overflow:hidden;text-align:left;">' +
-                (ch === '&' ? '&amp;' : ch === '<' ? '&lt;' : ch) + '</span>';
-            }
-          }
-          return html;
-        }
-        // Banner appears instantly
-        for (let i = 0; i < BANNER.length; i++) {
-          bannerEl.insertAdjacentHTML('beforeend', '<div style="height:1.25em;">' + bannerLineToHtml(BANNER[i]) + '</div>');
-        }
-
-        // Brief spinner
-        const spinLine = document.createElement('div');
-        spinLine.style.cssText = 'margin-top:12px;font-size:0.75rem;';
-        bannerEl.parentNode.insertBefore(spinLine, bannerEl.nextSibling);
-        let spinInterval = setInterval(() => {
-          fi = (fi + 1) % STAR_FRAMES.length;
-          const color = fi % 6 < 3 ? '#22c55e' : '#FF3333';
-          const ch = (color === '#22c55e' && fi >= 3 && fi <= 5) ? '\u20B9' : STAR_FRAMES[fi];
-          spinLine.innerHTML = '  <span style="color:' + color + ';">' + ch + '</span> <span style="color:#555;">Loading...</span>';
-        }, 180);
-
-        await new Promise(r => setTimeout(r, 600));
-        clearInterval(spinInterval);
-        spinLine.remove();
-
-        // Show prompt and picker quickly
-        promptEl.textContent = 'What would you like to do today?';
-        promptEl.style.opacity = '1';
-        await new Promise(r => setTimeout(r, 150));
-        prompt2El.textContent = 'Choose a persona to begin.';
-        prompt2El.style.opacity = '1';
-        await new Promise(r => setTimeout(r, 150));
-        renderPicker();
-        pickerEl.style.opacity = '1';
-        ready = true;
-
-        // Bounce the arrow after a short delay to hint interactivity
-        setTimeout(() => {
-          const arrow = pickerEl.querySelector('.picker-arrow');
-          if (arrow) arrow.classList.add('picker-arrow-bounce');
-        }, 500);
-
-        // Focus terminal so keyboard works
-        termEl.focus();
-      }
-
-      // Start when hero is visible
-      const heroObserver = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          heroObserver.disconnect();
-          boot();
-        }
-      }, { threshold: 0.3 });
-      heroObserver.observe(termEl);
-    })();
-
-    // Scroll-based fade-in is now handled by shared/assets/fade-in.js
-    // (loaded via shared/head-base.html on every page).
-
-    // Copy install command
     function copyInstall(el, text) {
       const icon = el.querySelector('.copy-icon');
       try {
         navigator.clipboard.writeText(text).then(() => {
-          icon.textContent = '\u2713';
-          setTimeout(() => { icon.textContent = '\uD83D\uDCCB'; }, 2000);
+          icon.textContent = 'copied';
+          setTimeout(() => { icon.textContent = 'copy'; }, 2000);
         }).catch(() => {
-          icon.textContent = '\u2717';
-          setTimeout(() => { icon.textContent = '\uD83D\uDCCB'; }, 2000);
+          icon.textContent = 'failed';
+          setTimeout(() => { icon.textContent = 'copy'; }, 2000);
         });
       } catch(e) {
-        // Fallback for non-secure contexts
         const ta = document.createElement('textarea');
-        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-        document.body.appendChild(ta); ta.select();
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
         document.execCommand('copy');
         document.body.removeChild(ta);
-        icon.textContent = '\u2713';
-        setTimeout(() => { icon.textContent = '\uD83D\uDCCB'; }, 2000);
+        icon.textContent = 'copied';
+        setTimeout(() => { icon.textContent = 'copy'; }, 2000);
       }
     }
 
-    // Nav click handling: browser handles hash navigation natively.
-    // CSS `scroll-behavior: smooth` on html gives smooth scroll for hash jumps.
-    // Cross-page links (/about/, /wiki/) navigate normally via browser.
-    // No JS hijack needed — keeping this block empty for clarity.
-
-    /* ══════════════════════════════════════
-       PERSONA DEMO ANIMATION ENGINE v2
-       ══════════════════════════════════════ */
-
-    const demoState = {};
-
-    // ── Desktop: hover to open. Mobile: auto-open on scroll into view ──
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-
-    // Click/tap card to toggle demo (both mobile and desktop)
-    document.querySelectorAll('.persona-card[data-persona]').forEach(card => {
-      const persona = card.dataset.persona;
-
-      // Desktop: also open on hover
-      if (!isMobile) {
-        card.addEventListener('mouseenter', () => openDemo(persona));
-      }
-
-      // Click to toggle open/close
-      card.addEventListener('click', (e) => {
-        // Don't toggle if clicking replay or nav buttons
-        if (e.target.closest('.demo-replay, .persona-nav-btn')) return;
-        const demo = document.getElementById('demo-' + persona);
-        if (demo.classList.contains('open')) {
-          closeDemo(persona);
-        } else {
-          openDemo(persona);
-        }
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('video[autoplay]').forEach((video) => {
+        video.removeAttribute('autoplay');
+        video.pause();
       });
-    });
-
-    if (isMobile) {
-      // Also auto-open on scroll into view
-      const demoObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            openDemo(entry.target.dataset.persona);
-            demoObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.3 });
-      document.querySelectorAll('.persona-card[data-persona]').forEach(card => {
-        demoObserver.observe(card);
-      });
-    }
-
-    function openDemo(persona) {
-      const demo = document.getElementById('demo-' + persona);
-      if (demo.classList.contains('open')) return;
-      demo.classList.add('open');
-      if (!demoState[persona] || demoState[persona].done) {
-        runDemo(persona);
-      }
-    }
-
-    function closeDemo(persona) {
-      const demo = document.getElementById('demo-' + persona);
-      demo.classList.remove('open');
-    }
-
-    // ── Persona nav arrows ──
-    const PERSONA_ORDER = ['learner', 'investor', 'trader', 'portfolio'];
-
-    function initPersonaNav() {
-      PERSONA_ORDER.forEach((id, idx) => {
-        const nav = document.getElementById('nav-' + id);
-        if (!nav) return;
-        const prevId = idx > 0 ? PERSONA_ORDER[idx - 1] : null;
-        const nextId = idx < PERSONA_ORDER.length - 1 ? PERSONA_ORDER[idx + 1] : null;
-
-        nav.innerHTML =
-          '<button class="persona-nav-btn' + (prevId ? '' : ' disabled') + '" onclick="event.stopPropagation();' +
-            (prevId ? ' navigatePersona(\'' + prevId + '\')' : '') + '" title="Previous persona">\u2191</button>' +
-          '<button class="persona-nav-btn' + (nextId ? '' : ' disabled') + '" onclick="event.stopPropagation();' +
-            (nextId ? ' navigatePersona(\'' + nextId + '\')' : '') + '" title="Next persona">\u2193</button>';
-      });
-    }
-
-    function navigatePersona(targetId) {
-      const card = document.querySelector('.persona-card[data-persona="' + targetId + '"]');
-      if (card) {
-        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(() => openDemo(targetId), 400);
-      }
-    }
-
-    initPersonaNav();
-
-    // Keyboard nav for personas section — only when hero terminal is NOT visible
-    document.addEventListener('keydown', (e) => {
-      if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
-
-      // Skip if hero terminal is in viewport (hero handler takes priority)
-      const heroTerm = document.getElementById('hero-terminal');
-      if (heroTerm) {
-        const hr = heroTerm.getBoundingClientRect();
-        if (hr.bottom > 0 && hr.top < window.innerHeight) return;
-      }
-
-      let activeIdx = -1;
-      PERSONA_ORDER.forEach((id, idx) => {
-        const card = document.querySelector('.persona-card[data-persona="' + id + '"]');
-        if (!card) return;
-        const rect = card.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.3) {
-          activeIdx = idx;
-        }
-      });
-
-      if (activeIdx === -1) return;
-
-      e.preventDefault();
-      if (e.key === 'ArrowDown' && activeIdx < PERSONA_ORDER.length - 1) {
-        navigatePersona(PERSONA_ORDER[activeIdx + 1]);
-      } else if (e.key === 'ArrowUp' && activeIdx > 0) {
-        navigatePersona(PERSONA_ORDER[activeIdx - 1]);
-      }
-    });
-
-    function replayDemo(persona) {
-      if (demoState[persona]) {
-        demoState[persona].cancelled = true;
-      }
-      runDemo(persona);
-    }
-
-    // ── Typewriter ──
-    function typewrite(el, html, speed, state) {
-      return new Promise(resolve => {
-        // Parse the html into text nodes and tags
-        let i = 0;
-        let buffer = '';
-        const step = () => {
-          if (state.cancelled) { resolve(); return; }
-          if (i >= html.length) {
-            el.innerHTML = html;
-            resolve();
-            return;
-          }
-          // If we're at a tag, consume the whole tag instantly
-          if (html[i] === '<') {
-            const close = html.indexOf('>', i);
-            if (close !== -1) {
-              buffer += html.substring(i, close + 1);
-              i = close + 1;
-              el.innerHTML = buffer;
-              step();
-              return;
-            }
-          }
-          // If we're at an &entity;, consume it whole
-          if (html[i] === '&') {
-            const semi = html.indexOf(';', i);
-            if (semi !== -1 && semi - i < 10) {
-              buffer += html.substring(i, semi + 1);
-              i = semi + 1;
-              el.innerHTML = buffer;
-              setTimeout(step, speed);
-              return;
-            }
-          }
-          buffer += html[i];
-          i++;
-          el.innerHTML = buffer;
-          setTimeout(step, speed);
-        };
-        step();
-      });
-    }
-
-    function showSpinner(el, text, duration, state) {
-      return new Promise(resolve => {
-        const frames = ['\u2722', '\u2733', '\u2736', '\u273B', '\u273D', '\u273B', '\u2736', '\u2733'];
-        const colors = ['#22c55e', '#22c55e', '#22c55e', '#FF3333', '#FF3333', '#FF3333'];
-        let fi = 0, ci = 0;
-        const spinId = 'sp-' + Date.now();
-        el.insertAdjacentHTML('beforeend', '<div id="' + spinId + '" style="margin-top:4px;"><span style="color:#22c55e;">' + frames[0] + '</span> <span class="t-dim">' + text + '</span></div>');
-        const line = document.getElementById(spinId);
-        const interval = setInterval(() => {
-          if (state.cancelled) { clearInterval(interval); resolve(); return; }
-          fi = (fi + 1) % frames.length;
-          if (fi === 0) ci = (ci + 1) % colors.length;
-          const c = colors[ci];
-          const ch = (c === '#22c55e' && fi >= 3 && fi <= 5) ? '\u20B9' : frames[fi];
-          line.innerHTML = '<span style="color:' + c + ';">' + ch + '</span> <span class="t-dim">' + text + '</span>';
-        }, 180);
-        setTimeout(() => {
-          clearInterval(interval);
-          if (line) line.remove();
-          resolve();
-        }, duration);
-      });
-    }
-
-    function fadeInBrowser(el, html) {
-      el.innerHTML = '<div class="dp-fade-in">' + html + '</div>';
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          const fadeEl = el.querySelector('.dp-fade-in');
-          if (fadeEl) fadeEl.classList.add('visible');
-        });
-      });
-    }
-
-    function appendTerm(el, html) {
-      el.insertAdjacentHTML('beforeend', html);
-    }
-
-    function wait(ms, state) {
-      return new Promise(resolve => {
-        if (state.cancelled) { resolve(); return; }
-        setTimeout(resolve, ms);
-      });
-    }
-
-    /* ── Demo Scripts ── */
-
-    async function runDemo(persona) {
-      const state = { cancelled: false, done: false };
-      demoState[persona] = state;
-      const term = document.getElementById('term-' + persona);
-      const browser = document.getElementById('browser-' + persona);
-      term.innerHTML = '';
-      browser.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:0.8rem;">Waiting for terminal...</div>';
-
-      if (persona === 'learner') await demoLearner(term, browser, state);
-      else if (persona === 'investor') await demoInvestor(term, browser, state);
-      else if (persona === 'trader') await demoTrader(term, browser, state);
-      else if (persona === 'portfolio') await demoPortfolio(term, browser, state);
-
-      state.done = true;
-    }
-
-    // Stream text line by line with delay
-    async function streamLines(el, lines, lineDelay, state) {
-      for (const line of lines) {
-        if (state.cancelled) return;
-        el.insertAdjacentHTML('beforeend', line + '\n');
-        await wait(lineDelay, state);
-      }
-    }
-
-    // ── LEARNER ──
-    async function demoLearner(term, browser, state) {
-      // Breadcrumb
-      appendTerm(term, '<div style="color:#555;margin-bottom:8px;font-size:0.65rem;">Trading <span style="color:#444;">&rsaquo;</span> Execution <span style="color:#444;">&rsaquo;</span> <span class="t-accent">Support &amp; Resistance</span> <span style="color:#444;float:right;">3/6</span></div>');
-      appendTerm(term, '<div style="border-bottom:1px solid #222;margin-bottom:10px;"></div>');
-      await wait(600, state);
-
-      // Course index overlay in terminal
-      appendTerm(term, '<div style="border:1px solid #333;border-radius:4px;padding:10px;margin-bottom:10px;background:#0a0a0a;">');
-      appendTerm(term, '<div style="color:#555;font-size:0.6rem;margin-bottom:8px;">COURSE INDEX</div>');
-      await wait(300, state);
-
-      const courseLines = [
-        '<span class="t-green">\u2713</span> <span style="color:#888;">Part 1: Foundations</span>        <span class="t-green">\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588</span> <span class="t-dim">100%</span>',
-        '<span class="t-green">\u2713</span> <span style="color:#888;">Part 2: Core Analysis</span>      <span class="t-green">\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588</span> <span class="t-dim">100%</span>',
-        '<span class="t-amber">\u25B6</span> <span class="t-cyan-bold">Part 3: Execution</span>          <span class="t-amber">\u2588\u2588\u2588\u2588</span><span style="color:#333;">\u2591\u2591\u2591\u2591</span> <span class="t-dim"> 50%</span>',
-        '  <span class="t-green">\u2713</span> <span style="color:#666;">Order Types</span>',
-        '  <span class="t-green">\u2713</span> <span style="color:#666;">Entries &amp; Exits</span>',
-        '  <span class="t-amber">\u25B6</span> <span class="t-bold">Support &amp; Resistance</span> <span class="t-accent">\u25C0</span>',
-        '  <span class="t-dim">\u25CB Position Management</span>',
-        '  <span class="t-dim">\u25CB Stop Losses</span>',
-        '  <span class="t-dim">\u25CB Risk per Trade</span>',
-        '<span class="t-dim">\u25CB Part 4: System Building</span>      <span style="color:#333;">\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591</span> <span class="t-dim">  0%</span>',
-        '<span class="t-dim">\u25CB Part 5: Advanced</span>             <span style="color:#333;">\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591</span> <span class="t-dim">  0%</span>',
-      ];
-      await streamLines(term, courseLines, 150, state);
-      appendTerm(term, '</div>');
-      await wait(2000, state);
-
-      // Phase 2: AI teaches concept
-      term.innerHTML = '';
-      appendTerm(term, '<div style="color:#555;margin-bottom:8px;font-size:0.65rem;">Trading <span style="color:#444;">&rsaquo;</span> Execution <span style="color:#444;">&rsaquo;</span> <span class="t-accent">Support &amp; Resistance</span> <span style="color:#444;float:right;">3/6</span></div>');
-      appendTerm(term, '<div style="border-bottom:1px solid #222;margin-bottom:10px;"></div>');
-
-      const teachLines = [
-        '<span class="t-accent">## Support &amp; Resistance</span>',
-        '',
-        '<span style="color:#bbb;">A <span class="t-bold">support level</span> is a price point where</span>',
-        '<span style="color:#bbb;">buying interest is strong enough to prevent</span>',
-        '<span style="color:#bbb;">the price from falling further.</span>',
-        '',
-        '<span style="color:#bbb;">Look for areas where price has bounced</span>',
-        '<span style="color:#bbb;">upward <span class="t-bold">multiple times</span> from the same level.</span>',
-      ];
-      await streamLines(term, teachLines, 200, state);
-      await wait(1200, state);
-
-      // AI opens browser
-      appendTerm(term, '<div style="margin-top:4px;"><span class="t-green">\u2722</span> <span class="t-dim">Opening chart...</span></div>');
-      await wait(800, state);
-
-      // Browser shows stock chart (light theme, looks like a real web page)
-      fadeInBrowser(browser,
-        '<div style="padding:4px;">' +
-          '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">' +
-            '<div><span style="font-weight:700;font-size:1rem;color:#111;">RELIANCE</span> <span style="color:#666;font-size:0.75rem;">NSE</span></div>' +
-            '<div style="font-weight:600;color:#16a34a;font-size:0.95rem;">\u20B92,847.30 <span style="font-size:0.7rem;">+1.2%</span></div>' +
-          '</div>' +
-          '<div style="background:#fff;border-radius:8px;padding:12px;border:1px solid #e5e7eb;">' +
-            '<svg viewBox="0 0 240 100" style="width:100%;height:120px;">' +
-              '<line x1="10" y1="10" x2="10" y2="90" stroke="#e5e7eb" stroke-width="0.5"/>' +
-              '<line x1="10" y1="90" x2="235" y2="90" stroke="#e5e7eb" stroke-width="0.5"/>' +
-              '<text x="2" y="15" fill="#999" font-size="5" font-family="sans-serif">2900</text>' +
-              '<text x="2" y="50" fill="#999" font-size="5" font-family="sans-serif">2850</text>' +
-              '<text x="2" y="85" fill="#999" font-size="5" font-family="sans-serif">2800</text>' +
-              '<polyline points="15,30 35,35 55,25 75,40 95,65 115,60 135,68 155,62 175,66 195,63 215,60 230,58" fill="none" stroke="#3b82f6" stroke-width="2"/>' +
-              '<line x1="15" y1="66" x2="230" y2="66" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6,4"/>' +
-              '<text x="170" y="76" fill="#22c55e" font-size="6" font-family="sans-serif" font-weight="600">Support \u20B92,840</text>' +
-              '<circle cx="95" cy="65" r="4" fill="none" stroke="#f59e0b" stroke-width="1.5"/>' +
-              '<circle cx="135" cy="68" r="4" fill="none" stroke="#f59e0b" stroke-width="1.5"/>' +
-              '<circle cx="195" cy="63" r="4" fill="none" stroke="#f59e0b" stroke-width="1.5"/>' +
-            '</svg>' +
-          '</div>' +
-          '<div style="text-align:center;color:#f59e0b;font-size:0.7rem;margin-top:8px;font-weight:500;">Price bounces off support level three times</div>' +
-        '</div>');
-      await wait(800, state);
-
-      // Remove "Opening chart..." and show exercise
-      term.querySelector('div:last-child').remove();
-      appendTerm(term, '<div style="color:#bbb;margin-top:6px;">Chart\'s ready. Take a look.</div>');
-      await wait(1000, state);
-
-      // Quiz widget in terminal
-      appendTerm(term,
-        '<div style="border:1px solid #333;border-radius:4px;padding:10px;margin-top:10px;background:#0a0a0a;">' +
-          '<div class="t-amber" style="margin-bottom:8px;">\u25B8 Exercise</div>' +
-          '<div style="color:#bbb;margin-bottom:10px;">What is the approximate support level?</div>' +
-          '<div style="font-size:0.65rem;line-height:2;">' +
-            '  <span class="t-accent">\u2192</span> <span class="t-cyan-bold">\u20B92,840</span>\n' +
-            '    <span class="t-dim">\u20B92,900</span>\n' +
-            '    <span class="t-dim">\u20B92,780</span>\n' +
-            '    <span class="t-dim">\u20B92,860</span>' +
-          '</div>' +
-          '<div style="border-top:1px solid #222;margin-top:8px;padding-top:6px;color:#444;font-size:0.55rem;">\u2191\u2193 navigate \u00B7 Enter select</div>' +
-        '</div>');
-    }
-
-    // ── INVESTOR ──
-    async function demoInvestor(term, browser, state) {
-      await typewrite(term,
-        '<span class="t-prompt">\u20B9</span> <span class="t-cmd">find quality compounders under \u20B9500 Cr</span>',
-        40, state);
-      await wait(800, state);
-
-      await showSpinner(term, 'Querying screener...', 2000, state);
-
-      // Browser: screener with filter pills (light web page)
-      fadeInBrowser(browser,
-        '<div style="padding:4px;">' +
-          '<div style="font-weight:700;font-size:1rem;color:#111;margin-bottom:12px;">Stock Screener</div>' +
-          '<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;">' +
-            '<span style="font-size:0.7rem;padding:4px 10px;border-radius:100px;background:#dcfce7;color:#16a34a;font-weight:500;">ROCE &gt; 15%</span>' +
-            '<span style="font-size:0.7rem;padding:4px 10px;border-radius:100px;background:#dbeafe;color:#2563eb;font-weight:500;">MCap &lt; 500 Cr</span>' +
-            '<span style="font-size:0.7rem;padding:4px 10px;border-radius:100px;background:#f3e8ff;color:#7c3aed;font-weight:500;">D/E &lt; 0.5</span>' +
-          '</div>' +
-          '<div style="font-size:0.7rem;color:#666;margin-bottom:8px;">4 results matching filters</div>' +
-          '<table style="width:100%;font-size:0.7rem;border-collapse:collapse;">' +
-            '<tr style="border-bottom:1px solid #e5e7eb;color:#999;"><td style="padding:6px 4px;">Company</td><td style="text-align:right;padding:6px 4px;">ROCE</td><td style="text-align:right;padding:6px 4px;">P/E</td><td style="text-align:right;padding:6px 4px;">MCap</td></tr>' +
-            '<tr style="border-bottom:1px solid #f3f4f6;background:#f0fdf4;"><td style="padding:6px 4px;font-weight:600;color:#111;">Sunrise Industries</td><td style="text-align:right;padding:6px 4px;color:#16a34a;font-weight:600;">24.3%</td><td style="text-align:right;padding:6px 4px;color:#333;">18.2</td><td style="text-align:right;padding:6px 4px;color:#333;">\u20B9380 Cr</td></tr>' +
-            '<tr style="border-bottom:1px solid #f3f4f6;"><td style="padding:6px 4px;color:#333;">Coastal Textiles</td><td style="text-align:right;padding:6px 4px;color:#16a34a;">19.8%</td><td style="text-align:right;padding:6px 4px;color:#333;">14.5</td><td style="text-align:right;padding:6px 4px;color:#333;">\u20B9290 Cr</td></tr>' +
-            '<tr style="border-bottom:1px solid #f3f4f6;"><td style="padding:6px 4px;color:#333;">Pinnacle Chem</td><td style="text-align:right;padding:6px 4px;color:#16a34a;">21.1%</td><td style="text-align:right;padding:6px 4px;color:#333;">16.8</td><td style="text-align:right;padding:6px 4px;color:#333;">\u20B9445 Cr</td></tr>' +
-            '<tr><td style="padding:6px 4px;color:#333;">Metro Precision</td><td style="text-align:right;padding:6px 4px;color:#16a34a;">17.6%</td><td style="text-align:right;padding:6px 4px;color:#333;">12.3</td><td style="text-align:right;padding:6px 4px;color:#333;">\u20B9215 Cr</td></tr>' +
-          '</table>' +
-        '</div>');
-      await wait(600, state);
-
-      // Terminal results stream in
-      appendTerm(term, '<div style="margin-top:10px;">');
-      appendTerm(term, '<span class="t-accent">## 4 Quality Compounders Found</span>\n\n');
-      await wait(400, state);
-
-      const rows = [
-        '<span class="t-dim">Company              ROCE    P/E    MCap</span>',
-        '<span class="t-dim">\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500</span>',
-        '<span class="t-bold">Sunrise Industries</span>   <span class="t-green">24.3%</span>  18.2   \u20B9380 Cr',
-        'Coastal Textiles     <span class="t-green">19.8%</span>  14.5   \u20B9290 Cr',
-        'Pinnacle Chem        <span class="t-green">21.1%</span>  16.8   \u20B9445 Cr',
-        'Metro Precision      <span class="t-green">17.6%</span>  12.3   \u20B9215 Cr',
-      ];
-      await streamLines(term, rows, 250, state);
-      await wait(800, state);
-
-      appendTerm(term, '\n<span style="color:#bbb;">Top pick: <span class="t-bold">Sunrise Industries</span> \u2014 highest</span>');
-      await wait(300, state);
-      appendTerm(term, '\n<span style="color:#bbb;">ROCE at 24.3%, negligible debt (D/E 0.08).</span>');
-      await wait(300, state);
-      appendTerm(term, '\n\n<span class="t-dim">Run </span><span class="t-accent">deep-analysis Sunrise Industries</span><span class="t-dim"> to dig deeper.</span>');
-      appendTerm(term, '</div>');
-    }
-
-    // ── TRADER ──
-    async function demoTrader(term, browser, state) {
-      await typewrite(term,
-        '<span class="t-prompt">\u20B9</span> <span class="t-cmd">backtest RSI crossover on NIFTY</span>',
-        40, state);
-      await wait(800, state);
-
-      await showSpinner(term, 'Building strategy on platform...', 1800, state);
-
-      // Browser: strategy builder (light web page)
-      fadeInBrowser(browser,
-        '<div style="padding:4px;">' +
-          '<div style="font-weight:700;font-size:1rem;color:#111;margin-bottom:12px;">Strategy Builder</div>' +
-          '<div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px;margin-bottom:12px;">' +
-            '<div style="font-size:0.65rem;color:#999;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Conditions</div>' +
-            '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
-              '<span style="background:#dcfce7;color:#16a34a;font-size:0.7rem;padding:2px 8px;border-radius:4px;font-weight:600;">BUY</span>' +
-              '<span style="font-size:0.75rem;color:#333;">RSI(14) crosses above 30</span>' +
-            '</div>' +
-            '<div style="display:flex;align-items:center;gap:8px;">' +
-              '<span style="background:#fef2f2;color:#dc2626;font-size:0.7rem;padding:2px 8px;border-radius:4px;font-weight:600;">SELL</span>' +
-              '<span style="font-size:0.75rem;color:#333;">RSI(14) crosses below 70</span>' +
-            '</div>' +
-          '</div>' +
-          '<div style="font-size:0.7rem;color:#666;">Instrument: <strong>NIFTY 50</strong> \u00B7 Period: 2 years</div>' +
-        '</div>');
-
-      appendTerm(term, '<div style="margin-top:10px;">');
-      appendTerm(term, '<span class="t-accent">## Strategy: RSI Crossover</span>\n');
-      appendTerm(term, '<span class="t-dim">Buy:  RSI(14) crosses above 30</span>\n');
-      appendTerm(term, '<span class="t-dim">Sell: RSI(14) crosses below 70</span>\n');
-      appendTerm(term, '<span class="t-dim">NIFTY 50 \u00B7 2 year backtest</span>');
-      appendTerm(term, '</div>');
-      await wait(1500, state);
-
-      await showSpinner(term, 'Running backtest...', 2200, state);
-
-      // Browser: equity curve (light page)
-      fadeInBrowser(browser,
-        '<div style="padding:4px;">' +
-          '<div style="font-weight:700;font-size:1rem;color:#111;margin-bottom:4px;">Backtest Results</div>' +
-          '<div style="font-size:0.7rem;color:#16a34a;font-weight:600;margin-bottom:12px;">+34.2% cumulative return</div>' +
-          '<div style="background:#fff;border-radius:8px;padding:12px;border:1px solid #e5e7eb;">' +
-            '<svg viewBox="0 0 240 80" style="width:100%;height:100px;">' +
-              '<defs><linearGradient id="eq-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#22c55e" stop-opacity="0.15"/><stop offset="100%" stop-color="#22c55e" stop-opacity="0.01"/></linearGradient></defs>' +
-              '<line x1="10" y1="75" x2="235" y2="75" stroke="#e5e7eb" stroke-width="0.5"/>' +
-              '<polyline points="10,70 25,68 40,64 55,66 70,60 85,54 100,56 115,48 130,50 145,44 160,38 175,40 190,32 205,28 220,22 235,16" fill="none" stroke="#22c55e" stroke-width="2"/>' +
-              '<polyline points="10,70 25,68 40,64 55,66 70,60 85,54 100,56 115,48 130,50 145,44 160,38 175,40 190,32 205,28 220,22 235,16 235,75 10,75" fill="url(#eq-grad)"/>' +
-              '<text x="10" y="8" fill="#999" font-size="5" font-family="sans-serif">Equity Curve</text>' +
-            '</svg>' +
-            '<div style="display:flex;justify-content:space-between;font-size:0.6rem;color:#999;"><span>Apr 2024</span><span>Apr 2026</span></div>' +
-          '</div>' +
-        '</div>');
-
-      appendTerm(term, '<div style="margin-top:10px;">');
-      const results = [
-        '<span class="t-accent">## Backtest Results</span>',
-        '',
-        '<span class="t-dim">Total trades:</span>  <span class="t-bold">23</span>',
-        '<span class="t-dim">Win rate:</span>      <span class="t-green">65.2%</span>',
-        '<span class="t-dim">Avg return:</span>    <span class="t-green">+2.8%</span> per trade',
-        '<span class="t-dim">Max drawdown:</span>  <span class="t-red">-6.4%</span>',
-        '<span class="t-dim">Sharpe ratio:</span>  <span class="t-bold">1.42</span>',
-        '',
-        '<span class="t-dim">Cumulative:</span>    <span class="t-green">+34.2%</span> over 2 years',
-      ];
-      await streamLines(term, results, 200, state);
-      appendTerm(term, '</div>');
-    }
-
-    // ── PORTFOLIO MANAGER ──
-    async function demoPortfolio(term, browser, state) {
-      await typewrite(term,
-        '<span class="t-prompt">\u20B9</span> <span class="t-cmd">rebalancing plan</span>',
-        40, state);
-      await wait(800, state);
-
-      await showSpinner(term, 'Fetching holdings from 2 brokers...', 2000, state);
-
-      // Browser: portfolio pie chart (light page)
-      fadeInBrowser(browser,
-        '<div style="padding:4px;">' +
-          '<div style="font-weight:700;font-size:1rem;color:#111;margin-bottom:4px;">Portfolio Overview</div>' +
-          '<div style="font-size:0.75rem;color:#666;margin-bottom:12px;">12 holdings \u00B7 \u20B98.4L total value</div>' +
-          '<div style="display:flex;align-items:center;gap:16px;">' +
-            '<svg viewBox="0 0 100 100" style="width:100px;height:100px;">' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#3b82f6" stroke-width="10" stroke-dasharray="75.4 176.0" stroke-dashoffset="0" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#22c55e" stroke-width="10" stroke-dasharray="50.3 201.1" stroke-dashoffset="-75.4" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#f59e0b" stroke-width="10" stroke-dasharray="37.7 213.6" stroke-dashoffset="-125.7" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#a855f7" stroke-width="10" stroke-dasharray="25.1 226.2" stroke-dashoffset="-163.4" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#d1d5db" stroke-width="10" stroke-dasharray="62.8 188.5" stroke-dashoffset="-188.5" transform="rotate(-90 50 50)"/>' +
-            '</svg>' +
-            '<div style="font-size:0.7rem;line-height:2.2;color:#333;">' +
-              '<div><span style="color:#3b82f6;">\u25CF</span> IT \u2014 30% <span style="color:#dc2626;font-weight:600;font-size:0.6rem;">OVERWEIGHT</span></div>' +
-              '<div><span style="color:#22c55e;">\u25CF</span> Banking \u2014 20%</div>' +
-              '<div><span style="color:#f59e0b;">\u25CF</span> Pharma \u2014 15%</div>' +
-              '<div><span style="color:#a855f7;">\u25CF</span> Auto \u2014 10%</div>' +
-              '<div><span style="color:#d1d5db;">\u25CF</span> Cash \u2014 25%</div>' +
-            '</div>' +
-          '</div>' +
-        '</div>');
-
-      appendTerm(term, '<div style="margin-top:10px;">');
-      const snapshot = [
-        '<span class="t-accent">## Portfolio Snapshot</span>',
-        '',
-        '<span class="t-dim">Holdings:</span>    <span class="t-bold">12</span> across 2 brokers',
-        '<span class="t-dim">Total value:</span> <span class="t-bold">\u20B98.4L</span>',
-        '<span class="t-dim">Cash:</span>        25%',
-        '',
-        '<span class="t-red">\u26A0 IT sector overweight at 30% (target: 20%)</span>',
-      ];
-      await streamLines(term, snapshot, 200, state);
-      appendTerm(term, '</div>');
-      await wait(1500, state);
-
-      await showSpinner(term, 'Generating rebalancing plan...', 1800, state);
-
-      appendTerm(term, '<div style="margin-top:10px;">');
-      const plan = [
-        '<span class="t-accent">## Rebalancing Plan</span>',
-        '',
-        '<span class="t-red">TRIM</span>',
-        '  Pinnacle Tech     <span class="t-dim">30% \u2192</span> 20%',
-        '  CloudServe Ltd    <span class="t-dim">exit fully</span>',
-        '',
-        '<span class="t-green">ADD</span>',
-        '  Metro Finance     <span class="t-dim">new</span> 8% position',
-        '  Sunrise Pharma    <span class="t-dim">5% \u2192</span> 10%',
-        '',
-        '<span class="t-amber">KEEP</span>',
-        '  <span class="t-dim">8 positions unchanged</span>',
-      ];
-      await streamLines(term, plan, 200, state);
-      appendTerm(term, '</div>');
-
-      // Browser updates to target allocation
-      await wait(800, state);
-      fadeInBrowser(browser,
-        '<div style="padding:4px;">' +
-          '<div style="font-weight:700;font-size:1rem;color:#111;margin-bottom:4px;">Target Allocation</div>' +
-          '<div style="font-size:0.75rem;color:#16a34a;margin-bottom:12px;">After rebalancing</div>' +
-          '<div style="display:flex;align-items:center;gap:16px;">' +
-            '<svg viewBox="0 0 100 100" style="width:100px;height:100px;">' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#3b82f6" stroke-width="10" stroke-dasharray="50.3 201.1" stroke-dashoffset="0" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#22c55e" stroke-width="10" stroke-dasharray="60.3 191.0" stroke-dashoffset="-50.3" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#f59e0b" stroke-width="10" stroke-dasharray="50.3 201.1" stroke-dashoffset="-110.6" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#a855f7" stroke-width="10" stroke-dasharray="37.7 213.6" stroke-dashoffset="-160.9" transform="rotate(-90 50 50)"/>' +
-              '<circle cx="50" cy="50" r="40" fill="none" stroke="#d1d5db" stroke-width="10" stroke-dasharray="52.8 198.5" stroke-dashoffset="-198.6" transform="rotate(-90 50 50)"/>' +
-            '</svg>' +
-            '<div style="font-size:0.7rem;line-height:2.2;color:#333;">' +
-              '<div><span style="color:#3b82f6;">\u25CF</span> IT \u2014 20% <span style="color:#16a34a;font-size:0.6rem;">\u2713</span></div>' +
-              '<div><span style="color:#22c55e;">\u25CF</span> Banking \u2014 24%</div>' +
-              '<div><span style="color:#f59e0b;">\u25CF</span> Pharma \u2014 20%</div>' +
-              '<div><span style="color:#a855f7;">\u25CF</span> Auto \u2014 15%</div>' +
-              '<div><span style="color:#d1d5db;">\u25CF</span> Cash \u2014 21%</div>' +
-            '</div>' +
-          '</div>' +
-        '</div>');
     }
   </script>
 

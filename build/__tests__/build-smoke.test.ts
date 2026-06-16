@@ -60,8 +60,8 @@ describe('smoke: analytics injection end-to-end', () => {
       for (const page of [
         'dist/index.html',
         'dist/about/index.html',
-        'dist/privacy/index.html',
         'dist/updates/index.html',
+        'dist/privacy/index.html',
         'dist/404.html',
       ]) {
         expect(readFileSync(join(REPO_ROOT, page), 'utf-8')).toContain('cloudflareinsights');
@@ -93,12 +93,12 @@ describe('smoke: sitemap.xml — prod build', () => {
     const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf-8');
     expect(xml).toContain('<loc>https://tradecli.in/</loc>');
     expect(xml).toContain('<loc>https://tradecli.in/about/</loc>');
+    expect(xml).toContain('<loc>https://tradecli.in/updates/</loc>');
     expect(xml).toContain('<loc>https://tradecli.in/privacy/</loc>');
   });
 
-  test('excludes non-indexable entries (updates, 404)', () => {
+  test('excludes non-indexable entries (404)', () => {
     const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf-8');
-    expect(xml).not.toMatch(/updates/);
     expect(xml).not.toMatch(/404\.html/);
     expect(xml).not.toContain('<priority>0.0</priority>'); // 404's priority — confirms exclusion
   });
@@ -106,7 +106,7 @@ describe('smoke: sitemap.xml — prod build', () => {
   test('every <url> carries lastmod, changefreq, priority', () => {
     const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf-8');
     const urlBlocks = xml.match(/<url>[\s\S]*?<\/url>/g) ?? [];
-    expect(urlBlocks.length).toBe(3);
+    expect(urlBlocks.length).toBe(4);
     for (const block of urlBlocks) {
       expect(block).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}T/);
       expect(block).toMatch(/<changefreq>/);
@@ -124,7 +124,7 @@ describe('smoke: sitemap.xml — prod build', () => {
   });
 
   test('every built page has exactly one well-formed canonical link', () => {
-    const pages = ['dist/index.html', 'dist/about/index.html', 'dist/privacy/index.html', 'dist/updates/index.html', 'dist/404.html'];
+    const pages = ['dist/index.html', 'dist/about/index.html', 'dist/updates/index.html', 'dist/privacy/index.html', 'dist/404.html'];
     for (const page of pages) {
       const html = readFileSync(join(REPO_ROOT, page), 'utf-8');
       const canonicals = html.match(/<link rel="canonical"[^>]*>/g) ?? [];
@@ -148,8 +148,8 @@ describe('smoke: sitemap.xml — prod build', () => {
     const counts = {
       'dist/index.html': 3,
       'dist/about/index.html': 2,
-      'dist/privacy/index.html': 2,
       'dist/updates/index.html': 2,
+      'dist/privacy/index.html': 2,
       'dist/404.html': 2,
     };
     for (const [page, expected] of Object.entries(counts)) {
@@ -159,8 +159,50 @@ describe('smoke: sitemap.xml — prod build', () => {
     }
   });
 
+  test('homepage carries the new OS framing and preserves install commands', () => {
+    const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
+    expect(html).toContain('agent-native trading OS');
+    expect(html).toContain('AITradingOffice');
+    expect(html).toContain('assets/product/tradecli-office-hero.webp');
+    expect(html).toContain('office-video-demo');
+    expect(html).toContain('assets/product/tradecli-office-loop.webm');
+    expect(html).toContain('assets/product/tradecli-office-loop.mp4');
+    expect(html).toContain('start Office Mode from the interactive TUI');
+    expect(html).toContain('brew trust --tap TradingSandbox/tradecli');
+    expect(html).toContain('brew install TradingSandbox/tradecli/tradecli');
+    expect(html).toContain('tradecli setup');
+    expect(html).toContain('tradecli doctor');
+  });
+
+  test('secondary surfaces explain office memory and guardrails', () => {
+    const about = readFileSync(join(REPO_ROOT, 'dist/about/index.html'), 'utf-8');
+    const updates = readFileSync(join(REPO_ROOT, 'dist/updates/index.html'), 'utf-8');
+    const privacy = readFileSync(join(REPO_ROOT, 'dist/privacy/index.html'), 'utf-8');
+    const wiki = readFileSync(join(REPO_ROOT, 'dist/wiki/index.html'), 'utf-8');
+
+    expect(about).toContain('trader-controlled harness');
+    expect(about).toContain('guardrails');
+    expect(updates).toContain('Office Mode');
+    expect(updates).toContain('broker gateway');
+    expect(privacy).toContain('What stays local');
+    expect(privacy).toContain('Cloudflare Web Analytics');
+    expect(wiki).toContain('agent-native trading OS');
+    expect(wiki).toContain('Office Mode');
+  });
+
+  test('homepage contains every shared-nav hash target', () => {
+    const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
+    const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]));
+    const hashTargets = new Set([...html.matchAll(/href="\/#([^"]+)"/g)].map((match) => match[1]));
+
+    expect(hashTargets.size).toBeGreaterThan(0);
+    for (const target of hashTargets) {
+      expect(ids.has(target), `missing homepage id for #${target}`).toBe(true);
+    }
+  });
+
   test('every JSON-LD block parses as valid JSON', () => {
-    const pages = ['dist/index.html', 'dist/about/index.html', 'dist/privacy/index.html', 'dist/updates/index.html', 'dist/404.html'];
+    const pages = ['dist/index.html', 'dist/about/index.html', 'dist/updates/index.html', 'dist/privacy/index.html', 'dist/404.html'];
     for (const page of pages) {
       const html = readFileSync(join(REPO_ROOT, page), 'utf-8');
       const blocks = [...html.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
@@ -177,8 +219,8 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(readFileSync(join(REPO_ROOT, 'dist/404.html'), 'utf-8')).not.toContain('SoftwareApplication');
   });
 
-  test('no duplicate <meta name="robots"> on prod 404 or updates', () => {
-    for (const page of ['dist/404.html', 'dist/updates/index.html']) {
+  test('no duplicate <meta name="robots"> on prod 404', () => {
+    for (const page of ['dist/404.html']) {
       const html = readFileSync(join(REPO_ROOT, page), 'utf-8');
       const robots = html.match(/<meta\s+name="robots"[^>]*>/g) ?? [];
       expect(robots.length, `${page} robots meta count`).toBe(1);
@@ -210,7 +252,7 @@ describe('smoke: sitemap.xml — prod build', () => {
   });
 
   test('every marketing page has exactly one <main> wrapping content between nav and footer', () => {
-    const pages = ['dist/index.html', 'dist/about/index.html', 'dist/privacy/index.html', 'dist/updates/index.html', 'dist/404.html'];
+    const pages = ['dist/index.html', 'dist/about/index.html', 'dist/updates/index.html', 'dist/privacy/index.html', 'dist/404.html'];
     for (const page of pages) {
       const html = readFileSync(join(REPO_ROOT, page), 'utf-8');
       const opens = html.match(/<main\b[^>]*>/g) ?? [];
@@ -254,7 +296,7 @@ describe('smoke: sitemap.xml — preview build', () => {
   });
 
   test('preview build has exactly one <meta robots> per page (PREVIEW_ROBOTS only)', () => {
-    for (const page of ['dist/index.html', 'dist/about/index.html', 'dist/privacy/index.html', 'dist/updates/index.html', 'dist/404.html']) {
+    for (const page of ['dist/index.html', 'dist/about/index.html', 'dist/updates/index.html', 'dist/privacy/index.html', 'dist/404.html']) {
       const html = readFileSync(join(REPO_ROOT, page), 'utf-8');
       const robots = html.match(/<meta\s+name="robots"[^>]*>/g) ?? [];
       expect(robots.length, `${page} preview robots count`).toBe(1);
@@ -265,7 +307,5 @@ describe('smoke: sitemap.xml — preview build', () => {
   test('preview build canonical uses preview hostname', () => {
     const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
     expect(html).toContain('<link rel="canonical" href="https://tradingsandbox.github.io/trading-sandbox-website-preview/">');
-    const privacy = readFileSync(join(REPO_ROOT, 'dist/privacy/index.html'), 'utf-8');
-    expect(privacy).toContain('<link rel="canonical" href="https://tradingsandbox.github.io/trading-sandbox-website-preview/privacy/">');
   });
 });

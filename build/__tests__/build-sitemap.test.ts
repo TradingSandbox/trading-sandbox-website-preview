@@ -8,7 +8,8 @@ import type { PageManifestEntry } from '../build-pages.js';
 const FIXTURE_MANIFEST: readonly PageManifestEntry[] = [
   { source: 'index.html',         output: 'index.html',         changefreq: 'weekly',  priority: 1.0, indexable: true  },
   { source: 'about/index.html',   output: 'about/index.html',   changefreq: 'monthly', priority: 0.7, indexable: true  },
-  { source: 'updates/index.html', output: 'updates/index.html', changefreq: 'weekly',  priority: 0.8, indexable: false, robots: 'noindex, follow' },
+  { source: 'updates/index.html', output: 'updates/index.html', changefreq: 'weekly',  priority: 0.8, indexable: true  },
+  { source: 'privacy/index.html', output: 'privacy/index.html', changefreq: 'yearly',  priority: 0.4, indexable: true  },
   { source: '404.html',           output: '404.html',           changefreq: 'never',   priority: 0.0, indexable: false, robots: 'noindex' },
 ];
 
@@ -27,7 +28,8 @@ describe('buildSitemapXml', () => {
     const xml = buildSitemapXml(FIXTURE_MANIFEST, 'https://tradecli.in', resolveMtime);
     expect(xml).toContain('<loc>https://tradecli.in/</loc>');
     expect(xml).toContain('<loc>https://tradecli.in/about/</loc>');
-    expect(xml).not.toContain('updates'); // non-indexable
+    expect(xml).toContain('<loc>https://tradecli.in/updates/</loc>');
+    expect(xml).toContain('<loc>https://tradecli.in/privacy/</loc>');
     expect(xml).not.toContain('404'); // non-indexable
   });
 
@@ -43,8 +45,12 @@ describe('buildSitemapXml', () => {
     const xml = buildSitemapXml(FIXTURE_MANIFEST, 'https://tradecli.in', resolveMtime);
     expect(xml).toContain('<loc>https://tradecli.in/</loc>');
     expect(xml).toContain('<loc>https://tradecli.in/about/</loc>');
+    expect(xml).toContain('<loc>https://tradecli.in/updates/</loc>');
+    expect(xml).toContain('<loc>https://tradecli.in/privacy/</loc>');
     expect(xml).not.toContain('https://tradecli.in/index.html');
     expect(xml).not.toContain('https://tradecli.in/about/index.html');
+    expect(xml).not.toContain('https://tradecli.in/updates/index.html');
+    expect(xml).not.toContain('https://tradecli.in/privacy/index.html');
   });
 
   it('uses the given hostname (preview vs prod)', () => {
@@ -66,7 +72,8 @@ describe('buildSitemapXml', () => {
     });
     expect(seen).toContain('index.html');
     expect(seen).toContain('about/index.html');
-    expect(seen).not.toContain('updates/index.html'); // non-indexable, skipped
+    expect(seen).toContain('updates/index.html');
+    expect(seen).toContain('privacy/index.html');
   });
 });
 

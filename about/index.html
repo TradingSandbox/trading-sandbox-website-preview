@@ -3,9 +3,9 @@
 <head>
   <!-- @@HEAD_BASE@@ -->
   <title>About — tradecli</title>
-  <meta name="description" content="Why tradecli exists and who's building it — the origin story behind the AI trading assistant for Indian markets." />
+  <meta name="description" content="Why tradecli exists: an agent-native trading OS, trader-controlled harness, and AITradingOffice memory layer for Indian markets." />
   <meta property="og:title" content="About — tradecli" />
-  <meta property="og:description" content="Why tradecli exists and who's building it." />
+  <meta property="og:description" content="Why tradecli exists: the agent-native trading OS for Indian markets." />
   <meta property="og:image" content="https://tradecli.in/assets/og-default.png" />
   <meta property="og:url" content="https://tradecli.in/about/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -13,15 +13,15 @@
 <body>
   <!-- @@NAV@@ -->
 
-  <main>
+  <main class="document-page">
     <section class="hero hero-compact" style="padding: 120px 0 60px;">
       <div class="container">
-        <div class="section-label">About Us</div>
+        <div class="section-label">About</div>
         <h1 class="section-title" style="max-width: 720px;">
-          Why tradecli exists
+          The trader is the operating system today.
         </h1>
         <p class="section-desc" style="font-size: 1.15rem; max-width: 720px;">
-          Indian retail traders have world-class brokers but fragmented tooling. tradecli is one terminal-based AI companion that learns with you, researches for you, and acts through the platforms you already use.
+          tradecli exists to move that burden into a trader-controlled harness: agents that run on your tools, durable memory that compounds from your work, and guardrails that keep every action accountable.
         </p>
       </div>
     </section>
@@ -29,13 +29,13 @@
     <section style="border-top: 1px solid var(--border);">
       <div class="container">
         <div class="section-header fade-in">
-          <div class="section-label">Vision</div>
-          <h2 class="section-title">Understanding the system</h2>
+          <div class="section-label">Mission</div>
+          <h2 class="section-title">Turn scattered market work into an agent-native system.</h2>
         </div>
         <div class="about-prose">
-          <p>Most people react passively to the systems that shape their lives — finance more than most. Charts, order books, liquidity, macro forces: all invisible mechanisms that determine outcomes, yet most participants only see the surface.</p>
-          <p>tradecli is built for the people who want to see the architecture. We believe understanding a market is what separates agency from reaction — being an actor, not a subject.</p>
-          <p>Our long-term vision is an environment that replicates the market at tick resolution — every signal, every flow, every regime shift — so traders can study how it actually works, not just how it looks.</p>
+          <p>As a trader, you already hold the real system in your head: what you own, what you watch, why a thesis matters, which rule applies, and what changed since the last review. The software stack around you is powerful, but fragmented across brokers, charts, screeners, news, spreadsheets, and memory.</p>
+          <p>tradecli is the missing operating layer. It connects positions, watchlists, theses, journals, risk rules, browser context, broker actions, and outcomes through a local controller the trader owns.</p>
+          <p>The goal is not to replace the operator. It is to give the operator infrastructure: a system that preserves context, makes the workflow queryable, and lets the process scale beyond attention and memory.</p>
         </div>
       </div>
     </section>
@@ -43,15 +43,14 @@
     <section style="border-top: 1px solid var(--border);">
       <div class="container">
         <div class="section-header fade-in">
-          <div class="section-label">Roadmap</div>
-          <h2 class="section-title">Three layers</h2>
+          <div class="section-label">Architecture</div>
+          <h2 class="section-title">The OS, its agents, and the office.</h2>
         </div>
         <div class="about-prose">
-          <p>We're building this in three layers.</p>
-          <p><strong>Layer 1 — Application (today).</strong> A terminal-first AI agent that drives the browser. We're shipping it now to learn what traders actually need, what the interface should feel like, and where the real friction is.</p>
-          <p><strong>Layer 2 — Engine.</strong> A proprietary rules, data, and simulation layer on the backend. The tick-accurate market replica, the signals, the regime model.</p>
-          <p><strong>Layer 3 — Agentic models.</strong> Our own agentic models, trained on financial datasets, specialized for trading workflows.</p>
-          <p><strong>On data:</strong> we don't own market data, and aggregation is genuinely hard. So we lean on the browser — broker platforms, Screener, TradingView — as the source of truth. It's how we stay current without becoming a data vendor.</p>
+          <p><strong>The OS</strong> is the harness every agent runs on. It holds broker tools, browser tools, personas, mailbox coordination, sidecars, local services, and a single ladder of risk and action policy.</p>
+          <p><strong>The agents</strong> are workers you spawn with a persona and mandate. One agent can research a thesis. Another can monitor a setup. Office Mode lets a coordinating seat delegate work to a visible desk of CEO, Investor, Trader, and PMS-style agents.</p>
+          <p><strong>AITradingOffice</strong> is the system of record. It stores theses, forward tests, ledgers, journal entries, reviews, employees, clients, and account context so agent work does not disappear when a session ends.</p>
+          <p>Run a single persona and tradecli feels like a focused personal workflow. Spawn many agents against shared memory and it becomes the operating layer for a firm.</p>
         </div>
       </div>
     </section>
@@ -59,11 +58,26 @@
     <section style="border-top: 1px solid var(--border);">
       <div class="container">
         <div class="section-header fade-in">
-          <div class="section-label">Team</div>
-          <h2 class="section-title">Who's building this</h2>
+          <div class="section-label">Guardrails</div>
+          <h2 class="section-title">Autonomy has to climb a ladder.</h2>
         </div>
         <div class="about-prose">
-          <p>A small team with a shared obsession — markets, systems, and the software that sits between them. We're keeping the team page lightweight for now; we'd rather let the product talk.</p>
+          <p>Finance is not the place for vague autonomy. tradecli separates read-only context, suggestion, risk review, prepared orders, human approval, config-gated execution, audit trail, and post-trade review.</p>
+          <p>Execution is off by default and must be explicitly enabled per account. The system is built so trust is earned rung by rung, with the trader remaining the principal behind the capital.</p>
+          <p>That is why guardrails are part of the product shape, not compliance decoration. They are what make a desk of agents possible without pretending money is a toy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="border-top: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-label">India first</div>
+          <h2 class="section-title">Built around the market stack traders actually use.</h2>
+        </div>
+        <div class="about-prose">
+          <p>We are building for Indian public markets first because the workflow is specific enough that generic tools feel foreign: NSE and BSE conventions, broker behavior, product types, market hours, settlement, liquidity, and risk norms all matter.</p>
+          <p>The fragmentation is the opportunity. tradecli connects Groww, Zerodha/Kite, TradingView, Screener, browser surfaces, and office memory into one operator-owned layer.</p>
           <p>If you want to get in touch: <a href="mailto:contact@tradecli.in">contact@tradecli.in</a>.</p>
         </div>
       </div>
