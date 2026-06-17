@@ -123,7 +123,7 @@ Start with Learner if you are new to trading. Switch personas later with `Ctrl+\
 
 Once you have a working install:
 
-- **Broker workflows** -> [Broker Setup](./broker-setup) - current broker setup notes while the full guide is being written
+- **Broker workflows** -> [Broker Setup](./broker-setup) - Groww/Kite first-use behavior and local repair path
 - **Browser workflows** -> [Browser Setup](./browser-setup) - Chrome profile and platform automation
 - **Personas** -> [Personas guide](../guides/personas)
 - **Channels and API** -> [Beyond the TUI](../guides/channels-api)

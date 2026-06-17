@@ -144,8 +144,9 @@ body > nav {
   max-width: 640px; margin: 0 auto 24px; line-height: 1.7;
 }
 .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-.hero-actions-after-shot {
-  margin-top: 24px;
+.hero-actions-before-shot {
+  margin-top: 26px;
+  margin-bottom: 24px;
 }
 .btn-primary {
   background: var(--accent); color: #fff; border: none; border-radius: 10px;
@@ -208,9 +209,9 @@ body > nav {
 }
 .hero-product-shot {
   position: relative;
-  width: min(1680px, calc(100vw - 72px));
+  width: min(1500px, calc(100vw - 88px));
   max-width: none;
-  margin: 26px 50%;
+  margin: 0 50%;
   transform: translateX(-50%);
   overflow: hidden;
   aspect-ratio: 16 / 9;
@@ -1171,7 +1172,6 @@ section { padding: 100px 0; }
 .changelog-entry p + p {
   margin-top: 10px;
 }
-.changelog-entry-upcoming::before { background: var(--amber); }
 
 /* ── Personas ── */
 #personas { border-top: 1px solid var(--border); }
@@ -1398,6 +1398,22 @@ section { padding: 100px 0; }
   transition: all 0.3s; min-width: 160px; flex: 1; max-width: 220px;
 }
 .integration-card:hover { border-color: var(--border-light); transform: translateY(-2px); }
+.integration-mark {
+  min-width: 54px;
+  height: 34px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(148,163,184,0.22);
+  border-radius: 6px;
+  background: rgba(15,23,42,0.72);
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
 .integration-card h4 { font-size: 0.95rem; font-weight: 600; }
 .integration-card p { font-size: 0.8rem; color: var(--text-muted); text-align: center; }
 .integration-badge {

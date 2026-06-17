@@ -90,8 +90,7 @@ export function buildPageIntoDist(
 ): void {
   const sourcePath = join(repoRoot, sourceRel);
   if (!existsSync(sourcePath)) {
-    console.warn(`skipping missing source: ${sourceRel}`);
-    return;
+    throw new Error(`Missing page source in manifest: ${sourceRel}`);
   }
   const shared = {
     HEAD_BASE: readFileSync(join(repoRoot, 'shared/head-base.html'), 'utf-8'),

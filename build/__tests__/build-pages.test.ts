@@ -91,6 +91,11 @@ describe('buildPageIntoDist (integration)', () => {
     expect(readFileSync(join(tmpRoot, 'dist/404.html'), 'utf-8')).toContain('<h1>Not found</h1>');
   });
 
+  it('fails loudly when a manifest page source is missing', () => {
+    expect(() => buildPageIntoDist(tmpRoot, 'missing/index.html', 'missing/index.html', { SITE_BASE: '/' }))
+      .toThrow('Missing page source in manifest: missing/index.html');
+  });
+
   it('copies shared CSS to dist/assets/', () => {
     copySharedCSSToDistAssets(tmpRoot);
     expect(readFileSync(join(tmpRoot, 'dist/assets/tokens.css'), 'utf-8')).toBe('/* tokens */');

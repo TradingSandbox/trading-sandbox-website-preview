@@ -1,12 +1,12 @@
 ---
-title: Portfolio Manager
-description: Portfolio-level decisions across multiple brokers — weights, concentration, correlation, rebalancing, tax harvesting.
+title: PMS and Portfolio Workflows
+description: Portfolio-level decisions across brokers, mandates, weights, concentration, correlation, rebalancing, and tax harvesting.
 outline: 2
 ---
 
-# Portfolio Manager
+# PMS and Portfolio Workflows
 
-The meta-persona: portfolio-level decisions across **multiple brokers at once**. Portfolio Manager thinks in weights, sectors, concentration, drawdown, and correlation — not individual tickers.
+PMS workflows are portfolio-level Office Mode work: mandates, weights, sectors, concentration, drawdown, correlation, and review cadence. The desk uses specialist workers when needed, while AITradingOffice keeps the durable record.
 
 ## What it's for
 
@@ -21,10 +21,11 @@ The meta-persona: portfolio-level decisions across **multiple brokers at once**.
 - Broker MCPs (Groww, Kite) for live holdings, positions, margins
 - XLSX import for portfolios held elsewhere
 - Browser for broker UI actions a skill walks through
+- AITradingOffice records for theses, ledgers, reviews, clients, and office state
 
 ## Setup
 
-Before first use, pick which brokers you want unified with `Ctrl+Shift+K` or `/brokers`. Portfolio Manager only shows actions for selected brokers.
+Run `tradecli setup`, launch `tradecli`, then choose a PMS or portfolio workflow from the interactive TUI. Broker login can happen on first use when a workflow needs account data.
 
 ## Typical prompts
 
@@ -38,10 +39,10 @@ Which of my holdings have results next week?
 ```
 
 ::: danger Read-only by default
-Portfolio Manager surfaces decisions but does not execute orders automatically. Any action that moves money requires explicit user authorization at the broker. Claims of "deployed" or "placed" only appear when a tool confirms execution.
+PMS workflows surface decisions but do not execute orders automatically. Any action that moves money requires explicit user authorization at the broker. Claims of "deployed" or "placed" only appear when a tool confirms execution.
 :::
 
 ## What's next
 
 - **Compare with other personas** → [Personas & Modes](/guides/personas)
-- **Connect brokers** → [Broker Setup](../getting-started/broker-setup) — Groww and Zerodha Kite OAuth flows
+- **Connect brokers** → [Broker Setup](../getting-started/broker-setup) — Groww and Zerodha Kite first-use behavior

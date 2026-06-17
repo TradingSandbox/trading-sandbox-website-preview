@@ -174,6 +174,16 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(html).toContain('tradecli doctor');
   });
 
+  test('homepage product media is copied into dist assets', () => {
+    for (const asset of [
+      'dist/assets/product/tradecli-office-hero.webp',
+      'dist/assets/product/tradecli-office-loop.webm',
+      'dist/assets/product/tradecli-office-loop.mp4',
+    ]) {
+      expect(existsSync(join(REPO_ROOT, asset)), `${asset} exists`).toBe(true);
+    }
+  });
+
   test('secondary surfaces explain office memory and guardrails', () => {
     const about = readFileSync(join(REPO_ROOT, 'dist/about/index.html'), 'utf-8');
     const updates = readFileSync(join(REPO_ROOT, 'dist/updates/index.html'), 'utf-8');

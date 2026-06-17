@@ -39,10 +39,10 @@ Start with → [Quick Start](/getting-started/quick-start)
 - Pick your first workflow
 
 #### [Broker Setup](/getting-started/broker-setup)
-- Current setup notes
+- Run `tradecli setup`
 - Groww first-use auth behavior
 - Zerodha Kite first-use login behavior
-- Full guide in progress
+- Local doctor repair path
 
 #### [Browser Setup](/getting-started/browser-setup)
 - Why a dedicated browser
@@ -73,10 +73,10 @@ Start with → [Quick Start](/getting-started/quick-start)
 - Primary tools
 - Typical prompts
 
-#### [Portfolio Manager](/guides/portfolio-manager)
-- What it's for
-- Primary tools
-- Setup
+#### [PMS and Portfolio Workflows](/guides/portfolio-manager)
+- PMS mode in Office Mode
+- Portfolio context
+- Guardrails
 - Typical prompts
 
 #### [Channels & API](/guides/channels-api)
