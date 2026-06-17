@@ -51,7 +51,7 @@ Check news that could affect this intraday setup
 ## Broker behavior
 
 - If you mention Groww, Trader prefers Groww tools.
-- If you mention Zerodha or Kite, Trader prefers Kite tools.
+- If you mention Zerodha or Kite, Trader prefers Kite MCP tools.
 - If the broker matters and you do not specify one, Trader asks a short clarification before taking action.
 
 Indian cash market hours are 9:15 AM to 3:30 PM IST. Trader should make stale, pre-market, or after-hours context clear when it matters.

@@ -1,6 +1,6 @@
 ---
 title: Broker Setup
-description: Configure broker-aware workflows for Groww and Zerodha Kite in tradecli.
+description: Configure MCP-backed broker workflows for Groww and Zerodha Kite in tradecli.
 outline: 2
 ---
 
@@ -14,10 +14,10 @@ Run `tradecli setup` first. It creates the local config, checks the broker gatew
 
 ## Supported brokers
 
-Current broker-aware flows focus on:
+Current MCP-backed broker flows focus on:
 
-- **Groww** for holdings, watchlists, screeners, and account context.
-- **Zerodha Kite** for holdings, positions, margins, historical data, and account context.
+- **Groww MCP** for holdings, watchlists, screeners, and account context.
+- **Zerodha Kite MCP** for holdings, positions, margins, historical data, and account context.
 
 Broker behavior is intentionally local and explicit. Agents can prepare analysis and surface broker context, but actions that move money still require user approval at the broker surface.
 

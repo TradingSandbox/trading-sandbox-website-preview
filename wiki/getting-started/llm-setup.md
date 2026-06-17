@@ -158,7 +158,7 @@ The OAuth flow prints a URL you can open on your local machine. After completing
 
 Once your LLM credential is configured:
 
-- **Connect your broker** → [Broker Setup](./broker-setup) — Groww and Zerodha Kite OAuth flows
+- **Connect your broker** → [Broker Setup](./broker-setup) — Groww and Zerodha Kite MCP paths
 - **Configure the browser** → [Browser Setup](./browser-setup) — Chrome CDP for platform automation
 - **Pick a persona** → [Personas guide](../guides/personas) — what each persona does and when to use it
 

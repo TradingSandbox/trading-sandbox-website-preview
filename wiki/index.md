@@ -9,7 +9,7 @@ Documentation for `tradecli` — the agent-native trading OS for Indian markets.
 
 ## What is tradecli?
 
-`tradecli` is a local command layer for AI agents that operate across the tools Indian-market traders already use: broker APIs, broker/browser screens, TradingView, Screener.in, portfolios, and a durable office memory layer.
+`tradecli` is a local command layer for AI agents that operate across the tools Indian-market traders already use: broker MCPs, broker/browser screens, TradingView, Screener.in, portfolios, and a durable office memory layer.
 
 The product shape is three parts:
 
