@@ -55,7 +55,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 tradecli setup
 ```
 
-The wizard supports API keys for Anthropic, OpenAI, Google, Groq, xAI, OpenRouter, Mistral, Cerebras, and Hugging Face. For subscription-based OAuth access such as Claude Pro/Max, ChatGPT, GitHub Copilot, or Google AI, launch `tradecli`, type `/login`, then re-run `tradecli setup`.
+The wizard supports API keys for Anthropic, OpenAI, Google, Groq, xAI, OpenRouter, Mistral, Cerebras, and Hugging Face. For subscription-based OAuth access such as Claude Pro/Max, ChatGPT, GitHub Copilot, or Google AI, launch `tradecli`, type `/login`, then re-run `tradecli setup`. See [LLM Setup](./llm-setup) for the full auth flow.
 
 Setup also covers the supporting local stack:
 
@@ -125,6 +125,7 @@ Once you have a working install:
 
 - **Broker workflows** -> [Broker Setup](./broker-setup) - Groww/Kite first-use behavior and local repair path
 - **Browser workflows** -> [Browser Setup](./browser-setup) - Chrome profile and platform automation
+- **LLM auth** -> [LLM Setup](./llm-setup) - API keys and subscription login paths
 - **Personas** -> [Personas guide](../guides/personas)
 - **Channels and API** -> [Beyond the TUI](../guides/channels-api)
 

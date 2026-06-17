@@ -81,6 +81,7 @@ export default defineConfig({
         text: 'Getting Started',
         items: [
           { text: 'Quick Start', link: '/getting-started/quick-start' },
+          { text: 'LLM Setup', link: '/getting-started/llm-setup' },
           { text: 'Broker Setup', link: '/getting-started/broker-setup' },
           { text: 'Browser Setup', link: '/getting-started/browser-setup' },
         ],
@@ -92,7 +93,6 @@ export default defineConfig({
           { text: 'Learner Mode', link: '/guides/learner' },
           { text: 'Investor', link: '/guides/investor' },
           { text: 'Trader', link: '/guides/trader' },
-          { text: 'Portfolio Manager', link: '/guides/portfolio-manager' },
           { text: 'Channels & API', link: '/guides/channels-api' },
         ],
       },

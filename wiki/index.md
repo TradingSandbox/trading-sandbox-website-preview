@@ -51,6 +51,12 @@ Start with → [Quick Start](/getting-started/quick-start)
 - First-run flow
 - Troubleshooting
 
+#### [LLM Setup](/getting-started/llm-setup)
+- API-key providers
+- Subscription login paths
+- Auth storage
+- Verification
+
 ### Guides
 
 #### [Personas & Modes](/guides/personas)
