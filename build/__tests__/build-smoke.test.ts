@@ -165,7 +165,7 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(html).toContain('AITradingOffice');
     expect(html).toContain('assets/product/tradecli-office-hero.webp');
     expect(html).toContain('office-video-demo');
-    expect(html).toContain('assets/product/tradecli-office-video-poster.webp');
+    expect(html).toContain('assets/product/tradecli-office-video-poster.jpg');
     expect(html).toContain('assets/product/tradecli-office-loop.webm');
     expect(html).toContain('assets/product/tradecli-office-loop.mp4');
     expect(html).toContain('start Office Mode from the interactive TUI');
@@ -178,7 +178,7 @@ describe('smoke: sitemap.xml — prod build', () => {
   test('homepage product media is copied into dist assets', () => {
     for (const asset of [
       'dist/assets/product/tradecli-office-hero.webp',
-      'dist/assets/product/tradecli-office-video-poster.webp',
+      'dist/assets/product/tradecli-office-video-poster.jpg',
       'dist/assets/product/tradecli-office-loop.webm',
       'dist/assets/product/tradecli-office-loop.mp4',
     ]) {
