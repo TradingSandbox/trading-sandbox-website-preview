@@ -34,7 +34,7 @@ Discovery can be broad ("find quality compounders") or style-specific ("find div
 ## Primary tools
 
 - [Screener.in](https://www.screener.in) for discovery filters, fundamentals, peer metrics, annual trends, and quarterly trends
-- Groww and Kite MCP tools for current price, holdings context, quote sanity checks, and whether you already own the stock
+- Groww and Zerodha Kite broker tools for current price, holdings context, quote sanity checks, and whether you already own the stock
 - News for recent company or sector developments
 - Browser as a last resort or when you explicitly ask Investor to navigate a website
 

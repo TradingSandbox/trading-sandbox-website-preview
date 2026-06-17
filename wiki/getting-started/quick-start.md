@@ -61,7 +61,7 @@ Setup also covers the supporting local stack:
 
 - Chrome and the tradecli browser profile
 - MCP package cache for TradingView
-- broker MCP and gateway configuration
+- MCP-backed broker tool and gateway configuration
 - Groww auth status, with an optional fix prompt when auth is missing or expired
 - local AITradingOffice API defaults
 

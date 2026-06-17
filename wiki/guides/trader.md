@@ -21,7 +21,7 @@ Trader covers both Streak strategy workflows and live chart-native MCP analysis 
 ## Primary tools
 
 - Browser for Streak workflow execution
-- Broker MCP tools for account, portfolio, and order context when needed
+- MCP-backed broker tools for account, portfolio, and order context when needed
 - News for market-moving developments
 
 Trader prefers structured workflow tools over open-ended browsing. It uses the browser mainly when a Streak step requires it.
@@ -51,7 +51,7 @@ Check news that could affect this intraday setup
 ## Broker behavior
 
 - If you mention Groww, Trader prefers Groww tools.
-- If you mention Zerodha or Kite, Trader prefers Kite MCP tools.
+- If you mention Zerodha or Kite, Trader uses the Zerodha Kite broker tools.
 - If the broker matters and you do not specify one, Trader asks a short clarification before taking action.
 
 Indian cash market hours are 9:15 AM to 3:30 PM IST. Trader should make stale, pre-market, or after-hours context clear when it matters.

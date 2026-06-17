@@ -18,7 +18,7 @@ PMS workflows are portfolio-level Office Mode work: mandates, weights, sectors, 
 
 ## Primary tools
 
-- Broker MCPs (Groww, Kite) for live holdings, positions, margins
+- MCP-backed broker tools (Groww, Zerodha Kite) for live holdings, positions, margins
 - XLSX import for portfolios held elsewhere
 - Browser for broker UI actions a skill walks through
 - AITradingOffice records for theses, ledgers, reviews, clients, and office state
