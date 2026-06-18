@@ -54,6 +54,24 @@ body > nav {
 }
 .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
 .nav-right-desktop { display: flex; align-items: center; gap: 16px; }
+.nav-social-links {
+  display: flex; align-items: center; gap: 6px;
+}
+.nav-social-link {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--text-secondary); text-decoration: none;
+  transition: color 0.2s, background 0.2s, transform 0.2s;
+}
+.nav-social-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-1px);
+}
+.nav-social-link:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 2px;
+}
 
 /* Picker arrow — steady glow */
 @keyframes arrow-glow {

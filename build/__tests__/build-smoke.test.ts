@@ -175,6 +175,25 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(html).toContain('tradecli doctor');
   });
 
+  test('homepage exposes official channel links accessibly', () => {
+    const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
+
+    for (const href of [
+      'https://github.com/TradingSandbox/homebrew-tradecli',
+      'https://tradecli.substack.com/',
+      'https://x.com/tradecli_in/',
+    ]) {
+      expect(html).toContain(`href="${href}"`);
+    }
+
+    for (const label of ['GitHub', 'Substack', 'X']) {
+      expect(html).toContain(`aria-label="${label}"`);
+    }
+
+    expect(html).toContain('M22.539 8.242H1.46V5.406h21.08z');
+    expect(html).toContain('M14.234 10.162L22.977 0h-2.072');
+  });
+
   test('homepage product media is copied into dist assets', () => {
     for (const asset of [
       'dist/assets/product/tradecli-office-hero.webp',
