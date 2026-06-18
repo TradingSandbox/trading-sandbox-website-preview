@@ -175,6 +175,19 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(html).toContain('tradecli doctor');
   });
 
+  test('homepage reinforces tradecli as the official brand query', () => {
+    const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
+
+    expect(html).toContain('<meta property="og:site_name" content="tradecli" />');
+    expect(html).toContain('<h1>tradecli: the agent-native trading OS for Indian markets</h1>');
+    expect(html).toContain('tradecli is the official site for the agent-native trading OS');
+    expect(html).toContain('"alternateName": ["TradeCLI", "trade cli"]');
+    expect(html).toContain('"sameAs": [');
+    expect(html).toContain('"https://github.com/TradingSandbox/homebrew-tradecli"');
+    expect(html).toContain('"https://tradecli.substack.com/"');
+    expect(html).toContain('"https://x.com/tradecli_in/"');
+  });
+
   test('homepage exposes official channel links accessibly', () => {
     const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
 
@@ -338,5 +351,14 @@ describe('smoke: sitemap.xml — preview build', () => {
   test('preview build canonical uses preview hostname', () => {
     const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
     expect(html).toContain('<link rel="canonical" href="https://tradingsandbox.github.io/trading-sandbox-website-preview/">');
+  });
+
+  test('preview build keeps the same tradecli brand signals as prod', () => {
+    const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
+
+    expect(html).toContain('<meta property="og:site_name" content="tradecli" />');
+    expect(html).toContain('<h1>tradecli: the agent-native trading OS for Indian markets</h1>');
+    expect(html).toContain('"alternateName": ["TradeCLI", "trade cli"]');
+    expect(html).toContain('"sameAs": [');
   });
 });
