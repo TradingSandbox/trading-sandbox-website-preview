@@ -18,8 +18,46 @@ const MAIN_SITE_URL = process.env.PREVIEW === 'true'
   ? 'https://tradingsandbox.github.io/trading-sandbox-website-preview/'
   : 'https://tradecli.in';
 
+const ORGANIZATION_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://tradecli.in/#organization',
+  name: 'tradecli',
+  alternateName: ['TradeCLI', 'trade cli', 'tradecli.in', 'tradecli app'],
+  description: 'tradecli is the official website for the local-first, agent-native trading OS for Indian markets.',
+  url: 'https://tradecli.in/',
+  logo: 'https://tradecli.in/assets/og-default.png',
+  image: 'https://tradecli.in/assets/og-default.png',
+  sameAs: [
+    'https://github.com/TradingSandbox/homebrew-tradecli',
+    'https://tradecli.substack.com/',
+    'https://x.com/tradecli_in/',
+  ],
+  knowsAbout: [
+    'Indian stock markets',
+    'AI trading assistants',
+    'local-first trading workflows',
+    'broker automation',
+    'portfolio management',
+  ],
+};
+
+const WEBSITE_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://tradecli.in/#website',
+  name: 'tradecli',
+  alternateName: ['TradeCLI', 'trade cli', 'tradecli.in'],
+  url: 'https://tradecli.in/',
+  description: 'Official site and documentation for tradecli, the agent-native trading OS for Indian markets.',
+  inLanguage: 'en-IN',
+  publisher: { '@id': 'https://tradecli.in/#organization' },
+};
+
 const head: HeadConfig[] = [
   ['link', { rel: 'icon', type: 'image/svg+xml', href: `${SITE_BASE}assets/favicon.svg` }],
+  ['script', { type: 'application/ld+json' }, JSON.stringify(ORGANIZATION_JSON_LD)],
+  ['script', { type: 'application/ld+json' }, JSON.stringify(WEBSITE_JSON_LD)],
 ];
 
 if (process.env.PREVIEW === 'true') {

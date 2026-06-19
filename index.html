@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <!-- @@HEAD_BASE@@ -->
-  <title>tradecli - Agent-Native Trading OS for Indian Markets</title>
-  <meta name="description" content="tradecli is an agent-native trading operating system for Indian markets: local AI agents, broker/browser tools, AITradingOffice memory, and guardrailed action paths." />
+  <title>tradecli Official Site - Agent-Native Trading OS for Indian Markets</title>
+  <meta name="description" content="Official website for tradecli, the agent-native trading operating system for Indian markets: local AI agents, broker/browser tools, AITradingOffice memory, and guardrailed action paths." />
   <meta property="og:site_name" content="tradecli" />
-  <meta property="og:title" content="tradecli - Agent-Native Trading OS for Indian Markets" />
-  <meta property="og:description" content="Run local AI agents across brokers, charts, screeners, portfolios, and an AITradingOffice memory layer." />
+  <meta property="og:title" content="tradecli Official Site - Agent-Native Trading OS for Indian Markets" />
+  <meta property="og:description" content="Official site for tradecli: run local AI agents across brokers, charts, screeners, portfolios, and an AITradingOffice memory layer." />
   <meta property="og:image" content="https://tradecli.in/assets/og-default.png" />
   <meta property="og:url" content="https://tradecli.in/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -14,10 +14,23 @@
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": "https://tradecli.in/#software",
     "name": "tradecli",
+    "alternateName": ["TradeCLI", "trade cli", "tradecli.in"],
     "applicationCategory": "FinanceApplication",
+    "applicationSubCategory": "Trading software",
     "operatingSystem": "macOS, Linux, Windows",
-    "url": "https://tradecli.in",
+    "url": "https://tradecli.in/",
+    "sameAs": [
+      "https://github.com/TradingSandbox/homebrew-tradecli",
+      "https://tradecli.substack.com/",
+      "https://x.com/tradecli_in/"
+    ],
+    "publisher": { "@id": "https://tradecli.in/#organization" },
+    "softwareHelp": "https://tradecli.in/wiki/",
+    "downloadUrl": "https://github.com/TradingSandbox/homebrew-tradecli",
+    "installUrl": "https://tradecli.in/wiki/getting-started/quick-start",
+    "keywords": "tradecli, TradeCLI, trade cli, AI trading assistant, Indian markets, broker automation, trading OS",
     "description": "Agent-native trading operating system for Indian markets: local AI agents across broker, browser, chart, portfolio, and AITradingOffice workflows with guardrailed action paths.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
   }
@@ -339,6 +352,14 @@
             <span><span class="t-prompt">$</span> tradecli doctor</span>
             <span class="copy-icon">copy</span>
           </div>
+        </div>
+
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; color: var(--text-muted); font-size: 0.95rem;">
+          <a href="{{SITE_BASE}}wiki/getting-started/quick-start" style="color: var(--accent-light); text-decoration: none;">Quick Start</a>
+          <a href="{{SITE_BASE}}wiki/getting-started/llm-setup" style="color: var(--accent-light); text-decoration: none;">LLM setup</a>
+          <a href="{{SITE_BASE}}wiki/getting-started/broker-setup" style="color: var(--accent-light); text-decoration: none;">Broker setup</a>
+          <a href="{{SITE_BASE}}updates/" style="color: var(--accent-light); text-decoration: none;">Updates</a>
+          <a href="{{SITE_BASE}}privacy/" style="color: var(--accent-light); text-decoration: none;">Privacy</a>
         </div>
       </div>
     </section>
