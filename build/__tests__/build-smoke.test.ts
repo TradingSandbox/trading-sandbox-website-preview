@@ -180,7 +180,8 @@ describe('smoke: sitemap.xml — prod build', () => {
 
     expect(html).toContain('<meta property="og:site_name" content="tradecli" />');
     expect(html).toContain('<h1>tradecli: the agent-native trading OS for Indian markets</h1>');
-    expect(html).toContain('tradecli is the official site for the agent-native trading OS');
+    expect(html).toContain('tradecli runs local AI agents across brokers');
+    expect(html).not.toContain('tradecli is the official site');
     expect(html).toContain('<title>tradecli Official Site');
     expect(html).toContain('"alternateName": ["TradeCLI", "trade cli", "tradecli.in"');
     expect(html).toContain('"sameAs": [');

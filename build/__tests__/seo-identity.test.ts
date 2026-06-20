@@ -22,10 +22,12 @@ describe('SEO identity signals', () => {
     expect(organization['@id']).toBe('https://tradecli.in/#organization');
     expect(organization.url).toBe('https://tradecli.in/');
     expect(organization.alternateName).toContain('tradecli.in');
-    expect(organization.description).toContain('official');
+    expect(organization.description).toContain('tradecli publishes the local-first, agent-native trading OS');
+    expect(organization.description).not.toContain('official website');
 
     expect(website['@id']).toBe('https://tradecli.in/#website');
     expect(website.url).toBe('https://tradecli.in/');
+    expect(website.description).toContain('tradecli.in is the official website for tradecli');
     expect(website.publisher).toEqual({ '@id': 'https://tradecli.in/#organization' });
   });
 
@@ -40,6 +42,13 @@ describe('SEO identity signals', () => {
     expect(software.softwareHelp).toBe('https://tradecli.in/wiki/');
     expect(software.installUrl).toBe('https://tradecli.in/wiki/getting-started/quick-start');
     expect(software.keywords).toContain('tradecli');
+  });
+
+  it('keeps official-site language out of visible homepage product copy', () => {
+    const home = readSiteFile('index.html');
+
+    expect(home).toContain('tradecli runs local AI agents across brokers');
+    expect(home).not.toContain('tradecli is the official site');
   });
 
   it('links priority crawl targets from the homepage', () => {
