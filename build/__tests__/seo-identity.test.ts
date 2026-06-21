@@ -54,9 +54,26 @@ describe('SEO identity signals', () => {
   it('links priority crawl targets from the homepage', () => {
     const home = readSiteFile('index.html');
 
+    expect(home).toContain('href="{{SITE_BASE}}wiki/"');
     expect(home).toContain('href="{{SITE_BASE}}wiki/getting-started/quick-start"');
     expect(home).toContain('href="{{SITE_BASE}}updates/"');
-    expect(home).toContain('href="{{SITE_BASE}}privacy/"');
+    expect(home).toContain('href="{{SITE_BASE}}about/"');
+    expect(home).not.toContain('href="{{SITE_BASE}}privacy/"');
+  });
+
+  it('publishes a sitelink-focused SiteNavigationElement without privacy', () => {
+    const blocks = jsonLdBlocks(readSiteFile('shared/head-base.html'));
+    const navigation = blocks.find((block) => (block as { '@type'?: string })['@type'] === 'SiteNavigationElement') as Record<string, unknown>;
+
+    expect(navigation['@id']).toBe('https://tradecli.in/#site-navigation');
+    expect(navigation.name).toEqual(['Docs', 'Quick Start', 'Updates', 'About']);
+    expect(navigation.url).toEqual([
+      'https://tradecli.in/wiki/',
+      'https://tradecli.in/wiki/getting-started/quick-start',
+      'https://tradecli.in/updates/',
+      'https://tradecli.in/about/',
+    ]);
+    expect(JSON.stringify(navigation)).not.toContain('/privacy/');
   });
 
   it('adds stable tradecli entity signals to the wiki config', () => {

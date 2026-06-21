@@ -144,13 +144,13 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(html).toContain('<link rel="canonical" href="https://tradecli.in/">');
   });
 
-  test('homepage has 3 JSON-LD blocks; other pages have 2', () => {
+  test('homepage has 4 JSON-LD blocks; other pages have 3', () => {
     const counts = {
-      'dist/index.html': 3,
-      'dist/about/index.html': 2,
-      'dist/updates/index.html': 2,
-      'dist/privacy/index.html': 2,
-      'dist/404.html': 2,
+      'dist/index.html': 4,
+      'dist/about/index.html': 3,
+      'dist/updates/index.html': 3,
+      'dist/privacy/index.html': 3,
+      'dist/404.html': 3,
     };
     for (const [page, expected] of Object.entries(counts)) {
       const html = readFileSync(join(REPO_ROOT, page), 'utf-8');
