@@ -8,6 +8,7 @@ export function copyStaticAssets(repoRoot: string): void {
 
   const targets = [
     { src: 'robots.txt', dest: 'dist/robots.txt' },
+    { src: 'assets/favicon.ico', dest: 'dist/favicon.ico' },
     { src: 'assets', dest: 'dist/assets' },
   ];
 

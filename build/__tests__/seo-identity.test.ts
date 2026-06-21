@@ -61,6 +61,12 @@ describe('SEO identity signals', () => {
     expect(home).not.toContain('href="{{SITE_BASE}}privacy/"');
   });
 
+  it('advertises the root favicon URL crawlers request by default', () => {
+    const head = readSiteFile('shared/head-base.html');
+
+    expect(head).toContain('href="{{SITE_BASE}}favicon.ico"');
+  });
+
   it('publishes a sitelink-focused SiteNavigationElement without privacy', () => {
     const blocks = jsonLdBlocks(readSiteFile('shared/head-base.html'));
     const navigation = blocks.find((block) => (block as { '@type'?: string })['@type'] === 'SiteNavigationElement') as Record<string, unknown>;

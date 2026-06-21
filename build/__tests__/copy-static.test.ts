@@ -22,6 +22,7 @@ describe('copyStaticAssets', () => {
   it('copies robots.txt and assets/ to dist/', () => {
     copyStaticAssets(tmpRoot);
     expect(readFileSync(join(tmpRoot, 'dist/robots.txt'), 'utf-8')).toBe('User-agent: *\n');
+    expect(readFileSync(join(tmpRoot, 'dist/favicon.ico'), 'utf-8')).toBe('FAVICON');
     expect(readFileSync(join(tmpRoot, 'dist/assets/favicon.ico'), 'utf-8')).toBe('FAVICON');
     expect(readFileSync(join(tmpRoot, 'dist/assets/images/logo.png'), 'utf-8')).toBe('LOGO');
   });

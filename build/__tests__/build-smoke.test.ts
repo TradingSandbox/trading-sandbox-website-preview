@@ -220,6 +220,20 @@ describe('smoke: sitemap.xml — prod build', () => {
     }
   });
 
+  test('root favicon is emitted for default crawler requests', () => {
+    expect(existsSync(join(REPO_ROOT, 'dist/favicon.ico'))).toBe(true);
+  });
+
+  test('legacy docs crawl paths redirect to current wiki URLs', () => {
+    const quickStartRedirect = readFileSync(join(REPO_ROOT, 'dist/getting-started/quick-start/index.html'), 'utf-8');
+    expect(quickStartRedirect).toContain('https://tradecli.in/wiki/getting-started/quick-start');
+    expect(quickStartRedirect).toContain('url=/wiki/getting-started/quick-start');
+
+    const proTraderRedirect = readFileSync(join(REPO_ROOT, 'dist/guides/pro-trader/index.html'), 'utf-8');
+    expect(proTraderRedirect).toContain('https://tradecli.in/wiki/guides/trader');
+    expect(proTraderRedirect).toContain('url=/wiki/guides/trader');
+  });
+
   test('secondary surfaces explain office memory and guardrails', () => {
     const about = readFileSync(join(REPO_ROOT, 'dist/about/index.html'), 'utf-8');
     const updates = readFileSync(join(REPO_ROOT, 'dist/updates/index.html'), 'utf-8');

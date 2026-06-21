@@ -6,12 +6,14 @@ import {
   substituteTokens,
   injectFragments,
   buildPageIntoDist,
+  buildRedirectPageIntoDist,
   copySharedCSSToDistAssets,
   guardNoCnameOnMaster,
   resolveAnalyticsSnippet,
   resolveCanonicalUrl,
   resolvePageRobots,
   validateJsonLdBlocks,
+  LEGACY_REDIRECTS,
   PAGES_MANIFEST,
 } from '../build-pages.js';
 
@@ -100,6 +102,20 @@ describe('buildPageIntoDist (integration)', () => {
     copySharedCSSToDistAssets(tmpRoot);
     expect(readFileSync(join(tmpRoot, 'dist/assets/tokens.css'), 'utf-8')).toBe('/* tokens */');
     expect(readFileSync(join(tmpRoot, 'dist/assets/components.css'), 'utf-8')).toBe('/* components */');
+  });
+
+  it('emits redirect pages for legacy crawl paths', () => {
+    buildRedirectPageIntoDist(
+      tmpRoot,
+      'getting-started/quick-start/index.html',
+      '/wiki/getting-started/quick-start',
+      'https://tradecli.in/wiki/getting-started/quick-start',
+    );
+
+    const out = readFileSync(join(tmpRoot, 'dist/getting-started/quick-start/index.html'), 'utf-8');
+    expect(out).toContain('<link rel="canonical" href="https://tradecli.in/wiki/getting-started/quick-start">');
+    expect(out).toContain('<meta http-equiv="refresh" content="0; url=/wiki/getting-started/quick-start">');
+    expect(out).toContain('location.replace("/wiki/getting-started/quick-start")');
   });
 
   it('guardNoCnameOnMaster exits when CNAME exists', () => {
@@ -269,5 +285,28 @@ describe('PAGES_MANIFEST', () => {
     expect(updates?.robots).toBeUndefined();
     expect(privacy?.indexable).toBe(true);
     expect(privacy?.robots).toBeUndefined();
+  });
+});
+
+describe('LEGACY_REDIRECTS', () => {
+  it('covers legacy docs URLs seen in Googlebot 404 crawl stats', () => {
+    const outputs = LEGACY_REDIRECTS.map((entry) => entry.output);
+
+    expect(outputs).toEqual(expect.arrayContaining([
+      'getting-started/llm-setup/index.html',
+      'getting-started/browser-setup/index.html',
+      'getting-started/broker-setup/index.html',
+      'getting-started/quick-start/index.html',
+      'guides/channels-api/index.html',
+      'guides/investor/index.html',
+      'guides/learner/index.html',
+      'guides/personas/index.html',
+      'guides/portfolio-manager/index.html',
+      'guides/pro-trader/index.html',
+      'guides/trader/index.html',
+      'extending/channels-api/index.html',
+      'extending/skills/index.html',
+      'wiki/extending/skills/index.html',
+    ]));
   });
 });
