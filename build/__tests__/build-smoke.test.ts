@@ -163,12 +163,16 @@ describe('smoke: sitemap.xml — prod build', () => {
     const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
     expect(html).toContain('agent-native trading OS');
     expect(html).toContain('AITradingOffice');
-    expect(html).toContain('assets/product/tradecli-office-hero.webp');
-    expect(html).toContain('office-video-demo');
+    expect(html).toContain('<h1>tradecli</h1>');
+    expect(html).toContain('The agent-native trading OS for Indian markets.');
+    expect(html).toContain('hero-product-video');
+    expect(html).toContain('rel="preload" as="image" href="/assets/product/tradecli-office-video-poster.jpg" fetchpriority="high"');
+    expect(html).not.toContain('office-video-demo');
+    expect(html).not.toContain('id="multi-agent-demo"');
     expect(html).toContain('assets/product/tradecli-office-video-poster.jpg');
     expect(html).toContain('assets/product/tradecli-office-loop.webm');
     expect(html).toContain('assets/product/tradecli-office-loop.mp4');
-    expect(html).toContain('start Office Mode from the interactive TUI');
+    expect(html).toContain('Start Office Mode from the interactive TUI');
     expect(html).toContain('brew trust --tap TradingSandbox/tradecli');
     expect(html).toContain('brew install TradingSandbox/tradecli/tradecli');
     expect(html).toContain('tradecli setup');
@@ -179,7 +183,8 @@ describe('smoke: sitemap.xml — prod build', () => {
     const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
 
     expect(html).toContain('<meta property="og:site_name" content="tradecli" />');
-    expect(html).toContain('<h1>tradecli: the agent-native trading OS for Indian markets</h1>');
+    expect(html).toContain('<h1>tradecli</h1>');
+    expect(html).toContain('The agent-native trading OS for Indian markets.');
     expect(html).toContain('tradecli runs local AI agents across brokers');
     expect(html).not.toContain('tradecli is the official site');
     expect(html).toContain('<title>tradecli Official Site');
@@ -373,7 +378,8 @@ describe('smoke: sitemap.xml — preview build', () => {
     const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
 
     expect(html).toContain('<meta property="og:site_name" content="tradecli" />');
-    expect(html).toContain('<h1>tradecli: the agent-native trading OS for Indian markets</h1>');
+    expect(html).toContain('<h1>tradecli</h1>');
+    expect(html).toContain('The agent-native trading OS for Indian markets.');
     expect(html).toContain('"alternateName": ["TradeCLI", "trade cli", "tradecli.in"');
     expect(html).toContain('"sameAs": [');
   });

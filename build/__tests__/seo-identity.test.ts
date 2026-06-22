@@ -51,6 +51,32 @@ describe('SEO identity signals', () => {
     expect(home).not.toContain('tradecli is the official site');
   });
 
+  it('promotes the Office Mode video as the homepage hero product proof', () => {
+    const home = readSiteFile('index.html');
+
+    expect(home).toContain('<h1>tradecli</h1>');
+    expect(home).toContain('Local-first · Guardrailed');
+    expect(home).not.toContain('Built in India · Local-first · Guardrailed by design');
+    expect(home).toContain('class="hero-product-video"');
+    expect(home).toContain('rel="preload" as="image" href="{{SITE_BASE}}assets/product/tradecli-office-video-poster.jpg" fetchpriority="high"');
+    expect(home).toContain('poster="{{SITE_BASE}}assets/product/tradecli-office-video-poster.jpg"');
+    expect(home).toContain('src="{{SITE_BASE}}assets/product/tradecli-office-loop.webm"');
+    expect(home).toContain('src="{{SITE_BASE}}assets/product/tradecli-office-loop.mp4"');
+    expect(home).toContain('data-autoplay-delay="900"');
+    expect(home).toContain("window.addEventListener('load'");
+    expect(home).toContain('requestIdleCallback');
+    expect(home).not.toContain('id="multi-agent-demo"');
+  });
+
+  it('keeps homepage navigation targets large enough for touch devices', () => {
+    const css = readSiteFile('shared/components.css');
+
+    expect(css).toMatch(/\.nav-links a \{[\s\S]*min-width: 44px;[\s\S]*min-height: 44px;/);
+    expect(css).toMatch(/\.nav-social-link \{[\s\S]*width: 44px; height: 44px;/);
+    expect(css).toMatch(/\.nav-cta \{[\s\S]*min-height: 44px;/);
+    expect(css).toMatch(/\.nav-hamburger \{[\s\S]*width: 44px; height: 44px;/);
+  });
+
   it('links priority crawl targets from the homepage', () => {
     const home = readSiteFile('index.html');
 

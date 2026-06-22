@@ -10,6 +10,7 @@
   <meta property="og:image" content="https://tradecli.in/assets/og-default.png" />
   <meta property="og:url" content="https://tradecli.in/" />
   <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preload" as="image" href="{{SITE_BASE}}assets/product/tradecli-office-video-poster.jpg" fetchpriority="high" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -45,9 +46,10 @@
       <div class="container">
         <div class="hero-badge">
           <div class="hero-badge-dot"></div>
-          Built in India · Local-first · Guardrailed by design
+          Local-first · Guardrailed
         </div>
-        <h1>tradecli: the agent-native trading OS for Indian markets</h1>
+        <h1>tradecli</h1>
+        <p class="hero-kicker-line">The agent-native trading OS for Indian markets.</p>
         <p>tradecli runs local AI agents across brokers, charts, screeners, portfolios, and an AITradingOffice memory layer, so your market process becomes visible, queryable, and scalable.</p>
 
         <div class="hero-actions hero-actions-before-shot">
@@ -58,15 +60,20 @@
           <a href="{{SITE_BASE}}wiki/" class="btn-secondary">Read the docs</a>
         </div>
 
-        <figure class="hero-product-shot" aria-label="tradecli Office Mode product preview">
-          <img
-            src="{{SITE_BASE}}assets/product/tradecli-office-hero.webp"
-            width="3840"
-            height="2160"
-            alt="tradecli Office Mode with multiple local agent panes beside HDFC Bank chart context"
-            decoding="async"
-            fetchpriority="high"
-          />
+        <figure class="hero-product-shot hero-product-video-frame" aria-label="tradecli Office Mode product preview">
+          <video
+            class="hero-product-video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="{{SITE_BASE}}assets/product/tradecli-office-video-poster.jpg"
+            data-autoplay-delay="900"
+          >
+            <source src="{{SITE_BASE}}assets/product/tradecli-office-loop.webm" type="video/webm" />
+            <source src="{{SITE_BASE}}assets/product/tradecli-office-loop.mp4" type="video/mp4" />
+            <img src="{{SITE_BASE}}assets/product/tradecli-office-video-poster.jpg" alt="tradecli Office Mode running multiple local agent panes beside chart context" />
+          </video>
         </figure>
       </div>
     </section>
@@ -204,32 +211,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="multi-agent-demo" class="agent-demo-section">
-      <div class="container">
-        <div class="section-header fade-in">
-          <div class="section-label">Office Mode</div>
-          <h2 class="section-title">The TUI opens the agent desk.</h2>
-          <p class="section-desc">Launch <code>tradecli</code>, start Office Mode from the interactive TUI, and watch specialist agents work beside live market context.</p>
-        </div>
-
-        <figure class="office-video-demo fade-in" aria-label="Office Mode multi-agent workflow video">
-          <video
-            class="office-video"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="{{SITE_BASE}}assets/product/tradecli-office-video-poster.jpg"
-          >
-            <source src="{{SITE_BASE}}assets/product/tradecli-office-loop.webm" type="video/webm" />
-            <source src="{{SITE_BASE}}assets/product/tradecli-office-loop.mp4" type="video/mp4" />
-            <img src="{{SITE_BASE}}assets/product/tradecli-office-video-poster.jpg" alt="tradecli Office Mode running multiple local agent panes beside chart context" />
-          </video>
-        </figure>
       </div>
     </section>
 
@@ -391,7 +372,38 @@
       }
     }
 
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function startHeroVideo(video) {
+      if (prefersReducedMotion) {
+        video.pause();
+        return;
+      }
+      const delay = Number(video.getAttribute('data-autoplay-delay') || '0');
+      const playAfterDelay = () => window.setTimeout(() => {
+        video.play().catch(() => {
+          video.controls = true;
+        });
+      }, delay);
+
+      const startWhenIdle = () => {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(playAfterDelay, { timeout: 1500 });
+        } else {
+          playAfterDelay();
+        }
+      };
+
+      if (document.readyState === 'complete') {
+        startWhenIdle();
+      } else {
+        window.addEventListener('load', startWhenIdle, { once: true });
+      }
+    }
+
+    document.querySelectorAll('video[data-autoplay-delay]').forEach(startHeroVideo);
+
+    if (prefersReducedMotion) {
       document.querySelectorAll('video[autoplay]').forEach((video) => {
         video.removeAttribute('autoplay');
         video.pause();
