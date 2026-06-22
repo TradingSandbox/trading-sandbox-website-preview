@@ -77,6 +77,30 @@ describe('SEO identity signals', () => {
     expect(css).toMatch(/\.nav-hamburger \{[\s\S]*width: 44px; height: 44px;/);
   });
 
+  it('stacks the hero video in the narrow viewport layout', () => {
+    const css = readSiteFile('shared/components.css');
+    const narrowHeroRule = css.match(/@media \(max-width: 768px\) \{[\s\S]*?\.os-hero \.hero-product-shot \{([\s\S]*?)\n  \}/);
+
+    expect(narrowHeroRule?.[1]).toContain('position: relative;');
+    expect(narrowHeroRule?.[1]).not.toContain('bottom:');
+  });
+
+  it('keeps the desktop hero video as the cinematic background product proof', () => {
+    const css = readSiteFile('shared/components.css');
+    const osHeroShotRule = css.match(/\.os-hero \.hero-product-shot \{([\s\S]*?)\n\}/);
+
+    expect(osHeroShotRule?.[1]).toContain('position: absolute;');
+    expect(osHeroShotRule?.[1]).toContain('z-index: 0;');
+    expect(osHeroShotRule?.[1]).toContain('bottom: 22px;');
+  });
+
+  it('adds a dedicated readability scrim for video-backed hero copy', () => {
+    const css = readSiteFile('shared/components.css');
+
+    expect(css).toContain('.os-hero .container::before');
+    expect(css).toMatch(/\.os-hero p \{[\s\S]*color: rgba\(248,250,252,0\.92\);/);
+  });
+
   it('links priority crawl targets from the homepage', () => {
     const home = readSiteFile('index.html');
 
