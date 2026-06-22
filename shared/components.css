@@ -235,6 +235,7 @@ body > nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   width: 100%;
   max-width: none;
   min-height: 88vh;
@@ -260,6 +261,7 @@ body > nav {
   z-index: 2;
 }
 .os-hero h1 {
+  width: 100%;
   max-width: 920px;
   margin-left: auto;
   margin-right: auto;
@@ -269,6 +271,7 @@ body > nav {
   text-shadow: 0 4px 18px rgba(0,0,0,0.66);
 }
 .os-hero p {
+  width: 100%;
   max-width: 760px;
   color: rgba(248,250,252,0.92);
   font-weight: 500;

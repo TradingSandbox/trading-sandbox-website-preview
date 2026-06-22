@@ -101,6 +101,19 @@ describe('SEO identity signals', () => {
     expect(css).toMatch(/\.os-hero p \{[\s\S]*color: rgba\(248,250,252,0\.92\);/);
   });
 
+  it('constrains centered hero copy so it wraps inside mobile Chrome viewports', () => {
+    const css = readSiteFile('shared/components.css');
+    const heroContainerRule = css.match(/\.os-hero \.container \{([\s\S]*?)\n\}/);
+    const heroTitleRule = css.match(/\.os-hero h1 \{([\s\S]*?)\n\}/);
+    const heroCopyRule = css.match(/\.os-hero p \{([\s\S]*?)\n\}/);
+
+    expect(heroContainerRule?.[1]).toContain('box-sizing: border-box;');
+    expect(heroTitleRule?.[1]).toContain('width: 100%;');
+    expect(heroTitleRule?.[1]).toContain('max-width: 920px;');
+    expect(heroCopyRule?.[1]).toContain('width: 100%;');
+    expect(heroCopyRule?.[1]).toContain('max-width: 760px;');
+  });
+
   it('links priority crawl targets from the homepage', () => {
     const home = readSiteFile('index.html');
 
