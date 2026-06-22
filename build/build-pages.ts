@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync, mkdirSync, cpSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -22,6 +23,17 @@ export function resolvePageRobots(isPreview: boolean, robots: string | undefined
   if (isPreview) return '';
   if (!robots) return '';
   return `<meta name="robots" content="${robots}">`;
+}
+
+export function resolveAssetVersion(repoRoot: string): string {
+  const explicitVersion = process.env.ASSET_VERSION;
+  if (explicitVersion) return encodeURIComponent(explicitVersion);
+
+  const hash = createHash('sha256');
+  for (const rel of ['shared/tokens.css', 'shared/components.css']) {
+    hash.update(readFileSync(join(repoRoot, rel)));
+  }
+  return hash.digest('hex').slice(0, 12);
 }
 
 export function substituteTokens(
@@ -193,6 +205,7 @@ function main(): void {
   const previewRobots = isPreview ? '<meta name="robots" content="noindex, nofollow">' : '';
   const analyticsSnippet = resolveAnalyticsSnippet(isPreview, CF_BEACON_TOKEN);
   const hostname = resolveHostname(process.env.SITE_BASE);
+  const assetVersion = resolveAssetVersion(repoRoot);
 
   guardNoCnameOnMaster(repoRoot);
   for (const entry of PAGES_MANIFEST) {
@@ -202,6 +215,7 @@ function main(): void {
       entry.output,
       {
         SITE_BASE: siteBase,
+        ASSET_VERSION: assetVersion,
         PREVIEW_ROBOTS: previewRobots,
         CANONICAL_URL: resolveCanonicalUrl(entry.output, hostname),
         PAGE_ROBOTS: resolvePageRobots(isPreview, entry.robots),

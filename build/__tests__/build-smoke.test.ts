@@ -163,6 +163,8 @@ describe('smoke: sitemap.xml — prod build', () => {
     const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
     expect(html).toContain('agent-native trading OS');
     expect(html).toContain('AITradingOffice');
+    expect(html).toMatch(/href="\/assets\/tokens\.css\?v=[a-f0-9]{12}"/);
+    expect(html).toMatch(/href="\/assets\/components\.css\?v=[a-f0-9]{12}"/);
     expect(html).toContain('<h1>tradecli</h1>');
     expect(html).toContain('The agent-native trading OS for Indian markets.');
     expect(html).toContain('hero-product-video');

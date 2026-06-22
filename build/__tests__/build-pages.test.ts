@@ -10,6 +10,7 @@ import {
   copySharedCSSToDistAssets,
   guardNoCnameOnMaster,
   resolveAnalyticsSnippet,
+  resolveAssetVersion,
   resolveCanonicalUrl,
   resolvePageRobots,
   validateJsonLdBlocks,
@@ -32,6 +33,25 @@ describe('substituteTokens', () => {
 
   it('leaves text without tokens unchanged', () => {
     expect(substituteTokens('no tokens here', { SITE_BASE: '/' })).toBe('no tokens here');
+  });
+});
+
+describe('resolveAssetVersion', () => {
+  it('hashes shared CSS content into a stable short cache-busting token', () => {
+    const tmpRoot = mkdtempSync(join(tmpdir(), 'asset-version-'));
+    mkdirSync(join(tmpRoot, 'shared'), { recursive: true });
+    writeFileSync(join(tmpRoot, 'shared/tokens.css'), ':root { --x: 1; }');
+    writeFileSync(join(tmpRoot, 'shared/components.css'), '.hero { color: white; }');
+
+    try {
+      const first = resolveAssetVersion(tmpRoot);
+      expect(first).toMatch(/^[a-f0-9]{12}$/);
+
+      writeFileSync(join(tmpRoot, 'shared/components.css'), '.hero { color: black; }');
+      expect(resolveAssetVersion(tmpRoot)).not.toBe(first);
+    } finally {
+      rmSync(tmpRoot, { recursive: true, force: true });
+    }
   });
 });
 

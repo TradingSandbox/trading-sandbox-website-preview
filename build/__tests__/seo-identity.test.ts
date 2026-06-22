@@ -117,6 +117,13 @@ describe('SEO identity signals', () => {
     expect(head).toContain('href="{{SITE_BASE}}favicon.ico"');
   });
 
+  it('versions local CSS URLs so Chrome does not keep stale hero styles', () => {
+    const head = readSiteFile('shared/head-base.html');
+
+    expect(head).toContain('href="{{SITE_BASE}}assets/tokens.css?v={{ASSET_VERSION}}"');
+    expect(head).toContain('href="{{SITE_BASE}}assets/components.css?v={{ASSET_VERSION}}"');
+  });
+
   it('publishes a sitelink-focused SiteNavigationElement without privacy', () => {
     const blocks = jsonLdBlocks(readSiteFile('shared/head-base.html'));
     const navigation = blocks.find((block) => (block as { '@type'?: string })['@type'] === 'SiteNavigationElement') as Record<string, unknown>;
