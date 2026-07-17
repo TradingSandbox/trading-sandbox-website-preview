@@ -8,7 +8,7 @@ outline: 2
 
 Trading Office is organized around one selected trading book. The CEO coordinates people and standing work, while AI Trading Office keeps the durable record of the book, employees, mandates, workflow runs, research, and paper transactions.
 
-The everyday controls apply whether you are a solo trader, an emerging manager, or part of a fund team. Additional LP and capital-record features appear later on this page. For the strategy lifecycle, begin with the [idea-to-review quickstart](/trading-office/quickstart).
+The everyday controls apply whether you are a solo trader, an emerging manager, or part of a fund team. Additional LP and capital-record features appear later on this page. For the strategy lifecycle, begin with [Your First Strategy](/trading-office/quickstart).
 
 ## Everyday Trading Office operations
 
@@ -37,15 +37,9 @@ From here you can complete the recommended setup, manage the team, edit mandates
 
 Use [Cron Monitor](/trading-office/watches#inspect-watches-in-cron-monitor) for scheduled watches and [Market Terminal](/trading-office/paper-operations#monitor-in-market-terminal) for open paper positions.
 
-#### Autonomous Paper is a preview runtime
+#### Use Autonomous Paper for standing work
 
-The current-session Autonomous · Paper trading runtime exists. When a Trading Office session is actually operating in that mode, due employee workflows can research and report, and a Trader workflow can book mandate-constrained Office paper trades.
-
-::: warning Current persistence gap
-The current AI Trading Office service does not persist the trading book's `operating_mode` field. Selecting Autonomous · Paper trading in book setup or administration can therefore fall back to Guided after the response or after re-entering the office. Verify the mode shown in Control Center and do not rely on unattended continuation until this preview gap is fixed.
-:::
-
-This runtime is also separate from the **TBD exact-version strategy runner**. Approving a promoted strategy does not start a schedule that evaluates that frozen version.
+In Autonomous · Paper trading, due employee workflows can research, report, and prepare or book mandate-constrained Office paper trades. Review the selected mode, mandates, workflow cadence, and escalation rules together before allowing standing work to continue.
 
 ### Direct the office from the CEO pane
 
@@ -128,7 +122,7 @@ During the session, delegate bounded research, use watches for repeated observat
 
 ## Additional operations for fund teams
 
-The following features extend the same Trading Office model for managers who track outside capital or report across a team. They do not turn the current product into a complete institutional fund platform.
+These features extend the same Trading Office model for managers who track outside capital or report across a team.
 
 ### Add investors and LPs
 
@@ -139,23 +133,13 @@ Open `/hedgefund:admin`, choose **Manage investors / LPs**, then **Add investor 
 - optional units; and
 - an optional high-water mark.
 
-This creates the LP record used by fund summaries and the read-only dashboard. It is not a complete subscription or cash-transfer workflow. The current terminal administration flow cannot edit or delete standalone fund-client rows after creation.
-
-### Capital operations are not public Trading Office actions
-
-The following Office service operations are internal and are deliberately excluded from the public fund-team workflow:
-
-- recording later subscriptions, contributions, or redemptions;
-- reconciling the trading book;
-- striking NAV as a standalone action; and
-- writing transactions directly through trading-book APIs.
-
-Use the public paper pipeline for trades—Scanner or a strategy plan, a reviewed ticket, and Market Terminal—and use fund summaries for LP and NAV reporting. The presence of an internal API route does not make it a supported user action.
+The record becomes part of fund summaries and the read-only Office dashboard alongside units, NAV, high-water marks, P&L, and ledger state.
 
 ## Related pages
 
 - [Set up your office](/trading-office/setup)
-- [Watches and background work](/trading-office/watches)
-- [Run paper strategies](/trading-office/paper-operations)
+- [Automation tools](/trading-office/watches)
+- [Paper trade and monitor](/trading-office/paper-operations)
 - [Review and improve](/trading-office/review)
-- [Status and reference](/trading-office/reference)
+- [Concepts and terminology](/trading-office/concepts)
+- [Commands and shortcuts](/trading-office/commands)

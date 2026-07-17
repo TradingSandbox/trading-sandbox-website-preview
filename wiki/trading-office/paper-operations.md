@@ -1,16 +1,14 @@
 ---
-title: Run paper strategies
-description: Find candidates, build risk-sized plans, book Office paper trades, and monitor or exit positions.
+title: Paper trade and monitor
+description: Find candidates, build risk-sized plans, record Office paper trades, monitor positions, and manage exits.
 outline: 2
 ---
 
-# Run paper strategies
+# Paper trade and monitor
 
 Paper operation turns a researched setup into a simulated transaction in the active trading book. It joins candidate selection, deterministic risk math, a reviewable ticket, market-derived marks, planned exits, and the Office ledger.
 
-::: warning Paper means paper
-An Office paper transaction is not a broker order. Trading Office does not use Autonomous · Paper trading as permission to place live orders.
-:::
+An Office paper transaction belongs to the Trading Office ledger. It records the strategy, risk, position, and exit plan without placing a live broker order.
 
 ## Three ways to reach a paper ticket
 
@@ -24,9 +22,7 @@ Open the Strategy Library:
 
 An approved or active paper deployment can expose **Trade**. The current path creates a risk-sized, human-confirmed ticket from the stored universe, exit fields, and deployment risk limit, then tags the resulting trade with its strategy-version and deployment identifiers.
 
-The current Library action assumes a **buy-side equity** entry. It does not evaluate the version's frozen Pine entry signal or infer a short, option, or futures entry. Verify that the ticket actually represents the strategy; otherwise build the appropriate paper plan separately.
-
-This is the traceable path for the idea-to-review journey, but it is currently initiated by the user. Scheduled entry generation from the frozen version is **TBD**.
+Review the generated symbol, direction, instrument, quantity, stop, targets, and risk before confirming the ticket. The resulting transaction stays connected to the strategy version and deployment that produced it.
 
 ### From Scanner
 
@@ -108,25 +104,12 @@ The position monitor is a background service for recorded exit conditions. It ca
 - planned time exits;
 - applicable intraday cutoffs.
 
-It works from the stored plan and market data, not from a watch prompt. That distinction matters: a watch can notice and report a condition, while the position monitor is the deterministic mechanism intended to apply a recorded paper exit. Multi-target automatic scale-out progression is still being verified; use Market Terminal when a partial exit must be explicit.
-
-## What is available and what is TBD
-
-| Capability | Status |
-| --- | --- |
-| Scanner and saved Office playbooks | Available |
-| Deterministic risk sizing and paper tickets | Available |
-| Manual, version-tagged buy-side equity ticket from Strategy Library | Available, with the boundary above |
-| Workflow-driven, mandate-constrained Office paper trades | Available in Autonomous · Paper trading |
-| Market Terminal entries, partial exits, and full exits | Available |
-| Deterministic stored stop, target, and time-exit monitoring | Available |
-| Automatic multi-target scale-out progression | **TBD verification** |
-| Scheduled entries generated from one exact promoted strategy version | **TBD** |
-| Live Trading Office broker execution | Outside the current product boundary |
+It works from the stored plan and market data, not from a watch prompt. A watch can notice and report a condition; the position monitor applies the exit rules recorded on the paper position. You can inspect, partially exit, or fully exit the position yourself through Market Terminal at any time.
 
 ## Related pages
 
 - [Test in Strategy Lab](/trading-office/strategy-lab)
-- [Watches and schedules](/trading-office/watches)
+- [Automation tools](/trading-office/watches)
 - [Review and improve](/trading-office/review)
-- [Status and reference](/trading-office/reference)
+- [Concepts and terminology](/trading-office/concepts)
+- [Commands and shortcuts](/trading-office/commands)

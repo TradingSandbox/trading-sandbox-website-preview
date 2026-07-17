@@ -8,9 +8,7 @@ outline: 2
 
 Ideas is the durable front door to the Trading Office strategy lifecycle. It is where a rough observation can stay lightweight, become a falsifiable hypothesis, or move into Strategy Lab.
 
-::: info Available
-Ideas are stored as Trading Office research records and remain scoped to the active trading book and employee. Captured, in-flight, rejected, validated, and parked ideas remain searchable.
-:::
+Ideas remain scoped to the active trading book and employee. Captured, in-flight, rejected, validated, and parked ideas remain searchable as part of the strategy's history.
 
 ## Open the Idea Backlog
 
@@ -116,6 +114,6 @@ The mechanism can remain uncertain. The trigger, scope, exit, and falsification 
 
 ## What's next
 
-- Run the complete loop → [Quickstart: Idea to Reviewed Paper Strategy](./quickstart)
+- Run the complete loop → [Your First Strategy](./quickstart)
 - Design and approve the test → [Test in Strategy Lab](./strategy-lab)
 - Turn paper evidence into a decision → [Review and Improve](./review)

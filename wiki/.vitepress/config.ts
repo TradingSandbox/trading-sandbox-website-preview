@@ -116,7 +116,43 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Getting Started',
+        text: 'Trading Office',
+        items: [
+          { text: 'Overview', link: '/trading-office/' },
+        ],
+      },
+      {
+        text: 'Start Using It',
+        items: [
+          { text: 'Set Up Your Office', link: '/trading-office/setup' },
+          { text: 'Your First Strategy', link: '/trading-office/quickstart' },
+        ],
+      },
+      {
+        text: 'Strategy Lifecycle',
+        items: [
+          { text: 'Research and Ideas', link: '/trading-office/ideas' },
+          { text: 'Test in Strategy Lab', link: '/trading-office/strategy-lab' },
+          { text: 'Paper Trade and Monitor', link: '/trading-office/paper-operations' },
+          { text: 'Review and Improve', link: '/trading-office/review' },
+        ],
+      },
+      {
+        text: 'Automate and Operate',
+        items: [
+          { text: 'Automation Tools', link: '/trading-office/watches' },
+          { text: 'Run Your Trading Office', link: '/trading-office/operations' },
+        ],
+      },
+      {
+        text: 'Reference',
+        items: [
+          { text: 'Concepts and Terminology', link: '/trading-office/concepts' },
+          { text: 'Commands and Shortcuts', link: '/trading-office/commands' },
+        ],
+      },
+      {
+        text: 'Install and Configure',
         items: [
           { text: 'Quick Start', link: '/getting-started/quick-start' },
           { text: 'LLM Setup', link: '/getting-started/llm-setup' },
@@ -125,22 +161,7 @@ export default defineConfig({
         ],
       },
       {
-        text: 'Trading Office Guide',
-        items: [
-          { text: 'Overview', link: '/trading-office/' },
-          { text: 'Quickstart: Idea to Review', link: '/trading-office/quickstart' },
-          { text: 'Set Up Your Office', link: '/trading-office/setup' },
-          { text: 'Research and Ideas', link: '/trading-office/ideas' },
-          { text: 'Test in Strategy Lab', link: '/trading-office/strategy-lab' },
-          { text: 'Run Paper Strategies', link: '/trading-office/paper-operations' },
-          { text: 'Watches and Schedules', link: '/trading-office/watches' },
-          { text: 'Review and Improve', link: '/trading-office/review' },
-          { text: 'Run Your Trading Office', link: '/trading-office/operations' },
-          { text: 'Status and Reference', link: '/trading-office/reference' },
-        ],
-      },
-      {
-        text: 'Guides',
+        text: 'Other Guides',
         items: [
           { text: 'Personas & Modes', link: '/guides/personas' },
           { text: 'Learner Mode', link: '/guides/learner' },

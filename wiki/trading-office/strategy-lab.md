@@ -8,14 +8,6 @@ outline: 2
 
 Strategy Lab turns a Trading Office hypothesis into a reproducible experiment. AI helps express the idea and interpret the outcome; compiled code, stored plans, persisted jobs, and one machine-owned judge control what actually ran and what verdict it earned.
 
-::: info Available
-BUILD, immutable PLAN approval, chunked RUN persistence, JUDGE, PROMOTE, deployment approval records, job inspection, cancellation, and Strategy Library records are available.
-:::
-
-::: warning TBD — exact-version scheduled execution
-Promotion and paper approval do not yet start a scheduled runner for the frozen strategy version. A human-confirmed, version-tagged paper ticket is available from the Strategy Library; exact-version autonomous entry generation is TBD.
-:::
-
 ## Start an experiment
 
 Use either verified entry point:
@@ -110,7 +102,7 @@ After the promising verdict appears, ask the Trading Office pane to promote that
 
 Use **Backtest Lab → Approvals** to inspect and approve or reject the proposal. Approval is attributed to the active employee, and the evidence gate is checked again. Rejection stops the deployment proposal while preserving the strategy version and experiment evidence.
 
-An approval is a control-plane record, not a running process. After approval, `/strategies` can offer **Trade** to create a risk-sized, human-confirmed paper ticket from available stored exit and risk fields. The current action assumes a buy-side equity ticket and does not evaluate the frozen Pine entry signal, so it is not the exact-version runtime.
+After approval, the strategy becomes ready for paper operation. Open `/strategies` to inspect the version, review its deployment, and create a risk-sized paper ticket from its stored universe, exit rules, and risk limits.
 
 ## What AI owns—and what it does not
 
@@ -124,6 +116,7 @@ An approval is a control-plane record, not a running process. After approval, `/
 
 ## What's next
 
-- Follow the complete workflow → [Quickstart: Idea to Reviewed Paper Strategy](./quickstart)
+- Follow the complete workflow → [Your First Strategy](./quickstart)
 - Start with a cleaner claim → [Research and Ideas](./ideas)
 - Compare paper behavior with the backtest → [Review and Improve](./review)
+- Look up lifecycle terms → [Concepts and Terminology](./concepts)

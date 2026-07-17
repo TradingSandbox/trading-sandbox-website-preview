@@ -54,12 +54,8 @@ When you enter a book, choose how this session should operate:
 
 Both modes keep the paper trade pipeline available. Neither mode grants authority to place live broker orders.
 
-::: warning Current preview gap
-The selection applies to the current tradecli session. The current AI Trading Office book API does not yet persist `operating_mode`, so verify or re-select the mode whenever you start a new session.
-:::
-
 ::: tip Recommended first setup
-Use Guided mode for the [idea-to-review quickstart](/trading-office/quickstart). It makes every decision and approval point easy to see before you allow standing workflows to run.
+Use Guided mode for [Your First Strategy](/trading-office/quickstart). It makes every decision and approval point easy to see before you allow standing workflows to run.
 :::
 
 ## 4. Review mandates before autonomy
@@ -87,11 +83,7 @@ An employee workflow is a standing Office routine with an owner, cadence, symbol
 
 From the Control Center, choose **Manage workflows** to inspect cadence, symbols, run state, pause, and restart controls. Choose **Inspect activity** to see due, running, waiting, and failed runs.
 
-These workflows are different from:
-
-- a [watch](/trading-office/watches), which repeats an ad hoc instruction;
-- a backtest job, which continues an approved experiment;
-- the exact-version autonomous strategy runner, which is **TBD**.
+Employee workflows are one of several ways Trading Office continues work over time. [Automation Tools](/trading-office/watches) compares them with watches, backtest jobs, workflow heartbeat, and position monitoring.
 
 ## 6. Verify the office in Control Center
 
@@ -126,7 +118,8 @@ If any answer is unclear, stay in Guided mode and tighten the setup first.
 
 ## Related pages
 
-- [Quickstart: idea to review](/trading-office/quickstart)
-- [Watches and schedules](/trading-office/watches)
+- [Your first strategy](/trading-office/quickstart)
+- [Automation tools](/trading-office/watches)
 - [Run your trading office](/trading-office/operations)
-- [Status and reference](/trading-office/reference)
+- [Concepts and terminology](/trading-office/concepts)
+- [Commands and shortcuts](/trading-office/commands)

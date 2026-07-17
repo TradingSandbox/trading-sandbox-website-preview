@@ -1,33 +1,32 @@
 ---
-title: Watches and background work
-description: Ask your office to keep checking something, manage scheduled watches, and understand how watches differ from market watchlists, Office workflows, and position monitoring.
+title: Automation tools
+description: Choose and manage watches, employee workflows, backtest jobs, workflow heartbeat, and paper-position monitoring.
 outline: 2
 ---
 
-# Watches and background work
+# Automation tools
 
-A watch lets you ask an employee to check something repeatedly and report what changed. It is useful when one answer is not enough—for example, when you want to follow a price level, a thesis, a portfolio condition, or fresh research over time.
+Trading Office can continue observing, researching, testing, and managing paper positions after the initial instruction. The right automation tool depends on whether the work requires AI interpretation, a standing employee responsibility, experiment continuation, or a recorded position rule.
 
-A scheduled AI watch observes and reports. It is not a conventional market watchlist—a static list of symbols—or a stop-loss, standing employee mandate, or autonomous strategy runner.
+## Choose the right tool
 
-## The four background systems
+| If you want to… | Use… |
+| --- | --- |
+| Re-check a chart, thesis, news condition, or exposure and report what changed | **Watch** |
+| Give an employee a recurring responsibility with scope and risk limits | **Office workflow** |
+| Run an approved experiment in durable, resumable chunks | **Backtest job** |
+| Pick up due Office work and unfinished experiment chunks | **Workflow heartbeat** |
+| Apply recorded stops, targets, and time exits to a paper position | **Position monitor** |
 
-Trading Office has several features that continue work over time. They are deliberately separate:
+A conventional market watchlist only groups symbols for browsing. A Trading Office watch schedules an AI employee to gather fresh context, interpret it, and report meaningful changes.
 
-| System | What it does | When it runs |
-| --- | --- | --- |
-| **Watch** | Repeats an ad hoc observation or research instruction and reports meaningful changes | Guided or Autonomous · Paper trading |
-| **Office workflow** | Gives an employee a persistent, role-specific routine with a cadence, scope, and mandate | Agent-driven ticks run in Autonomous · Paper trading and stay deferred in Guided mode |
-| **Workflow heartbeat** | Picks up due Office work and continues unfinished backtest chunks | Runs as background transport in both modes; it is not configured as a watch |
-| **Position monitor** | Checks recorded stops, targets, and time exits and applies qualifying Office paper exits deterministically | Runs in office panes in both modes |
+## Watches
 
-Use a **watch** when you want the AI to keep looking and interpreting. A conventional **market watchlist** only groups symbols and does not schedule this AI work. Use an **Office workflow** for a standing job owned by an employee. Record a stop, target, or time exit on the paper trade when you need the **position monitor** to enforce the plan.
+A watch is useful when one answer is not enough. You might follow a price level, thesis, portfolio condition, filing, or research question over time.
 
-An approved Strategy Lab version does not yet become its own scheduled entry runner. That exact-version autonomous execution path remains **TBD**.
+### Start a watch in natural language
 
-## Start a watch in natural language
-
-Tell the active employee what to watch, how often to check, and which changes matter. For example:
+Tell the active employee what to watch, how often to check, and which changes matter:
 
 ```text
 Watch RELIANCE every 5 minutes. Report only if it closes above 3,100
@@ -43,28 +42,25 @@ Watch this earnings thesis once a day. Compare new filings and news with
 the current thesis, and save a research record only when something material changes.
 ```
 
-The employee builds the recurring instruction from:
+A useful watch instruction defines:
 
-- the purpose of the watch;
-- the entity, symbol, book, or source to check;
-- the polling interval;
-- the current observation or baseline;
-- the conditions that count as meaningful change;
-- whether a material result should become an AI Trading Office record.
+- the symbol, book, thesis, exposure, or source to check;
+- the interval between checks;
+- the current baseline;
+- the changes worth reporting; and
+- whether a material result should become a durable Office record.
 
-The response includes a **cron job ID**. Keep that ID: it is the reliable identifier for inspecting, stopping, or deleting the watch.
+The response includes a **cron job ID**. Keep it as the reliable identifier for inspecting, stopping, or deleting the watch.
 
-## What happens on each check
+### What happens on each check
 
-At each tick, the employee reloads the watch instruction, gathers fresh context through the appropriate market, browser, broker, or TradingView tools, compares it with the baseline and conditions, and reports only the useful difference.
+At each tick, the employee reloads the instruction, gathers fresh context through the appropriate market, browser, broker, or TradingView tools, compares it with the baseline, and reports the useful difference.
 
-A watch is a polling workflow, not a streaming market trigger. Its minimum interval is **one minute**; shorter requests are raised to one minute. Each watch runs **10 times by default** and then disables itself to protect data and model quotas. Ask explicitly when you need a different run cap.
+A watch polls rather than streams. Its minimum interval is **one minute**. Each watch runs **10 times by default** and then pauses itself; request a different run cap when you create it if the job should continue longer.
 
-The schedule and its prompt persist locally. A watch does not automatically become a permanent research record: decision-relevant results are written to AI Trading Office only when the instruction requests it or the employee determines that the change should be preserved.
+The schedule and prompt persist locally. Decision-relevant results can also be preserved as research records when the instruction asks for it.
 
-The owning tradecli pane normally runs the scheduler and prints ticks inline with a distinct `● tick` banner. If no owning pane or standalone cron scheduler is running, the schedule remains saved but cannot fire until a scheduler is available.
-
-## List, stop, and delete watches
+### List, stop, and delete watches
 
 Use natural language with the cron job ID:
 
@@ -80,61 +76,61 @@ Stop watch <cron-job-id>.
 Delete watch <cron-job-id>.
 ```
 
-The actions are different:
-
-- **List** is read-only. It shows the owner, whether the watch is enabled, its interval, next and previous run, last status, and run count.
-- **Stop** disables the watch but keeps its stored job.
+- **List** shows ownership, state, interval, next and previous run, last status, and run count.
+- **Stop** pauses the watch while keeping its stored job.
 - **Delete** permanently removes the scheduled job.
 
-In a Trading Office, the employee who creates a watch owns it and its ticks return to that employee's pane. Employees can inspect all watches, but cannot stop or delete another employee's watch. The office lead can remove any scheduled watch from Cron Monitor.
+The employee who creates a watch owns it, and its ticks return to that employee's pane. The office lead can inspect and remove watches across the office through Cron Monitor.
 
-## Inspect watches in Cron Monitor
+### Inspect watches in Cron Monitor
 
-Open the monitor from the current **Hedge Fund** navigation or run:
+Run:
 
 ```text
 /crons
 ```
 
-The **WATCHES** table shows scheduled jobs across the office, including their owner, schedule, next run, previous run, and current state:
+The **WATCHES** table shows each job's owner, schedule, next run, previous run, and state:
 
-- **ARMED** — enabled and waiting for its next check;
-- **PAUSED** — disabled, including a watch that reached its run cap;
-- **ERROR** — its previous run failed.
+- **ARMED** — enabled and waiting for the next check;
+- **PAUSED** — disabled manually or after reaching its run cap;
+- **ERROR** — the previous check failed.
 
-Controls inside the monitor:
+Use `↑` and `↓` to select a row, `R` to refresh, and `K` or `X` to remove the selected watch after confirmation. Removing deletes the job; use **Stop watch** in conversation when you want to keep it.
 
-- `↑` / `↓` — select a row;
-- `R` — refresh;
-- `K` or `X` — remove the selected watch after confirmation;
-- `Y` / `N` — confirm or cancel removal;
-- `Esc` or `Q` — close.
+## Office workflows
 
-::: warning Removing is not pausing
-`K` or `X` permanently removes a scheduled watch. Use **Stop watch** in conversation when you want to retain the job instead.
-:::
+An Office workflow is a standing responsibility owned by an employee. It has a cadence, scope, mandate, and persisted run history. Examples include a Trader scanning an approved universe, a Risk Manager reviewing exposure, or an Investor updating a research brief.
 
-::: info Current preview boundary
-Cron Monitor's **WATCHES** table is working. The **LIVE LOOPS** registration is not yet connected on this preview branch, so the monitor may not show the watch scheduler, workflow heartbeat, or position monitor. Do not use Cron Monitor as a way to stop an Office workflow heartbeat or deterministic position monitor.
+Create, inspect, pause, and restart workflows from the Control Center:
 
-Manage and pause employee workflows from `/hedgefund:control` instead.
-:::
+```text
+/hedgefund:control
+```
 
-## Choose the right feature
+Guided operation keeps scheduled employee ticks paused. Autonomous · Paper trading allows due workflows to run within their mandates and report their results.
 
-| If you want to… | Use… |
-| --- | --- |
-| Save a group of symbols without scheduled AI checks | A conventional market watchlist, outside this scheduled-watch feature |
-| Re-check a chart, thesis, news condition, or exposure and hear what changed | A watch |
-| Give a trader, risk manager, or operations employee a recurring mandate | An Office workflow in `/hedgefund:control` |
-| Continue an approved backtest without babysitting every chunk | The workflow heartbeat; tradecli handles this automatically |
-| Apply a recorded stop, target, or time exit to an Office paper position | The deterministic position monitor |
-| Run entries from the exact strategy version that passed JUDGE | **TBD exact-version autonomous runner** |
+## Backtest jobs and workflow heartbeat
+
+A backtest job executes the experiment approved in Strategy Lab. It stores each completed chunk, so a long test can resume without losing finished work.
+
+The workflow heartbeat is the background transport that discovers due Office work and unfinished experiment chunks. You do not create it as a watch. Inspect experiments through **Backtest Lab → Jobs** and employee workflows through the Control Center.
+
+## Position monitor
+
+The position monitor works from the exit plan recorded on an Office paper position. It checks stops, targets, planned time exits, and applicable intraday cutoffs using current market data.
+
+Use Market Terminal to inspect the position or make a manual partial or full exit:
+
+```text
+/terminal
+```
 
 ## Related pages
 
-- [Trading Office](/trading-office/)
 - [Set up your office](/trading-office/setup)
-- [Run paper strategies](/trading-office/paper-operations)
+- [Test in Strategy Lab](/trading-office/strategy-lab)
+- [Paper trade and monitor](/trading-office/paper-operations)
 - [Run your trading office](/trading-office/operations)
-- [Status and reference](/trading-office/reference)
+- [Concepts and terminology](/trading-office/concepts)
+- [Commands and shortcuts](/trading-office/commands)

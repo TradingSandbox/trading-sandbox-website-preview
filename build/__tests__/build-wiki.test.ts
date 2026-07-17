@@ -48,7 +48,7 @@ describe('emitWikiLegacyRedirects', () => {
     try {
       emitWikiLegacyRedirects(tmpRoot, '/');
 
-      expect(WIKI_LEGACY_REDIRECTS).toHaveLength(10);
+      expect(WIKI_LEGACY_REDIRECTS).toHaveLength(11);
       const overview = readFileSync(join(tmpRoot, 'dist/wiki/hedge-fund/index.html'), 'utf-8');
       expect(overview).toContain('url=/wiki/trading-office/');
       expect(overview).toContain('https://tradecli.in/wiki/trading-office/');
@@ -56,6 +56,10 @@ describe('emitWikiLegacyRedirects', () => {
       const watches = readFileSync(join(tmpRoot, 'dist/wiki/hedge-fund/watches.html'), 'utf-8');
       expect(watches).toContain('url=/wiki/trading-office/watches');
       expect(watches).toContain('https://tradecli.in/wiki/trading-office/watches');
+
+      const oldReference = readFileSync(join(tmpRoot, 'dist/wiki/trading-office/reference.html'), 'utf-8');
+      expect(oldReference).toContain('url=/wiki/trading-office/concepts');
+      expect(oldReference).toContain('https://tradecli.in/wiki/trading-office/concepts');
     } finally {
       rmSync(tmpRoot, { recursive: true, force: true });
     }

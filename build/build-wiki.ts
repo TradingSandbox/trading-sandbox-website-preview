@@ -19,7 +19,8 @@ export const WIKI_LEGACY_REDIRECTS: readonly WikiRedirectEntry[] = [
   { source: 'hedge-fund/watches', target: 'trading-office/watches' },
   { source: 'hedge-fund/review', target: 'trading-office/review' },
   { source: 'hedge-fund/operations', target: 'trading-office/operations' },
-  { source: 'hedge-fund/reference', target: 'trading-office/reference' },
+  { source: 'hedge-fund/reference', target: 'trading-office/concepts' },
+  { source: 'trading-office/reference', target: 'trading-office/concepts' },
 ];
 
 export function deriveDocsBase(siteBase: string | undefined): string {

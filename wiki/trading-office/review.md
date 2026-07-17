@@ -8,9 +8,7 @@ outline: 2
 
 A backtest is not the end of the strategy lifecycle. Review connects the frozen version, its original evidence, later history, and version-tagged paper trades to one explicit decision.
 
-::: info Available
-Strategy snapshots, computed journals, forward checks, employee-attributed reviews, review history, and Keep, Pause, Retire, or Improve outcomes are available in the Trading Office Strategy Library.
-:::
+The Strategy Library keeps snapshots, computed journals, forward checks, employee-attributed reviews, review history, and Keep, Pause, Retire, or Improve outcomes together.
 
 ## Open a strategy's evidence
 
@@ -91,12 +89,9 @@ Review when there is enough paper evidence to compare with the original expectat
 
 Use **Reviews** to inspect the decision history before starting another experiment. It shows past outcomes and the child version created by an improvement, keeping repeated debates from losing their context.
 
-::: warning TBD — exact-version scheduled execution
-Deployment approval does not yet activate a scheduled runner for the frozen version. Pause and Retire still create durable lifecycle decisions, but exact-version autonomous entry generation remains TBD.
-:::
-
 ## What's next
 
-- See the full lifecycle in one tutorial → [Quickstart: Idea to Reviewed Paper Strategy](./quickstart)
+- See the full lifecycle in one tutorial → [Your First Strategy](./quickstart)
 - Turn the next change into a clean hypothesis → [Research and Ideas](./ideas)
 - Re-test a child version → [Test in Strategy Lab](./strategy-lab)
+- Understand strategy lineage → [Concepts and Terminology](./concepts)

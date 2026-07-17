@@ -1,20 +1,12 @@
 ---
-title: Quickstart — Idea to Reviewed Paper Strategy
-description: Take one trading idea through a durable backtest, paper approval, a version-tagged paper trade, monitoring, and review.
+title: Your First Strategy
+description: Take one trading idea through research, testing, paper operation, monitoring, and review.
 outline: 2
 ---
 
-# Quickstart — Idea to Reviewed Paper Strategy
+# Your First Strategy
 
-This is the main Trading Office workflow: turn a rough observation into a testable strategy, collect evidence, operate it on paper, and decide what to do next without losing the history behind it.
-
-::: info Available
-The supervised loop is available today: idea → experiment → machine verdict → promoted version → approval → human-confirmed paper ticket → journal → review.
-:::
-
-::: warning TBD — exact-version scheduled execution
-An approved deployment does **not** yet start a scheduled runner for that exact promoted version. Trading Office employees can run general autonomous paper workflows under mandates, but the runtime that repeatedly evaluates the frozen strategy rules and creates version-tagged entries is still to be built.
-:::
+This tutorial takes one rough observation through the complete Trading Office loop: research it, test it, promote the result, operate it on paper, monitor it, and record what you learned.
 
 ## Before you begin
 
@@ -26,11 +18,11 @@ An approved deployment does **not** yet start a scheduled runner for that exact 
 
 | Stage | What becomes durable |
 |---|---|
-| Capture | The original idea and its shaped hypothesis |
+| Research | The original idea and its shaped hypothesis |
 | Test | The approved experiment plan, completed chunks, results, and verdict |
 | Promote | One frozen strategy version and its evidence links |
-| Approve | An employee-attributed paper deployment decision |
-| Operate | A human-confirmed, version-tagged Office paper trade |
+| Operate | A version-tagged Office paper trade with recorded risk and exits |
+| Monitor | Position state, marks, planned exits, and later strategy behavior |
 | Review | Paper results and a Keep, Pause, Retire, or Improve decision |
 
 ## 1. Capture the idea
@@ -102,7 +94,7 @@ After the promising verdict appears, ask the Trading Office pane to promote that
 
 Open **Backtest Lab → Approvals** to inspect the proposed deployment. The approval view shows the strategy, hypothesis, verdict, parameters, exits, universe, evidence job, and risk limits before you approve or reject it.
 
-Approval records who authorized paper use. It does not itself place a trade or start the TBD scheduled strategy runner.
+Approval records who authorized paper use and makes the strategy ready for paper operation.
 
 ## 6. Book one version-tagged paper trade
 
@@ -114,13 +106,21 @@ Run:
 
 Select the approved version. When **Trade** is available, it creates a risk-sized entry ticket from the version's stored universe, exit fields, and deployment risk limit. Review the symbol, side, instrument, quantity, stop, targets, and paper fill, then confirm the Office paper trade in Market Terminal.
 
-::: warning Current manual-ticket boundary
-The current Strategy Library action builds a buy-side equity ticket. It does not evaluate the frozen Pine entry signal or infer a short, option, or futures entry from the version. Use it only when that ticket matches the strategy you approved; otherwise treat the version as evidence and create the appropriate paper plan separately.
-:::
+This is a simulated transaction in the trading book, not a broker order. The trade carries the strategy version and deployment IDs so it appears in the correct journal. The position monitor handles recorded stop, target, and time-exit conditions; use Market Terminal whenever you want to inspect or make a partial exit yourself.
 
-This is a simulated transaction in the trading book, not a broker order. The trade carries the strategy version and deployment IDs so it appears in the correct journal. The deterministic position monitor handles stored stop, target, and time-exit conditions; make partial exits explicitly in Market Terminal while automatic multi-target progression is still being verified.
+## 7. Monitor the position and strategy
 
-## 7. Review the evidence
+Open Market Terminal:
+
+```text
+/terminal
+```
+
+Use it to inspect the position, current mark, unrealized P&L, and recorded exit plan. The position monitor checks stored stops, targets, and time exits. Use a watch when you also want an employee to revisit the broader thesis or report a meaningful change in market context.
+
+As paper trades close, their tagged outcomes accumulate in the strategy journal. A forward check can also test the unchanged strategy over history that arrived after promotion.
+
+## 8. Review the evidence
 
 Return to `/strategies`, select the same version, and use:
 
@@ -142,12 +142,9 @@ An improved child must return to Strategy Lab and earn its own evidence. The val
 
 The Office now holds the idea, approved plan, persisted run, machine verdict, frozen version, deployment decision, version-tagged paper activity, journal, and human review. That durable chain—not the surrounding chat—is the source of truth for the strategy.
 
-## What's next
+## Continue through the lifecycle
 
 - Shape stronger hypotheses → [Research and Ideas](./ideas)
 - Understand the evidence pipeline → [Test in Strategy Lab](./strategy-lab)
+- Automate monitoring and recurring work → [Automation Tools](./watches)
 - Close the learning loop → [Review and Improve](./review)
-
-::: danger Paper is not live
-Trading Office panes are paper-only. Do not interpret an Office transaction, deployment approval, or autonomous employee report as confirmation of a live broker order.
-:::

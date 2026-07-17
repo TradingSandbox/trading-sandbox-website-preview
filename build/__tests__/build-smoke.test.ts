@@ -127,7 +127,10 @@ describe('smoke: sitemap.xml — prod build', () => {
     const wikiSitemap = readFileSync(join(DIST, 'wiki', 'sitemap.xml'), 'utf-8');
     expect(wikiSitemap).toContain('https://tradecli.in/wiki/trading-office/');
     expect(wikiSitemap).toContain('https://tradecli.in/wiki/trading-office/watches');
+    expect(wikiSitemap).toContain('https://tradecli.in/wiki/trading-office/concepts');
+    expect(wikiSitemap).toContain('https://tradecli.in/wiki/trading-office/commands');
     expect(wikiSitemap).not.toContain('/wiki/hedge-fund/');
+    expect(wikiSitemap).not.toContain('/wiki/trading-office/reference');
   });
 
   test('every built page has exactly one well-formed canonical link', () => {
@@ -250,6 +253,10 @@ describe('smoke: sitemap.xml — prod build', () => {
     const tradingOfficeRedirect = readFileSync(join(REPO_ROOT, 'dist/wiki/hedge-fund/quickstart.html'), 'utf-8');
     expect(tradingOfficeRedirect).toContain('https://tradecli.in/wiki/trading-office/quickstart');
     expect(tradingOfficeRedirect).toContain('url=/wiki/trading-office/quickstart');
+
+    const referenceRedirect = readFileSync(join(REPO_ROOT, 'dist/wiki/trading-office/reference.html'), 'utf-8');
+    expect(referenceRedirect).toContain('https://tradecli.in/wiki/trading-office/concepts');
+    expect(referenceRedirect).toContain('url=/wiki/trading-office/concepts');
   });
 
   test('secondary surfaces explain office memory and guardrails', () => {
@@ -266,7 +273,9 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(privacy).toContain('Cloudflare Web Analytics');
     expect(wiki).toContain('local-first AI workspace');
     expect(wiki).toContain('Trading Office Guide');
-    expect(wiki).toContain('serious self-directed trader');
+    expect(wiki).toContain('Start here');
+    expect(wiki).toContain('Follow the strategy lifecycle');
+    expect(wiki).toContain('Automation tools');
   });
 
   test('homepage contains every shared-nav hash target', () => {

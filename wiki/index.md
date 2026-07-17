@@ -1,46 +1,38 @@
 ---
 title: tradecli wiki
-description: Preview documentation for tradecli, starting with the complete Trading Office paper-strategy workflow.
+description: Learn how to use Trading Office to research, test, operate, automate, and review paper strategies.
 ---
 
 # tradecli wiki
 
-Practical documentation for `tradecli`, the local-first AI workspace for researching decisions and turning trading ideas into versioned, testable, reviewable paper strategies.
+Practical documentation for `tradecli`, the local-first AI workspace for turning trading ideas into versioned, testable, reviewable paper strategies.
 
-::: info Start with Trading Office
-The Trading Office Guide is the first comprehensive product guide in this preview. It is designed first for a serious self-directed trader and extends naturally to emerging managers and fund teams.
-:::
+## Start here
 
-## Recommended first journey
+1. [Understand Trading Office](/trading-office/) — learn the product model and the idea-to-review loop.
+2. [Set up your office](/trading-office/setup) — create a trading book, choose your team, and set operating controls.
+3. [Run your first strategy](/trading-office/quickstart) — take one idea through testing, paper operation, monitoring, and review.
 
-**Idea → research → test → judge → promote → paper trade → monitor → review → improve**
+## Follow the strategy lifecycle
 
-The tutorial shows the whole loop while keeping the current boundary clear: general autonomous employee workflows can operate on paper, but scheduled execution of the exact strategy version that passed JUDGE is still **TBD**.
+| Stage | Guide | Outcome |
+| --- | --- | --- |
+| **Research** | [Research and ideas](/trading-office/ideas) | A clear, falsifiable hypothesis with its original context preserved |
+| **Test** | [Test in Strategy Lab](/trading-office/strategy-lab) | A reproducible experiment, machine verdict, and frozen strategy version |
+| **Operate** | [Paper trade and monitor](/trading-office/paper-operations) | A risk-sized paper position with a recorded exit plan |
+| **Learn** | [Review and improve](/trading-office/review) | A Keep, Pause, Retire, or Improve decision backed by evidence |
 
-[Start the Trading Office quickstart →](/trading-office/quickstart)
+## Automate and operate
 
-## Trading Office Guide
-
-| Guide | What you will learn |
+| Guide | Use it to |
 | --- | --- |
-| [Trading Office](/trading-office/) | The trading book, team, operating modes, safety boundary, and product model |
-| [Quickstart: idea to review](/trading-office/quickstart) | The complete recommended journey |
-| [Set up your office](/trading-office/setup) | Books, team, Guided and Autonomous Paper sessions, mandates, and workflows |
-| [Research and ideas](/trading-office/ideas) | Capture, shape, park, and advance a hypothesis |
-| [Test in Strategy Lab](/trading-office/strategy-lab) | BUILD, PLAN, RUN, JUDGE, PROMOTE, jobs, and approvals |
-| [Run paper strategies](/trading-office/paper-operations) | Scanner, risk-sized tickets, Market Terminal, and deterministic exits |
-| [Watches and schedules](/trading-office/watches) | Recurring observation, ownership, run limits, and Cron Monitor |
-| [Review and improve](/trading-office/review) | Journals, forward checks, decisions, and child hypotheses |
-| [Run your trading office](/trading-office/operations) | Everyday delegation and controls, plus additional fund-team operations |
-| [Status and reference](/trading-office/reference) | Commands, terminology, availability, known gaps, and safety boundaries |
+| [Automation tools](/trading-office/watches) | Choose between watches, employee workflows, backtest jobs, workflow heartbeat, and position monitoring |
+| [Run your trading office](/trading-office/operations) | Coordinate books, employees, mandates, recurring work, and fund-team administration |
 
-## How the pieces fit
+## Look something up
 
-- **tradecli** is the working experience: conversation, roles, delegation, Strategy Lab, charts, market tools, and paper-trade surfaces.
-- **AI Trading Office** is the durable system of record for books, employees, mandates, research, workflows, transactions, strategy versions, approvals, journals, and reviews.
-- **Connected systems** provide external truth and capabilities, including model providers, TradingView, market-data services, and configured brokers.
-
-Important work should survive the conversation that created it. Prices, fills, experiment progress, verdicts, approvals, and transactions come from the systems that own those facts—not from model recollection.
+- [Concepts and terminology](/trading-office/concepts) — the durable objects, lifecycle stages, operating principles, and safety invariants.
+- [Commands and shortcuts](/trading-office/commands) — the exact commands, menus, and keyboard controls used in the current interface.
 
 ## Install and configure
 
