@@ -159,14 +159,14 @@ describe('smoke: sitemap.xml — prod build', () => {
     }
   });
 
-  test('homepage carries the new OS framing and preserves install commands', () => {
+  test('homepage carries the workspace framing and preserves install commands', () => {
     const html = readFileSync(join(REPO_ROOT, 'dist/index.html'), 'utf-8');
-    expect(html).toContain('agent-native trading OS');
+    expect(html).toContain('local-first AI trading workspace');
     expect(html).toContain('AITradingOffice');
     expect(html).toMatch(/href="\/assets\/tokens\.css\?v=[a-f0-9]{12}"/);
     expect(html).toMatch(/href="\/assets\/components\.css\?v=[a-f0-9]{12}"/);
     expect(html).toContain('<h1>tradecli</h1>');
-    expect(html).toContain('The agent-native trading OS for Indian markets.');
+    expect(html).toContain('The local-first AI trading workspace for Indian markets.');
     expect(html).toContain('hero-product-video');
     expect(html).toContain('rel="preload" as="image" href="/assets/product/tradecli-office-video-poster.jpg" fetchpriority="high"');
     expect(html).not.toContain('office-video-demo');
@@ -186,7 +186,7 @@ describe('smoke: sitemap.xml — prod build', () => {
 
     expect(html).toContain('<meta property="og:site_name" content="tradecli" />');
     expect(html).toContain('<h1>tradecli</h1>');
-    expect(html).toContain('The agent-native trading OS for Indian markets.');
+    expect(html).toContain('The local-first AI trading workspace for Indian markets.');
     expect(html).toContain('tradecli runs local AI agents across brokers');
     expect(html).not.toContain('tradecli is the official site');
     expect(html).toContain('<title>tradecli Official Site');
@@ -381,7 +381,7 @@ describe('smoke: sitemap.xml — preview build', () => {
 
     expect(html).toContain('<meta property="og:site_name" content="tradecli" />');
     expect(html).toContain('<h1>tradecli</h1>');
-    expect(html).toContain('The agent-native trading OS for Indian markets.');
+    expect(html).toContain('The local-first AI trading workspace for Indian markets.');
     expect(html).toContain('"alternateName": ["TradeCLI", "trade cli", "tradecli.in"');
     expect(html).toContain('"sameAs": [');
   });

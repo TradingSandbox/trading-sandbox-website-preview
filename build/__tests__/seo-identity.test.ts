@@ -22,7 +22,7 @@ describe('SEO identity signals', () => {
     expect(organization['@id']).toBe('https://tradecli.in/#organization');
     expect(organization.url).toBe('https://tradecli.in/');
     expect(organization.alternateName).toContain('tradecli.in');
-    expect(organization.description).toContain('tradecli publishes the local-first, agent-native trading OS');
+    expect(organization.description).toContain('tradecli publishes a local-first AI workspace');
     expect(organization.description).not.toContain('official website');
 
     expect(website['@id']).toBe('https://tradecli.in/#website');
