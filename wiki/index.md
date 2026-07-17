@@ -1,93 +1,65 @@
 ---
 title: tradecli wiki
-description: Documentation for the tradecli agent-native trading OS for Indian markets.
+description: Preview documentation for tradecli, starting with the complete Hedge Fund paper-strategy workflow.
 ---
 
 # tradecli wiki
 
-Documentation for `tradecli` — the agent-native trading OS for Indian markets.
+Practical documentation for `tradecli`, the local-first AI workspace for researching decisions and turning trading ideas into versioned, testable, reviewable paper strategies.
 
-## What is tradecli?
+::: info Start with Hedge Fund mode
+The Hedge Fund guide is the first comprehensive product guide in this preview. Its recommended journey takes one idea through an approved experiment, a machine verdict, paper operation, and review.
+:::
 
-`tradecli` is a local command layer for AI agents that operate across the tools Indian-market traders already use: MCP-backed broker tools, broker/browser screens, TradingView, Screener.in, portfolios, and a durable office memory layer.
+## Recommended first journey
 
-The product shape is three parts:
+**Idea → BUILD → PLAN → RUN → JUDGE → PROMOTE → paper operation → journal → review**
 
-- **tradecli OS**: the local harness for tools, personas, broker sidecars, browser control, model runtime, and action policy.
-- **Agents**: workers you spawn with a persona and mandate, from Learner and Investor to Trader, Hedge Fund, and PMS desks.
-- **AITradingOffice**: the system of record for theses, forward tests, ledgers, reviews, employees, clients, and account context.
+The tutorial shows the whole loop while keeping the current boundary clear: general autonomous employee workflows can operate on paper, but scheduled execution of the exact strategy version that passed JUDGE is still **TBD**.
 
-Everything the agents do should remain visible and auditable from the operator's command surface. Broker credentials stay on your machine, and execution paths are gated behind explicit setup and review.
+[Start the Hedge Fund quickstart →](/hedge-fund/quickstart)
 
-## Office Mode
+## Hedge Fund guide
 
-Office Mode lets one operator coordinate multiple specialist agents from the interactive TUI. Launch `tradecli`, choose Office Mode, and the mailbox coordinates delegation while AITradingOffice keeps the durable record behind the session.
+| Guide | What you will learn |
+| --- | --- |
+| [Hedge Fund mode](/hedge-fund/) | The fund book, team, operating modes, safety boundary, and product model |
+| [Quickstart: idea to review](/hedge-fund/quickstart) | The complete recommended journey |
+| [Set up your office](/hedge-fund/setup) | Books, team, Guided and Autonomous Paper sessions, mandates, and workflows |
+| [Research and ideas](/hedge-fund/ideas) | Capture, shape, park, and advance a hypothesis |
+| [Test in Strategy Lab](/hedge-fund/strategy-lab) | BUILD, PLAN, RUN, JUDGE, PROMOTE, jobs, and approvals |
+| [Run paper strategies](/hedge-fund/paper-operations) | Scanner, risk-sized tickets, Market Terminal, and deterministic exits |
+| [Watches and schedules](/hedge-fund/watches) | Recurring observation, ownership, run limits, and Cron Monitor |
+| [Review and improve](/hedge-fund/review) | Journals, forward checks, decisions, and child hypotheses |
+| [Operate the fund](/hedge-fund/operations) | Delegation, Control Center, reporting, and fund administration |
+| [Status and reference](/hedge-fund/reference) | Commands, terminology, availability, known gaps, and safety boundaries |
 
-## New here?
+## How the pieces fit
 
-Start with → [Quick Start](/getting-started/quick-start)
+- **tradecli** is the working experience: conversation, roles, delegation, Strategy Lab, charts, market tools, and paper-trade surfaces.
+- **AI Trading Office** is the durable system of record for books, employees, mandates, research, workflows, transactions, strategy versions, approvals, journals, and reviews.
+- **Connected systems** provide external truth and capabilities, including model providers, TradingView, market-data services, and configured brokers.
 
-## Explore the docs
+Important work should survive the conversation that created it. Prices, fills, experiment progress, verdicts, approvals, and transactions come from the systems that own those facts—not from model recollection.
 
-### Getting Started
+## Install and configure
 
-#### [Quick Start](/getting-started/quick-start)
-- Install via Homebrew
-- Run first-time setup
-- Run `tradecli doctor`
-- Launch the TUI
-- Pick your first workflow
+- [Quick Start](/getting-started/quick-start) — install, run setup and doctor, then launch the TUI
+- [LLM Setup](/getting-started/llm-setup) — configure a model provider or subscription login
+- [Broker Setup](/getting-started/broker-setup) — configure supported broker context
+- [Browser Setup](/getting-started/browser-setup) — prepare the browser profile used by web workflows
 
-#### [Broker Setup](/getting-started/broker-setup)
-- Run `tradecli setup`
-- Groww first-use auth behavior
-- Zerodha Kite first-use login behavior
-- Local doctor repair path
+## Existing focused guides
 
-#### [Browser Setup](/getting-started/browser-setup)
-- Why a dedicated browser
-- Chrome/Chromium requirements
-- The tradecli browser profile
-- First-run flow
-- Troubleshooting
+The earlier Learner, Investor, Trader, PMS, and channel guides remain available. They predate the current Hedge Fund lifecycle and will be refreshed separately; use the Hedge Fund guide as the canonical reference for the features it covers.
 
-#### [LLM Setup](/getting-started/llm-setup)
-- API-key providers
-- Subscription login paths
-- Auth storage
-- Verification
+- [Personas and modes](/guides/personas)
+- [Learner mode](/guides/learner)
+- [Investor](/guides/investor)
+- [Trader](/guides/trader)
+- [PMS and portfolio workflows](/guides/portfolio-manager)
+- [Channels and API](/guides/channels-api)
 
-### Guides
-
-#### [Personas & Modes](/guides/personas)
-- Picking one
-- Switching
-- Office Mode
-
-#### [Learner Mode](/guides/learner)
-- How it works
-- Typical prompts
-- Switching away and back
-
-#### [Investor](/guides/investor)
-- What it's for
-- Primary tools
-- Typical prompts
-
-#### [Trader](/guides/trader)
-- What it's for
-- Primary tools
-- Typical prompts
-
-#### [PMS and Portfolio Workflows](/guides/portfolio-manager)
-- PMS mode in Office Mode
-- Portfolio context
-- Guardrails
-- Typical prompts
-
-#### [Channels & API](/guides/channels-api)
-- What is a channel
-- The TUI channel
-- Telegram
-- WhatsApp
-- Gateway HTTP API
+::: danger Not financial advice
+`tradecli` is an analytical and paper-trading tool. Nothing it outputs is a recommendation to buy, sell, or hold a security. Verify AI output and market assumptions independently before using real capital.
+:::

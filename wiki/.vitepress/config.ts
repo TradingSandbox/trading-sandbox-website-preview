@@ -125,6 +125,21 @@ export default defineConfig({
         ],
       },
       {
+        text: 'Hedge Fund Guide',
+        items: [
+          { text: 'Overview', link: '/hedge-fund/' },
+          { text: 'Quickstart: Idea to Review', link: '/hedge-fund/quickstart' },
+          { text: 'Set Up Your Office', link: '/hedge-fund/setup' },
+          { text: 'Research and Ideas', link: '/hedge-fund/ideas' },
+          { text: 'Test in Strategy Lab', link: '/hedge-fund/strategy-lab' },
+          { text: 'Run Paper Strategies', link: '/hedge-fund/paper-operations' },
+          { text: 'Watches and Schedules', link: '/hedge-fund/watches' },
+          { text: 'Review and Improve', link: '/hedge-fund/review' },
+          { text: 'Operate the Fund', link: '/hedge-fund/operations' },
+          { text: 'Status and Reference', link: '/hedge-fund/reference' },
+        ],
+      },
+      {
         text: 'Guides',
         items: [
           { text: 'Personas & Modes', link: '/guides/personas' },
@@ -169,7 +184,11 @@ export default defineConfig({
       // VitePress passes item.url like '/getting-started/quick-start' (post-base).
       // The corresponding source file is wiki/<url>.md, with index.md for the section root.
       const cleaned = item.url.replace(/^\//, '');
-      const candidate = cleaned === '' ? 'index.md' : `${cleaned}.md`;
+      const candidate = cleaned === ''
+        ? 'index.md'
+        : cleaned.endsWith('/')
+          ? `${cleaned}index.md`
+          : `${cleaned}.md`;
       const lastmod = wikiGitMtime(candidate);
       return {
         ...item,

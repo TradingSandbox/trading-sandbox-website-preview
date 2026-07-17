@@ -253,8 +253,8 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(updates).toContain('broker gateway');
     expect(privacy).toContain('What stays local');
     expect(privacy).toContain('Cloudflare Web Analytics');
-    expect(wiki).toContain('agent-native trading OS');
-    expect(wiki).toContain('Office Mode');
+    expect(wiki).toContain('local-first AI workspace');
+    expect(wiki).toContain('Hedge Fund mode');
   });
 
   test('homepage contains every shared-nav hash target', () => {
