@@ -1,20 +1,20 @@
 ---
 title: Research and Ideas
-description: Capture, shape, park, and advance Hedge Fund trading ideas without losing their evidence or history.
+description: Capture, shape, park, and advance Trading Office ideas without losing their evidence or history.
 outline: 2
 ---
 
 # Research and Ideas
 
-Ideas is the durable front door to the Hedge Fund strategy lifecycle. It is where a rough observation can stay lightweight, become a falsifiable hypothesis, or move into Strategy Lab.
+Ideas is the durable front door to the Trading Office strategy lifecycle. It is where a rough observation can stay lightweight, become a falsifiable hypothesis, or move into Strategy Lab.
 
 ::: info Available
-Ideas are stored as Hedge Fund research records and remain scoped to the active fund book and employee. Captured, in-flight, rejected, validated, and parked ideas remain searchable.
+Ideas are stored as Trading Office research records and remain scoped to the active trading book and employee. Captured, in-flight, rejected, validated, and parked ideas remain searchable.
 :::
 
 ## Open the Idea Backlog
 
-From a Hedge Fund office pane, run:
+From a Trading Office pane, run:
 
 ```text
 /ideas
@@ -28,7 +28,7 @@ The menu has three views:
 | **Backlog** | Captured and in-flight ideas |
 | **Concluded** | Validated, rejected, or parked ideas with their evidence |
 
-Ideas require an active Hedge Fund employee and book. This keeps the research record attached to the office that owns the work.
+Ideas require an active Trading Office employee and book. This keeps the research record attached to the office that owns the work.
 
 ## Capture first, parameterize later
 

@@ -1,12 +1,12 @@
 ---
 title: Test in Strategy Lab
-description: Build, plan, run, judge, and promote durable Hedge Fund strategy experiments through TradingView.
+description: Build, plan, run, judge, and promote durable Trading Office strategy experiments through TradingView.
 outline: 2
 ---
 
 # Test in Strategy Lab
 
-Strategy Lab turns a Hedge Fund hypothesis into a reproducible experiment. AI helps express the idea and interpret the outcome; compiled code, stored plans, persisted jobs, and one machine-owned judge control what actually ran and what verdict it earned.
+Strategy Lab turns a Trading Office hypothesis into a reproducible experiment. AI helps express the idea and interpret the outcome; compiled code, stored plans, persisted jobs, and one machine-owned judge control what actually ran and what verdict it earned.
 
 ::: info Available
 BUILD, immutable PLAN approval, chunked RUN persistence, JUDGE, PROMOTE, deployment approval records, job inspection, cancellation, and Strategy Library records are available.
@@ -80,7 +80,7 @@ Test windows do not participate in the initial parameter search. Current promoti
 
 RUN divides the full parameter × symbol × timeframe plan into bounded chunks. Each completed chunk is stored in AI Trading Office before the next begins. Status and results come from that stored job, not from model memory.
 
-In a Hedge Fund office pane, the workflow heartbeat can continue the next due chunk automatically. This deterministic continuation works in both Guided and Autonomous Paper modes. A temporary TradingView failure is retried with backoff; it does not require the agent to invent progress.
+In a Trading Office pane, the workflow heartbeat can continue the next due chunk automatically. This deterministic continuation works in both Guided and Autonomous Paper modes. A temporary TradingView failure is retried with backoff; it does not require the agent to invent progress.
 
 Open **Backtest Lab → Jobs** for:
 
@@ -106,7 +106,7 @@ Only a completed job with a promising verdict can be promoted. Promotion creates
 1. a validated strategy version containing the frozen implementation, parameters, exits, universe, fingerprint, lineage, and evidence links; and
 2. a proposed **paper** deployment containing its risk limits.
 
-After the promising verdict appears, ask the Hedge Fund pane to promote that completed job. Rejected and inconclusive jobs stay available as evidence but cannot be promoted.
+After the promising verdict appears, ask the Trading Office pane to promote that completed job. Rejected and inconclusive jobs stay available as evidence but cannot be promoted.
 
 Use **Backtest Lab → Approvals** to inspect and approve or reject the proposal. Approval is attributed to the active employee, and the evidence gate is checked again. Rejection stops the deployment proposal while preserving the strategy version and experiment evidence.
 

@@ -1,24 +1,24 @@
 ---
 title: Quickstart — Idea to Reviewed Paper Strategy
-description: Take one Hedge Fund idea through a durable backtest, paper approval, a version-tagged paper trade, and review.
+description: Take one trading idea through a durable backtest, paper approval, a version-tagged paper trade, monitoring, and review.
 outline: 2
 ---
 
 # Quickstart — Idea to Reviewed Paper Strategy
 
-This is the main Hedge Fund workflow: turn a rough observation into a testable strategy, collect evidence, operate it on paper, and decide what to do next without losing the history behind it.
+This is the main Trading Office workflow: turn a rough observation into a testable strategy, collect evidence, operate it on paper, and decide what to do next without losing the history behind it.
 
 ::: info Available
 The supervised loop is available today: idea → experiment → machine verdict → promoted version → approval → human-confirmed paper ticket → journal → review.
 :::
 
 ::: warning TBD — exact-version scheduled execution
-An approved deployment does **not** yet start a scheduled runner for that exact promoted version. Hedge Fund employees can run general autonomous paper workflows under mandates, but the runtime that repeatedly evaluates the frozen strategy rules and creates version-tagged entries is still to be built.
+An approved deployment does **not** yet start a scheduled runner for that exact promoted version. Trading Office employees can run general autonomous paper workflows under mandates, but the runtime that repeatedly evaluates the frozen strategy rules and creates version-tagged entries is still to be built.
 :::
 
 ## Before you begin
 
-- Open a Hedge Fund office pane with a fund book selected. Ideas, experiments, approvals, and reviews are attributed to an employee and scoped to that book.
+- Open a Trading Office pane with a trading book selected. In the current preview, choose **Hedge Fund** and select the corresponding **fund book**. Ideas, experiments, approvals, and reviews are attributed to an employee and scoped to that book.
 - Keep TradingView connected. It is the simulation engine used by Strategy Lab.
 - Guided mode is enough for this tutorial. Once a run starts, deterministic backtest continuation can keep advancing it in either Guided or Autonomous Paper mode.
 
@@ -98,7 +98,7 @@ JUDGE produces exactly one machine-owned verdict: **promising**, **rejected**, o
 
 Only a completed job with a **promising** verdict can be promoted. Promotion freezes the strategy implementation, parameters, exit rules, universe, fingerprint, and evidence into a version, then creates a proposed paper deployment with risk limits.
 
-After the promising verdict appears, ask the Hedge Fund pane to promote that completed job. Rejected and inconclusive jobs remain as evidence but cannot pass this gate.
+After the promising verdict appears, ask the Trading Office pane to promote that completed job. Rejected and inconclusive jobs remain as evidence but cannot pass this gate.
 
 Open **Backtest Lab → Approvals** to inspect the proposed deployment. The approval view shows the strategy, hypothesis, verdict, parameters, exits, universe, evidence job, and risk limits before you approve or reject it.
 
@@ -118,7 +118,7 @@ Select the approved version. When **Trade** is available, it creates a risk-size
 The current Strategy Library action builds a buy-side equity ticket. It does not evaluate the frozen Pine entry signal or infer a short, option, or futures entry from the version. Use it only when that ticket matches the strategy you approved; otherwise treat the version as evidence and create the appropriate paper plan separately.
 :::
 
-This is a simulated transaction in the fund book, not a broker order. The trade carries the strategy version and deployment IDs so it appears in the correct journal. The deterministic position monitor handles stored stop, target, and time-exit conditions; make partial exits explicitly in Market Terminal while automatic multi-target progression is still being verified.
+This is a simulated transaction in the trading book, not a broker order. The trade carries the strategy version and deployment IDs so it appears in the correct journal. The deterministic position monitor handles stored stop, target, and time-exit conditions; make partial exits explicitly in Market Terminal while automatic multi-target progression is still being verified.
 
 ## 7. Review the evidence
 
@@ -149,5 +149,5 @@ The Office now holds the idea, approved plan, persisted run, machine verdict, fr
 - Close the learning loop → [Review and Improve](./review)
 
 ::: danger Paper is not live
-Hedge Fund office panes are paper-only. Do not interpret an Office transaction, deployment approval, or autonomous employee report as confirmation of a live broker order.
+Trading Office panes are paper-only. Do not interpret an Office transaction, deployment approval, or autonomous employee report as confirmation of a live broker order.
 :::

@@ -1,6 +1,6 @@
 ---
 title: Review and Improve
-description: Compare a Hedge Fund strategy's backtest expectation with its paper journal, then keep, pause, retire, or improve it.
+description: Compare a Trading Office strategy's backtest expectation with its paper journal, then keep, pause, retire, or improve it.
 outline: 2
 ---
 
@@ -9,12 +9,12 @@ outline: 2
 A backtest is not the end of the strategy lifecycle. Review connects the frozen version, its original evidence, later history, and version-tagged paper trades to one explicit decision.
 
 ::: info Available
-Strategy snapshots, computed journals, forward checks, employee-attributed reviews, review history, and Keep, Pause, Retire, or Improve outcomes are available in the Hedge Fund Strategy Library.
+Strategy snapshots, computed journals, forward checks, employee-attributed reviews, review history, and Keep, Pause, Retire, or Improve outcomes are available in the Trading Office Strategy Library.
 :::
 
 ## Open a strategy's evidence
 
-From a Hedge Fund office pane, run:
+From a Trading Office pane, run:
 
 ```text
 /strategies

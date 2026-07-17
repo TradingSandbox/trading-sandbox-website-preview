@@ -1,6 +1,6 @@
 ---
 title: Watches and background work
-description: Ask the fund team to keep checking something, manage scheduled watches, and understand how watches differ from Office workflows and position monitoring.
+description: Ask your office to keep checking something, manage scheduled watches, and understand how watches differ from market watchlists, Office workflows, and position monitoring.
 outline: 2
 ---
 
@@ -8,11 +8,11 @@ outline: 2
 
 A watch lets you ask an employee to check something repeatedly and report what changed. It is useful when one answer is not enough—for example, when you want to follow a price level, a thesis, a portfolio condition, or fresh research over time.
 
-A watch observes and reports. It is not a stop-loss, a standing employee mandate, or an autonomous strategy runner.
+A scheduled AI watch observes and reports. It is not a conventional market watchlist—a static list of symbols—or a stop-loss, standing employee mandate, or autonomous strategy runner.
 
 ## The four background systems
 
-Hedge Fund mode has several features that continue work over time. They are deliberately separate:
+Trading Office has several features that continue work over time. They are deliberately separate:
 
 | System | What it does | When it runs |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ Hedge Fund mode has several features that continue work over time. They are deli
 | **Workflow heartbeat** | Picks up due Office work and continues unfinished backtest chunks | Runs as background transport in both modes; it is not configured as a watch |
 | **Position monitor** | Checks recorded stops, targets, and time exits and applies qualifying Office paper exits deterministically | Runs in office panes in both modes |
 
-Use a **watch** when you want the AI to keep looking and interpreting. Use an **Office workflow** for a standing job owned by a fund employee. Record a stop, target, or time exit on the paper trade when you need the **position monitor** to enforce the plan.
+Use a **watch** when you want the AI to keep looking and interpreting. A conventional **market watchlist** only groups symbols and does not schedule this AI work. Use an **Office workflow** for a standing job owned by an employee. Record a stop, target, or time exit on the paper trade when you need the **position monitor** to enforce the plan.
 
 An approved Strategy Lab version does not yet become its own scheduled entry runner. That exact-version autonomous execution path remains **TBD**.
 
@@ -86,11 +86,11 @@ The actions are different:
 - **Stop** disables the watch but keeps its stored job.
 - **Delete** permanently removes the scheduled job.
 
-In a Hedge Fund office, the employee who creates a watch owns it and its ticks return to that employee's pane. Employees can inspect all watches, but cannot stop or delete another employee's watch. The office lead can remove any scheduled watch from Cron Monitor.
+In a Trading Office, the employee who creates a watch owns it and its ticks return to that employee's pane. Employees can inspect all watches, but cannot stop or delete another employee's watch. The office lead can remove any scheduled watch from Cron Monitor.
 
 ## Inspect watches in Cron Monitor
 
-Open the monitor from the Hedge Fund navigation or run:
+Open the monitor from the current **Hedge Fund** navigation or run:
 
 ```text
 /crons
@@ -124,6 +124,7 @@ Manage and pause employee workflows from `/hedgefund:control` instead.
 
 | If you want to… | Use… |
 | --- | --- |
+| Save a group of symbols without scheduled AI checks | A conventional market watchlist, outside this scheduled-watch feature |
 | Re-check a chart, thesis, news condition, or exposure and hear what changed | A watch |
 | Give a trader, risk manager, or operations employee a recurring mandate | An Office workflow in `/hedgefund:control` |
 | Continue an approved backtest without babysitting every chunk | The workflow heartbeat; tradecli handles this automatically |
@@ -132,8 +133,8 @@ Manage and pause employee workflows from `/hedgefund:control` instead.
 
 ## Related pages
 
-- [Hedge Fund mode](/hedge-fund/)
-- [Set up your office](/hedge-fund/setup)
-- [Run paper strategies](/hedge-fund/paper-operations)
-- [Operate the fund](/hedge-fund/operations)
-- [Status and reference](/hedge-fund/reference)
+- [Trading Office](/trading-office/)
+- [Set up your office](/trading-office/setup)
+- [Run paper strategies](/trading-office/paper-operations)
+- [Run your trading office](/trading-office/operations)
+- [Status and reference](/trading-office/reference)

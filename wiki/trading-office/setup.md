@@ -1,14 +1,14 @@
 ---
-title: Set up your Hedge Fund office
-description: Create a fund book, build the team, choose an operating mode, and review mandates and scheduled workflows.
+title: Set up your Trading Office
+description: Create a trading book, build the team, choose an operating mode, and review mandates and scheduled workflows.
 outline: 2
 ---
 
-# Set up your Hedge Fund office
+# Set up your Trading Office
 
-A ready office has a fund book, at least one active employee, and a clear decision about how much scheduled paper work the team may do. Start in Guided mode; enable Autonomous · Paper trading after the mandates and workflows match your intent.
+A ready office has a trading book, at least one active employee, and a clear decision about how much scheduled paper work the team may do. Start in Guided mode; enable Autonomous · Paper trading after the mandates and workflows match your intent.
 
-## 1. Create or select a fund book
+## 1. Create or select a trading book
 
 Open the book picker:
 
@@ -16,9 +16,9 @@ Open the book picker:
 /hedgefund:books
 ```
 
-A fund book is the boundary for pooled paper cash, positions, transactions, NAV, P&L, employees, and workflows. Each book also carries its market context: India or the US.
+A trading book is the boundary for paper cash, positions, transactions, NAV, P&L, employees, research, and workflows. The current interface labels it a **fund book**. Each book also carries its market context: India or the US.
 
-You can create more than one book, but one is active in a Hedge Fund session. Check the book name and opening cash before starting work; research and paper actions should always land in the intended book.
+You can create more than one book, but one is active in a Trading Office session. Check the book name and opening cash before starting work; research and paper actions should always land in the intended book.
 
 ## 2. Complete launch readiness
 
@@ -30,7 +30,7 @@ Open the guided setup cards:
 
 Launch readiness checks two required pieces:
 
-1. A fund book exists.
+1. A trading book exists.
 2. The book has at least one active non-CEO employee.
 
 The recommended team provides clearer separation of responsibility:
@@ -59,7 +59,7 @@ The selection applies to the current tradecli session. The current AI Trading Of
 :::
 
 ::: tip Recommended first setup
-Use Guided mode for the [idea-to-review quickstart](/hedge-fund/quickstart). It makes every decision and approval point easy to see before you allow standing workflows to run.
+Use Guided mode for the [idea-to-review quickstart](/trading-office/quickstart). It makes every decision and approval point easy to see before you allow standing workflows to run.
 :::
 
 ## 4. Review mandates before autonomy
@@ -89,7 +89,7 @@ From the Control Center, choose **Manage workflows** to inspect cadence, symbols
 
 These workflows are different from:
 
-- a [watch](/hedge-fund/watches), which repeats an ad hoc instruction;
+- a [watch](/trading-office/watches), which repeats an ad hoc instruction;
 - a backtest job, which continues an approved experiment;
 - the exact-version autonomous strategy runner, which is **TBD**.
 
@@ -106,7 +106,7 @@ The Control Center summarizes the active book, session mode, team coverage, mand
 - manage mandates;
 - manage workflows;
 - inspect recent activity;
-- pause all scheduled workflows for the current fund book.
+- pause all scheduled workflows for the current trading book.
 
 Use the global pause when the workflow configuration, data, or market context needs review. It invalidates pending and waiting scheduled runs for that book; it is not a substitute for closing open paper positions.
 
@@ -126,7 +126,7 @@ If any answer is unclear, stay in Guided mode and tighten the setup first.
 
 ## Related pages
 
-- [Quickstart: idea to review](/hedge-fund/quickstart)
-- [Watches and schedules](/hedge-fund/watches)
-- [Operate the fund](/hedge-fund/operations)
-- [Status and reference](/hedge-fund/reference)
+- [Quickstart: idea to review](/trading-office/quickstart)
+- [Watches and schedules](/trading-office/watches)
+- [Run your trading office](/trading-office/operations)
+- [Status and reference](/trading-office/reference)

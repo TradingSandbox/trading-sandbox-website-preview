@@ -1,18 +1,22 @@
 ---
-title: Hedge Fund status and reference
-description: Verified Hedge Fund commands, shortcuts, terminology, availability, safety rules, and current preview gaps.
+title: Trading Office status and reference
+description: Verified Trading Office commands, shortcuts, terminology, availability, safety rules, and current preview gaps.
 outline: 2
 ---
 
-# Hedge Fund status and reference
+# Trading Office status and reference
 
 This page is the compact reference for the current backtesting preview. **Available** means the user-facing path exists now. **Preview gap** means the runtime exists but part of its product path is not yet reliable. **TBD** means the product does not yet provide the capability.
+
+::: info Current interface names
+The preview interface labels Trading Office as **Hedge Fund**, labels a trading book as a **fund book**, and retains the `/hedgefund:*` command namespace. The guide uses the intended broader terminology while showing commands and interface labels exactly when you need to find them.
+:::
 
 ## Availability matrix
 
 | Capability | Status | Current boundary |
 | --- | --- | --- |
-| Multiple India or US fund books | **Available** | One book is active in a Hedge Fund session |
+| Multiple India or US trading books | **Available** | One book is active in a Trading Office session |
 | Team setup and employee administration | **Available** | Launch readiness requires a book and one active non-CEO employee |
 | CEO delegation and mailbox reports | **Available** | Interactive delegation routes to an Investor or Trader |
 | Ideas, durable experiments, machine verdicts, promotion, and review | **Available** | Promotion requires a promising verdict |
@@ -28,7 +32,7 @@ This page is the compact reference for the current backtesting preview. **Availa
 | LP creation and fund reporting | **Available** | Later capital operations and standalone NAV strikes are not public actions |
 | AI Trading Office browser dashboard | **Read-only** | It reports Office state but cannot change it |
 | Configured India broker holdings in Market Terminal | **Read-only** | Manage or exit those holdings in the broker application |
-| Live Hedge Fund broker execution | **Outside the product boundary** | Hedge Fund office panes are paper-only |
+| Live Trading Office broker execution | **Outside the product boundary** | Trading Office panes are paper-only |
 
 ## Commands
 
@@ -36,7 +40,7 @@ Run these from the tradecli editor.
 
 | Command | What it opens or does |
 | --- | --- |
-| `/hedgefund:books` | Choose or add a fund book, then launch its active team; CEO pane only |
+| `/hedgefund:books` | Choose or add a trading book, then launch its active team; CEO pane only |
 | `/hedgefund:onboard` | Open launch-readiness cards; CEO pane only |
 | `/hedgefund:control` | Open the selected book's Control Center; CEO pane only |
 | `/hedgefund:admin` | Configure the selected book, team, mandates, workflows, and LP records |
@@ -95,15 +99,19 @@ Removing a watch in Cron Monitor is different from stopping it in conversation: 
 
 | Term | Meaning |
 | --- | --- |
-| **Fund book** | The boundary for one market's paper cash, positions, ledger, roster, research, and workflows |
+| **Trading book** | The boundary for one market's paper cash, positions, ledger, roster, research, and workflows; currently labeled **fund book** in the interface |
 | **CEO pane** | The selected book's lead surface for setup, delegation, and controls |
 | **Employee pane** | A working surface with its own employee identity and book scope |
+| **AI employee** | A role-bound agent with its own identity, mandate, tools, book scope, and responsibility for attributed work |
 | **AI Trading Office** | The durable system of record behind the office and its read-only dashboard |
 | **Mandate** | Stored permissions, limits, scope, cadence, and escalation rules for an employee |
 | **Office workflow** | A reusable employee-owned routine with persisted scheduled runs |
-| **Watch** | An ad hoc repeated observation that gathers fresh context and reports material changes |
+| **Market watchlist** | A saved group of symbols for browsing; it does not schedule AI work |
+| **Watch** | An ad hoc scheduled AI observation that gathers fresh context and reports material changes |
 | **Workflow heartbeat** | Background transport that advances due Office runs and unfinished backtest chunks |
 | **Position monitor** | Deterministic checking of recorded paper stops, targets, and time exits |
+| **Hypothesis** | A falsifiable trading claim with an entry, exit, scope, and result that would count against it |
+| **Experiment** | One approved test of a hypothesis, represented by an immutable plan and a persisted job |
 | **Experiment plan** | The immutable symbols, dates, parameters, costs, validation, and ranking rule approved before a backtest |
 | **Experiment job** | The persisted, chunked execution of an approved plan |
 | **Machine verdict** | The system-owned promising, rejected, or inconclusive result from JUDGE |
@@ -117,7 +125,7 @@ Removing a watch in Cron Monitor is different from stopping it in conversation: 
 These rules are part of the product model, not optional usage advice:
 
 1. **Everything is book-scoped.** Verify the selected book before research, workflow, or paper-trade actions.
-2. **Hedge Fund execution is paper-only.** An Office fill, deployment approval, or employee report is not a live broker order.
+2. **Trading Office execution is paper-only.** An Office fill, deployment approval, or employee report is not a live broker order.
 3. **Durable state outranks chat.** Use Office records, jobs, verdicts, transactions, journals, and reviews as the source of truth.
 4. **AI explains and proposes; deterministic systems own lifecycle state.** Plans, fills, risk math, experiment progress, verdicts, and approvals are not inferred from prose.
 5. **Risk denials cannot be softened by a prompt.** Mandates, symbol and instrument scope, required stops, loss limits, and kill switches constrain paper actions.
@@ -147,12 +155,12 @@ Administration can create an LP row, and summaries can report LPs, units, capita
 
 ### Broker and advanced-instrument accounting
 
-Configured India broker holdings are context only in Market Terminal. They cannot be exited from the Hedge Fund office. Futures entries are audit-only and do not yet model margin or mark-to-market cash movement. Multi-leg option and futures baskets book legs sequentially, so inspect Market Terminal if a later leg fails. Automatic multi-target scale-out progression is still under verification.
+Configured India broker holdings are context only in Market Terminal. They cannot be exited from Trading Office. Futures entries are audit-only and do not yet model margin or mark-to-market cash movement. Multi-leg option and futures baskets book legs sequentially, so inspect Market Terminal if a later leg fails. Automatic multi-target scale-out progression is still under verification.
 
 ## Related pages
 
-- [Hedge Fund mode](/hedge-fund/)
-- [Set up your office](/hedge-fund/setup)
-- [Operate the fund](/hedge-fund/operations)
-- [Watches and background work](/hedge-fund/watches)
-- [Run paper strategies](/hedge-fund/paper-operations)
+- [Trading Office](/trading-office/)
+- [Set up your office](/trading-office/setup)
+- [Run your trading office](/trading-office/operations)
+- [Watches and background work](/trading-office/watches)
+- [Run paper strategies](/trading-office/paper-operations)

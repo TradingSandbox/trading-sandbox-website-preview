@@ -123,6 +123,13 @@ describe('smoke: sitemap.xml — prod build', () => {
     }
   });
 
+  test('wiki sitemap contains Trading Office routes and excludes redirect-only Hedge Fund routes', () => {
+    const wikiSitemap = readFileSync(join(DIST, 'wiki', 'sitemap.xml'), 'utf-8');
+    expect(wikiSitemap).toContain('https://tradecli.in/wiki/trading-office/');
+    expect(wikiSitemap).toContain('https://tradecli.in/wiki/trading-office/watches');
+    expect(wikiSitemap).not.toContain('/wiki/hedge-fund/');
+  });
+
   test('every built page has exactly one well-formed canonical link', () => {
     const pages = ['dist/index.html', 'dist/about/index.html', 'dist/updates/index.html', 'dist/privacy/index.html', 'dist/404.html'];
     for (const page of pages) {
@@ -239,6 +246,10 @@ describe('smoke: sitemap.xml — prod build', () => {
     const proTraderRedirect = readFileSync(join(REPO_ROOT, 'dist/guides/pro-trader/index.html'), 'utf-8');
     expect(proTraderRedirect).toContain('https://tradecli.in/wiki/guides/trader');
     expect(proTraderRedirect).toContain('url=/wiki/guides/trader');
+
+    const tradingOfficeRedirect = readFileSync(join(REPO_ROOT, 'dist/wiki/hedge-fund/quickstart.html'), 'utf-8');
+    expect(tradingOfficeRedirect).toContain('https://tradecli.in/wiki/trading-office/quickstart');
+    expect(tradingOfficeRedirect).toContain('url=/wiki/trading-office/quickstart');
   });
 
   test('secondary surfaces explain office memory and guardrails', () => {
@@ -254,7 +265,8 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(privacy).toContain('What stays local');
     expect(privacy).toContain('Cloudflare Web Analytics');
     expect(wiki).toContain('local-first AI workspace');
-    expect(wiki).toContain('Hedge Fund mode');
+    expect(wiki).toContain('Trading Office Guide');
+    expect(wiki).toContain('serious self-directed trader');
   });
 
   test('homepage contains every shared-nav hash target', () => {

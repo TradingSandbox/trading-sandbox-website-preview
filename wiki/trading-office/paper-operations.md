@@ -6,10 +6,10 @@ outline: 2
 
 # Run paper strategies
 
-Paper operation turns a researched setup into a simulated transaction in the active fund book. It joins candidate selection, deterministic risk math, a reviewable ticket, market-derived marks, planned exits, and the Office ledger.
+Paper operation turns a researched setup into a simulated transaction in the active trading book. It joins candidate selection, deterministic risk math, a reviewable ticket, market-derived marks, planned exits, and the Office ledger.
 
 ::: warning Paper means paper
-An Office paper transaction is not a broker order. Hedge Fund mode does not use Autonomous · Paper trading as permission to place live orders.
+An Office paper transaction is not a broker order. Trading Office does not use Autonomous · Paper trading as permission to place live orders.
 :::
 
 ## Three ways to reach a paper ticket
@@ -122,11 +122,11 @@ It works from the stored plan and market data, not from a watch prompt. That dis
 | Deterministic stored stop, target, and time-exit monitoring | Available |
 | Automatic multi-target scale-out progression | **TBD verification** |
 | Scheduled entries generated from one exact promoted strategy version | **TBD** |
-| Live Hedge Fund broker execution | Outside the current product boundary |
+| Live Trading Office broker execution | Outside the current product boundary |
 
 ## Related pages
 
-- [Test in Strategy Lab](/hedge-fund/strategy-lab)
-- [Watches and schedules](/hedge-fund/watches)
-- [Review and improve](/hedge-fund/review)
-- [Status and reference](/hedge-fund/reference)
+- [Test in Strategy Lab](/trading-office/strategy-lab)
+- [Watches and schedules](/trading-office/watches)
+- [Review and improve](/trading-office/review)
+- [Status and reference](/trading-office/reference)

@@ -1,16 +1,18 @@
 ---
-title: Operate the fund
-description: Run the Hedge Fund office through its Control Center, CEO desk, fund-book reporting, and LP records.
+title: Run your trading office
+description: Run day-to-day Trading Office work through the Control Center and add fund-team administration when you need it.
 outline: 2
 ---
 
-# Operate the fund
+# Run your trading office
 
-The Hedge Fund office is organized around one selected paper fund book. The CEO coordinates people and standing work, while AI Trading Office keeps the durable record of the book, employees, mandates, workflow runs, research, and paper transactions.
+Trading Office is organized around one selected trading book. The CEO coordinates people and standing work, while AI Trading Office keeps the durable record of the book, employees, mandates, workflow runs, research, and paper transactions.
 
-This page covers day-to-day fund operations. For the strategy lifecycle, begin with the [idea-to-review quickstart](/hedge-fund/quickstart).
+The everyday controls apply whether you are a solo trader, an emerging manager, or part of a fund team. Additional LP and capital-record features appear later on this page. For the strategy lifecycle, begin with the [idea-to-review quickstart](/trading-office/quickstart).
 
-## Start in the Control Center
+## Everyday Trading Office operations
+
+### Start in the Control Center
 
 Open the selected book's Control Center from the CEO pane:
 
@@ -29,23 +31,23 @@ It brings the operating state of the book into one view:
 
 From here you can complete the recommended setup, manage the team, edit mandates, manage workflows, inspect activity, or pause scheduled employee workflows for the book.
 
-### Pause scheduled work safely
+#### Pause scheduled work safely
 
 **Pause all scheduled workflows** invalidates pending and waiting employee runs. It does not close paper positions, remove watches, or stop the deterministic position monitor. A run that is already executing is not cancelled and may create its next scheduled run when it finishes; inspect the workflow again after the current run completes.
 
-Use [Cron Monitor](/hedge-fund/watches#inspect-watches-in-cron-monitor) for scheduled watches and [Market Terminal](/hedge-fund/paper-operations#monitor-in-market-terminal) for open paper positions.
+Use [Cron Monitor](/trading-office/watches#inspect-watches-in-cron-monitor) for scheduled watches and [Market Terminal](/trading-office/paper-operations#monitor-in-market-terminal) for open paper positions.
 
-### Autonomous Paper is a preview runtime
+#### Autonomous Paper is a preview runtime
 
-The current-session Autonomous · Paper trading runtime exists. When a Hedge Fund session is actually operating in that mode, due employee workflows can research and report, and a Trader workflow can book mandate-constrained Office paper trades.
+The current-session Autonomous · Paper trading runtime exists. When a Trading Office session is actually operating in that mode, due employee workflows can research and report, and a Trader workflow can book mandate-constrained Office paper trades.
 
 ::: warning Current persistence gap
-The current AI Trading Office service does not persist the fund book's `operating_mode` field. Selecting Autonomous · Paper trading in book setup or administration can therefore fall back to Guided after the response or after re-entering the office. Verify the mode shown in Control Center and do not rely on unattended continuation until this preview gap is fixed.
+The current AI Trading Office service does not persist the trading book's `operating_mode` field. Selecting Autonomous · Paper trading in book setup or administration can therefore fall back to Guided after the response or after re-entering the office. Verify the mode shown in Control Center and do not rely on unattended continuation until this preview gap is fixed.
 :::
 
 This runtime is also separate from the **TBD exact-version strategy runner**. Approving a promoted strategy does not start a schedule that evaluates that frozen version.
 
-## Direct the office from the CEO pane
+### Direct the office from the CEO pane
 
 The CEO pane is the coordination desk. Ask it in ordinary language to delegate a bounded task to an **Investor** or **Trader**, optionally naming the employee.
 
@@ -68,7 +70,7 @@ A useful delegation states:
 
 Mailbox reports are coordination artifacts, not a substitute for durable state. Confirm positions and fills in Market Terminal, workflow state in Control Center, and strategy evidence in the Strategy Library.
 
-## Choose and administer fund books
+### Choose and administer trading books
 
 Use the CEO book picker to choose or create the active book:
 
@@ -90,7 +92,7 @@ Use deterministic administration to edit the selected book, manage employees, re
 /hedgefund:admin
 ```
 
-You can also ask the active Hedge Fund employee to show book facts such as:
+You can also ask the active Trading Office employee to show book facts such as:
 
 - paper cash, units outstanding, and NAV per unit;
 - realized P&L by instrument and in total;
@@ -100,7 +102,35 @@ You can also ask the active Hedge Fund employee to show book facts such as:
 
 For current marks and unrealized P&L, use `/terminal` or ask for the live market-terminal view. When a quote is unavailable, the position should remain visible with a quote error rather than an invented mark.
 
-## Add investors and LPs
+### Use the read-only Office dashboard
+
+AI Trading Office also serves an advanced browser view at [http://127.0.0.1:8787/ui/](http://127.0.0.1:8787/ui/) when the local Office service is running.
+
+Its current **Hedge Fund** area provides read-only views for:
+
+- the audit summary and service health;
+- the trading book, cash, units, NAV, realized P&L, and ledger;
+- positions and equity, option, and futures transactions;
+- records, clients, and employees; and
+- mandates, workflow exceptions, blocked risk decisions, unread mailbox items, and kill-switch state.
+
+The dashboard does not mutate Office state. Use tradecli administration for books, employees, and LP creation; Control Center for mandates and workflows; and the Strategy Library for versions, deployments, journals, and reviews.
+
+### A practical operating rhythm
+
+At the start of a session:
+
+1. Confirm the selected book and mode in Control Center.
+2. Read escalations, failed runs, and mandate coverage.
+3. Check Market Terminal for open paper risk.
+
+During the session, delegate bounded research, use watches for repeated observations, and keep standing employee work inside explicit mandates. Before leaving, inspect recent activity, pause work that should not continue, and preserve strategy decisions through the journal and review flow.
+
+## Additional operations for fund teams
+
+The following features extend the same Trading Office model for managers who track outside capital or report across a team. They do not turn the current product into a complete institutional fund platform.
+
+### Add investors and LPs
 
 Open `/hedgefund:admin`, choose **Manage investors / LPs**, then **Add investor / LP**. The current form records:
 
@@ -111,45 +141,21 @@ Open `/hedgefund:admin`, choose **Manage investors / LPs**, then **Add investor 
 
 This creates the LP record used by fund summaries and the read-only dashboard. It is not a complete subscription or cash-transfer workflow. The current terminal administration flow cannot edit or delete standalone fund-client rows after creation.
 
-### Capital operations are not public Hedge Fund actions
+### Capital operations are not public Trading Office actions
 
-The following Office service operations are internal and are deliberately excluded from the Hedge Fund user workflow:
+The following Office service operations are internal and are deliberately excluded from the public fund-team workflow:
 
 - recording later subscriptions, contributions, or redemptions;
-- reconciling the fund book;
+- reconciling the trading book;
 - striking NAV as a standalone action; and
-- writing transactions directly through fund-book APIs.
+- writing transactions directly through trading-book APIs.
 
 Use the public paper pipeline for trades—Scanner or a strategy plan, a reviewed ticket, and Market Terminal—and use fund summaries for LP and NAV reporting. The presence of an internal API route does not make it a supported user action.
 
-## Use the read-only Office dashboard
-
-AI Trading Office also serves an advanced browser view at [http://127.0.0.1:8787/ui/](http://127.0.0.1:8787/ui/) when the local Office service is running.
-
-Its Hedge Fund area provides read-only views for:
-
-- the audit summary and service health;
-- the fund book, cash, units, NAV, realized P&L, and ledger;
-- positions and equity, option, and futures transactions;
-- records, clients, and employees; and
-- mandates, workflow exceptions, blocked risk decisions, unread mailbox items, and kill-switch state.
-
-The dashboard does not mutate Office state. Use tradecli administration for books, employees, and LP creation; Control Center for mandates and workflows; and the Strategy Library for versions, deployments, journals, and reviews.
-
-## A practical operating rhythm
-
-At the start of a session:
-
-1. Confirm the selected book and mode in Control Center.
-2. Read escalations, failed runs, and mandate coverage.
-3. Check Market Terminal for open paper risk.
-
-During the session, delegate bounded research, use watches for repeated observations, and keep standing employee work inside explicit mandates. Before leaving, inspect recent activity, pause work that should not continue, and preserve strategy decisions through the journal and review flow.
-
 ## Related pages
 
-- [Set up your office](/hedge-fund/setup)
-- [Watches and background work](/hedge-fund/watches)
-- [Run paper strategies](/hedge-fund/paper-operations)
-- [Review and improve](/hedge-fund/review)
-- [Status and reference](/hedge-fund/reference)
+- [Set up your office](/trading-office/setup)
+- [Watches and background work](/trading-office/watches)
+- [Run paper strategies](/trading-office/paper-operations)
+- [Review and improve](/trading-office/review)
+- [Status and reference](/trading-office/reference)

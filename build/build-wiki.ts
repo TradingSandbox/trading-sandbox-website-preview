@@ -2,6 +2,25 @@ import { spawnSync } from 'node:child_process';
 import { cpSync, existsSync, mkdirSync, rmSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildRedirectPageIntoDist, resolveHostname } from './build-pages.js';
+
+export interface WikiRedirectEntry {
+  source: string;
+  target: string;
+}
+
+export const WIKI_LEGACY_REDIRECTS: readonly WikiRedirectEntry[] = [
+  { source: 'hedge-fund/', target: 'trading-office/' },
+  { source: 'hedge-fund/quickstart', target: 'trading-office/quickstart' },
+  { source: 'hedge-fund/setup', target: 'trading-office/setup' },
+  { source: 'hedge-fund/ideas', target: 'trading-office/ideas' },
+  { source: 'hedge-fund/strategy-lab', target: 'trading-office/strategy-lab' },
+  { source: 'hedge-fund/paper-operations', target: 'trading-office/paper-operations' },
+  { source: 'hedge-fund/watches', target: 'trading-office/watches' },
+  { source: 'hedge-fund/review', target: 'trading-office/review' },
+  { source: 'hedge-fund/operations', target: 'trading-office/operations' },
+  { source: 'hedge-fund/reference', target: 'trading-office/reference' },
+];
 
 export function deriveDocsBase(siteBase: string | undefined): string {
   const rawBase = siteBase?.trim() || '/';
@@ -39,6 +58,7 @@ export function buildWiki(repoRoot: string): void {
   }
 
   copyVitePressDistToDistWiki(repoRoot);
+  emitWikiLegacyRedirects(repoRoot, process.env.SITE_BASE);
   console.log(`wiki built: dist/wiki/ (DOCS_BASE=${docsBase})`);
 }
 
@@ -48,6 +68,23 @@ export function copyVitePressDistToDistWiki(repoRoot: string): void {
   rmSync(finalOut, { recursive: true, force: true });
   mkdirSync(dirname(finalOut), { recursive: true });
   cpSync(vitePressOut, finalOut, { recursive: true });
+}
+
+export function emitWikiLegacyRedirects(repoRoot: string, siteBase: string | undefined): void {
+  const docsBase = deriveDocsBase(siteBase);
+  const hostname = resolveHostname(siteBase);
+
+  for (const entry of WIKI_LEGACY_REDIRECTS) {
+    const output = entry.source.endsWith('/')
+      ? `wiki/${entry.source}index.html`
+      : `wiki/${entry.source}.html`;
+    buildRedirectPageIntoDist(
+      repoRoot,
+      output,
+      `${docsBase}${entry.target}`,
+      `${hostname}/wiki/${entry.target}`,
+    );
+  }
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
