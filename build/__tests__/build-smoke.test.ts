@@ -265,6 +265,8 @@ describe('smoke: sitemap.xml — prod build', () => {
     const privacy = readFileSync(join(REPO_ROOT, 'dist/privacy/index.html'), 'utf-8');
     const wiki = readFileSync(join(REPO_ROOT, 'dist/wiki/index.html'), 'utf-8');
     const tradingOffice = readFileSync(join(REPO_ROOT, 'dist/wiki/trading-office/index.html'), 'utf-8');
+    const setup = readFileSync(join(REPO_ROOT, 'dist/wiki/trading-office/setup.html'), 'utf-8');
+    const ideas = readFileSync(join(REPO_ROOT, 'dist/wiki/trading-office/ideas.html'), 'utf-8');
 
     expect(about).toContain('trader-controlled harness');
     expect(about).toContain('guardrails');
@@ -280,6 +282,10 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(tradingOffice).toContain('Your AI trading team');
     expect(tradingOffice).toContain('A personal Trading Office does not require a full institutional team.');
     expect(tradingOffice).toContain('Investor / CIO');
+    expect(setup).toContain('Build your AI team');
+    expect(setup).not.toContain('Complete launch readiness');
+    expect(ideas).toContain('The Idea Backlog is the starting point for every Trading Office strategy.');
+    expect(ideas).not.toContain('Ideas is the durable front door');
   });
 
   test('homepage contains every shared-nav hash target', () => {

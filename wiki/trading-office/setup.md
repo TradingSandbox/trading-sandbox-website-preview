@@ -20,18 +20,15 @@ A trading book is the boundary for paper cash, positions, transactions, NAV, P&L
 
 You can create more than one book, but one is active in a Trading Office session. Check the book name and opening cash before starting work; research and paper actions should always land in the intended book.
 
-## 2. Complete launch readiness
+## 2. Build your AI team
 
-Open the guided setup cards:
+Before beginning research or paper operation, add at least one active AI employee to the selected trading book. Open the guided team setup:
 
 ```text
 /hedgefund:onboard
 ```
 
-Launch readiness checks two required pieces:
-
-1. A trading book exists.
-2. The book has at least one active non-CEO employee.
+The setup confirms that the trading book exists and has at least one active non-CEO employee.
 
 The recommended team provides clearer separation of responsibility:
 

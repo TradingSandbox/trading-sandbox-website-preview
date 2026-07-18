@@ -6,9 +6,9 @@ outline: 2
 
 # Research and Ideas
 
-Ideas is the durable front door to the Trading Office strategy lifecycle. It is where a rough observation can stay lightweight, become a falsifiable hypothesis, or move into Strategy Lab.
+The Idea Backlog is the starting point for every Trading Office strategy. Use it to capture a rough observation, shape it into a falsifiable hypothesis, or send it to Strategy Lab for testing.
 
-Ideas remain scoped to the active trading book and employee. Captured, in-flight, rejected, validated, and parked ideas remain searchable as part of the strategy's history.
+Idea records remain scoped to the active trading book and employee. Captured, in-flight, rejected, validated, and parked ideas remain searchable as part of the strategy's history.
 
 ## Open the Idea Backlog
 
