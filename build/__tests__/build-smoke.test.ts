@@ -264,6 +264,7 @@ describe('smoke: sitemap.xml — prod build', () => {
     const updates = readFileSync(join(REPO_ROOT, 'dist/updates/index.html'), 'utf-8');
     const privacy = readFileSync(join(REPO_ROOT, 'dist/privacy/index.html'), 'utf-8');
     const wiki = readFileSync(join(REPO_ROOT, 'dist/wiki/index.html'), 'utf-8');
+    const tradingOffice = readFileSync(join(REPO_ROOT, 'dist/wiki/trading-office/index.html'), 'utf-8');
 
     expect(about).toContain('trader-controlled harness');
     expect(about).toContain('guardrails');
@@ -276,6 +277,9 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(wiki).toContain('Start here');
     expect(wiki).toContain('Follow the strategy lifecycle');
     expect(wiki).toContain('Automation tools');
+    expect(tradingOffice).toContain('Your AI trading team');
+    expect(tradingOffice).toContain('A personal Trading Office does not require a full institutional team.');
+    expect(tradingOffice).toContain('Investor / CIO');
   });
 
   test('homepage contains every shared-nav hash target', () => {

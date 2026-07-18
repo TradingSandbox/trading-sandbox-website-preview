@@ -6,7 +6,7 @@ outline: 2
 
 # Trading Office
 
-Trading Office is the main operating experience inside `tradecli`. It brings research, strategy testing, paper operation, automation, and review into one local-first AI workspace.
+Trading Office is the main operating experience inside `tradecli`. It gives you an AI trading team and brings research, strategy testing, paper operation, automation, and review into one local-first workspace.
 
 You work with AI employees, but the lasting product is not the conversation. It is the connected record of what you observed, what you tested, what the evidence showed, what you operated on paper, and what you decided afterward.
 
@@ -41,24 +41,39 @@ Trading Office follows one continuous learning loop:
 
 [Run your first strategy →](/trading-office/quickstart)
 
+## Your AI trading team
+
+Trading Office gives you role-specific AI employees working around the same trading book. Each employee has its own responsibility, tools, mandate, and work history, while sharing the research, strategy, position, and decision context preserved by the office.
+
+| Role | Contribution |
+| --- | --- |
+| **Investor / CIO** | Develops hypotheses, challenges investment reasoning, and synthesizes evidence |
+| **Portfolio Manager** | Connects individual strategies to book construction and exposure |
+| **Trader** | Finds candidates, prepares trades, and operates paper positions |
+| **Risk Manager** | Applies limits, challenges decisions, and escalates exceptions |
+| **Operations** | Maintains records, workflows, and operating checks |
+
+You remain in control. Direct employees interactively, delegate through the office lead, or assign recurring responsibilities through Office workflows. Their work returns to the same durable record instead of living in disconnected chats.
+
+Start with the employees you need. A personal Trading Office does not require a full institutional team.
+
 ## What Trading Office brings together
 
 | Area | What you can do | Main tools |
 | --- | --- | --- |
-| **Research** | Capture observations, shape hypotheses, preserve evidence, and delegate investigation | Ideas, AI employees, watches |
+| **Research** | Capture observations, shape hypotheses, preserve evidence, and delegate investigation | Ideas, AI team, watches |
 | **Test** | Build reproducible experiments, approve plans, compare results, and promote promising strategies | Strategy Lab, Backtest Jobs |
 | **Operate** | Find candidates, size risk, record paper trades, monitor positions, and manage exits | Scanner, Market Terminal, Position Monitor |
 | **Learn** | Compare expectations with paper results and create improved child strategies without rewriting history | Journal, Forward Check, Review |
 | **Coordinate** | Organize books, employees, mandates, workflows, and recurring responsibilities | Control Center, Office Workflows |
 
-## The operating model
+## The shared operating model
 
-Five parts make the workflow durable:
+Four foundations keep the team and its work connected:
 
 | Part | What it gives you |
 | --- | --- |
 | **Trading book** | The paper cash, positions, transactions, NAV, research, and operating context for one market |
-| **AI employees** | Role-specific collaborators for investment, portfolio, trading, risk, and operations work |
 | **Mandates** | Permissions, limits, schedules, and escalation rules for each employee |
 | **Working tools** | Ideas, Strategy Lab, Scanner, Market Terminal, watches, journals, and office controls |
 | **AI Trading Office** | The durable record of people, research, workflows, strategy versions, approvals, paper trades, journals, and reviews |
