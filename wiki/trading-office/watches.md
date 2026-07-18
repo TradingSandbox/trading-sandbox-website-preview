@@ -28,14 +28,20 @@ A watch is useful when one answer is not enough. You might follow a price level,
 
 Tell the active employee what to watch, how often to check, and which changes matter:
 
+<p class="doc-code-label">Example watch</p>
+
 ```text
 Watch RELIANCE every 5 minutes. Report only if it closes above 3,100
 with stronger volume, or if the setup is invalidated below 3,050.
 ```
 
+<p class="doc-code-label">Example watch</p>
+
 ```text
 Watch our technology exposure every hour and tell me if it rises above 30%.
 ```
+
+<p class="doc-code-label">Example watch</p>
 
 ```text
 Watch this earnings thesis once a day. Compare new filings and news with
@@ -64,13 +70,19 @@ The schedule and prompt persist locally. Decision-relevant results can also be p
 
 Use natural language with the cron job ID:
 
+<p class="doc-code-label">Request</p>
+
 ```text
 List my watches.
 ```
 
+<p class="doc-code-label">Request</p>
+
 ```text
 Stop watch <cron-job-id>.
 ```
+
+<p class="doc-code-label">Request</p>
 
 ```text
 Delete watch <cron-job-id>.
@@ -85,6 +97,8 @@ The employee who creates a watch owns it, and its ticks return to that employee'
 ### Inspect watches in Cron Monitor
 
 Run:
+
+<p class="doc-code-label">Command</p>
 
 ```text
 /crons

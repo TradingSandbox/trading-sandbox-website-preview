@@ -29,11 +29,15 @@ This tutorial takes one rough observation through the complete Trading Office lo
 
 Run:
 
+<p class="doc-code-label">Command</p>
+
 ```text
 /ideas
 ```
 
 Choose **Capture** and enter one observation. Keep it specific enough to discuss, but do not force parameters too early.
+
+<p class="doc-code-label">Example idea</p>
 
 ```text
 Large-cap gap-downs may fill more often during expiry weeks.
@@ -53,6 +57,8 @@ During shaping, tradecli focuses on the unresolved parts of the hypothesis: the 
 
 When ready, choose **Send to Lab**. You can also start independently with:
 
+<p class="doc-code-label">Command</p>
+
 ```text
 /backtest
 ```
@@ -62,6 +68,8 @@ Then choose **New experiment**.
 ## 3. Build and approve the experiment
 
 Strategy Lab follows a fixed contract:
+
+<p class="doc-code-label">Strategy Lab lifecycle</p>
 
 ```text
 BUILD → PLAN → RUN → JUDGE → PROMOTE
@@ -100,6 +108,8 @@ Approval records who authorized paper use and makes the strategy ready for paper
 
 Run:
 
+<p class="doc-code-label">Command</p>
+
 ```text
 /strategies
 ```
@@ -111,6 +121,8 @@ This is a simulated transaction in the trading book, not a broker order. The tra
 ## 7. Monitor the position and strategy
 
 Open Market Terminal:
+
+<p class="doc-code-label">Command</p>
 
 ```text
 /terminal

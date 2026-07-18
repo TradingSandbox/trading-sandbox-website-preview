@@ -4,6 +4,22 @@
 
 /* Override VitePress default theme variables to match tradecli.in */
 :root {
+  /* Documentation uses a slightly brighter reading palette than the product
+     landing page while keeping the same midnight foundation. */
+  --bg-secondary: #11151d;
+  --bg-card: #171c27;
+  --bg-card-hover: #1c2330;
+  --border: #293044;
+  --border-light: #35405a;
+  --text-primary: #eef1f6;
+  --text-secondary: #aeb3c3;
+  --text-muted: #73798f;
+  --accent: #5b8cff;
+  --accent-light: #78a3ff;
+  --accent-glow: rgba(91, 140, 255, 0.14);
+  --green: #2dd36f;
+  --green-glow: rgba(45, 211, 111, 0.14);
+
   --vp-c-bg: var(--bg-primary);
   --vp-c-bg-alt: var(--bg-secondary);
   --vp-c-bg-soft: var(--bg-card);
@@ -46,8 +62,8 @@ html:not(.dark) {
   font-weight: 700;
   letter-spacing: -0.015em;
   line-height: 1.25;
-  margin-top: 3rem;
-  padding-top: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--border);
 }
 
@@ -95,10 +111,11 @@ html:not(.dark) {
 /* Callout blocks (::: info, ::: tip, ::: warning, ::: danger) — styled as cards */
 .vp-doc .custom-block {
   border-radius: var(--radius);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-light);
   border-left: 3px solid var(--accent);
   padding: 1.25rem 1.5rem;
   background: var(--bg-card);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
 }
 
 .vp-doc .custom-block.info { border-left-color: var(--accent); background: var(--bg-card); }
@@ -109,8 +126,8 @@ html:not(.dark) {
 .vp-doc .custom-block-title {
   font-weight: 700;
   font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  text-transform: none;
+  letter-spacing: 0.01em;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
@@ -135,15 +152,77 @@ html:not(.dark) {
 
 /* Code blocks — tradecli terminal aesthetic */
 .vp-doc div[class*='language-'] {
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid rgba(45, 211, 111, 0.72);
   border-radius: var(--radius);
-  background: var(--bg-secondary);
+  background: #10151f;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
 }
 
 .vp-doc div[class*='language-'] code {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.88rem;
   line-height: 1.6;
+}
+
+.vp-doc div[class*='language-'] .lang {
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vp-doc div.language-text .lang {
+  display: none;
+}
+
+.vp-doc div.language-text .line span {
+  color: #d2d8e5 !important;
+}
+
+.vp-doc .doc-code-label {
+  display: inline-flex;
+  align-items: center;
+  margin: 0.7rem 0 0.4rem;
+  color: var(--green);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.vp-doc .doc-code-label + div[class*='language-'] {
+  margin-top: 0;
+}
+
+/* Tables are reserved for comparisons and exact mappings. */
+.vp-doc table {
+  width: 100%;
+  font-size: 0.92rem;
+}
+
+.vp-doc th {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-weight: 700;
+  border-color: var(--border-light);
+}
+
+.vp-doc td {
+  color: var(--text-secondary);
+  border-color: var(--border);
+}
+
+.vp-doc tr:nth-child(2n) {
+  background: rgba(23, 28, 39, 0.72);
+}
+
+.vp-doc tbody tr:hover {
+  background: var(--bg-card-hover);
 }
 
 /* Lists */
@@ -171,6 +250,59 @@ html:not(.dark) {
   font-weight: 600;
 }
 
+.VPSidebar .group + .group {
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.VPSidebarItem.level-1.is-active > .item {
+  position: relative;
+  margin: 0 -0.5rem;
+  padding: 0 0.5rem;
+  border-radius: 8px;
+  background: var(--accent-glow);
+}
+
+.VPSidebarItem.level-1.is-active > .item::before {
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  left: 0;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--accent-light);
+  content: '';
+}
+
+.VPSidebarItem.level-1.is-active > .item .text {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.VPSidebarItem.level-1 .VPLink.active {
+  position: relative;
+  margin: 0 -0.5rem;
+  padding: 0 0.5rem;
+  border-radius: 8px;
+  background: var(--accent-glow);
+}
+
+.VPSidebarItem.level-1 .VPLink.active::before {
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  left: 0;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--accent-light);
+  content: '';
+}
+
+.VPSidebarItem.level-1 .VPLink.active .text {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
 /* TOC / aside — subtle */
 .VPDocAside .outline-title {
   font-family: 'JetBrains Mono', monospace;
@@ -178,6 +310,130 @@ html:not(.dark) {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--accent);
+}
+
+.VPDocAsideOutline .outline-link {
+  white-space: normal;
+  line-height: 1.35;
+  padding-top: 0.28rem;
+  padding-bottom: 0.28rem;
+}
+
+/* Trading Office overview components. Tables remain available for dense
+   comparisons; these cards give narrative pages more visual rhythm. */
+.doc-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.doc-card-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.doc-card {
+  min-width: 0;
+  padding: 1.15rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+
+.doc-card:hover {
+  border-color: var(--border-light);
+  background: var(--bg-card-hover);
+}
+
+.vp-doc .doc-card h3 {
+  margin: 0 0 0.45rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.vp-doc .doc-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.doc-card-kicker {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--accent-light);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.doc-card--green .doc-card-kicker {
+  color: var(--green);
+}
+
+.doc-lifecycle {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.doc-lifecycle-stage {
+  position: relative;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+
+.doc-lifecycle-stage:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  right: -0.58rem;
+  z-index: 1;
+  width: 1rem;
+  color: var(--accent-light);
+  background: var(--bg-primary);
+  content: '→';
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.doc-lifecycle-stage span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--accent-light);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.doc-lifecycle-stage strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.doc-interface-note {
+  margin: 1.5rem 0 !important;
+  padding: 0.85rem 1rem;
+  border-left: 2px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  background: rgba(91, 140, 255, 0.08);
+  color: var(--text-secondary) !important;
+  font-size: 0.88rem !important;
+  line-height: 1.6 !important;
+}
+
+.doc-interface-note strong {
+  color: var(--text-primary);
 }
 
 /* Top nav — tighten */
@@ -204,3 +460,48 @@ html:not(.dark) {
   color: var(--accent);
 }
 
+@media (max-width: 767px) {
+  .vp-doc h1 {
+    font-size: 2rem;
+  }
+
+  .vp-doc h2 {
+    margin-top: 2rem;
+    padding-top: 0.75rem;
+    font-size: 1.45rem;
+  }
+
+  .vp-doc p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .vp-doc > div > p:first-of-type,
+  .vp-doc > div > div > p:first-of-type {
+    font-size: 1.08rem;
+  }
+
+  .doc-card-grid,
+  .doc-card-grid--3,
+  .doc-lifecycle {
+    grid-template-columns: 1fr;
+  }
+
+  .doc-lifecycle-stage:not(:last-child)::after {
+    top: auto;
+    right: auto;
+    bottom: -0.7rem;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+  }
+
+  .vp-doc .custom-block {
+    padding: 1rem 1.1rem;
+  }
+
+  .vp-doc table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
