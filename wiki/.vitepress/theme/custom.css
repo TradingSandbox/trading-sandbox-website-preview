@@ -237,6 +237,14 @@ html:not(.dark) {
 }
 
 /* Sidebar — tighten up typography, use JetBrains Mono for section titles */
+.VPSidebarItem {
+  /* The shared landing-page stylesheet gives every <section> generous page
+     padding. VitePress renders nested sidebar groups as <section> elements,
+     so reset that spacing here to keep the contents list continuous. */
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .VPSidebarItem .text {
   font-size: 0.9rem;
 }

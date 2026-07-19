@@ -297,6 +297,9 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(tradingOffice).not.toContain('09  Run Your Trading Office');
     expect(tradingOffice).not.toContain('Start Using It');
     expect(tradingOffice).not.toContain('Automate and Operate');
+    expect(readFileSync(join(REPO_ROOT, 'wiki/.vitepress/theme/custom.css'), 'utf-8')).toMatch(
+      /\.VPSidebarItem\s*\{[^}]*padding-top:\s*0;[^}]*padding-bottom:\s*0;/s,
+    );
     expect(tradingOffice).toContain('Set up your Trading Office →');
     expect(tradingOffice).toContain('Run your first strategy →');
     expect(tradingOffice).toContain('href="./setup"');
