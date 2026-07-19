@@ -239,7 +239,6 @@ html:not(.dark) {
 /* Sidebar — tighten up typography, use JetBrains Mono for section titles */
 .VPSidebarItem .text {
   font-size: 0.9rem;
-  font-variant-numeric: tabular-nums;
 }
 
 .VPSidebarItem.level-0 > .item > .text {
@@ -249,12 +248,6 @@ html:not(.dark) {
   letter-spacing: 0.08em;
   color: var(--accent);
   font-weight: 600;
-}
-
-.VPSidebar .group + .group {
-  margin-top: 0.7rem !important;
-  padding-top: 0.7rem !important;
-  border-top: 0 !important;
 }
 
 .VPSidebar .group {
@@ -271,7 +264,20 @@ html:not(.dark) {
   padding-bottom: 0.05rem;
 }
 
-.VPSidebarItem.level-1.is-active > .item {
+.VPSidebarItem.level-1:not(.is-link) {
+  margin-top: 0.65rem;
+}
+
+.VPSidebarItem.level-1:not(.is-link) > .item > .text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.VPSidebarItem.is-link.is-active > .item {
   position: relative;
   margin: 0 -0.5rem;
   padding: 0 0.5rem;
@@ -279,7 +285,7 @@ html:not(.dark) {
   background: var(--accent-glow);
 }
 
-.VPSidebarItem.level-1.is-active > .item::before {
+.VPSidebarItem.is-link.is-active > .item::before {
   position: absolute;
   top: 7px;
   bottom: 7px;
@@ -290,12 +296,12 @@ html:not(.dark) {
   content: '';
 }
 
-.VPSidebarItem.level-1.is-active > .item .text {
+.VPSidebarItem.is-link.is-active > .item .text {
   color: var(--text-primary);
   font-weight: 600;
 }
 
-.VPSidebarItem.level-1 .VPLink.active {
+.VPSidebarItem.is-link .VPLink.active {
   position: relative;
   margin: 0 -0.5rem;
   padding: 0 0.5rem;
@@ -303,7 +309,7 @@ html:not(.dark) {
   background: var(--accent-glow);
 }
 
-.VPSidebarItem.level-1 .VPLink.active::before {
+.VPSidebarItem.is-link .VPLink.active::before {
   position: absolute;
   top: 7px;
   bottom: 7px;
@@ -314,7 +320,7 @@ html:not(.dark) {
   content: '';
 }
 
-.VPSidebarItem.level-1 .VPLink.active .text {
+.VPSidebarItem.is-link .VPLink.active .text {
   color: var(--text-primary);
   font-weight: 600;
 }

@@ -287,9 +287,14 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(tradingOffice).toContain('doc-lifecycle');
     expect(tradingOffice).toContain('doc-interface-note');
     expect(tradingOffice).toContain('Trading Office Guide');
-    expect(tradingOffice).toContain('01  Overview');
-    expect(tradingOffice).toContain('09  Run Your Trading Office');
+    expect(tradingOffice).toContain('Overview');
+    expect(tradingOffice).toContain('Get Started');
+    expect(tradingOffice).toContain('Strategy Lifecycle');
+    expect(tradingOffice).toContain('Operate Your Office');
+    expect(tradingOffice).toContain('Run Your Trading Office');
     expect(tradingOffice).toContain('Appendix');
+    expect(tradingOffice).not.toContain('01  Overview');
+    expect(tradingOffice).not.toContain('09  Run Your Trading Office');
     expect(tradingOffice).not.toContain('Start Using It');
     expect(tradingOffice).not.toContain('Automate and Operate');
     expect(tradingOffice).toContain('Set up your Trading Office →');
