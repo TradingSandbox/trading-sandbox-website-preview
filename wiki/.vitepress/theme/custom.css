@@ -359,6 +359,16 @@ html:not(.dark) {
   line-height: 1.6;
 }
 
+.vp-doc .doc-start-card h3 a {
+  color: var(--text-primary);
+  border-bottom: 0;
+  font-weight: 700;
+}
+
+.vp-doc .doc-start-card h3 a:hover {
+  color: var(--accent-light);
+}
+
 .doc-card-kicker {
   display: block;
   margin-bottom: 0.5rem;

@@ -286,6 +286,9 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(tradingOffice).toContain('doc-card-grid');
     expect(tradingOffice).toContain('doc-lifecycle');
     expect(tradingOffice).toContain('doc-interface-note');
+    expect(tradingOffice).toContain('Set up your Trading Office →');
+    expect(tradingOffice).toContain('Run your first strategy →');
+    expect(tradingOffice.indexOf('Start here')).toBeLessThan(tradingOffice.indexOf('What you can do'));
     expect(setup).toContain('Build your AI team');
     expect(setup).not.toContain('Complete launch readiness');
     expect(ideas).toContain('The Idea Backlog is the starting point for every Trading Office strategy.');
