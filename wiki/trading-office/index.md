@@ -34,12 +34,12 @@ Trading Office follows one continuous learning loop from an observation to a rev
 <div class="doc-card-grid">
   <article class="doc-card doc-start-card">
     <span class="doc-card-kicker">First</span>
-    <h3><a href="/trading-office/setup">Set up your Trading Office →</a></h3>
+    <h3><a href="./setup">Set up your Trading Office →</a></h3>
     <p>Create or select a trading book, add the AI employees you need, and choose how the office should operate.</p>
   </article>
   <article class="doc-card doc-start-card doc-card--green">
     <span class="doc-card-kicker">Then</span>
-    <h3><a href="/trading-office/quickstart">Run your first strategy →</a></h3>
+    <h3><a href="./quickstart">Run your first strategy →</a></h3>
     <p>Take one observation through research, testing, paper operation, monitoring, and review.</p>
   </article>
 </div>

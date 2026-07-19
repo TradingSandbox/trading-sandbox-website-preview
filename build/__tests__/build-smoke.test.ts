@@ -288,6 +288,9 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(tradingOffice).toContain('doc-interface-note');
     expect(tradingOffice).toContain('Set up your Trading Office →');
     expect(tradingOffice).toContain('Run your first strategy →');
+    expect(tradingOffice).toContain('href="./setup"');
+    expect(tradingOffice).toContain('href="./quickstart"');
+    expect(tradingOffice).not.toContain('href="/trading-office/setup"');
     expect(tradingOffice.indexOf('Start here')).toBeLessThan(tradingOffice.indexOf('What you can do'));
     expect(setup).toContain('Build your AI team');
     expect(setup).not.toContain('Complete launch readiness');
