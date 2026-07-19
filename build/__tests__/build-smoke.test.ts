@@ -292,6 +292,8 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(tradingOffice).toContain('Works within your rules');
     expect(tradingOffice).toContain('Set the strategy and risk limits');
     expect(tradingOffice).not.toContain('doc-lifecycle');
+    expect(tradingOffice).not.toContain('&lt;div class=&quot;doc-coverage');
+    expect(tradingOffice).not.toContain('<pre><code>&lt;div');
     expect(tradingOffice).toContain('doc-interface-note');
     expect(tradingOffice).toContain('Trading Office Guide');
     expect(tradingOffice).toContain('Overview');

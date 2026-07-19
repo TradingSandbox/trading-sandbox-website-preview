@@ -415,7 +415,7 @@ html:not(.dark) {
 }
 
 .doc-coverage {
-  --doc-coverage-grid: minmax(8.6rem, 1.65fr) repeat(9, minmax(3.35rem, 1fr));
+  --doc-coverage-grid: minmax(6.4rem, 1.65fr) repeat(9, minmax(2.6rem, 1fr));
   margin: 1.35rem 0 1.85rem;
 }
 
@@ -480,7 +480,7 @@ html:not(.dark) {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 0.45rem;
-  margin: 0 0 0.7rem 8.95rem;
+  margin: 0 0 0.7rem 6.75rem;
   color: var(--text-muted);
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.62rem;

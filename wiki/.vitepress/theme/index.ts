@@ -1,5 +1,6 @@
 import DefaultTheme from 'vitepress/theme';
 import { h } from 'vue';
+import TradingLoopCoverage from './components/TradingLoopCoverage.vue';
 import './custom.css';
 
 // Brand markup `tradecli / wiki` injected into VPNavBarTitle's slot. VitePress
@@ -12,6 +13,9 @@ import './custom.css';
 // on pages with a sidebar (which is all of them).
 export default {
   extends: DefaultTheme,
+  enhanceApp({ app }) {
+    app.component('TradingLoopCoverage', TradingLoopCoverage);
+  },
   Layout: () =>
     h(DefaultTheme.Layout, null, {
       'nav-bar-title-before': () =>
