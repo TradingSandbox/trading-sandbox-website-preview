@@ -1,31 +1,125 @@
 ---
 title: Trading Office
-description: Turn trading ideas into tested, monitored, and continuously improved paper strategies with an AI-native trading workspace.
+description: Run the full trading loop—from idea and research to execution, monitoring, and improvement—with an AI-native trading workspace.
 outline: 2
 ---
 
 # Trading Office
 
-Trading Office is the main operating experience inside `tradecli`. It gives you an AI trading team and brings research, strategy testing, paper operation, automation, and review into one local-first workspace.
+Trading Office takes a strategy through the full trading loop: idea, research, testing, execution, monitoring, review, and improvement.
 
-You work with AI employees, but the lasting product is not the conversation. It is the connected record of what you observed, what you tested, what the evidence showed, what you operated on paper, and what you decided afterward.
+Most tools cover only part of that work. Stock tips give you a trade. Generic research tools help when you ask. A manual workflow leaves every step to you. Trading Office keeps the process moving within the strategy and risk limits you set, and brings you in when it needs a decision.
 
-## How it works
+## How much of the trading loop runs without you?
 
-Trading Office follows one continuous learning loop from an observation to a reviewed paper strategy:
+Each row shows how much of the loop is covered and who moves the work forward.
 
-<div class="doc-lifecycle" aria-label="Trading Office lifecycle">
-  <div class="doc-lifecycle-stage">
-    <span>Discover</span>
-    <strong>Idea → research</strong>
+<div class="doc-coverage" role="figure" aria-label="Coverage and automation across the trading loop">
+  <div class="doc-coverage-phases" aria-hidden="true">
+    <span></span>
+    <span class="doc-coverage-phase doc-coverage-phase--discover">Discover</span>
+    <span class="doc-coverage-phase doc-coverage-phase--validate">Validate</span>
+    <span class="doc-coverage-phase doc-coverage-phase--operate">Operate and learn</span>
   </div>
-  <div class="doc-lifecycle-stage">
-    <span>Validate</span>
-    <strong>Test → judge → promote</strong>
+
+  <div class="doc-coverage-stages" role="row">
+    <span role="columnheader">Approach</span>
+    <span role="columnheader">Idea</span>
+    <span role="columnheader">Research</span>
+    <span role="columnheader">Test</span>
+    <span role="columnheader">Judge</span>
+    <span role="columnheader">Promote</span>
+    <span role="columnheader">Execute</span>
+    <span role="columnheader">Monitor</span>
+    <span role="columnheader">Review</span>
+    <span role="columnheader">Improve</span>
   </div>
-  <div class="doc-lifecycle-stage">
-    <span>Operate and learn</span>
-    <strong>Paper trade → monitor → review → improve</strong>
+
+  <div class="doc-coverage-return" aria-hidden="true">
+    <span>↖</span>
+    <em>repeat with what you learned</em>
+    <span>↵</span>
+  </div>
+
+  <div class="doc-coverage-table" role="table" aria-label="Trading loop coverage by approach">
+    <div class="doc-coverage-row" role="row">
+      <div class="doc-coverage-row-label" role="rowheader">
+        <strong>Stock tips</strong>
+        <span>One signal</span>
+      </div>
+      <span class="doc-coverage-cell doc-coverage-cell--signal" data-stage="Idea" role="cell" aria-label="Idea: signal">Signal</span>
+      <span class="doc-coverage-cell doc-coverage-cell--none" data-stage="Research" role="cell" aria-label="Research: not covered">—</span>
+      <span class="doc-coverage-cell doc-coverage-cell--none" data-stage="Test" role="cell" aria-label="Test: not covered">—</span>
+      <span class="doc-coverage-cell doc-coverage-cell--none" data-stage="Judge" role="cell" aria-label="Judge: not covered">—</span>
+      <span class="doc-coverage-cell doc-coverage-cell--none" data-stage="Promote" role="cell" aria-label="Promote: not covered">—</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Execute" role="cell" aria-label="Execute: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Monitor" role="cell" aria-label="Monitor: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Review" role="cell" aria-label="Review: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Improve" role="cell" aria-label="Improve: user">You</span>
+    </div>
+
+    <div class="doc-coverage-row" role="row">
+      <div class="doc-coverage-row-label" role="rowheader">
+        <strong>Generic AI</strong>
+        <span>Works when asked</span>
+      </div>
+      <span class="doc-coverage-cell doc-coverage-cell--ask" data-stage="Idea" role="cell" aria-label="Idea: on request">Ask</span>
+      <span class="doc-coverage-cell doc-coverage-cell--ask" data-stage="Research" role="cell" aria-label="Research: on request">Ask</span>
+      <span class="doc-coverage-cell doc-coverage-cell--ask" data-stage="Test" role="cell" aria-label="Test: on request">Ask</span>
+      <span class="doc-coverage-cell doc-coverage-cell--ask" data-stage="Judge" role="cell" aria-label="Judge: on request">Ask</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Promote" role="cell" aria-label="Promote: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Execute" role="cell" aria-label="Execute: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Monitor" role="cell" aria-label="Monitor: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--ask" data-stage="Review" role="cell" aria-label="Review: on request">Ask</span>
+      <span class="doc-coverage-cell doc-coverage-cell--ask" data-stage="Improve" role="cell" aria-label="Improve: on request">Ask</span>
+    </div>
+
+    <div class="doc-coverage-row" role="row">
+      <div class="doc-coverage-row-label" role="rowheader">
+        <strong>Manual workflow</strong>
+        <span>You move every step</span>
+      </div>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Idea" role="cell" aria-label="Idea: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Research" role="cell" aria-label="Research: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Test" role="cell" aria-label="Test: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Judge" role="cell" aria-label="Judge: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Promote" role="cell" aria-label="Promote: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Execute" role="cell" aria-label="Execute: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Monitor" role="cell" aria-label="Monitor: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Review" role="cell" aria-label="Review: user">You</span>
+      <span class="doc-coverage-cell doc-coverage-cell--user" data-stage="Improve" role="cell" aria-label="Improve: user">You</span>
+    </div>
+
+    <div class="doc-coverage-row doc-coverage-row--office" role="row">
+      <div class="doc-coverage-row-label" role="rowheader">
+        <strong>Trading Office</strong>
+        <span>Works within your rules</span>
+      </div>
+      <span class="doc-coverage-cell doc-coverage-cell--auto" data-stage="Idea" role="cell" aria-label="Idea: automatic">Auto</span>
+      <span class="doc-coverage-cell doc-coverage-cell--auto" data-stage="Research" role="cell" aria-label="Research: automatic">Auto</span>
+      <span class="doc-coverage-cell doc-coverage-cell--auto" data-stage="Test" role="cell" aria-label="Test: automatic">Auto</span>
+      <span class="doc-coverage-cell doc-coverage-cell--auto" data-stage="Judge" role="cell" aria-label="Judge: automatic">Auto</span>
+      <span class="doc-coverage-cell doc-coverage-cell--auto" data-stage="Promote" role="cell" aria-label="Promote: automatic">Auto</span>
+      <span class="doc-coverage-cell doc-coverage-cell--auto" data-stage="Execute" role="cell" aria-label="Execute: automatic">Auto</span>
+      <span class="doc-coverage-cell doc-coverage-cell--auto" data-stage="Monitor" role="cell" aria-label="Monitor: automatic">Auto</span>
+      <span class="doc-coverage-cell doc-coverage-cell--auto" data-stage="Review" role="cell" aria-label="Review: automatic">Auto</span>
+      <span class="doc-coverage-cell doc-coverage-cell--auto" data-stage="Improve" role="cell" aria-label="Improve: automatic">Auto</span>
+    </div>
+  </div>
+
+  <div class="doc-coverage-legend" aria-label="Diagram legend">
+    <span><i class="doc-coverage-key doc-coverage-key--auto"></i>Automatic</span>
+    <span><i class="doc-coverage-key doc-coverage-key--ask"></i>On request</span>
+    <span><i class="doc-coverage-key doc-coverage-key--user"></i>User</span>
+    <span><i class="doc-coverage-key doc-coverage-key--none"></i>Not covered</span>
+  </div>
+
+  <div class="doc-coverage-controls">
+    <strong>Your role</strong>
+    <span>Set the strategy and risk limits</span>
+    <span>Approve when required</span>
+    <span>Handle exceptions</span>
+    <span>Change the rules</span>
   </div>
 </div>
 
@@ -89,5 +183,5 @@ Trading Office is designed first for the self-directed trader who wants a discip
 <p class="doc-interface-note"><strong>Current interface names.</strong> The preview calls this workspace <strong>Hedge Fund</strong> and calls a trading book a <strong>fund book</strong>. Commands such as <code>/hedgefund:books</code> remain exactly as they appear in the product.</p>
 
 ::: danger Not financial advice
-Trading Office is an analytical and paper-trading environment. Verify AI output, market data, risk, and strategy assumptions independently before making decisions with real capital.
+Trading Office does not guarantee results. Set and review risk limits, verify strategy assumptions and market data, and use appropriate oversight before putting real capital at risk.
 :::

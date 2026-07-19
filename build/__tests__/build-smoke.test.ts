@@ -284,7 +284,14 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(tradingOffice).toContain('A personal Trading Office does not require a full institutional team.');
     expect(tradingOffice).toContain('Investor / CIO');
     expect(tradingOffice).toContain('doc-card-grid');
-    expect(tradingOffice).toContain('doc-lifecycle');
+    expect(tradingOffice).toContain('doc-coverage');
+    expect(tradingOffice).toContain('How much of the trading loop runs without you?');
+    expect(tradingOffice).toContain('Stock tips');
+    expect(tradingOffice).toContain('Generic AI');
+    expect(tradingOffice).toContain('Manual workflow');
+    expect(tradingOffice).toContain('Works within your rules');
+    expect(tradingOffice).toContain('Set the strategy and risk limits');
+    expect(tradingOffice).not.toContain('doc-lifecycle');
     expect(tradingOffice).toContain('doc-interface-note');
     expect(tradingOffice).toContain('Trading Office Guide');
     expect(tradingOffice).toContain('Overview');
