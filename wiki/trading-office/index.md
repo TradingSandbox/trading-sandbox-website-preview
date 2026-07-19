@@ -6,9 +6,11 @@ aside: false
 pageClass: trading-office-overview
 ---
 
+<div class="doc-product-context"><span>tradecli</span> workspace</div>
+
 # Trading Office
 
-**One loop, from idea to improvement.** Trading Office keeps it moving within the mandate and risk limits you set.
+**Trading Office is tradecli’s workspace for the full trading loop—from idea to improvement.** You set the mandate and risk limits; its AI team keeps the work moving.
 
 <TradingLoopCoverage />
 

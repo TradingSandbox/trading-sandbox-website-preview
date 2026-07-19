@@ -454,6 +454,21 @@ html:not(.dark) {
   border-top: 0;
 }
 
+.doc-product-context {
+  margin: 0 0 0.65rem;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+.doc-product-context span {
+  color: var(--green);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+
 .doc-loop {
   --doc-loop-label-width: 8rem;
   margin: 1.75rem 0 2.5rem;

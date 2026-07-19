@@ -116,7 +116,7 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Trading Office Guide',
+        text: 'Trading Office',
         items: [
           { text: 'Overview', link: '/trading-office/' },
           {

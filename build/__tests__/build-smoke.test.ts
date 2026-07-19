@@ -285,7 +285,7 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(tradingOffice).toContain('Investor / CIO');
     expect(tradingOffice).toContain('doc-card-grid');
     expect(tradingOffice).toContain('doc-loop');
-    expect(tradingOffice).toContain('One loop, from idea to improvement.');
+    expect(tradingOffice).toContain('Trading Office is tradecli’s workspace for the full trading loop');
     expect(tradingOffice).toContain('Stock tips / chat advice');
     expect(tradingOffice).toContain('Generic AI');
     expect(tradingOffice).toContain('Manual workflow');
@@ -295,7 +295,7 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(tradingOffice).not.toContain('&lt;div class=&quot;doc-loop');
     expect(tradingOffice).not.toContain('<pre><code>&lt;div');
     expect(tradingOffice).toContain('doc-interface-note');
-    expect(tradingOffice).toContain('Trading Office Guide');
+    expect(tradingOffice).toContain('>Trading Office</h2>');
     expect(tradingOffice).toContain('Overview');
     expect(tradingOffice).toContain('Get Started');
     expect(tradingOffice).toContain('Strategy Lifecycle');
