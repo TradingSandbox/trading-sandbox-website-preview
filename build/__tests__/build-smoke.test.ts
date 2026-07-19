@@ -286,6 +286,12 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(tradingOffice).toContain('doc-card-grid');
     expect(tradingOffice).toContain('doc-lifecycle');
     expect(tradingOffice).toContain('doc-interface-note');
+    expect(tradingOffice).toContain('Trading Office Guide');
+    expect(tradingOffice).toContain('01  Overview');
+    expect(tradingOffice).toContain('09  Run Your Trading Office');
+    expect(tradingOffice).toContain('Appendix');
+    expect(tradingOffice).not.toContain('Start Using It');
+    expect(tradingOffice).not.toContain('Automate and Operate');
     expect(tradingOffice).toContain('Set up your Trading Office →');
     expect(tradingOffice).toContain('Run your first strategy →');
     expect(tradingOffice).toContain('href="./setup"');

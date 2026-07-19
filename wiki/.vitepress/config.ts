@@ -116,58 +116,62 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Trading Office',
+        text: 'Trading Office Guide',
         items: [
-          { text: 'Overview', link: '/trading-office/' },
-        ],
-      },
-      {
-        text: 'Start Using It',
-        items: [
-          { text: 'Set Up Your Office', link: '/trading-office/setup' },
-          { text: 'Your First Strategy', link: '/trading-office/quickstart' },
+          { text: '01  Overview', link: '/trading-office/' },
+          { text: '02  Set Up Your Trading Office', link: '/trading-office/setup' },
+          { text: '03  Run Your First Strategy', link: '/trading-office/quickstart' },
         ],
       },
       {
         text: 'Strategy Lifecycle',
         items: [
-          { text: 'Research and Ideas', link: '/trading-office/ideas' },
-          { text: 'Test in Strategy Lab', link: '/trading-office/strategy-lab' },
-          { text: 'Paper Trade and Monitor', link: '/trading-office/paper-operations' },
-          { text: 'Review and Improve', link: '/trading-office/review' },
+          { text: '04  Research and Shape Ideas', link: '/trading-office/ideas' },
+          { text: '05  Test in Strategy Lab', link: '/trading-office/strategy-lab' },
+          { text: '06  Paper Trade and Monitor', link: '/trading-office/paper-operations' },
+          { text: '07  Review and Improve', link: '/trading-office/review' },
         ],
       },
       {
-        text: 'Automate and Operate',
+        text: 'Operate Your Office',
         items: [
-          { text: 'Automation Tools', link: '/trading-office/watches' },
-          { text: 'Run Your Trading Office', link: '/trading-office/operations' },
+          { text: '08  Automation Tools', link: '/trading-office/watches' },
+          { text: '09  Run Your Trading Office', link: '/trading-office/operations' },
         ],
       },
       {
         text: 'Reference',
+        collapsed: true,
         items: [
           { text: 'Concepts and Terminology', link: '/trading-office/concepts' },
           { text: 'Commands and Shortcuts', link: '/trading-office/commands' },
         ],
       },
       {
-        text: 'Install and Configure',
+        text: 'Appendix',
+        collapsed: true,
         items: [
-          { text: 'Quick Start', link: '/getting-started/quick-start' },
-          { text: 'LLM Setup', link: '/getting-started/llm-setup' },
-          { text: 'Broker Setup', link: '/getting-started/broker-setup' },
-          { text: 'Browser Setup', link: '/getting-started/browser-setup' },
-        ],
-      },
-      {
-        text: 'Other Guides',
-        items: [
-          { text: 'Personas & Modes', link: '/guides/personas' },
-          { text: 'Learner Mode', link: '/guides/learner' },
-          { text: 'Investor', link: '/guides/investor' },
-          { text: 'Trader', link: '/guides/trader' },
-          { text: 'Channels & API', link: '/guides/channels-api' },
+          {
+            text: 'Install and Configure',
+            collapsed: true,
+            items: [
+              { text: 'Quick Start', link: '/getting-started/quick-start' },
+              { text: 'LLM Setup', link: '/getting-started/llm-setup' },
+              { text: 'Broker Setup', link: '/getting-started/broker-setup' },
+              { text: 'Browser Setup', link: '/getting-started/browser-setup' },
+            ],
+          },
+          {
+            text: 'Other Guides',
+            collapsed: true,
+            items: [
+              { text: 'Personas & Modes', link: '/guides/personas' },
+              { text: 'Learner Mode', link: '/guides/learner' },
+              { text: 'Investor', link: '/guides/investor' },
+              { text: 'Trader', link: '/guides/trader' },
+              { text: 'Channels & API', link: '/guides/channels-api' },
+            ],
+          },
         ],
       },
     ],

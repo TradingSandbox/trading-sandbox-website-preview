@@ -239,6 +239,7 @@ html:not(.dark) {
 /* Sidebar — tighten up typography, use JetBrains Mono for section titles */
 .VPSidebarItem .text {
   font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .VPSidebarItem.level-0 > .item > .text {
@@ -251,8 +252,23 @@ html:not(.dark) {
 }
 
 .VPSidebar .group + .group {
-  margin-top: 1rem;
-  padding-top: 1rem;
+  margin-top: 0.7rem !important;
+  padding-top: 0.7rem !important;
+  border-top: 0 !important;
+}
+
+.VPSidebar .group {
+  padding-left: 0.75rem;
+  border-left: 1px solid rgba(120, 163, 255, 0.16);
+}
+
+.VPSidebarItem.level-0 > .item {
+  padding-bottom: 0.2rem;
+}
+
+.VPSidebarItem.level-1 > .item {
+  padding-top: 0.05rem;
+  padding-bottom: 0.05rem;
 }
 
 .VPSidebarItem.level-1.is-active > .item {
