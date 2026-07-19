@@ -10,9 +10,9 @@ Trading Office takes a strategy through the full trading loop: idea, research, t
 
 Most tools cover only part of that work. Stock tips give you a trade. Generic research tools help when you ask. A manual workflow leaves every step to you. Trading Office keeps the process moving within the strategy and risk limits you set, and brings you in when it needs a decision.
 
-## How much of the trading loop runs without you?
+## One loop. Trading Office keeps it moving.
 
-Each row shows how much of the loop is covered and who moves the work forward.
+You set the mandate and risk limits. Trading Office carries the work from one step to the next and brings you in only at the gates you configure or when something falls outside the rules.
 
 <TradingLoopCoverage />
 
