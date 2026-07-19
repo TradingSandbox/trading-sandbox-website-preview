@@ -285,7 +285,7 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(tradingOffice).toContain('Investor / CIO');
     expect(tradingOffice).toContain('doc-card-grid');
     expect(tradingOffice).toContain('doc-loop');
-    expect(tradingOffice).toContain('One loop. Trading Office keeps it moving.');
+    expect(tradingOffice).toContain('One loop, from idea to improvement.');
     expect(tradingOffice).toContain('Stock tips / chat advice');
     expect(tradingOffice).toContain('Generic AI');
     expect(tradingOffice).toContain('Manual workflow');

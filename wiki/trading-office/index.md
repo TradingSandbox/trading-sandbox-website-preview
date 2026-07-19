@@ -2,17 +2,13 @@
 title: Trading Office
 description: Run the full trading loop—from idea and research to execution, monitoring, and improvement—with an AI-native trading workspace.
 outline: 2
+aside: false
+pageClass: trading-office-overview
 ---
 
 # Trading Office
 
-Trading Office takes a strategy through the full trading loop: idea, research, testing, execution, monitoring, review, and improvement.
-
-Most tools cover only part of that work. Stock tips give you a trade. Generic research tools help when you ask. A manual workflow leaves every step to you. Trading Office keeps the process moving within the strategy and risk limits you set, and brings you in when it needs a decision.
-
-## One loop. Trading Office keeps it moving.
-
-You set the mandate and risk limits. Trading Office carries the work from one step to the next and brings you in only at the gates you configure or when something falls outside the rules.
+**One loop, from idea to improvement.** Trading Office keeps it moving within the mandate and risk limits you set.
 
 <TradingLoopCoverage />
 
@@ -33,30 +29,40 @@ You set the mandate and risk limits. Trading Office carries the work from one st
 
 ## What you can do
 
-<div class="doc-card-grid">
-  <article class="doc-card">
-    <span class="doc-card-kicker">Ideas · AI team · watches</span>
-    <h3>Research</h3>
+<div class="doc-capability-list">
+  <article class="doc-capability">
+    <div class="doc-capability-heading">
+      <h3>Research</h3>
+      <span>Ideas · AI team · watches</span>
+    </div>
     <p>Capture observations, shape hypotheses, preserve evidence, and delegate investigation.</p>
   </article>
-  <article class="doc-card">
-    <span class="doc-card-kicker">Strategy Lab · backtest jobs</span>
-    <h3>Test</h3>
+  <article class="doc-capability">
+    <div class="doc-capability-heading">
+      <h3>Test</h3>
+      <span>Strategy Lab · backtest jobs</span>
+    </div>
     <p>Build reproducible experiments, approve plans, compare results, and promote promising strategies.</p>
   </article>
-  <article class="doc-card">
-    <span class="doc-card-kicker">Scanner · terminal · monitor</span>
-    <h3>Operate</h3>
+  <article class="doc-capability">
+    <div class="doc-capability-heading">
+      <h3>Operate</h3>
+      <span>Scanner · terminal · monitor</span>
+    </div>
     <p>Find candidates, size risk, record paper trades, monitor positions, and manage exits.</p>
   </article>
-  <article class="doc-card">
-    <span class="doc-card-kicker">Journal · forward check · review</span>
-    <h3>Learn</h3>
+  <article class="doc-capability">
+    <div class="doc-capability-heading">
+      <h3>Learn</h3>
+      <span>Journal · forward check · review</span>
+    </div>
     <p>Compare expectations with paper results and create improved child strategies without rewriting history.</p>
   </article>
-  <article class="doc-card">
-    <span class="doc-card-kicker">Control Center · workflows</span>
-    <h3>Coordinate</h3>
+  <article class="doc-capability">
+    <div class="doc-capability-heading">
+      <h3>Coordinate</h3>
+      <span>Control Center · workflows</span>
+    </div>
     <p>Organize books, employees, mandates, workflows, and recurring responsibilities.</p>
   </article>
 </div>
@@ -75,6 +81,4 @@ Trading Office is designed first for the self-directed trader who wants a discip
 
 <p class="doc-interface-note"><strong>Current interface names.</strong> The preview calls this workspace <strong>Hedge Fund</strong> and calls a trading book a <strong>fund book</strong>. Commands such as <code>/hedgefund:books</code> remain exactly as they appear in the product.</p>
 
-::: danger Not financial advice
-Trading Office does not guarantee results. Set and review risk limits, verify strategy assumptions and market data, and use appropriate oversight before putting real capital at risk.
-:::
+<p class="doc-legal-note"><strong>Not financial advice.</strong> Trading Office does not guarantee results. Set and review risk limits, verify strategy assumptions and market data, and use appropriate oversight before putting real capital at risk.</p>
