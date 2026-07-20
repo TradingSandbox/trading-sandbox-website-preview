@@ -129,6 +129,7 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(wikiSitemap).toContain('https://tradecli.in/wiki/trading-office/watches');
     expect(wikiSitemap).toContain('https://tradecli.in/wiki/trading-office/concepts');
     expect(wikiSitemap).toContain('https://tradecli.in/wiki/trading-office/commands');
+    expect(wikiSitemap).toContain('https://tradecli.in/wiki/getting-started/tradingview-setup');
     expect(wikiSitemap).not.toContain('/wiki/hedge-fund/');
     expect(wikiSitemap).not.toContain('/wiki/trading-office/reference');
   });
@@ -268,6 +269,7 @@ describe('smoke: sitemap.xml — prod build', () => {
     const setup = readFileSync(join(REPO_ROOT, 'dist/wiki/trading-office/setup.html'), 'utf-8');
     const ideas = readFileSync(join(REPO_ROOT, 'dist/wiki/trading-office/ideas.html'), 'utf-8');
     const quickstart = readFileSync(join(REPO_ROOT, 'dist/wiki/trading-office/quickstart.html'), 'utf-8');
+    const tradingViewSetup = readFileSync(join(REPO_ROOT, 'dist/wiki/getting-started/tradingview-setup.html'), 'utf-8');
 
     expect(about).toContain('trader-controlled harness');
     expect(about).toContain('guardrails');
@@ -289,8 +291,8 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(tradingOffice).toContain('Stock tips / chat advice');
     expect(tradingOffice).toContain('Generic AI');
     expect(tradingOffice).toContain('Manual workflow');
-    expect(tradingOffice).toContain('Carries context and moves the loop');
-    expect(tradingOffice).toContain('the mandate and risk limits');
+    expect(tradingOffice).toContain('Carries context through the loop');
+    expect(tradingOffice).toContain('set mandates and risk limits');
     expect(tradingOffice).not.toContain('doc-lifecycle');
     expect(tradingOffice).not.toContain('&lt;div class=&quot;doc-loop');
     expect(tradingOffice).not.toContain('<pre><code>&lt;div');
@@ -301,6 +303,7 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(tradingOffice).toContain('Strategy Lifecycle');
     expect(tradingOffice).toContain('Operate Your Office');
     expect(tradingOffice).toContain('Run Your Trading Office');
+    expect(tradingOffice).toContain('Connect TradingView');
     expect(tradingOffice).toContain('Appendix');
     expect(tradingOffice).not.toContain('01  Overview');
     expect(tradingOffice).not.toContain('09  Run Your Trading Office');
@@ -320,6 +323,10 @@ describe('smoke: sitemap.xml — prod build', () => {
     expect(ideas).toContain('The Idea Backlog is the starting point for every Trading Office strategy.');
     expect(ideas).not.toContain('Ideas is the durable front door');
     expect(quickstart).toContain('doc-code-label');
+    expect(quickstart).toContain('It does not start an automatic strategy-version execution runtime.');
+    expect(tradingViewSetup).toContain('TradingView Desktop');
+    expect(tradingViewSetup).toContain('does not install the TradingView Desktop application');
+    expect(tradingViewSetup).toContain('without closing an existing instance');
   });
 
   test('homepage contains every shared-nav hash target', () => {

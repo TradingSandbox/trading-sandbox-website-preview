@@ -4,7 +4,7 @@ const stages = ['Idea', 'Research', 'Test', 'Decide', 'Execute', 'Monitor', 'Rev
 const comparisons = [
   {
     name: 'Trading Office',
-    note: 'Carries context and moves the loop',
+    note: 'Carries context through the loop',
     mode: 'office',
     segments: ['office', 'office', 'office', 'office', 'office', 'office', 'office'],
   },
@@ -39,13 +39,13 @@ const comparisons = [
         <div class="doc-loop-governance">
           <span><b>Set</b> the mandate and risk limits</span>
           <i aria-hidden="true">→</i>
-          <span><b>Step in</b> only at configured gates or exceptions</span>
+          <span><b>Approve</b> required gates and handle exceptions</span>
         </div>
       </div>
 
       <div class="doc-loop-lane doc-loop-lane--office">
         <div class="doc-loop-lane-label">
-          <strong>Trading Office runs</strong>
+          <strong>Trading Office carries the work</strong>
         </div>
         <div class="doc-loop-stage-wrap">
           <ol class="doc-loop-stages" aria-label="The continuous trading loop">

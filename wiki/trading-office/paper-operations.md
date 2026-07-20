@@ -6,7 +6,7 @@ outline: 2
 
 # Paper trade and monitor
 
-Paper operation turns a researched setup into a simulated transaction in the active trading book. It joins candidate selection, deterministic risk math, a reviewable ticket, market-derived marks, planned exits, and the Office ledger.
+Paper trading turns a researched setup into a simulated transaction in the active trading book. It joins candidate selection, deterministic risk math, a reviewable ticket, market-derived marks, planned exits, and the Office ledger.
 
 An Office paper transaction belongs to the Trading Office ledger. It records the strategy, risk, position, and exit plan without placing a live broker order.
 
@@ -70,7 +70,7 @@ Treat a warning as a reason to inspect the mandate and book state, not as permis
 
 ## Book the paper entry
 
-Confirming the ticket records the simulated entry and its exit plan in AI Trading Office. The entry can carry targets, stop, scale-out quantities, and a time exit so later monitoring does not need to reconstruct the plan from chat.
+Confirming the ticket records the simulated entry and its exit plan in the local Trading Office record. The entry can carry targets, stop, scale-out quantities, and a time exit so later monitoring does not need to reconstruct the plan from chat.
 
 When no explicit paper fill is supplied, the trade path obtains a current TradingView-derived price. If required market data is unavailable, the safe result is an error rather than an invented fill.
 
@@ -105,6 +105,13 @@ The position monitor is a background service for recorded exit conditions. It ca
 - applicable intraday cutoffs.
 
 It works from the stored plan and market data, not from a watch prompt. A watch can notice and report a condition; the position monitor applies the exit rules recorded on the paper position. You can inspect, partially exit, or fully exit the position yourself through Market Terminal at any time.
+
+## If a price or risk check fails
+
+- A missing current price stops the entry instead of inventing a paper fill. Check the [TradingView connection](/getting-started/tradingview-setup), then reopen the ticket.
+- A mandate denial stops the entry. Review the stored mandate in Control Center; do not work around the denied control in conversation.
+- A quote error does not remove the position from Market Terminal. Refresh the marks after the connected market source is available again.
+- Confirm the ledger and remaining quantity after every partial or full exit.
 
 ## Related pages
 

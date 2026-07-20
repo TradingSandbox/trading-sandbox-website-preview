@@ -51,4 +51,5 @@ Use `/pause` when you want to stop the guided flow and ask a side question. Lear
 
 - **Picking the right persona after you graduate** → [Personas & Modes](/guides/personas)
 - **Broker setup** → [Broker Setup](../getting-started/broker-setup) — required for broker-aware examples
-- **Browser setup** → [Browser Setup](../getting-started/browser-setup) — useful for TradingView and broker practice
+- **TradingView setup** → [Connect TradingView](../getting-started/tradingview-setup) — for TradingView practice
+- **Browser setup** → [Browser Setup](../getting-started/browser-setup) — for broker-browser practice

@@ -125,6 +125,7 @@ Once you have a working install:
 
 - **Broker workflows** -> [Broker Setup](./broker-setup) - Groww/Kite first-use behavior and local repair path
 - **Browser workflows** -> [Browser Setup](./browser-setup) - Chrome profile and platform automation
+- **TradingView workflows** -> [Connect TradingView](./tradingview-setup) - Desktop connection for charts, Pine, and Strategy Lab
 - **LLM auth** -> [LLM Setup](./llm-setup) - API keys and subscription login paths
 - **Personas** -> [Personas guide](../guides/personas)
 - **Channels and API** -> [Beyond the TUI](../guides/channels-api)

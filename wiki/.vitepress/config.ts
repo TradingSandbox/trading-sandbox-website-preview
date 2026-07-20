@@ -124,6 +124,7 @@ export default defineConfig({
             collapsed: false,
             items: [
               { text: 'Set Up Your Trading Office', link: '/trading-office/setup' },
+              { text: 'Connect TradingView', link: '/getting-started/tradingview-setup' },
               { text: 'Run Your First Strategy', link: '/trading-office/quickstart' },
             ],
           },

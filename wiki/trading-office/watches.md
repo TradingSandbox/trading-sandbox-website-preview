@@ -1,6 +1,6 @@
 ---
 title: Automation tools
-description: Choose and manage watches, employee workflows, backtest jobs, workflow heartbeat, and paper-position monitoring.
+description: Choose and manage watches, employee workflows, backtest jobs, and paper-position monitoring.
 outline: 2
 ---
 
@@ -15,7 +15,6 @@ Trading Office can continue observing, researching, testing, and managing paper 
 | Re-check a chart, thesis, news condition, or exposure and report what changed | **Watch** |
 | Give an employee a recurring responsibility with scope and risk limits | **Office workflow** |
 | Run an approved experiment in durable, resumable chunks | **Backtest job** |
-| Pick up due Office work and unfinished experiment chunks | **Workflow heartbeat** |
 | Apply recorded stops, targets, and time exits to a paper position | **Position monitor** |
 
 A conventional market watchlist only groups symbols for browsing. A Trading Office watch schedules an AI employee to gather fresh context, interpret it, and report meaningful changes.
@@ -124,11 +123,11 @@ Create, inspect, pause, and restart workflows from the Control Center:
 
 Guided operation keeps scheduled employee ticks paused. Autonomous · Paper trading allows due workflows to run within their mandates and report their results.
 
-## Backtest jobs and workflow heartbeat
+## Backtest jobs
 
 A backtest job executes the experiment approved in Strategy Lab. It stores each completed chunk, so a long test can resume without losing finished work.
 
-The workflow heartbeat is the background transport that discovers due Office work and unfinished experiment chunks. You do not create it as a watch. Inspect experiments through **Backtest Lab → Jobs** and employee workflows through the Control Center.
+Inspect experiments through **Backtest Lab → Jobs**. The workflow heartbeat is the internal background mechanism that discovers unfinished experiment chunks and due Office work; it is not a user-created automation type.
 
 ## Position monitor
 
@@ -139,6 +138,14 @@ Use Market Terminal to inspect the position or make a manual partial or full exi
 ```text
 /terminal
 ```
+
+## When automation needs attention
+
+- **Watch reaches its run cap** — it pauses after its configured number of runs. Create a new watch only when further checks are required.
+- **Watch shows ERROR** — inspect its last status in Cron Monitor before deleting or replacing it.
+- **Employee workflow fails or waits** — inspect recent activity in Control Center. Pause the workflow when its data, mandate, or scope needs correction.
+- **Backtest stops advancing** — inspect the saved job in Backtest Lab. Do not create a duplicate while the original job still exists.
+- **Position mark is unavailable** — keep the recorded position and restore its connected price source; the system should not invent a mark.
 
 ## Related pages
 

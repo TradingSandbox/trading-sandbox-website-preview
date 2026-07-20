@@ -10,7 +10,7 @@ pageClass: trading-office-overview
 
 # Trading Office
 
-**Trading Office is tradecli’s workspace for the full trading loop—from idea to improvement.** You set the mandate and risk limits; its AI team keeps the work moving.
+**Trading Office is tradecli’s workspace for the full trading loop—from idea to improvement.** You direct the work, set mandates and risk limits, and use its AI team across the loop.
 
 <TradingLoopCoverage />
 
@@ -25,7 +25,7 @@ pageClass: trading-office-overview
   <article class="doc-card doc-start-card doc-card--green">
     <span class="doc-card-kicker">Then</span>
     <h3><a href="./quickstart">Run your first strategy →</a></h3>
-    <p>Take one observation through research, testing, paper operation, monitoring, and review.</p>
+    <p>Take one observation through research, testing, paper trading, monitoring, and review.</p>
   </article>
 </div>
 
@@ -75,7 +75,7 @@ Follow the full [strategy lifecycle](/trading-office/ideas), compare the availab
 
 Your office can include an **Investor / CIO**, **Portfolio Manager**, **Trader**, **Risk Manager**, and **Operations** employee. Each has its own responsibility, tools, mandate, and work history while sharing the same book, research, strategy, and decision context.
 
-Start with the employees you need. A personal Trading Office does not require a full institutional team. [Build your AI team →](/trading-office/setup#_2-build-your-ai-team)
+Start with the employees you need. A personal Trading Office does not require a full institutional team. [Build your AI team →](/trading-office/setup#_3-build-your-ai-team)
 
 ## Who it is for
 

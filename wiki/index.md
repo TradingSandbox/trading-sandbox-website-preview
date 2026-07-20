@@ -11,7 +11,8 @@ Practical documentation for `tradecli`, the local-first AI workspace for turning
 
 1. [Understand Trading Office](/trading-office/) — learn the product model and the idea-to-review loop.
 2. [Set up your office](/trading-office/setup) — create a trading book, choose your team, and set operating controls.
-3. [Run your first strategy](/trading-office/quickstart) — take one idea through testing, paper operation, monitoring, and review.
+3. [Connect TradingView](/getting-started/tradingview-setup) — prepare the Desktop connection used by Strategy Lab.
+4. [Run your first strategy](/trading-office/quickstart) — take one idea through testing, paper trading, monitoring, and review.
 
 ## Follow the strategy lifecycle
 
@@ -26,7 +27,7 @@ Practical documentation for `tradecli`, the local-first AI workspace for turning
 
 | Guide | Use it to |
 | --- | --- |
-| [Automation tools](/trading-office/watches) | Choose between watches, employee workflows, backtest jobs, workflow heartbeat, and position monitoring |
+| [Automation tools](/trading-office/watches) | Choose between watches, employee workflows, backtest jobs, and position monitoring |
 | [Run your trading office](/trading-office/operations) | Coordinate books, employees, mandates, recurring work, and fund-team administration |
 
 ## Look something up
@@ -40,6 +41,7 @@ Practical documentation for `tradecli`, the local-first AI workspace for turning
 - [LLM Setup](/getting-started/llm-setup) — configure a model provider or subscription login
 - [Broker Setup](/getting-started/broker-setup) — configure supported broker context
 - [Browser Setup](/getting-started/browser-setup) — prepare the browser profile used by web workflows
+- [Connect TradingView](/getting-started/tradingview-setup) — prepare TradingView Desktop for chart and Strategy Lab workflows
 
 ## Existing focused guides
 

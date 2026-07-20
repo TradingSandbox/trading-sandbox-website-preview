@@ -40,7 +40,8 @@ Key properties:
 
 - **Deep dive on each** → [Learner Mode](/guides/learner) · [Investor](/guides/investor) · [Trader](/guides/trader) · [PMS and Portfolio Workflows](/guides/portfolio-manager)
 - **Connect your broker** → [Broker Setup](../getting-started/broker-setup) — so broker-aware workflows can reach your account
-- **Configure the browser** → [Browser Setup](../getting-started/browser-setup) — for TradingView, Screener.in, and broker-browser workflows
+- **Connect TradingView Desktop** → [Connect TradingView](../getting-started/tradingview-setup) — for chart, Pine, and Strategy Lab workflows
+- **Configure the browser** → [Browser Setup](../getting-started/browser-setup) — for Screener.in and broker-browser workflows
 
 ::: danger Not financial advice
 Persona outputs are educational and analytical. Nothing `tradecli` says constitutes a recommendation to buy, sell, or hold any security. Verify against primary sources before trading real capital.

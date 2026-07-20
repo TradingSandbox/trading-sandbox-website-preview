@@ -9,7 +9,7 @@ outline: 2
 Use this page when you know what you want to do and need the exact interface path.
 
 ::: info Current interface names
-The preview interface labels Trading Office as **Hedge Fund**, labels a trading book as a **fund book**, and retains the `/hedgefund:*` command namespace.
+The preview interface labels Trading Office as **Hedge Fund**, labels a trading book as a **fund book**, labels the office lead as the **CEO pane**, and retains the `/hedgefund:*` command namespace.
 :::
 
 ## Commands
@@ -18,12 +18,12 @@ Run these from the `tradecli` editor.
 
 | Command | What it opens or does |
 | --- | --- |
-| `/hedgefund:books` | Choose or add a trading book, then launch its active team; CEO pane only |
-| `/hedgefund:onboard` | Open launch-readiness cards; CEO pane only |
-| `/hedgefund:control` | Open the selected book's Control Center; CEO pane only |
+| `/hedgefund:books` | Choose or add a trading book, then launch its active team; office lead/CEO pane only |
+| `/hedgefund:onboard` | Open launch-readiness cards; office lead/CEO pane only |
+| `/hedgefund:control` | Open the selected book's Control Center; office lead/CEO pane only |
 | `/hedgefund:admin` | Configure the selected book, team, mandates, workflows, and LP records |
 | `/ideas` | Open the Idea Backlog |
-| `/backtest` | Open Backtest Lab: new experiment, jobs, approvals, strategies, and help |
+| `/backtest` | Open the current Backtest Lab menu for the Strategy Lab workflow: new experiment, jobs, approvals, strategies, and help |
 | `/strategies` | Open the Strategy Library for snapshots, journals, reviews, forward checks, restoration, and paper tickets |
 | `/terminal` | Open Market Terminal for the active Office paper scope |
 | `/trade` | Open the entry ticket for the current pending strategy plan |
@@ -87,4 +87,5 @@ Removing a watch deletes the job. Use **Stop watch** in conversation when you wa
 
 - [Concepts and terminology](/trading-office/concepts)
 - [Set up your office](/trading-office/setup)
+- [Connect TradingView](/getting-started/tradingview-setup)
 - [Automation tools](/trading-office/watches)

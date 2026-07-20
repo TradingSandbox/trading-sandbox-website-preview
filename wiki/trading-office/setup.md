@@ -6,9 +6,15 @@ outline: 2
 
 # Set up your Trading Office
 
-A ready office has a trading book, at least one active employee, and a clear decision about how much scheduled paper work the team may do. Start in Guided mode; enable Autonomous · Paper trading after the mandates and workflows match your intent.
+A ready office has a trading book, at least one active employee, and a clear decision about whether scheduled employee workflows may run. Start in Guided mode; choose Autonomous · Paper trading only after the mandates and workflows match your intent.
 
-## 1. Create or select a trading book
+## 1. Enter Trading Office
+
+Launch `tradecli` and choose **Hedge Fund**, the current interface name for Trading Office. The lead surface is currently labeled the **CEO pane**. It opens the book picker and coordinates setup, employees, and Office controls.
+
+Use `/persona` when you need to leave another workflow and choose Hedge Fund. Once the lead pane is open, continue with the book picker below.
+
+## 2. Create or select a trading book
 
 Open the book picker:
 
@@ -20,9 +26,9 @@ A trading book is the boundary for paper cash, positions, transactions, NAV, P&L
 
 You can create more than one book, but one is active in a Trading Office session. Check the book name and opening cash before starting work; research and paper actions should always land in the intended book.
 
-## 2. Build your AI team
+## 3. Build your AI team
 
-Before beginning research or paper operation, add at least one active AI employee to the selected trading book. Open the guided team setup:
+Before beginning research or paper trading, add at least one active AI employee to the selected trading book. Open the guided team setup:
 
 ```text
 /hedgefund:onboard
@@ -30,7 +36,7 @@ Before beginning research or paper operation, add at least one active AI employe
 
 The setup confirms that the trading book exists and has at least one active non-CEO employee.
 
-The recommended team provides clearer separation of responsibility:
+The available roles support separation of responsibility:
 
 | Role | Primary responsibility |
 | --- | --- |
@@ -40,22 +46,24 @@ The recommended team provides clearer separation of responsibility:
 | **Risk Manager** | Limits, challenge, escalation, and review |
 | **Operations** | Reconciliation, records, and operating checks |
 
-The recommended team is a starting configuration, not a requirement to use all five roles. Administration also supports custom employees and roles.
+A personal Trading Office does not need all five roles. The onboarding check requires one active non-CEO employee, so a solo trader can begin with one Trader employee and add research, risk, portfolio, or operations roles when those responsibilities are useful. Administration also supports custom employees and roles.
 
-## 3. Choose the session mode
+## 4. Choose the session mode
 
 When you enter a book, choose how this session should operate:
 
 - **Guided** — you initiate or delegate the work; scheduled employee workflows remain deferred.
-- **Autonomous · Paper trading** — due employee workflows may research, paper-trade, and report within their mandates.
+- **Autonomous · Paper trading** — scheduled employee workflows may research, trade, and report on paper without a fresh instruction, subject to their mandates.
 
 Both modes keep the paper trade pipeline available. Neither mode grants authority to place live broker orders.
+
+Autonomous · Paper trading applies to scheduled employee workflows. It does not turn approval of a Strategy Lab deployment into an automatic strategy-version execution runtime. The current Strategy Library paper-trade path still creates a reviewable ticket for confirmation.
 
 ::: tip Recommended first setup
 Use Guided mode for [Your First Strategy](/trading-office/quickstart). It makes every decision and approval point easy to see before you allow standing workflows to run.
 :::
 
-## 4. Review mandates before autonomy
+## 5. Review mandates before autonomy
 
 A mandate describes what an employee may do, not only what it has been asked to do. Depending on the role, it can constrain:
 
@@ -74,15 +82,15 @@ Open the Control Center and choose **Manage mandates**:
 
 Book or account controls can tighten a mandate. They should not be treated as permission to loosen an explicit denial.
 
-## 5. Review scheduled workflows
+## 6. Review scheduled workflows
 
 An employee workflow is a standing Office routine with an owner, cadence, symbols or scope, and persisted runs. In Autonomous · Paper trading, due workflows can run without a fresh prompt. In Guided mode, employee mandate ticks stay deferred.
 
 From the Control Center, choose **Manage workflows** to inspect cadence, symbols, run state, pause, and restart controls. Choose **Inspect activity** to see due, running, waiting, and failed runs.
 
-Employee workflows are one of several ways Trading Office continues work over time. [Automation Tools](/trading-office/watches) compares them with watches, backtest jobs, workflow heartbeat, and position monitoring.
+Employee workflows are one of several ways Trading Office continues work over time. [Automation Tools](/trading-office/watches) compares them with watches, backtest jobs, and position monitoring.
 
-## 6. Verify the office in Control Center
+## 7. Verify the office in Control Center
 
 ```text
 /hedgefund:control
@@ -115,6 +123,7 @@ If any answer is unclear, stay in Guided mode and tighten the setup first.
 
 ## Related pages
 
+- [Connect TradingView](/getting-started/tradingview-setup)
 - [Your first strategy](/trading-office/quickstart)
 - [Automation tools](/trading-office/watches)
 - [Run your trading office](/trading-office/operations)

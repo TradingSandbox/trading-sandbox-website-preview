@@ -6,7 +6,7 @@ outline: 2
 
 # Run your trading office
 
-Trading Office is organized around one selected trading book. The CEO coordinates people and standing work, while AI Trading Office keeps the durable record of the book, employees, mandates, workflow runs, research, and paper transactions.
+Trading Office is organized around one selected trading book. The office lead coordinates employees and standing work, while the local Trading Office record preserves the book, mandates, workflow runs, research, and paper transactions. The current interface labels the office lead surface the **CEO pane**.
 
 The everyday controls apply whether you are a solo trader, an emerging manager, or part of a fund team. Additional LP and capital-record features appear later on this page. For the strategy lifecycle, begin with [Your First Strategy](/trading-office/quickstart).
 
@@ -14,7 +14,7 @@ The everyday controls apply whether you are a solo trader, an emerging manager, 
 
 ### Start in the Control Center
 
-Open the selected book's Control Center from the CEO pane:
+Open the selected book's Control Center from the office lead—the current **CEO pane**:
 
 ```text
 /hedgefund:control
@@ -37,13 +37,13 @@ From here you can complete the recommended setup, manage the team, edit mandates
 
 Use [Cron Monitor](/trading-office/watches#inspect-watches-in-cron-monitor) for scheduled watches and [Market Terminal](/trading-office/paper-operations#monitor-in-market-terminal) for open paper positions.
 
-#### Use Autonomous Paper for standing work
+#### Use Autonomous · Paper trading for standing work
 
 In Autonomous · Paper trading, due employee workflows can research, report, and prepare or book mandate-constrained Office paper trades. Review the selected mode, mandates, workflow cadence, and escalation rules together before allowing standing work to continue.
 
-### Direct the office from the CEO pane
+### Direct the office from the lead pane
 
-The CEO pane is the coordination desk. Ask it in ordinary language to delegate a bounded task to an **Investor** or **Trader**, optionally naming the employee.
+The lead pane is the coordination desk. Ask it in ordinary language to delegate a bounded task to an **Investor** or **Trader**, optionally naming the employee.
 
 ```text
 Ask the Investor to challenge the assumptions behind the gap-fill idea and report the strongest falsification case.
@@ -96,9 +96,9 @@ You can also ask the active Trading Office employee to show book facts such as:
 
 For current marks and unrealized P&L, use `/terminal` or ask for the live market-terminal view. When a quote is unavailable, the position should remain visible with a quote error rather than an invented mark.
 
-### Use the read-only Office dashboard
+### Use the advanced read-only dashboard
 
-AI Trading Office also serves an advanced browser view at [http://127.0.0.1:8787/ui/](http://127.0.0.1:8787/ui/) when the local Office service is running.
+The local Trading Office service serves an advanced browser view at [http://127.0.0.1:8787/ui/](http://127.0.0.1:8787/ui/) when the service is running.
 
 Its current **Hedge Fund** area provides read-only views for:
 

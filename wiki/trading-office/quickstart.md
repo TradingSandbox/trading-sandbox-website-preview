@@ -1,31 +1,45 @@
 ---
-title: Your First Strategy
-description: Take one trading idea through research, testing, paper operation, monitoring, and review.
+title: Your first strategy
+description: Run one trading idea through research, Strategy Lab, paper trading, monitoring, and review.
 outline: 2
 ---
 
-# Your First Strategy
+# Your first strategy
 
-This tutorial takes one rough observation through the complete Trading Office loop: research it, test it, promote the result, operate it on paper, monitor it, and record what you learned.
+This walkthrough shows the complete Trading Office path using one example idea. The experiment can finish as promising, rejected, or inconclusive. That verdict is part of the tutorial: a strategy advances to paper trading only when the recorded evidence passes the machine gate.
 
 ## Before you begin
 
-- Open a Trading Office pane with a trading book selected. In the current preview, choose **Hedge Fund** and select the corresponding **fund book**. Ideas, experiments, approvals, and reviews are attributed to an employee and scoped to that book.
-- Keep TradingView connected. It is the simulation engine used by Strategy Lab.
-- Guided mode is enough for this tutorial. Once a run starts, deterministic backtest continuation can keep advancing it in either Guided or Autonomous Paper mode.
+Complete this checklist:
 
-## The loop at a glance
+- Run `tradecli setup` and `tradecli doctor`.
+- Choose **Hedge Fund**, the current interface name for Trading Office.
+- Select a trading book and open an employee pane.
+- Use **Guided** mode for this walkthrough.
+- [Connect TradingView](/getting-started/tradingview-setup) and keep TradingView Desktop open.
 
-| Stage | What becomes durable |
-|---|---|
-| Research | The original idea and its shaped hypothesis |
-| Test | The approved experiment plan, completed chunks, results, and verdict |
-| Promote | One frozen strategy version and its evidence links |
-| Operate | A version-tagged Office paper trade with recorded risk and exits |
-| Monitor | Position state, marks, planned exits, and later strategy behavior |
-| Review | Paper results and a Keep, Pause, Retire, or Improve decision |
+Ask the employee to confirm the chart connection:
 
-## 1. Capture the idea
+```text
+Check the TradingView connection. If it is not connected, launch TradingView
+without closing an existing instance. Then tell me which symbol and timeframe
+are open.
+```
+
+Guided mode keeps scheduled employee workflows deferred. Once an approved backtest starts, deterministic chunk continuation can still advance it in either Guided or Autonomous · Paper trading mode.
+
+## What this walkthrough creates
+
+| Stage | Record created |
+| --- | --- |
+| Research | Original idea and shaped hypothesis |
+| Test | Approved experiment plan, saved chunks, results, and machine verdict |
+| Promote | Frozen strategy version and proposed paper deployment, only after a promising verdict |
+| Paper trade | Version-tagged simulated transaction with recorded risk and exits |
+| Monitor | Position marks, planned exits, and later version behavior |
+| Review | Keep, Pause, Retire, or Improve decision |
+
+## 1. Capture an idea
 
 Run:
 
@@ -35,39 +49,38 @@ Run:
 /ideas
 ```
 
-Choose **Capture** and enter one observation. Keep it specific enough to discuss, but do not force parameters too early.
+Choose **Capture**. You can use this example or substitute your own observation:
 
-<p class="doc-code-label">Example idea</p>
-
-```text
-Large-cap gap-downs may fill more often during expiry weeks.
-```
-
-After capture, choose one of three verified paths:
-
-- **Shape with me** — sharpen it through a short conversation.
-- **Test it now** — send the sentence to Strategy Lab as-is.
-- **Keep in backlog** — save it without starting an experiment.
-
-See [Research and Ideas](./ideas) for a practical shaping template.
-
-## 2. Make it testable
-
-During shaping, tradecli focuses on the unresolved parts of the hypothesis: the exact entry trigger, universe and timeframe, exit rules, and what result would falsify the claim. The shaped record keeps the claim, entry, exit, sweep candidates, scope, and falsification rule together.
-
-When ready, choose **Send to Lab**. You can also start independently with:
-
-<p class="doc-code-label">Command</p>
+<p class="doc-code-label">Example</p>
 
 ```text
-/backtest
+On RELIANCE daily bars, a close above the previous 20-day high may continue
+higher over the next five sessions.
 ```
 
-Then choose **New experiment**.
+Save it and choose **Shape with me**.
+
+**Ready to continue when:** the idea appears in the active book's backlog and the shaping conversation has started.
+
+## 2. Shape the test
+
+Answer the focused shaping questions without adding unrelated rules. For the example above, keep the intended test explicit:
+
+```text
+Entry: daily close above the previous lookback high
+Exit: five bars after entry, with a 2% protective stop
+Sweep: lookback length of 10, 20, and 40 bars
+Scope: NSE:RELIANCE on the daily timeframe
+Falsified if: later validation is too thin or does not retain acceptable results after costs
+```
+
+The shaped idea stores the claim, entry, exit, sweep candidates, scope, and falsification rule together. Choose **Send to Lab** when those fields describe the question you intend to test.
+
+**Ready to continue when:** the Idea Backlog links the idea to a Strategy Lab experiment.
 
 ## 3. Build and approve the experiment
 
-Strategy Lab follows a fixed contract:
+The current `/backtest` menu is labeled **Backtest Lab**. It exposes the Strategy Lab contract:
 
 <p class="doc-code-label">Strategy Lab lifecycle</p>
 
@@ -75,36 +88,62 @@ Strategy Lab follows a fixed contract:
 BUILD → PLAN → RUN → JUDGE → PROMOTE
 ```
 
-During BUILD, tradecli either restores an existing Library strategy or authors a new Pine strategy, compiles it on TradingView, verifies its declared inputs, and fingerprints the compiled result. On first setup, TradingView may require one **Add to chart** click before verification can finish.
+During BUILD, tradecli restores a matching saved strategy or authors a Pine strategy, compiles it on TradingView, checks its declared inputs, and fingerprints the compiled result. The first build can require one manual **Add to chart** action in TradingView before verification finishes.
 
-PLAN then shows the exact experiment: hypothesis, fixed and swept parameters, symbols, timeframes, historical window, validation method, cost assumptions, cell and chunk counts, ranking rule, and warnings.
+PLAN then shows the stored experiment specification. For this example, confirm that it contains the intended:
 
-Approve the native plan dialog only when it matches the question you intend to test. The approved plan is immutable; changing any part requires a new plan and another approval.
+- hypothesis;
+- `NSE:RELIANCE` symbol and daily timeframe;
+- fixed exit and stop rules;
+- 10, 20, and 40-bar lookback sweep;
+- historical range and validation method;
+- commission and slippage assumptions;
+- ranking rule, minimum trade count, grid size, chunk count, and warnings.
 
-## 4. Let the run finish
+Approve only when the card matches the intended test. Approval starts that exact stored plan. Changing any field requires a new plan and another approval.
 
-The run is divided into bounded, persisted chunks. Completed chunks survive model timeouts and later sessions, and the workflow heartbeat can continue an unfinished job without another agent prompt.
+**Ready to continue when:** the plan is approved and RUN has a saved job identifier.
 
-Use **Backtest Lab → Jobs** to inspect it:
+## 4. Let the saved job finish
 
-- **Status** shows the persisted stage tracker without AI interpretation.
-- **Results** shows the leaderboard, validation, and verdict from stored job state.
-- **Interpret** asks AI to explain the recorded result.
-- **Cancel** stops the job while keeping already completed chunks in its research record.
+Strategy Lab divides the experiment into persisted chunks. Completed chunks survive later sessions and model timeouts.
 
-JUDGE produces exactly one machine-owned verdict: **promising**, **rejected**, or **inconclusive**. AI may explain that verdict, but cannot replace it.
+Open **Backtest Lab → Jobs**:
 
-## 5. Promote and approve
+- **Status** reads the saved stage and progress.
+- **Results** reads the specification, leaderboard, validation, and verdict.
+- **Interpret** asks AI to explain the stored result.
+- **Cancel** stops the job while keeping its completed chunks.
 
-Only a completed job with a **promising** verdict can be promoted. Promotion freezes the strategy implementation, parameters, exit rules, universe, fingerprint, and evidence into a version, then creates a proposed paper deployment with risk limits.
+If TradingView disconnects temporarily, keep the existing job. The workflow retries with backoff. Check **Status** instead of creating a duplicate experiment.
 
-After the promising verdict appears, ask the Trading Office pane to promote that completed job. Rejected and inconclusive jobs remain as evidence but cannot pass this gate.
+**Ready to continue when:** JUDGE records one terminal verdict—**promising**, **rejected**, or **inconclusive**.
 
-Open **Backtest Lab → Approvals** to inspect the proposed deployment. The approval view shows the strategy, hypothesis, verdict, parameters, exits, universe, evidence job, and risk limits before you approve or reject it.
+## 5. Follow the verdict
 
-Approval records who authorized paper use and makes the strategy ready for paper operation.
+The machine verdict controls the next step:
 
-## 6. Book one version-tagged paper trade
+| Verdict | What to do |
+| --- | --- |
+| **Promising** | Continue to promotion below |
+| **Rejected** | Keep the result as evidence; do not promote it |
+| **Inconclusive** | Inspect the recorded reason; create a new hypothesis or plan only when the question genuinely changes |
+
+Do not adjust thresholds merely to force the example through the gate. A rejected or inconclusive example has still completed a valid research-and-test workflow.
+
+## 6. Promote a promising result
+
+Only continue when the job's verdict is **promising**. Ask the Trading Office employee to promote the completed job.
+
+Promotion freezes the Pine implementation, selected parameters, exit rules, universe, fingerprint, lineage, and evidence links into a strategy version. It also creates a proposed paper deployment with risk limits.
+
+Open **Backtest Lab → Approvals**. Review the version, hypothesis, verdict, parameters, exits, universe, evidence job, and risk limits before approving or rejecting the paper deployment.
+
+Approval records who authorized paper use. It does not start an automatic strategy-version execution runtime.
+
+**Ready to continue when:** `/strategies` shows the frozen version and its approved paper deployment.
+
+## 7. Create the current paper ticket
 
 Run:
 
@@ -114,11 +153,15 @@ Run:
 /strategies
 ```
 
-Select the approved version. When **Trade** is available, it creates a risk-sized entry ticket from the version's stored universe, exit fields, and deployment risk limit. Review the symbol, side, instrument, quantity, stop, targets, and paper fill, then confirm the Office paper trade in Market Terminal.
+Select the approved version and choose **Trade** when it is available. The current path creates a risk-sized ticket from the stored universe, exit fields, and deployment risk limit.
 
-This is a simulated transaction in the trading book, not a broker order. The trade carries the strategy version and deployment IDs so it appears in the correct journal. The position monitor handles recorded stop, target, and time-exit conditions; use Market Terminal whenever you want to inspect or make a partial exit yourself.
+Review the symbol, side, instrument, quantity, stop, targets, paper fill, and total risk. Confirming the ticket records a simulated transaction in the trading book; it does not place a broker order.
 
-## 7. Monitor the position and strategy
+The transaction carries the strategy-version and deployment identifiers into the ledger and journal.
+
+**Ready to continue when:** Market Terminal shows the Office paper position with its entry and exit plan.
+
+## 8. Monitor and review
 
 Open Market Terminal:
 
@@ -128,35 +171,40 @@ Open Market Terminal:
 /terminal
 ```
 
-Use it to inspect the position, current mark, unrealized P&L, and recorded exit plan. The position monitor checks stored stops, targets, and time exits. Use a watch when you also want an employee to revisit the broader thesis or report a meaningful change in market context.
+Use it to inspect the position, current mark, unrealized P&L, remaining quantity, and recorded exit plan. The position monitor checks stored stops, targets, time exits, and applicable intraday cutoffs. A watch is separate: use one when an employee should revisit the wider thesis or report a material contextual change.
 
-As paper trades close, their tagged outcomes accumulate in the strategy journal. A forward check can also test the unchanged strategy over history that arrived after promotion.
+Return to `/strategies` for version-specific evidence:
 
-## 8. Review the evidence
+- **Journal** — tagged trades and their computed outcomes.
+- **Forward check** — the unchanged version over post-promotion history.
+- **Review** — original expectation beside the paper journal.
+- **Reviews** — earlier decisions and child hypotheses.
 
-Return to `/strategies`, select the same version, and use:
+Review warns when there are fewer than ten closed paper trades. You can inspect the flow with a thin sample, but treat any decision conservatively.
 
-- **Journal** for tagged trades, open and closed counts, wins and losses, and realized P&L.
-- **Forward check** to run the unchanged rules over post-promotion history.
-- **Review** to compare the backtest expectation with the paper journal.
-- **Reviews** to see earlier outcomes and child hypotheses.
+Choose one recorded outcome when the evidence supports it:
 
-Record one outcome:
-
-- **Keep** — continue as-is and preserve the evidence.
+- **Keep** — continue the version as-is.
 - **Pause** — stop new entries for an applicable deployment.
-- **Retire** — permanently stop this version.
+- **Retire** — permanently stop the version.
 - **Improve** — create a child draft around one explicit change hypothesis.
 
-An improved child must return to Strategy Lab and earn its own evidence. The validated parent is never silently rewritten.
+An improved child returns to Strategy Lab and must earn its own verdict. The parent version and its evidence remain unchanged.
 
-## What you have at the end
+## Completion check
 
-The Office now holds the idea, approved plan, persisted run, machine verdict, frozen version, deployment decision, version-tagged paper activity, journal, and human review. That durable chain—not the surrounding chat—is the source of truth for the strategy.
+If the experiment was promising and you completed the paper path, the local Trading Office record now connects:
+
+```text
+idea → approved plan → saved job → machine verdict → frozen version
+     → deployment decision → paper activity → journal → review
+```
+
+If the experiment was rejected or inconclusive, the record correctly ends at the verdict. That is not an incomplete run; it is a strategy that did not pass the promotion gate.
 
 ## Continue through the lifecycle
 
-- Shape stronger hypotheses → [Research and Ideas](./ideas)
+- Shape stronger hypotheses → [Research and ideas](./ideas)
 - Understand the evidence pipeline → [Test in Strategy Lab](./strategy-lab)
-- Automate monitoring and recurring work → [Automation Tools](./watches)
-- Close the learning loop → [Review and Improve](./review)
+- Configure repeated observation → [Automation tools](./watches)
+- Compare paper behavior with the test → [Review and improve](./review)

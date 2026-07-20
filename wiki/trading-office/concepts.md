@@ -14,15 +14,16 @@ Trading Office connects conversations to durable work. These terms describe the 
 | --- | --- |
 | **Trading book** | The boundary for one market's paper cash, positions, ledger, team, research, and workflows; currently labeled **fund book** in the interface |
 | **AI employee** | A role-bound agent with its own identity, mandate, tools, book scope, and responsibility for attributed work |
-| **CEO pane** | The selected book's lead surface for setup, delegation, and controls |
+| **Office lead** | The selected book's coordination surface for setup, delegation, and controls; currently labeled the **CEO pane** |
 | **Employee pane** | A working surface with its own employee identity and book scope |
-| **AI Trading Office** | The durable system of record behind the office and its read-only dashboard |
+| **Trading Office records** | The local records behind the workspace: books, employees, research, workflows, transactions, strategies, journals, and reviews |
 | **Mandate** | Stored permissions, limits, scope, cadence, and escalation rules for an employee |
 | **Office workflow** | A reusable employee-owned responsibility with persisted scheduled runs |
 | **Market watchlist** | A saved group of symbols for browsing; it does not schedule AI work |
 | **Watch** | A scheduled AI observation that gathers fresh context and reports material changes |
 | **Workflow heartbeat** | Background transport that advances due Office work and unfinished backtest chunks |
 | **Position monitor** | Deterministic checking of recorded paper stops, targets, and time exits |
+| **Strategy Lab** | The idea-to-verdict testing workflow; the current `/backtest` menu is labeled **Backtest Lab** |
 
 ## Strategy lifecycle terms
 
@@ -34,7 +35,7 @@ Trading Office connects conversations to durable work. These terms describe the 
 | **Experiment job** | The persisted, chunked execution of an approved plan |
 | **Machine verdict** | The system-owned promising, rejected, or inconclusive result from JUDGE |
 | **Strategy version** | A frozen promoted implementation, parameter set, exits, universe, fingerprint, and evidence link |
-| **Paper deployment** | Approval to operate one strategy version within defined risk limits |
+| **Paper deployment** | Recorded authorization to use one strategy version for paper trading within defined risk limits |
 | **Journal** | Version-tagged paper activity and its computed outcomes |
 | **Forward check** | A test of the unchanged version over history that arrived after promotion |
 | **Review** | A human Keep, Pause, Retire, or Improve decision that preserves the earlier evidence |
@@ -64,15 +65,15 @@ The broader Trading Office journey continues beyond the experiment:
 4. **Mandates constrain employee action.** Scope, risk limits, required stops, escalation rules, and kill switches apply to scheduled and interactive work.
 5. **An approved experiment is immutable.** Changing the test creates a new plan and approval point.
 6. **Promotion requires evidence.** A strategy version inherits the implementation, parameters, lineage, and result that earned promotion.
-7. **Paper operation stays traceable.** Trades carry their strategy-version and deployment identities into the ledger and journal.
+7. **Paper trading stays traceable.** Trades carry their strategy-version and deployment identities into the ledger and journal.
 8. **Improvement preserves history.** A proposed change creates a child hypothesis rather than rewriting the reviewed parent.
 9. **Automation tools have distinct jobs.** Watches observe, workflows assign responsibility, heartbeat resumes work, and position monitoring applies recorded exits.
 10. **Paper and live activity remain distinct.** An Office paper transaction is not a broker order.
 
 ## How the systems fit together
 
-- **tradecli** is the working experience: conversation, roles, delegation, Strategy Lab, charts, market tools, automation, and paper-trade surfaces.
-- **AI Trading Office** preserves books, employees, mandates, research, workflows, transactions, strategy versions, journals, and reviews.
+- **tradecli** is the product: conversation, roles, delegation, charts, market tools, automation, and paper-trade surfaces.
+- **Trading Office** is the workspace in tradecli that connects the full strategy loop and its local records.
 - **Connected systems** provide external truth and capabilities, including model providers, TradingView, market-data services, and configured brokers.
 
 ## Related pages

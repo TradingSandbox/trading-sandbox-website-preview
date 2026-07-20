@@ -8,6 +8,8 @@ outline: 2
 
 Strategy Lab turns a Trading Office hypothesis into a reproducible experiment. AI helps express the idea and interpret the outcome; compiled code, stored plans, persisted jobs, and one machine-owned judge control what actually ran and what verdict it earned.
 
+The current `/backtest` menu is labeled **Backtest Lab**. This guide uses **Strategy Lab** for the complete BUILD → PLAN → RUN → JUDGE → PROMOTE workflow exposed through that menu.
+
 ## Start an experiment
 
 Use either verified entry point:
@@ -70,9 +72,9 @@ Test windows do not participate in the initial parameter search. Current promoti
 
 ## RUN — persisted, resumable evidence
 
-RUN divides the full parameter × symbol × timeframe plan into bounded chunks. Each completed chunk is stored in AI Trading Office before the next begins. Status and results come from that stored job, not from model memory.
+RUN divides the full parameter × symbol × timeframe plan into bounded chunks. Each completed chunk is stored in the local Trading Office record before the next begins. Status and results come from that stored job, not from model memory.
 
-In a Trading Office pane, the workflow heartbeat can continue the next due chunk automatically. This deterministic continuation works in both Guided and Autonomous Paper modes. A temporary TradingView failure is retried with backoff; it does not require the agent to invent progress.
+In a Trading Office pane, the workflow heartbeat can continue the next due chunk automatically. This deterministic continuation works in both Guided and Autonomous · Paper trading modes. A temporary TradingView failure is retried with backoff; it does not require the agent to invent progress.
 
 Open **Backtest Lab → Jobs** for:
 
@@ -102,7 +104,7 @@ After the promising verdict appears, ask the Trading Office pane to promote that
 
 Use **Backtest Lab → Approvals** to inspect and approve or reject the proposal. Approval is attributed to the active employee, and the evidence gate is checked again. Rejection stops the deployment proposal while preserving the strategy version and experiment evidence.
 
-After approval, the strategy becomes ready for paper operation. Open `/strategies` to inspect the version, review its deployment, and create a risk-sized paper ticket from its stored universe, exit rules, and risk limits.
+Approval records who authorized paper use and preserves the deployment decision. It does not start an automatic strategy-version execution runtime. Open `/strategies` to inspect the version and create the current risk-sized, reviewable paper ticket from its stored universe, exit rules, and risk limits.
 
 ## What AI owns—and what it does not
 
@@ -113,6 +115,15 @@ After approval, the strategy becomes ready for paper operation. Open `/strategie
 | Explaining results | Chunk progress and stored cells |
 | Suggesting a next experiment | Leaderboard and machine verdict |
 | Discussing tradeoffs | Promotion and deployment state transitions |
+
+## If the workflow stops
+
+- **TradingView is unavailable** — keep the existing job. Temporary connection failures retry with backoff; inspect **Backtest Lab → Jobs → Status** before doing anything else.
+- **BUILD waits at the chart** — complete the TradingView **Add to chart** action when it appears, then allow the build gate to verify the compiled strategy.
+- **The plan is rejected or changed** — create and approve a new plan. An approved plan is not edited in place.
+- **A job is no longer needed** — use **Jobs → Cancel**. Completed chunks remain attached to the experiment record.
+
+See [Connect TradingView](/getting-started/tradingview-setup) for the Desktop connection path.
 
 ## What's next
 

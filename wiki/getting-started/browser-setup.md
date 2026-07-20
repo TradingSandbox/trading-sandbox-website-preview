@@ -6,7 +6,9 @@ outline: 2
 
 # Browser Setup
 
-Some tradecli workflows need a real browser because the source of truth is a web app: TradingView, Screener.in, broker screens, or login surfaces. Browser setup is handled by the same local setup path as the rest of the product.
+Some tradecli workflows need a real browser because the source of truth is a web app: Screener.in, broker screens, or login surfaces. Browser setup is handled by the same local setup path as the rest of the product.
+
+TradingView uses a different connection. tradecli works with the locally running TradingView Desktop application rather than this Chrome profile. See [Connect TradingView](./tradingview-setup).
 
 ## Why a dedicated browser
 
@@ -43,7 +45,7 @@ Use `tradecli doctor --fix` if the browser profile is missing, stale, or no long
 1. Install tradecli.
 2. Run `tradecli setup`.
 3. Launch `tradecli`.
-4. Choose a browser-aware workflow, such as TradingView, Screener.in, or a broker-aware flow.
+4. Choose a browser-aware workflow, such as Screener.in or a broker-aware flow.
 5. Complete any first-use login prompt in the local browser window.
 
 ## Troubleshooting
